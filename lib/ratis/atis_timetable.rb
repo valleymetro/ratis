@@ -19,12 +19,10 @@ class AtisTimetable
     raise ArgumentError.new('You must provide a direction') unless direction
     raise ArgumentError.new('You must provide either date or service_type') unless date ^ service_type
 
-    response = atis_request 'Timetable' do
-      request_attrs = { 'Route' => short_name, 'Direction' => direction }
-      request_attrs.merge! date ? { 'Date' => date } : { 'Servicetype' => service_type }
+    request_params = { 'Route' => short_name, 'Direction' => direction }
+    request_params.merge! date ? { 'Date' => date } : { 'Servicetype' => service_type }
 
-      soap.body = request_attrs
-    end
+    response = atis_request 'Timetable', request_params
     return nil unless response.success?
 
     headway = response.to_hash[:timetable_response][:headway]

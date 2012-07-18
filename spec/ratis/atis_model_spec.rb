@@ -38,9 +38,7 @@ describe AtisModel do
     describe 'with parameters' do
 
       before do
-        @response = dummy_class.atis_request 'MyMethod' do
-          soap.body = { 'ParamOne' => 'apple', 'ParamTwo' => 3 }
-        end
+        @response = dummy_class.atis_request 'MyMethod', { 'ParamOne' => 'apple', 'ParamTwo' => 3 }
       end
 
       it 'passes the parameters' do
