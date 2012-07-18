@@ -9,11 +9,11 @@ RSpec.configure do |config|
 end
 
 def stub_atis_request
-  stub_request(:post, 'soap.valleymetro.org/cgi-bin-soap-web-new/soap.cgi')
+  stub_request :post, 'soap.valleymetro.org/cgi-bin-soap-web-new/soap.cgi'
 end
 
 def an_atis_request
-  a_request(:post, 'soap.valleymetro.org/cgi-bin-soap-web-new/soap.cgi')
+  a_request :post, 'soap.valleymetro.org/cgi-bin-soap-web-new/soap.cgi'
 end
 
 def atis_response action, version, action_response_code, action_response_body
@@ -70,3 +70,4 @@ def atis_response_timetable params = {}
 </Comments>
   BODY
 end
+

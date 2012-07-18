@@ -27,11 +27,6 @@ class AtisRoute
     atis_routes.compact!
   end
 
-  def self.where(criteria)
-    short_name = criteria.delete :short_name
-    direction = criteria.delete :direction
-  end
-
   def initialize(short_name, directions)
     self.short_name = short_name
     self.directions = directions
