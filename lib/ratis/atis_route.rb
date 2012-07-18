@@ -4,6 +4,9 @@ require 'savon'
 class AtisRoute
   extend Savon::Model
 
+  attr_accessor :short_name
+  attr_accessor :directions
+
   client do
     wsdl.endpoint = 'http://soap.valleymetro.org/cgi-bin-soap-web-new/soap.cgi'
     wsdl.namespace = 'PX_WEB'
@@ -28,9 +31,6 @@ class AtisRoute
     short_name = criteria.delete :short_name
     direction = criteria.delete :direction
   end
-
-  attr_accessor :short_name
-  attr_accessor :directions
 
   def initialize(short_name, directions)
     self.short_name = short_name
