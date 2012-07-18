@@ -11,7 +11,7 @@ describe AtisModel do
   describe '#atis_request' do
 
     before do
-      stub_atis_request.to_return atis_response('MyMethod', '1', '0', '<body>test responst body here</body>')
+      stub_atis_request.to_return atis_response('MyMethod', '1', '0', '<body>test response body here</body>')
     end
 
     describe 'with no parameters' do
@@ -30,7 +30,22 @@ describe AtisModel do
 
       it 'returns the response' do
         @response.class.should eql Savon::SOAP::Response
-        p @response.to_hash[:my_method_response][:body].should eql 'test responst body here'
+        @response.to_hash[:my_method_response][:body].should eql 'test response body here'
+      end
+
+    end
+
+    describe 'with parameters' do
+
+      before do
+        @response = dummy_class.atis_request 'MyMethod' do
+          soap.body = { 'ParamOne' => 'apple', 'ParamTwo' => 3 }
+        end
+      end
+
+      it 'passes the parameters' do
+        params_as_soap = '<MyMethod xmlns="PX_WEB"><ParamOne>apple</ParamOne><ParamTwo>3</ParamTwo></MyMethod>'
+        an_atis_request.with{ |request| p 'FOOFOO ' + request.body; request.body.include? params_as_soap }.should have_been_made
       end
 
     end
