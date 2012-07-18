@@ -1,17 +1,10 @@
-require 'httpclient'
-require 'savon'
+require 'ratis/atis_model'
 
 class AtisRoute
-  extend Savon::Model
+  extend AtisModel
 
   attr_accessor :short_name
   attr_accessor :directions
-
-  client do
-    wsdl.endpoint = 'http://soap.valleymetro.org/cgi-bin-soap-web-new/soap.cgi'
-    wsdl.namespace = 'PX_WEB'
-    http.proxy = 'http://localhost:8080'
-  end
 
   def self.all
     response = client.request 'Allroutes', soap_action: 'PX_WEB#Allroutes', xmlns: 'PX_WEB'

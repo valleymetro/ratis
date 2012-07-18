@@ -1,20 +1,13 @@
-require 'httpclient'
-require 'savon'
+require 'ratis/atis_model'
 
 class AtisTimetable
-  extend Savon::Model
+  extend AtisModel
 
   attr_accessor :route_short_name
   attr_accessor :direction
   attr_accessor :service_type
   attr_accessor :operator
   attr_accessor :effective
-
-  client do
-    wsdl.endpoint = 'http://soap.valleymetro.org/cgi-bin-soap-web-new/soap.cgi'
-    wsdl.namespace = 'PX_WEB'
-    http.proxy = 'http://localhost:8080'
-  end
 
   def self.where(criteria)
     short_name   = criteria.delete :route_short_name
