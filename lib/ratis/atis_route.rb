@@ -11,14 +11,17 @@ class AtisRoute
   end
 
   def self.all
-    response = client.request('Allroutes', soap_action: 'PX_WEB#Allroutes', xmlns: 'PX_WEB')
+    response = client.request 'Allroutes', soap_action: 'PX_WEB#Allroutes', xmlns: 'PX_WEB'
     return [] unless response.success?
 
-    routes = response.to_hash[:allroutes_response][:routes].split(/\n\t\t/)[1..-1]
-    routes.map do |r|
+    routes = response.to_hash[:allroutes_response][:routes].split(/\n/)
+    atis_routes = routes.map do |r|
+      r.strip!
+      next if r.blank?
       r = r.split /, /
-      AtisRoute.new r[0], r[1..-1].map(&:strip)
+      AtisRoute.new r[0].strip, r[1..-1].map(&:strip)
     end
+    atis_routes.compact!
   end
 
   def self.where(criteria)
