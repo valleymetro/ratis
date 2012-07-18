@@ -19,7 +19,7 @@ class AtisTimetable
     raise ArgumentError.new('You must provide a direction') unless direction
     raise ArgumentError.new('You must provide either date or service_type') unless date ^ service_type
 
-    response = client.request('Timetable', soap_action: 'PX_WEB#Timetable', xmlns: 'PX_WEB') do
+    response = atis_request 'Timetable' do
       request_attrs = { 'Route' => short_name, 'Direction' => direction }
       request_attrs.merge! date ? { 'Date' => date } : { 'Servicetype' => service_type }
 

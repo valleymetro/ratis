@@ -7,7 +7,7 @@ class AtisRoute
   attr_accessor :directions
 
   def self.all
-    response = client.request 'Allroutes', soap_action: 'PX_WEB#Allroutes', xmlns: 'PX_WEB'
+    response = atis_request 'Allroutes'
     return [] unless response.success?
 
     routes = response.to_hash[:allroutes_response][:routes].split(/\n/)

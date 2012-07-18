@@ -11,5 +11,9 @@ module AtisModel
     end
   end
 
+  def atis_request(soap_action, &block)
+    client.request soap_action, soap_action: "PX_WEB##{soap_action}", xmlns: 'PX_WEB', &block
+  end
+
 end
 
