@@ -43,7 +43,7 @@ describe AtisModel do
 
       it 'passes the parameters' do
         params_as_soap = '<MyMethod xmlns="PX_WEB"><ParamOne>apple</ParamOne><ParamTwo>3</ParamTwo></MyMethod>'
-        an_atis_request.with{ |request| p 'FOOFOO ' + request.body; request.body.include? params_as_soap }.should have_been_made
+        an_atis_request.with{ |request| request.body.include? params_as_soap }.should have_been_made
       end
 
     end
