@@ -21,7 +21,7 @@ def stub_atis_request
 end
 
 def an_atis_request
-  atis_request = a_request :post, 'soap.valleymetro.org/cgi-bin-soap-web-new/soap.cgi'
+  a_request :post, 'soap.valleymetro.org/cgi-bin-soap-web-new/soap.cgi'
 end
 
 def an_atis_request_for(action, params = {})
