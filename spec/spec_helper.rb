@@ -1,11 +1,17 @@
 require 'rspec'
 require 'webmock/rspec'
+require 'active_support/core_ext'
 
 require 'ratis'
 
 RSpec.configure do |config|
   config.color_enabled = true
   config.formatter     = 'documentation'
+end
+
+def to_soap_request(action, params)
+  req = params.to_xml(skip_instruct: true, root: action, skip_types: true, indent: 0)
+  req.sub! action, %Q{#{action} xmlns="PX_WEB"}
 end
 
 def stub_atis_request
