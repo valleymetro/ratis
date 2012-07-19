@@ -17,7 +17,7 @@ class AtisRoute
       r = r.split /, /
       AtisRoute.new r[0].strip, r[1..-1].map(&:strip)
     end
-    atis_routes.compact!
+    atis_routes.compact
   end
 
   def initialize(short_name, directions)
