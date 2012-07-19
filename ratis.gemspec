@@ -6,11 +6,12 @@ Gem::Specification.new do |s|
   s.email       = 'dave.tapley@authoritylabs.com'
   s.files       = ['lib/ratis.rb']
 
-  s.add_runtime_dependency 'savon'
   s.add_runtime_dependency 'httpclient'
+  s.add_runtime_dependency 'savon'
 
-  s.add_development_dependency 'rspec'
-  s.add_development_dependency 'webmock'
   s.add_development_dependency 'activesupport'
+  s.add_development_dependency 'rspec'
+  s.add_development_dependency 'simplecov'
+  s.add_development_dependency 'webmock'
 end
 

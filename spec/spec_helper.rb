@@ -1,8 +1,10 @@
-require 'rspec'
-require 'webmock/rspec'
 require 'active_support/core_ext'
-
 require 'ratis'
+require 'rspec'
+require 'simplecov'
+require 'webmock/rspec'
+
+SimpleCov.start
 
 RSpec.configure do |config|
   config.color_enabled = true
