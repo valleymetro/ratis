@@ -8,6 +8,7 @@ module AtisModel
       wsdl.endpoint = 'http://soap.valleymetro.org/cgi-bin-soap-web-new/soap.cgi'
       wsdl.namespace = 'PX_WEB'
       http.proxy = 'http://localhost:8080'
+      http.open_timeout = 5
     end
   end
 
