@@ -25,7 +25,7 @@ describe AtisModel do
       end
 
       it 'requests the correct SOAP action' do
-        an_atis_request.with{ |request| request.headers['Soapaction'] == '"PX_WEB#MyMethod"' }.should have_been_made
+        an_atis_request_for('MyMethod').should have_been_made
       end
 
       it 'returns the response' do
@@ -42,8 +42,7 @@ describe AtisModel do
       end
 
       it 'passes the parameters' do
-        soap_request = to_soap_request 'MyMethod', { 'ParamOne' => 'apple', 'ParamTwo' => '3' }
-        an_atis_request.with { |request| request.body.include? soap_request }.should have_been_made
+        an_atis_request_for('MyMethod', { 'ParamOne' => 'apple', 'ParamTwo' => '3' }).should have_been_made
       end
 
     end

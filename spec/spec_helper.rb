@@ -9,7 +9,7 @@ RSpec.configure do |config|
   config.formatter     = 'documentation'
 end
 
-def to_soap_request(action, params)
+def to_soap_request(action, params = {})
   req = params.to_xml(skip_instruct: true, root: action, skip_types: true, indent: 0)
   req.sub! action, %Q{#{action} xmlns="PX_WEB"}
 end
@@ -19,7 +19,14 @@ def stub_atis_request
 end
 
 def an_atis_request
-  a_request :post, 'soap.valleymetro.org/cgi-bin-soap-web-new/soap.cgi'
+  atis_request = a_request :post, 'soap.valleymetro.org/cgi-bin-soap-web-new/soap.cgi'
+end
+
+def an_atis_request_for(action, params = {})
+  an_atis_request.with do |request|
+    request.headers['Soapaction'] == %Q{"PX_WEB##{action}"}
+    request.body.include? to_soap_request action, params
+  end
 end
 
 def atis_response action, version, action_response_code, action_response_body

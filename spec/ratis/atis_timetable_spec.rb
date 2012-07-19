@@ -15,6 +15,10 @@ describe AtisTimetable do
       an_atis_request.should have_been_made.times 1
     end
 
+    it 'requests the correct SOAP action' do
+      an_atis_request_for('Timetable', 'Route' => '0', 'Direction' => 'N', 'Servicetype' => 'W').should have_been_made
+    end
+
     it 'assigns settings correctly' do
       @timetable.should_not be_nil
 
