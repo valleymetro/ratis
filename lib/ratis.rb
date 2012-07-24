@@ -1,3 +1,4 @@
+require 'ratis/atis_landmark_category'
 require 'ratis/atis_location'
 require 'ratis/atis_model'
 require 'ratis/atis_next_bus'
