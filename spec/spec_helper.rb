@@ -1,4 +1,5 @@
 require 'active_support/core_ext'
+require 'hashdiff'
 require 'ratis'
 require 'rspec'
 require 'simplecov'

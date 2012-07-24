@@ -103,7 +103,7 @@ describe AtisLocation do
           :address_string => '11105 - 11111 W PENNSYLVANIA AVE (in Youngtown)',
           :landmark_id => '0' }
 
-        @first_location.to_hash.should eql hash
+        HashDiff.diff(@first_location.to_hash, hash).should eql []
       end
 
     end

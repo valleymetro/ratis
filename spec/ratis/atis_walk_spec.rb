@@ -53,7 +53,7 @@ describe 'AtisWalk' do
 
       it 'returns only the correct keys' do
         hash = {legs: [{description: 'Do some walking'}, {description: 'Walk some more'}], walk_distance: '1.2', walk_units: 'miles', walk_time: '22'}
-        @walk.to_hash.should eql hash
+        HashDiff.diff(@walk.to_hash, hash).should eql []
       end
 
     end

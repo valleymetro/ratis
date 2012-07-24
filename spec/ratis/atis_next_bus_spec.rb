@@ -86,7 +86,7 @@ describe AtisNextBus do
           ]
         }
 
-        @next_bus.to_hash.should eql hash
+        HashDiff.diff(@next_bus.to_hash, hash).should eql []
 
       end
 
@@ -103,7 +103,7 @@ describe AtisNextBus do
           ]
         }
 
-        @next_bus.to_hash_for_xml.should eql hash
+        HashDiff.diff(@next_bus.to_hash_for_xml, hash).should eql []
 
       end
 
