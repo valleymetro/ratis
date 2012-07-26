@@ -65,10 +65,10 @@ describe AtisScheduleNearby do
           end
 
           it 'requests the correct SOAP action' do
-            an_atis_request_for('Schedulenearby', 
+            an_atis_request_for('Schedulenearby',
               'Locationlat' => '33.4556', 'Locationlong' => '-112.071807',
               'Date' => '07/23/12', 'Time' => '1323', 'Window' => '60', 'Walkdist' => '0.50',
-              'Landmarkid' => '0', 'Stopid' => '', 'Appid' => 'na'
+              'Landmarkid' => '0', 'Stopid' => nil, 'Appid' => 'na'
             ).should have_been_made
           end
 
@@ -269,7 +269,7 @@ describe AtisScheduleNearby do
             an_atis_request_for('Schedulenearby',
               'Locationlat' => '33.4556', 'Locationlong' => '-112.071807',
               'Date' => '07/25/12', 'Time' => '1300', 'Window' => '60', 'Walkdist' => '1.00',
-              'Landmarkid' => '0', 'Stopid' => '', 'Appid' => 'na'
+              'Landmarkid' => '0', 'Stopid' => nil, 'Appid' => 'na'
             ).should have_been_made
           end
 

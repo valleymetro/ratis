@@ -12,11 +12,6 @@ RSpec.configure do |config|
   config.formatter     = 'documentation'
 end
 
-def to_soap_request(action, params = {})
-  req = params.to_xml :skip_instruct => true, :root => action, :skip_types => true, :indent => 0
-  req.sub! action, %Q{#{action} xmlns="PX_WEB"}
-end
-
 def stub_atis_request
   stub_request :post, 'soap.valleymetro.org/cgi-bin-soap-web-new/soap.cgi'
 end
@@ -28,7 +23,10 @@ end
 def an_atis_request_for(action, params = {})
   an_atis_request.with do |request|
     request.headers['Soapaction'] == %Q{"PX_WEB##{action}"}
-    request.body.include? to_soap_request action, params
+
+    params_body = { action => params.merge( { 'xmlns' => 'PX_WEB' } ) }
+    request_body = Hash.from_xml(request.body)['Envelope']['Body']
+    HashDiff.diff(params_body, request_body).should eql []
   end
 end
 
