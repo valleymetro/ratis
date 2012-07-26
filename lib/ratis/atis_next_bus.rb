@@ -26,26 +26,26 @@ class AtisNextBus
   end
 
   def to_hash
-    { stopname: first_stop_description,
-      signs: runs.collect { |run| run[:sign] }.uniq,
-      runs: runs.collect do |run|
-        { time: run[:estimatedtime],
-          sign: run[:sign],
-          adherence: run[:adherence],
-          route: run[:route]
+    { :stopname => first_stop_description,
+      :signs => runs.collect { |run| run[:sign] }.uniq,
+      :runs => runs.collect do |run|
+        { :time => run[:estimatedtime],
+          :sign => run[:sign],
+          :adherence => run[:adherence],
+          :route => run[:route]
         }
       end
     }
   end
 
   def to_hash_for_xml
-    { stopname: first_stop_description,
-      runs: runs.collect do |run|
-        { time: run[:estimatedtime],
-          scheduled_time: run[:triptime],
-          sign: run[:sign],
-          adherence: run[:adherence],
-          route: run[:route]
+    { :stopname => first_stop_description,
+      :runs => runs.collect do |run|
+        { :time => run[:estimatedtime],
+          :scheduled_time => run[:triptime],
+          :sign => run[:sign],
+          :adherence => run[:adherence],
+          :route => run[:route]
         }
       end
     }

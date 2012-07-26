@@ -34,7 +34,7 @@ describe AtisLandmark do
     </Landmarks>
     BODY
 
-    @landmarks = AtisLandmark.where type: :all
+    @landmarks = AtisLandmark.where :type => :all
   end
 
   it 'only makes one request' do

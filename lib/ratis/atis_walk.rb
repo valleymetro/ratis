@@ -22,7 +22,7 @@ class AtisWalk
     response_walk = response[:walkstop_response]
 
     walk = AtisWalk.new
-    walk.legs = response_walk[:walk][:leg].collect {|l| { description: l } }
+    walk.legs = response_walk[:walk][:leg].collect {|l| { :description => l } }
     walk.walk_distance = response_walk[:walkinfo][:walkdistance]
     walk.walk_units = response_walk[:walkinfo][:walkunits]
     walk.walk_time = response_walk[:walkinfo][:walktime]

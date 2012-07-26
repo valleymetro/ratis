@@ -50,7 +50,7 @@ describe AtisLocation do
       </Location>
       BODY
 
-      @locations = AtisLocation.where location: '1600 Pennsylvania Ave', media: 'W', max_answers: 1000
+      @locations = AtisLocation.where :location => '1600 Pennsylvania Ave', :media => 'W', :max_answers => 1000
       @first_location = @locations.first
     end
 

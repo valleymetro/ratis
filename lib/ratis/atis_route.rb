@@ -26,7 +26,7 @@ class AtisRoute
   end
 
   def timetable(criteria)
-    AtisTimetable.where criteria.merge route_short_name: short_name
+    AtisTimetable.where criteria.merge :route_short_name => short_name
   end
 
 end

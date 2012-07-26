@@ -13,7 +13,7 @@ module AtisModel
   end
 
   def atis_request(soap_action, params = {})
-    client.request soap_action, soap_action: "PX_WEB##{soap_action}", xmlns: 'PX_WEB' do
+    client.request soap_action, :soap_action => "PX_WEB##{soap_action}", :xmlns => 'PX_WEB' do
       soap.body = params unless params.blank?
     end
   end

@@ -25,7 +25,7 @@ describe 'AtisWalk' do
       </Walkpoints>
       BODY
 
-      @walk = AtisWalk.walk_stop start_latitude: '33.45455', start_longitude: '-112.07064', end_latitude: '33.45586', end_longitude: '-112.07255'
+      @walk = AtisWalk.walk_stop :start_latitude => '33.45455', :start_longitude => '-112.07064', :end_latitude => '33.45586', :end_longitude => '-112.07255'
     end
 
     describe '#walk_stop' do
@@ -41,7 +41,7 @@ describe 'AtisWalk' do
       end
 
       it 'parses out fields correctly' do
-        @walk.legs.should eql [{description: 'Do some walking'}, {description: 'Walk some more'}]
+        @walk.legs.should eql [ { :description => 'Do some walking' }, { :description => 'Walk some more' } ]
         @walk.walk_distance.should eql '1.2'
         @walk.walk_units.should eql 'miles'
         @walk.walk_time.should eql '22'
@@ -52,7 +52,8 @@ describe 'AtisWalk' do
     describe '#to_hash' do
 
       it 'returns only the correct keys' do
-        hash = {legs: [{description: 'Do some walking'}, {description: 'Walk some more'}], walk_distance: '1.2', walk_units: 'miles', walk_time: '22'}
+        hash = { :legs => [ { :description => 'Do some walking' }, { :description => 'Walk some more' } ], 
+                 :walk_distance => '1.2', :walk_units => 'miles', :walk_time => '22' }
         HashDiff.diff(@walk.to_hash, hash).should eql []
       end
 

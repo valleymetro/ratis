@@ -55,7 +55,7 @@ describe AtisNextBus do
       </Runs>
       BODY
 
-      @next_bus = AtisNextBus.where stop_id: 10496, app_id: 'web'
+      @next_bus = AtisNextBus.where :stop_id => 10496, :app_id => 'web'
     end
 
     describe '#where' do
@@ -79,10 +79,10 @@ describe AtisNextBus do
       it 'returns a subset of NextBus params' do
 
         hash = {
-          stopname: 'FILLMORE ST & CENTRAL AVE',
-          signs:['7 7th Street to Union Hills Via Cent Station'],
-          runs: [
-            { time: next_bus_time_estimated, adherence: '0', route:'7', sign: '7 7th Street to Union Hills Via Cent Station' }
+          :stopname => 'FILLMORE ST & CENTRAL AVE',
+          :signs => ['7 7th Street to Union Hills Via Cent Station'],
+          :runs => [
+            { :time => next_bus_time_estimated, :adherence => '0', :route => '7', :sign => '7 7th Street to Union Hills Via Cent Station' }
           ]
         }
 
@@ -97,9 +97,9 @@ describe AtisNextBus do
       it 'returns a subset of NextBus params' do
 
         hash = {
-          stopname: 'FILLMORE ST & CENTRAL AVE',
-          runs: [
-            { time: next_bus_time_estimated, adherence: '0', route:'7', sign: '7 7th Street to Union Hills Via Cent Station', scheduled_time: next_bus_time_scheduled }
+          :stopname => 'FILLMORE ST & CENTRAL AVE',
+          :runs => [
+            { :time => next_bus_time_estimated, :adherence => '0', :route => '7', :sign => '7 7th Street to Union Hills Via Cent Station', :scheduled_time => next_bus_time_scheduled }
           ]
         }
 

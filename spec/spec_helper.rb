@@ -13,7 +13,7 @@ RSpec.configure do |config|
 end
 
 def to_soap_request(action, params = {})
-  req = params.to_xml(skip_instruct: true, root: action, skip_types: true, indent: 0)
+  req = params.to_xml :skip_instruct => true, :root => action, :skip_types => true, :indent => 0
   req.sub! action, %Q{#{action} xmlns="PX_WEB"}
 end
 
@@ -33,7 +33,7 @@ def an_atis_request_for(action, params = {})
 end
 
 def atis_response action, version, action_response_code, action_response_body
-  { body: <<-BODY }
+  { :body => <<-BODY }
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:xsi="http://www.w3.org/1999/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/1999/XMLSchema" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
   <SOAP-ENV:Body>

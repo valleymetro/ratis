@@ -49,7 +49,7 @@ describe AtisStop do
       </Stops>
       BODY
 
-      @stops = AtisStop.closest latitude: '33.4556', longitude: '-112.071807', location_text: 'some location text', num_stops: 15
+      @stops = AtisStop.closest :latitude => '33.4556', :longitude => '-112.071807', :location_text => 'some location text', :num_stops => 15
       @first_stop = @stops.first
     end
 

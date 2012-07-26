@@ -36,10 +36,10 @@ describe AtisRoute do
     let(:route) { AtisRoute.new '0', ['N', 'S'] }
 
     before do
-      resp = atis_response_timetable({ route: '0', direction: 'N', service_type: 'W', operator: 'OP', effective: '01/15/12' })
+      resp = atis_response_timetable({ :route => '0', :direction => 'N', :service_type => 'W', :operator => 'OP', :effective => '01/15/12' })
       stub_atis_request.to_return( atis_response 'Timetable', '1.1', '0', resp)
 
-      @timetable = route.timetable direction: 'N', service_type: 'W'
+      @timetable = route.timetable :direction => 'N', :service_type => 'W'
     end
 
     it 'only makes one request' do

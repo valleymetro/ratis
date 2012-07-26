@@ -52,9 +52,9 @@ describe AtisScheduleNearby do
           BODY
 
           @schedule_nearby = AtisScheduleNearby.where(
-            latitude: '33.4556', longitude: '-112.071807',
-            date: '07/23/12', time: '1323', window: '60', walk_distance: '0.50',
-            landmark_id: '0', stop_id: nil, app_id: 'na')
+            :latitude => '33.4556', :longitude => '-112.071807',
+            :date => '07/23/12', :time => '1323', :window => '60', :walk_distance => '0.50',
+            :landmark_id => '0', :stop_id => nil, :app_id => 'na')
 
         end
 
@@ -253,9 +253,9 @@ describe AtisScheduleNearby do
           BODY
 
           @schedule_nearby = AtisScheduleNearby.where(
-            latitude: '33.4556', longitude: '-112.071807',
-            date: '07/25/12', time: '1300', window: '60', walk_distance: '1.00',
-            landmark_id: '0', stop_id: nil, app_id: 'na')
+            :latitude => '33.4556', :longitude => '-112.071807',
+            :date => '07/25/12', :time => '1300', :window => '60', :walk_distance => '1.00',
+            :landmark_id => '0', :stop_id => nil, :app_id => 'na')
 
         end
 
