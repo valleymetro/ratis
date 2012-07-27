@@ -4,11 +4,15 @@ module AtisModel
   def self.extended(base)
     base.extend Savon::Model
 
-    base.client do
-      wsdl.endpoint = 'http://soap.valleymetro.org/cgi-bin-soap-web-new/soap.cgi'
-      wsdl.namespace = 'PX_WEB'
-      http.proxy = 'http://localhost:8080'
-      http.open_timeout = 5
+    begin
+      base.client do
+        wsdl.endpoint = 'http://soap.valleymetro.org/cgi-bin-soap-web-new/soap.cgi'
+        wsdl.namespace = 'PX_WEB'
+        http.proxy = 'http://localhost:8080'
+        http.open_timeout = 5
+      end
+    rescue ArgumentError => e
+      raise ArgumentError.new 'Invalid ATIS SOAP server configuration: ' + e.message
     end
   end
 
