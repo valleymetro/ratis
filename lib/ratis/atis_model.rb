@@ -18,5 +18,13 @@ module AtisModel
     end
   end
 
+  def valid_latitude?(lat)
+    (-90 .. 90).include? lat
+  end
+
+  def valid_longitude?(long)
+    (-180 .. 180).include? long
+  end
+
 end
 
