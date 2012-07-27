@@ -47,6 +47,25 @@ def atis_response action, version, action_response_code, action_response_body
   BODY
 end
 
+def atis_error_response fault_code, fault_string
+  { :body => <<-BODY }
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:namesp1="http://namespaces.soaplite.com/perl" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+  <SOAP-ENV:Body>
+    <SOAP-ENV:Fault>
+      <faultcode xsi:type="xsd:string">SOAP-ENV:#{ fault_code }</faultcode>
+      <faultstring xsi:type="xsd:string">#{ fault_string }</faultstring>
+      <detail>
+        <PX_WEB xsi:type="namesp1:PX_WEB">
+          <code xsi:type="xsd:int">#{ fault_code }</code>
+        </PX_WEB>
+      </detail>
+    </SOAP-ENV:Fault>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+  BODY
+end
+
 def atis_response_timetable params = {}
   <<-BODY
 <Headway>
