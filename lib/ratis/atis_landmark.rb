@@ -9,6 +9,7 @@ class AtisLandmark
 
     type = criteria.delete(:type).to_s.upcase
     raise ArgumentError.new('You must provide a type') if type.blank?
+    all_criteria_used? criteria
 
     response = atis_request 'Getlandmarks', {'Type' => type}
     return [] unless response.success?

@@ -13,6 +13,7 @@ class AtisLocation
     raise ArgumentError.new('You must provide a location') unless location
     raise ArgumentError.new('You must provide media of A|W|I') unless ['A','W','I'].include? media
     raise ArgumentError.new('You must provide max_answers') unless max_answers
+    all_criteria_used? criteria
 
     response = atis_request 'Locate', {'Location' => location, 'Media' => media, 'Maxanswers' => max_answers}
     return [] unless response.success?

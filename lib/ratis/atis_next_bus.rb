@@ -10,6 +10,7 @@ class AtisNextBus
     app_id = criteria.delete(:app_id) || 'na'
 
     raise ArgumentError.new('You must provide a stop ID') unless stop_id
+    all_criteria_used? criteria
 
     response = atis_request 'Nextbus2', { 'Stopid' => stop_id, 'Appid' => app_id }
     return [] unless response.success?

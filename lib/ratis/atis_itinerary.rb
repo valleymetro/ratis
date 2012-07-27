@@ -27,6 +27,8 @@ class AtisItinerary
     raise ArgumentError.new('You must provide an destination latitude') unless valid_latitude? destination_lat
     raise ArgumentError.new('You must provide an destination longitude') unless valid_longitude? destination_long
 
+    all_criteria_used? criteria
+
     response = atis_request 'Plantrip',
       'Date' => date, 'Time' => time, 'Minimize' => minimize,
       'Originlat' => origin_lat, 'Originlong' => origin_long,

@@ -49,5 +49,21 @@ describe AtisModel do
 
   end
 
+  describe '#all_criteria_used?' do
+
+    it 'raises an exception if there are members in the hash' do
+      expect do
+        dummy_class.all_criteria_used? :a => 1
+      end.to raise_error ArgumentError, 'Criteria not used by this class: [:a]'
+    end
+
+    it 'does not raise an exception for an empty hash' do
+      expect do
+        dummy_class.all_criteria_used? Hash.new
+      end.not_to raise_error
+    end
+
+  end
+
 end
 

@@ -23,6 +23,7 @@ class AtisScheduleNearby
     raise ArgumentError.new('You must provide window') unless window
     raise ArgumentError.new('You must provide walk_distance') unless walk_distance
     raise ArgumentError.new('You must provide landmark_id') unless landmark_id
+    all_criteria_used? criteria
 
     response = atis_request 'Schedulenearby',
       {'Locationlat' => latitude, 'Locationlong' => longitude,

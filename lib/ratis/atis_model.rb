@@ -26,5 +26,9 @@ module AtisModel
     (-180 .. 180).include? long
   end
 
+  def all_criteria_used?(criteria)
+    raise ArgumentError.new("Criteria not used by this class: #{criteria.keys.inspect}") unless criteria.empty?
+  end
+
 end
 
