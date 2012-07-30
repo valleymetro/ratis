@@ -19,6 +19,10 @@ class AtisError < RuntimeError
     end
   end
 
+  def to_s
+    fault_string
+  end
+
   def verbose_fault_string
     case fault_string
       when /10222|invalid Stopid/
