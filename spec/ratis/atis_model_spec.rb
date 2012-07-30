@@ -5,6 +5,8 @@ describe AtisModel do
   let(:dummy_class) do
     Class.new do
       extend AtisModel
+
+      implement_soap_action 'Mymethod', 1.23
     end
   end
 
@@ -13,7 +15,7 @@ describe AtisModel do
     describe 'successful' do
 
       before do
-        stub_atis_request.to_return atis_response('Mymethod', '1', '0', '<body>test response body here</body>')
+        stub_atis_request.to_return atis_response('Mymethod', '1.23', '0', '<body>test response body here</body>')
       end
 
       describe 'with no parameters' do
@@ -90,6 +92,32 @@ describe AtisModel do
         end
 
       end
+
+      describe 'unimplemented method version' do
+
+        before do
+          stub_atis_request.to_return atis_response('Mymethod', '1.24', '0', '<body>test response body here</body>')
+        end
+
+        it 'raises an AtisError' do
+          expect do
+            dummy_class.atis_request 'Mymethod'
+          end.to raise_error AtisError
+        end
+
+        it 'error gives version used by server' do
+          begin
+            dummy_class.atis_request 'Mymethod'
+          rescue AtisError => e
+            e.fault_code.should be_nil
+            e.fault_string.should eql 'Unimplemented SOAP method Mymethod 1.24'
+            e.verbose_fault_string.should eql 'The server could not handle your request at this time.  Please try again later'
+          end
+
+        end
+
+      end
+
 
     end
 

@@ -9,6 +9,8 @@ class AtisTimetable
   attr_accessor :operator
   attr_accessor :effective
 
+  implement_soap_action 'Timetable', 1.1
+
   def self.where(criteria)
     short_name   = criteria.delete :route_short_name
     direction    = criteria.delete :direction

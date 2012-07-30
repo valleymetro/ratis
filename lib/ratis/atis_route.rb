@@ -6,6 +6,8 @@ class AtisRoute
   attr_accessor :short_name
   attr_accessor :directions
 
+  implement_soap_action 'Allroutes', 1.5
+
   def self.all
     response = atis_request 'Allroutes'
     return [] unless response.success?

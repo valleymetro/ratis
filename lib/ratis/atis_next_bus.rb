@@ -5,6 +5,8 @@ class AtisNextBus
 
   attr_accessor :stops, :runs
 
+  implement_soap_action 'Nextbus2', 1.3
+
   def self.where(criteria)
     stop_id = criteria.delete :stop_id
     app_id = criteria.delete(:app_id) || 'na'

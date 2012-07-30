@@ -5,6 +5,8 @@ class AtisWalk
 
   attr_accessor :legs, :walk_distance, :walk_units, :walk_time
 
+  implement_soap_action 'Walkstop', 1.2
+
   def self.walk_stop(criteria)
     start_latitude = criteria.delete :start_latitude
     start_longitude = criteria.delete :start_longitude

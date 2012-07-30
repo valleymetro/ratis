@@ -16,11 +16,24 @@ module AtisModel
     end
   end
 
-  def atis_request(soap_action, params = {})
+  def implemented_soap_actions
+    @implemented_soap_actions ||= Hash.new { |actions, action| actions[action] = [] }
+  end
+
+  def implement_soap_action(action, version)
+    self.implemented_soap_actions[action] << version
+  end
+
+  def atis_request(action, params = {})
     begin
-      client.request soap_action, :soap_action => "PX_WEB##{soap_action}", :xmlns => 'PX_WEB' do
+      response = client.request action, :soap_action => "PX_WEB##{action}", :xmlns => 'PX_WEB' do
         soap.body = params unless params.blank?
       end
+
+      version = response.to_hash["#{action.downcase}_response".to_sym][:version]
+      raise AtisError.version_mismatch(action, version) unless implemented_soap_actions[action].include? version.to_f
+
+      response
     rescue Errno::ECONNREFUSED => e
       raise Errno::ECONNREFUSED.new 'Refused request to ATIS SOAP server'
     rescue Savon::SOAP::Fault => e

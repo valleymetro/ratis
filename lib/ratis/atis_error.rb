@@ -2,6 +2,12 @@ class AtisError < RuntimeError
 
   attr_accessor :fault_code, :fault_string
 
+  def self.version_mismatch(method, version)
+    error = AtisError.new
+    error.fault_string = "Unimplemented SOAP method #{ method } #{ version }"
+    error
+  end
+
   def initialize(savon_soap_fault = nil)
     if savon_soap_fault && savon_soap_fault.present?
       fault = savon_soap_fault.to_hash[:fault]

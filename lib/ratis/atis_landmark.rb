@@ -5,6 +5,8 @@ class AtisLandmark
 
   attr_accessor :type, :verbose, :location, :locality
 
+  implement_soap_action 'Getlandmarks', 1.4
+
   def self.where(criteria)
 
     type = criteria.delete(:type).to_s.upcase

@@ -5,6 +5,8 @@ class AtisStop
 
   attr_accessor :walkdist, :description, :stopid, :atisstopid, :latitude, :longitude, :walkdir, :side, :heading, :stopposition, :routedir
 
+  implement_soap_action 'Closeststop', 1.11
+
   def self.closest(criteria)
     latitude = criteria.delete :latitude
     longitude = criteria.delete :longitude
