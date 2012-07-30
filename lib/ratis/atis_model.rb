@@ -50,7 +50,7 @@ module AtisModel
   end
 
   def all_conditions_used?(conditions)
-    raise ArgumentError.new("conditions not used by this class: #{conditions.keys.inspect}") unless conditions.empty?
+    raise ArgumentError.new("Conditions not used by this class: #{conditions.keys.inspect}") unless conditions.empty?
   end
 
 end
