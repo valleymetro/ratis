@@ -26,7 +26,7 @@ Gem installation
   1. Ensure you have an SSH identity with permission for the authoritylabs organisation on github.
   1. Include the gem in your Gemfile thus:
 
-      gem 'ratis', :git => 'git@github.com:authoritylabs/ratis.git'
+        gem 'ratis', :git => 'git@github.com:authoritylabs/ratis.git'
 
 Gem usage
 -------------------
