@@ -13,13 +13,13 @@ describe AtisModel do
     describe 'successful' do
 
       before do
-        stub_atis_request.to_return atis_response('MyMethod', '1', '0', '<body>test response body here</body>')
+        stub_atis_request.to_return atis_response('Mymethod', '1', '0', '<body>test response body here</body>')
       end
 
       describe 'with no parameters' do
 
         before do
-          @response = dummy_class.atis_request 'MyMethod'
+          @response = dummy_class.atis_request 'Mymethod'
         end
 
         it 'only makes one request' do
@@ -27,12 +27,12 @@ describe AtisModel do
         end
 
         it 'requests the correct SOAP action' do
-          an_atis_request_for('MyMethod').should have_been_made
+          an_atis_request_for('Mymethod').should have_been_made
         end
 
         it 'returns the response' do
           @response.class.should eql Savon::SOAP::Response
-          @response.to_hash[:my_method_response][:body].should eql 'test response body here'
+          @response.to_hash[:mymethod_response][:body].should eql 'test response body here'
         end
 
       end
@@ -40,11 +40,11 @@ describe AtisModel do
       describe 'with parameters' do
 
         before do
-          @response = dummy_class.atis_request 'MyMethod', { 'ParamOne' => 'apple', 'ParamTwo' => 3 }
+          @response = dummy_class.atis_request 'Mymethod', { 'ParamOne' => 'apple', 'ParamTwo' => 3 }
         end
 
         it 'passes the parameters' do
-          an_atis_request_for('MyMethod', { 'ParamOne' => 'apple', 'ParamTwo' => '3' }).should have_been_made
+          an_atis_request_for('Mymethod', { 'ParamOne' => 'apple', 'ParamTwo' => '3' }).should have_been_made
         end
 
       end
@@ -61,7 +61,7 @@ describe AtisModel do
 
         it 're-raises an ECONNREFUSED' do
           expect do
-            dummy_class.atis_request 'MyMethod'
+            dummy_class.atis_request 'Mymethod'
           end.to raise_error Errno::ECONNREFUSED, 'Connection refused - Refused request to ATIS SOAP server'
         end
 
@@ -75,13 +75,13 @@ describe AtisModel do
 
         it 'raises an AtisError' do
           expect do
-            dummy_class.atis_request 'MyMethod'
+            dummy_class.atis_request 'Mymethod'
           end.to raise_error AtisError
         end
 
         it 'parses out fault code and strings' do
           begin
-            dummy_class.atis_request 'MyMethod'
+            dummy_class.atis_request 'Mymethod'
           rescue AtisError => e
             e.fault_code.should eql 10222
             e.fault_string.should eql '#10222--Unknown stop'
