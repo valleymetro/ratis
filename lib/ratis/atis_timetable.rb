@@ -11,16 +11,16 @@ class AtisTimetable
 
   implement_soap_action 'Timetable', 1.1
 
-  def self.where(criteria)
-    short_name   = criteria.delete :route_short_name
-    direction    = criteria.delete :direction
-    date         = criteria.delete :date
-    service_type = criteria.delete :service_type
+  def self.where(conditions)
+    short_name   = conditions.delete :route_short_name
+    direction    = conditions.delete :direction
+    date         = conditions.delete :date
+    service_type = conditions.delete :service_type
 
     raise ArgumentError.new('You must provide a route_short_name') unless short_name
     raise ArgumentError.new('You must provide a direction') unless direction
     raise ArgumentError.new('You must provide either date or service_type') unless date ^ service_type
-    all_criteria_used? criteria
+    all_conditions_used? conditions
 
     request_params = { 'Route' => short_name, 'Direction' => direction }
     request_params.merge! date ? { 'Date' => date } : { 'Servicetype' => service_type }

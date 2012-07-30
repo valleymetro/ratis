@@ -27,8 +27,8 @@ class AtisRoute
     self.directions = directions
   end
 
-  def timetable(criteria)
-    AtisTimetable.where criteria.merge :route_short_name => short_name
+  def timetable(conditions)
+    AtisTimetable.where conditions.merge :route_short_name => short_name
   end
 
 end

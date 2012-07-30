@@ -7,11 +7,11 @@ class AtisWalk
 
   implement_soap_action 'Walkstop', 1.2
 
-  def self.walk_stop(criteria)
-    start_latitude = criteria.delete :start_latitude
-    start_longitude = criteria.delete :start_longitude
-    end_latitude = criteria.delete :end_latitude
-    end_longitude = criteria.delete :end_longitude
+  def self.walk_stop(conditions)
+    start_latitude = conditions.delete :start_latitude
+    start_longitude = conditions.delete :start_longitude
+    end_latitude = conditions.delete :end_latitude
+    end_longitude = conditions.delete :end_longitude
 
     raise ArgumentError.new('You must provide a start_latitude') unless start_latitude
     raise ArgumentError.new('You must provide a start_longitude') unless start_longitude

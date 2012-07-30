@@ -7,12 +7,12 @@ class AtisNextBus
 
   implement_soap_action 'Nextbus2', 1.3
 
-  def self.where(criteria)
-    stop_id = criteria.delete :stop_id
-    app_id = criteria.delete(:app_id) || 'na'
+  def self.where(conditions)
+    stop_id = conditions.delete :stop_id
+    app_id = conditions.delete(:app_id) || 'na'
 
     raise ArgumentError.new('You must provide a stop ID') unless stop_id
-    all_criteria_used? criteria
+    all_conditions_used? conditions
 
     response = atis_request 'Nextbus2', { 'Stopid' => stop_id, 'Appid' => app_id }
     return [] unless response.success?

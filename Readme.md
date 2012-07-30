@@ -98,17 +98,17 @@ You get the following:
 
   Now when a request for `Getlandmarks` is made the response's method version will be checked, and an `AtisError` will be thrown if it has not been declared. This ensures that a change on the SOAP server will not result in invalid response parsing by Ratis.
 
-  1. `all_criteria_used?` will raise an `ArgumentError` if the given hash is not empty. 
+  1. `all_conditions_used?` will raise an `ArgumentError` if the given hash is not empty. 
 
-  Convention in Ratis is to provide a `self.where(criteria)` method (following [Active Record's hash conditions syntax](http://guides.rubyonrails.org/active_record_querying.html#hash-conditions)). As each key in `criteria` is used it can be  `delete`d from `criteria`, then `all_criteria_used? criteria` can be called to ensure nothing unimplemented was passed to `where`.
+  Convention in Ratis is to provide a `self.where(conditions)` method (following [Active Record's hash conditions syntax](http://guides.rubyonrails.org/active_record_querying.html#hash-conditions)). As each key in `conditions` is used it can be  `delete`d from `conditions`, then `all_conditions_used? conditions` can be called to ensure nothing unimplemented was passed to `where`.
 
-  It is also wise to raise an `ArgumentError` if an argument which is required isn't present in `criteria`.
+  It is also wise to raise an `ArgumentError` if an argument which is required isn't present in `conditions`.
 
   Putting these steps together you get the following pattern:
 
-        type = criteria.delete(:type).to_s.upcase
+        type = conditions.delete(:type).to_s.upcase
         raise ArgumentError.new('You must provide a type') if type.blank?
-        all_criteria_used? criteria
+        all_conditions_used? conditions
 
   Following this pattern will provide a good deal of safety for someone using `where`, and eliminate potentially confusing SOAP errors.
 

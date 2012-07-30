@@ -7,16 +7,16 @@ class AtisScheduleNearby
 
   implement_soap_action 'Schedulenearby', 1.20
 
-  def self.where(criteria)
-    latitude = criteria.delete :latitude
-    longitude = criteria.delete :longitude
-    date = criteria.delete :date
-    time = criteria.delete :time
-    window = criteria.delete :window
-    walk_distance = criteria.delete :walk_distance
-    landmark_id = criteria.delete :landmark_id
-    stop_id = criteria.delete(:stop_id) || ''
-    app_id = criteria.delete(:app_id) || 'na'
+  def self.where(conditions)
+    latitude = conditions.delete :latitude
+    longitude = conditions.delete :longitude
+    date = conditions.delete :date
+    time = conditions.delete :time
+    window = conditions.delete :window
+    walk_distance = conditions.delete :walk_distance
+    landmark_id = conditions.delete :landmark_id
+    stop_id = conditions.delete(:stop_id) || ''
+    app_id = conditions.delete(:app_id) || 'na'
 
     raise ArgumentError.new('You must provide latitude') unless latitude
     raise ArgumentError.new('You must provide longitude') unless longitude
@@ -25,7 +25,7 @@ class AtisScheduleNearby
     raise ArgumentError.new('You must provide window') unless window
     raise ArgumentError.new('You must provide walk_distance') unless walk_distance
     raise ArgumentError.new('You must provide landmark_id') unless landmark_id
-    all_criteria_used? criteria
+    all_conditions_used? conditions
 
     response = atis_request 'Schedulenearby',
       {'Locationlat' => latitude, 'Locationlong' => longitude,

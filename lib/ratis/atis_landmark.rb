@@ -7,11 +7,11 @@ class AtisLandmark
 
   implement_soap_action 'Getlandmarks', 1.4
 
-  def self.where(criteria)
+  def self.where(conditions)
 
-    type = criteria.delete(:type).to_s.upcase
+    type = conditions.delete(:type).to_s.upcase
     raise ArgumentError.new('You must provide a type') if type.blank?
-    all_criteria_used? criteria
+    all_conditions_used? conditions
 
     response = atis_request 'Getlandmarks', {'Type' => type}
     return [] unless response.success?

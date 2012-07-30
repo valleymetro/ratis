@@ -7,11 +7,11 @@ class AtisStop
 
   implement_soap_action 'Closeststop', 1.11
 
-  def self.closest(criteria)
-    latitude = criteria.delete :latitude
-    longitude = criteria.delete :longitude
-    location_text = criteria.delete :location_text
-    num_stops = criteria.delete :num_stops
+  def self.closest(conditions)
+    latitude = conditions.delete :latitude
+    longitude = conditions.delete :longitude
+    location_text = conditions.delete :location_text
+    num_stops = conditions.delete :num_stops
 
     raise ArgumentError.new('You must provide a longitude') unless longitude
     raise ArgumentError.new('You must provide a latitude') unless latitude
