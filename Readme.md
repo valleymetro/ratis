@@ -30,7 +30,36 @@ Gem installation
 
 Gem usage
 -------------------
-*Pending*
+
+### Classes
+All the classes are prefixed with `Atis`, such as:
+
+    AtisError, AtisItinerary, AtisLandmark, AtisModel, AtisNextBus, AtisRoute,...
+
+### Queries
+All `Atis` classes, with the exception of `AtisModel` and `AtisError` correspond to SOAP actions.
+By convention most provide either an `all` or `where` class method (following [Active Record's hash conditions syntax](http://guides.rubyonrails.org/active_record_querying.html#hash-conditions)), which will return an array of objects which wrap the response, e.g:
+
+    >> all_landmarks = AtisLandmark.where :type => :all
+    >> all_landmarks.count
+    => 1510
+    >> all_landmarks.first
+    => #<AtisLandmark:0x10d263190 @locality="N", @type="AIRPT", @location="4800 E. FALCON DR.", @verbose="FALCON FIELD AIRPORT">
+
+### Errors
+The `where` methods will try to sanity check your conditions before making a call to the SOAP server:
+
+    >> AtisLandmark.where({})
+    ArgumentError: You must provide a type
+
+    >> AtisLandmark.where :type => :all, :foo => 1
+    ArgumentError: Conditions not used by this class: [:foo]
+
+When something goes wrong with the SOAP transaction an `AtisError` will be raised:
+
+    >> AtisNextBus.where :stop_id => 123456
+    #<AtisError: #10222--Unknown stop>
+
 
 Development 
 -------------------
