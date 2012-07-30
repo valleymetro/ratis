@@ -128,7 +128,7 @@ describe AtisModel do
     it 'raises an exception if there are members in the hash' do
       expect do
         dummy_class.all_conditions_used? :a => 1
-      end.to raise_error ArgumentError, 'conditions not used by this class: [:a]'
+      end.to raise_error ArgumentError, 'Conditions not used by this class: [:a]'
     end
 
     it 'does not raise an exception for an empty hash' do
