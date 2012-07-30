@@ -21,12 +21,20 @@ Known to work with:
  - Ruby 1.8.7
  - Ruby 1.9.3
 
-Gem installation / usage
+Gem installation
 -------------------
- *Pending*
+  1. Ensure you have an SSH identity with permission for the authoritylabs organisation on github.
+  1. Include the gem in your Gemfile thus:
+
+      gem 'ratis', :git => 'git@github.com:authoritylabs/ratis.git'
+
+Gem usage
+-------------------
+*Pending*
 
 Development 
 -------------------
+
 ### Installation
  1. Clone the repo
  1. `bundle install`
