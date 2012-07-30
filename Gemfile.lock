@@ -61,6 +61,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
+  bundler (>= 1.0.0)
   hashdiff
   ratis!
   rspec
