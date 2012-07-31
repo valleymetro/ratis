@@ -28,6 +28,16 @@ Gem installation
 
         gem 'ratis', :git => 'git@github.com:authoritylabs/ratis.git'
 
+  1. Add the following (Valley Metro specific) configuration block to an initializer (config/environment/RAILS_ENV.rb for a Rails app)
+
+        require 'ratis/config'
+        Ratis.configure do |config|
+          config.endpoint = 'http://soap.valleymetro.org/cgi-bin-soap-web-new/soap.cgi'
+          config.namespace = 'PX_WEB'
+          config.proxy = 'http://localhost:8080'
+          config.timeout = 5
+        end
+
 Gem usage
 -------------------
 
@@ -75,7 +85,7 @@ Development
         ssh -i ~/.ssh/authoritylabs.pem -L 8080:localhost:3128 ubuntu@codingsanctum.com
 
  1. Run the test suite with `rake`
- 1. Test it out with `irb -I lib/ -r ratis`
+ 1. Test it out with `irb -r config/valley_metro.rb -I lib/ -r rubygems -r ratis`
 
 ### Extending
 

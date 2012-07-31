@@ -6,10 +6,10 @@ module AtisModel
 
     begin
       base.client do
-        wsdl.endpoint = 'http://soap.valleymetro.org/cgi-bin-soap-web-new/soap.cgi'
-        wsdl.namespace = 'PX_WEB'
-        http.proxy = 'http://localhost:8080'
-        http.open_timeout = 5
+        wsdl.endpoint = Ratis.config.endpoint
+        wsdl.namespace = Ratis.config.namespace
+        http.proxy = Ratis.config.proxy unless Ratis.config.proxy.blank?
+        http.open_timeout = Ratis.config.timeout unless Ratis.config.timeout.blank?
       end
     rescue ArgumentError => e
       raise ArgumentError.new 'Invalid ATIS SOAP server configuration: ' + e.message
@@ -26,7 +26,7 @@ module AtisModel
 
   def atis_request(action, params = {})
     begin
-      response = client.request action, :soap_action => "PX_WEB##{action}", :xmlns => 'PX_WEB' do
+      response = client.request action, :soap_action => "#{Ratis.config.namespace}##{action}", :xmlns => Ratis.config.namespace do
         soap.body = params unless params.blank?
       end
 

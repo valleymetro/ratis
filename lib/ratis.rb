@@ -1,3 +1,5 @@
+require 'ratis/config'
+
 require 'ratis/atis_error'
 require 'ratis/atis_itinerary'
 require 'ratis/atis_landmark'
