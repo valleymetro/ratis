@@ -11,8 +11,13 @@ RSpec.configure do |config|
   config.formatter     = 'documentation'
 end
 
-require 'ratis/config'
+require 'savon'
+HTTPI.log = false
+Savon.configure do |config|
+  config.log = false
+end
 
+require 'ratis/config'
 Ratis.configure do |config|
   config.endpoint = 'http://example.com/soap.cgi'
   config.namespace = 'TEST_NS'
