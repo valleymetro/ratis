@@ -48,7 +48,7 @@ class AtisItinerary
       atis_itinerary.transit_time = itinerary[:transittime].to_i
 
       legs = itinerary[:legs][:leg]
-      atis_itinerary.legs = legs.kind_of?(Array) ?  legs : [legs].compact
+      atis_itinerary.legs = [legs].compact.flatten 1
 
       atis_itinerary
     end
