@@ -10,6 +10,42 @@ describe AtisModel do
     end
   end
 
+  context 'configured correctly' do
+
+    it 'gets config from spec_helper' do
+      dummy_class.client.wsdl.endpoint.should eql 'http://example.com/soap.cgi'
+      dummy_class.client.wsdl.namespace.should eql 'TEST_NS'
+    end
+
+  end
+
+  context 'configured incorrectly' do
+
+    context 'without Ratis.configure being called' do
+
+      before do
+        # Override Ratis.configure made in spec_helper.rb
+        Ratis.config = Ratis::Config.new
+      end
+
+      it 'raises an exception when initializing a class which extends AtisModel' do
+        expect do
+          dummy_class
+        end.to raise_error RuntimeError, 'It appears that Ratis.configure has not been called'
+      end
+
+      after do
+        # Reset Ratis.configure made in spec_helper.rb
+        Ratis.configure do |config|
+          config.endpoint = 'http://example.com/soap.cgi'
+          config.namespace = 'TEST_NS'
+        end
+      end
+
+    end
+
+  end
+
   describe '#atis_request' do
 
     describe 'successful' do
