@@ -4,6 +4,8 @@ module AtisModel
   def self.extended(base)
     base.extend Savon::Model
 
+    raise RuntimeError.new 'It appears that Ratis.configure has not been called' unless Ratis.config.valid?
+
     begin
       base.client do
         wsdl.endpoint = Ratis.config.endpoint
