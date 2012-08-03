@@ -46,6 +46,22 @@ describe AtisModel do
 
   end
 
+  describe '#who_implements_soap_action' do
+    before do
+      @another_dummy_class = Class.new do
+        extend AtisModel
+        implement_soap_action 'Testaction', 1.23
+      end
+    end
+
+    it 'finds a class which extends AtisModel with a SOAP action' do
+      classes = AtisModel.who_implements_soap_action('Testaction')
+      classes.should have(1).item
+      classes.first.should eql @another_dummy_class
+    end
+
+  end
+
   describe '#atis_request' do
 
     describe 'successful' do
