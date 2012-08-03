@@ -3,13 +3,9 @@ require 'ratis/atis_model'
 class AtisStop
   extend AtisModel
 
-  # generic
   attr_accessor :description, :atisstopid, :latitude, :longitude
-
-  # closest
-  attr_accessor :walkdist, :stopid, :walkdir, :side, :heading, :stopposition, :routedir
-
-  # route_stops
+  attr_accessor :walkdist, :walkdir, :walkhint
+  attr_accessor :stopid, :side, :heading, :stopposition, :routedir
   attr_accessor :area, :stop_seq
 
   implement_soap_action 'Closeststop', 1.11
