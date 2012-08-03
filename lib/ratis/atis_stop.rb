@@ -3,9 +3,9 @@ require 'ratis/atis_model'
 class AtisStop
   extend AtisModel
 
-  attr_accessor :description, :atisstopid, :latitude, :longitude
-  attr_accessor :walkdist, :walkdir, :walkhint
-  attr_accessor :stopid, :side, :heading, :stopposition, :routedir
+  attr_accessor :description, :atis_stop_id, :latitude, :longitude
+  attr_accessor :walk_dist, :walk_dir, :walk_hint
+  attr_accessor :stop_id, :side, :heading, :stop_position, :route_dir
   attr_accessor :area, :stop_seq
 
   implement_soap_action 'Closeststop', 1.11
@@ -29,17 +29,17 @@ class AtisStop
       next if s[:description].blank?
 
       stop = AtisStop.new
-      stop.walkdist = s[:walkdist]
+      stop.walk_dist = s[:walkdist]
       stop.description = s[:description]
-      stop.stopid = s[:stopid]
-      stop.atisstopid = s[:atisstopid]
+      stop.stop_id = s[:stopid]
+      stop.atis_stop_id = s[:atisstopid]
       stop.latitude = s[:lat]
       stop.longitude = s[:long]
-      stop.walkdir = s[:walkdir]
+      stop.walk_dir = s[:walkdir]
       stop.side = s[:side]
       stop.heading = s[:heading]
-      stop.stopposition = s[:stopposition]
-      stop.routedir = s[:routedirs][:routedir]
+      stop.stop_position = s[:stopposition]
+      stop.route_dir = s[:routedirs][:routedir]
       stop
     end
     stops.compact
@@ -63,7 +63,7 @@ class AtisStop
       stop = AtisStop.new
       stop.description = s[:description]
       stop.area = s[:area]
-      stop.atisstopid = s[:atisstopid]
+      stop.atis_stop_id = s[:atisstopid]
       stop.stop_seq = s[:stopseq]
       stop.latitude, stop.longitude = s[:point].split ','
       stop

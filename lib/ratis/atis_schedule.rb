@@ -84,14 +84,14 @@ private
 
     atis_stop = AtisStop.new
     atis_stop.description = stop[:description]
-    atis_stop.atisstopid = stop[:atisstopid].to_i
+    atis_stop.atis_stop_id = stop[:atisstopid].to_i
     atis_stop.latitude = stop[:lat].to_f
     atis_stop.longitude = stop[:long].to_f
 
     # It appears that both *walk and *walkdist are used for the walk distance, covering both here
-    atis_stop.walkdist = (stop["#{prefix}walk".to_sym] || stop["#{prefix}walkdist".to_sym]).to_f
-    atis_stop.walkdir = stop["#{prefix}walkdir".to_sym]
-    atis_stop.walkhint = stop["#{prefix}walkhint".to_sym]
+    atis_stop.walk_dist = (stop["#{prefix}walk".to_sym] || stop["#{prefix}walkdist".to_sym]).to_f
+    atis_stop.walk_dir = stop["#{prefix}walkdir".to_sym]
+    atis_stop.walk_hint = stop["#{prefix}walkhint".to_sym]
     atis_stop
   end
 
