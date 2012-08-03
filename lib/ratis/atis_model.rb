@@ -18,6 +18,13 @@ module AtisModel
     end
   end
 
+  def self.who_implements_soap_action(action)
+    models = ObjectSpace.each_object(AtisModel).to_a
+    models.find_all do |model|
+      model.implemented_soap_actions.keys.include? action
+    end
+  end
+
   def implemented_soap_actions
     @implemented_soap_actions ||= Hash.new { |actions, action| actions[action] = [] }
   end
