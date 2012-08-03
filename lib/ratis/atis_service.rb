@@ -3,7 +3,7 @@ require 'ratis/atis_model'
 class AtisService
   extend AtisModel
 
-  attr_accessor :route, :direction, :service_type, :signage, :route_type
+  attr_accessor :route, :direction, :service_type, :signage, :route_type, :exception
 
   implement_soap_action 'Point2point', 1.3
 
