@@ -36,13 +36,13 @@ class AtisService
 
     return [] unless response.success?
 
-    response.to_array(:point2point_response, :routes, :service).collect do |itinerary|
+    response.to_array(:point2point_response, :routes, :service).collect do |service|
       atis_service = AtisService.new
-      atis_service.route = itinerary[:route]
-      atis_service.direction = itinerary[:direction]
-      atis_service.service_type = itinerary[:servicetype]
-      atis_service.signage = itinerary[:signage]
-      atis_service.route_type = itinerary[:routetype]
+      atis_service.route = service[:route]
+      atis_service.direction = service[:direction]
+      atis_service.service_type = service[:servicetype]
+      atis_service.signage = service[:signage]
+      atis_service.route_type = service[:routetype]
       atis_service
     end
   end
