@@ -3,9 +3,17 @@ require 'ratis/atis_model'
 class AtisStop
   extend AtisModel
 
-  attr_accessor :walkdist, :description, :stopid, :atisstopid, :latitude, :longitude, :walkdir, :side, :heading, :stopposition, :routedir
+  # generic
+  attr_accessor :description, :atisstopid, :latitude, :longitude
+
+  # closest
+  attr_accessor :walkdist, :stopid, :walkdir, :side, :heading, :stopposition, :routedir
+
+  # route_stops
+  attr_accessor :area, :stop_seq
 
   implement_soap_action 'Closeststop', 1.11
+  implement_soap_action 'Routestops', 1.0
 
   def self.closest(conditions)
     latitude = conditions.delete :latitude
@@ -39,6 +47,31 @@ class AtisStop
       stop
     end
     stops.compact
+  end
+
+  def self.route_stops(conditions)
+    route = conditions.delete :route
+    direction = conditions.delete(:direction).to_s.upcase
+    order = conditions.delete(:order).to_s.upcase
+
+    raise ArgumentError.new('You must provide a route') unless route
+    raise ArgumentError.new('You must provide a direction') unless direction
+
+    request_params = {'Route' => route, 'Direction' => direction }
+    request_params.merge! order ? { 'Order' => order } : {}
+    response = atis_request 'Routestops', request_params
+
+    return [] unless response.success?
+
+    response.to_hash[:routestops_response][:stops][:stop].map do |s|
+      stop = AtisStop.new
+      stop.description = s[:description]
+      stop.area = s[:area]
+      stop.atisstopid = s[:atisstopid]
+      stop.stop_seq = s[:stopseq]
+      stop.latitude, stop.longitude = s[:point].split ','
+      stop
+    end
   end
 
 end
