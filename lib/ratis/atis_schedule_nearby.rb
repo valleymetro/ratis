@@ -37,12 +37,10 @@ class AtisScheduleNearby
 
     atstops = response.to_array :schedulenearby_response, :atstop
     atstops.collect do |atstop|
-      services = atstop.delete :service
-      atstop[:services] = [services].compact.flatten 1
+      atstop[:services] = atstop.to_array :service
 
       atstop[:services].collect do |service|
-        tripinfos = service.delete :tripinfo
-        service[:tripinfos] = [tripinfos].compact.flatten 1
+        service[:tripinfos] = service.to_array :tripinfo
       end
     end
 

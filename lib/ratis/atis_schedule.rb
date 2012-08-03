@@ -48,14 +48,12 @@ class AtisSchedule
       atis_schedule_group.on_stop = atis_stop_from_hash 'on', group[:onstop]
       atis_schedule_group.off_stop = atis_stop_from_hash 'offstop', group[:offstop]
 
-      trips = [group[:trips][:trip]].compact.flatten(1)
-      atis_schedule_group.trips = trips.collect do |trip|
+      atis_schedule_group.trips = group.to_array(:trips, :trip).collect do |trip|
         atis_trip = AtisScheduleTrip.new
         atis_trip.on_time = trip[:ontime]
         atis_trip.off_time = trip[:offtime]
 
-        service = trip[:service]
-        unless service.blank?
+        atis_trip.service = trip.to_array(:service).collect do |service|
           atis_service = AtisService.new
 
           atis_service.route = service[:route]
@@ -64,9 +62,8 @@ class AtisSchedule
           atis_service.signage = service[:signage]
           atis_service.route_type = service[:routetype]
           atis_service.exception = service[:exception]
-
-          atis_trip.service = atis_service
-        end
+          atis_service
+        end.first
 
         atis_trip
       end

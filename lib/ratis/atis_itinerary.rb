@@ -46,9 +46,7 @@ class AtisItinerary
       atis_itinerary.reduced_fare = itinerary[:reducedfare].to_f
       atis_itinerary.regular_fare = itinerary[:regularfare].to_f
       atis_itinerary.transit_time = itinerary[:transittime].to_i
-
-      legs = itinerary[:legs][:leg]
-      atis_itinerary.legs = [legs].compact.flatten 1
+      atis_itinerary.legs = itinerary.to_array :legs, :leg
 
       atis_itinerary
     end
