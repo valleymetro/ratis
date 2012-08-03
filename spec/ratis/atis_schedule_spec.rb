@@ -152,10 +152,10 @@ describe AtisSchedule do
       on_stop.description.should eql 'VAN BUREN/1ST AVE LIGHT RAIL STATION'
       on_stop.latitude.should eql 33.452252
       on_stop.longitude.should eql -112.075081
-      on_stop.atisstopid.should eql 10880
-      on_stop.walkdist.should eql 0.077
-      on_stop.walkdir.should eql 'NW'
-      on_stop.walkhint.should eql 'N'
+      on_stop.atis_stop_id.should eql 10880
+      on_stop.walk_dist.should eql 0.077
+      on_stop.walk_dir.should eql 'NW'
+      on_stop.walk_hint.should eql 'N'
     end
 
     it 'parses out the off stop fields' do
@@ -165,10 +165,10 @@ describe AtisSchedule do
       off_stop.description.should eql '3RD STREET/JEFFERSON LIGHT RAIL STATION'
       off_stop.latitude.should eql 33.446270
       off_stop.longitude.should eql -112.069777
-      off_stop.atisstopid.should eql 10892
-      off_stop.walkdist.should eql 0.016
-      off_stop.walkdir.should eql 'SE'
-      off_stop.walkhint.should eql 'N'
+      off_stop.atis_stop_id.should eql 10892
+      off_stop.walk_dist.should eql 0.016
+      off_stop.walk_dir.should eql 'SE'
+      off_stop.walk_hint.should eql 'N'
     end
 
     it 'parses out the trip' do

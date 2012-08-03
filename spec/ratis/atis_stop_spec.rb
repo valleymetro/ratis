@@ -75,17 +75,17 @@ describe AtisStop do
     end
 
     it 'parses out fields correctly' do
-      @first_stop.walkdist.should eql '0.1'
+      @first_stop.walk_dist.should eql '0.1'
       @first_stop.description.should eql 'text description stop one'
-      @first_stop.stopid.should eql '12345'
-      @first_stop.atisstopid.should eql '66666'
+      @first_stop.stop_id.should eql '12345'
+      @first_stop.atis_stop_id.should eql '66666'
       @first_stop.latitude.should eql '33.4576'
       @first_stop.longitude.should eql '-112.071507'
-      @first_stop.walkdir.should eql 'NE'
+      @first_stop.walk_dir.should eql 'NE'
       @first_stop.side.should eql 'Far'
       @first_stop.heading.should eql 'NB'
-      @first_stop.stopposition.should eql 'N'
-      @first_stop.routedir.should eql '0-N'
+      @first_stop.stop_position.should eql 'N'
+      @first_stop.route_dir.should eql '0-N'
     end
 
   end
@@ -149,7 +149,7 @@ describe AtisStop do
     it 'parses out fields correctly' do
       @first_stop.description.should eql 'CENTRAL AVE & ADAMS ST'
       @first_stop.area.should eql 'Phoenix'
-      @first_stop.atisstopid.should eql '2854'
+      @first_stop.atis_stop_id.should eql '2854'
       @first_stop.stop_seq.should eql '25'
       @first_stop.latitude.should eql '33.448994'
       @first_stop.longitude.should eql '-112.073813'
