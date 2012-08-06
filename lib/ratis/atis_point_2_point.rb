@@ -1,16 +1,19 @@
 require 'ratis/atis_model'
 
+AtisService = Struct.new :route, :direction, :service_type, :signage, :route_type, :exception
+
+AtisSchedule = Struct.new :groups
 AtisScheduleGroup = Struct.new :on_stop, :off_stop, :trips
 AtisScheduleTrip = Struct.new :on_time, :off_time, :service
 
-class AtisSchedule
+class AtisPoint2Point
   extend AtisModel
-
-  attr_accessor :groups
 
   implement_soap_action 'Point2point', 1.3
 
   def self.where(conditions)
+    routes_only = conditions.delete(:routes_only)
+
     origin_lat = conditions.delete(:origin_lat).to_f
     origin_long = conditions.delete(:origin_long).to_f
     destination_lat = conditions.delete(:destination_lat).to_f
@@ -19,6 +22,8 @@ class AtisSchedule
     date = conditions.delete :date
     start_time = conditions.delete :start_time
     end_time = conditions.delete :end_time
+
+    raise ArgumentError.new("You must specify routes only with true, false, 'y' or 'n'") unless routes_only.y_or_n rescue false
 
     raise ArgumentError.new('You must provide an origin latitude') unless valid_latitude? origin_lat
     raise ArgumentError.new('You must provide an origin longitude') unless valid_longitude? origin_long
@@ -31,12 +36,33 @@ class AtisSchedule
 
     all_conditions_used? conditions
 
-    response = atis_request 'Point2point',
+    response = atis_request 'Point2point', 'Routesonly' => routes_only.y_or_n.upcase,
       'Originlat' => origin_lat, 'Originlong' => origin_long,
       'Destinationlat' => destination_lat, 'Destinationlong' => destination_long,
-      'Date' => date, 'Starttime' => start_time, 'Endtime' => end_time,
-      'Routesonly' => 'N'
+      'Date' => date, 'Starttime' => start_time, 'Endtime' => end_time
 
+    return nil unless response.success?
+
+    return parse_routes_only_yes response if routes_only.y_or_n.downcase == 'y'
+    return parse_routes_only_no response if routes_only.y_or_n.downcase == 'n'
+
+    nil
+  end
+
+private
+  def self.parse_routes_only_yes(response)
+    response.to_array(:point2point_response, :routes, :service).collect do |service|
+      atis_service = AtisService.new
+      atis_service.route = service[:route]
+      atis_service.direction = service[:direction]
+      atis_service.service_type = service[:servicetype]
+      atis_service.signage = service[:signage]
+      atis_service.route_type = service[:routetype]
+      atis_service
+    end
+  end
+
+  def self.parse_routes_only_no(response)
     return nil unless response.success?
 
     atis_schedule = AtisSchedule.new
@@ -74,8 +100,6 @@ class AtisSchedule
     atis_schedule
   end
 
-private
-
   def self.atis_stop_from_hash(prefix, stop)
     return nil if stop.blank?
 
@@ -93,5 +117,4 @@ private
   end
 
 end
-
 

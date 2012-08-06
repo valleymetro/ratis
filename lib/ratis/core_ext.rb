@@ -15,3 +15,21 @@ Hash.class_eval do
 
 end
 
+class TrueClass
+  def y_or_n
+    'y'
+  end
+end
+
+class FalseClass
+  def y_or_n
+    'n'
+  end
+end
+
+class String
+  def y_or_n
+    raise ArgumentError.new 'Expecting y or n' unless ['y', 'n'].include? self.downcase
+    self
+  end
+end
