@@ -55,8 +55,8 @@ All `Atis` classes, with the exception of `AtisModel` and `AtisError` represent 
 
 If you know the SOAP action you want to use, and wish to see if it is implemented in Ratis, you can open a console and ask `AtisModel` to tell you `who_implements_soap_action`:
 
-    > AtisModel.who_implements_soap_action 'Point2point'
-    => [AtisService, AtisSchedule]
+    > AtisModel.who_implements_soap_action 'Getlandmarks'
+    => [AtisLandmark]
 
 ### Queries
 By convention most provide either an `all` or `where` class method (following [Active Record's hash conditions syntax](http://guides.rubyonrails.org/active_record_querying.html#hash-conditions)), which will return an array of objects which wrap the response, e.g:
