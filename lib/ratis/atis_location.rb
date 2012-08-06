@@ -9,12 +9,12 @@ class AtisLocation
 
   def self.where(conditions)
     location = conditions.delete :location
-    media = conditions.delete(:media).to_s.upcase
-    max_answers = conditions.delete :max_answers
+    media = (conditions.delete(:media) || :w).to_s.upcase
+    max_answers = conditions.delete(:max_answers) || 20
 
     raise ArgumentError.new('You must provide a location') unless location
     raise ArgumentError.new('You must provide media of A|W|I') unless ['A','W','I'].include? media
-    raise ArgumentError.new('You must provide max_answers') unless max_answers
+    raise ArgumentError.new('You must provide a numeric max_answers') unless (Integer max_answers rescue false)
     all_conditions_used? conditions
 
     response = atis_request 'Locate', {'Location' => location, 'Media' => media, 'Maxanswers' => max_answers}
