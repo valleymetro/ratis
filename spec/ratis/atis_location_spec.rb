@@ -2,8 +2,63 @@ require 'spec_helper'
 
 describe AtisLocation do
 
-  describe 'Intersection, Landmark or Stop' do
+  describe 'Intersection or Stop' do
     pending 'needs implementation'
+  end
+
+  describe 'Landmark' do
+
+    before do
+      stub_atis_request.to_return( atis_response 'Locate', '1.12', 'ok', <<-BODY )
+      <Projection>SP</Projection>
+      <Locationtype>L</Locationtype>
+      <Location>
+              <Name>CENTRAL STATION</Name>
+              <Area>Phoenix</Area>
+              <Areacode>PH</Areacode>
+              <Region>1</Region>
+              <Zipname></Zipname>
+              <Latitude>33.452082</Latitude>
+              <Longitude>-112.074374</Longitude>
+              <Landmarkid>7234</Landmarkid>
+              <Islocality>N</Islocality>
+      </Location>
+      BODY
+
+      @locations = AtisLocation.where :location => "Central Station", :media => 'a', :max_answers => 3
+      @first_location = @locations.first
+    end
+
+    describe '#where' do
+
+      it 'only makes one request' do
+        an_atis_request.should have_been_made.times 1
+      end
+
+      it 'requests the correct SOAP action' do
+        an_atis_request_for('Locate', 'Location' => 'Central Station', 'Media' => 'A', 'Maxanswers' => '3').should have_been_made
+      end
+
+      it 'returns the single locations' do
+        @locations.should have(1).item
+      end
+
+      it 'parses out fields correctly' do
+        @first_location.name.should eql 'CENTRAL STATION'
+        @first_location.area.should eql 'Phoenix'
+        @first_location.response.should eql 'ok'
+        @first_location.areacode.should eql 'PH'
+        @first_location.latitude.should eql '33.452082'
+        @first_location.longitude.should eql '-112.074374'
+        @first_location.landmark_id.should eql '7234'
+        @first_location.address.should eql ''
+        @first_location.startaddr.should eql ''
+        @first_location.endaddr.should eql ''
+        @first_location.address_string.should eql 'CENTRAL STATION (in Phoenix)'
+      end
+
+    end
+
   end
 
   describe 'Address with house number match' do

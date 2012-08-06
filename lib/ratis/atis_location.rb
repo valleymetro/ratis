@@ -21,9 +21,9 @@ class AtisLocation
     return [] unless response.success?
 
     meta = response.to_hash[:locate_response]
-    location_hashes = response.to_hash[:locate_response][:location]
+    locations = response.to_array :locate_response, :location
 
-    location_hashes.map do |location_hash|
+    locations.map do |location_hash|
       location = AtisLocation.new
       location.name = location_hash[:name]
       location.area = location_hash[:area]
