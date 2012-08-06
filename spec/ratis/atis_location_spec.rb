@@ -165,5 +165,43 @@ describe AtisLocation do
 
   end
 
+  describe '#where' do
+
+    it 'defaults media to W' do
+      stub_atis_request.to_return( atis_response 'Locate', '1.12', 'ok', <<-BODY )
+      <Location>
+        <Name>Some place</Name>
+      </Location>
+      BODY
+
+      AtisLocation.where :location => 'Some place', :max_answers => 1000
+      an_atis_request_for('Locate', 'Location' => 'Some place', 'Media' => 'W', 'Maxanswers' => '1000').should have_been_made
+    end
+
+    it 'requires a valid media' do
+      expect do
+        AtisLocation.where :location => 'Some place', :media => 'XYZZY'
+      end.to raise_error ArgumentError, 'You must provide media of A|W|I'
+    end
+
+    it 'defaults max_answers to 20' do
+      stub_atis_request.to_return( atis_response 'Locate', '1.12', 'ok', <<-BODY )
+      <Location>
+        <Name>Some place</Name>
+      </Location>
+      BODY
+
+      AtisLocation.where :location => 'Some place', :media => 'W'
+      an_atis_request_for('Locate', 'Location' => 'Some place', 'Media' => 'W', 'Maxanswers' => '20').should have_been_made
+    end
+
+    it 'requires a numeric max_answers' do
+      expect do
+        AtisLocation.where :location => 'Some place', :max_answers => 'not a number'
+      end.to raise_error ArgumentError, 'You must provide a numeric max_answers'
+    end
+
+  end
+
 end
 
