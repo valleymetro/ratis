@@ -20,6 +20,8 @@ class AtisStop
     raise ArgumentError.new('You must provide a longitude') unless longitude
     raise ArgumentError.new('You must provide a latitude') unless latitude
 
+    all_conditions_used? conditions
+
     response = atis_request 'Closeststop',
       {'Locationlat' => latitude, 'Locationlong' => longitude, 'Locationtext' => location_text, 'Numstops' => num_stops}
 
@@ -52,6 +54,8 @@ class AtisStop
 
     raise ArgumentError.new('You must provide a route') unless route
     raise ArgumentError.new('You must provide a direction') unless direction
+
+    all_conditions_used? conditions
 
     request_params = {'Route' => route, 'Direction' => direction }
     request_params.merge! order ? { 'Order' => order } : {}
