@@ -2,7 +2,6 @@ PATH
   remote: .
   specs:
     ratis (2.5.1)
-      httpclient
       savon
 
 GEM
@@ -21,7 +20,6 @@ GEM
     gyoku (0.4.6)
       builder (>= 2.1.2)
     hashdiff (0.0.5)
-    httpclient (2.2.5)
     httpi (1.1.1)
       rack
     i18n (0.6.0)
