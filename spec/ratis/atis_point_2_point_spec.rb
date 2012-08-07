@@ -210,7 +210,7 @@ describe Ratis::Point2Point do
         group = @schedule.groups.first
         on_stop = group.on_stop
 
-        on_stop.should be_kind_of AtisStop
+        on_stop.should be_kind_of Ratis::Stop
 
         on_stop.description.should eql 'VAN BUREN/1ST AVE LIGHT RAIL STATION'
         on_stop.latitude.should eql 33.452252

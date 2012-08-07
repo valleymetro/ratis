@@ -12,7 +12,7 @@ require 'ratis/next_bus'
 require 'ratis/point_2_point.rb'
 require 'ratis/route'
 require 'ratis/schedule_nearby'
-require 'ratis/atis_stop'
+require 'ratis/stop'
 require 'ratis/atis_timetable'
 require 'ratis/atis_walk'
 
