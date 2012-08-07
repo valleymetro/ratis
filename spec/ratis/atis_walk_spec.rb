@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'AtisWalk' do
+describe Ratis::Walk do
 
   describe 'walk to the pub' do
 
@@ -25,7 +25,7 @@ describe 'AtisWalk' do
       </Walkpoints>
       BODY
 
-      @walk = AtisWalk.walk_stop :start_latitude => '33.45455', :start_longitude => '-112.07064', :end_latitude => '33.45586', :end_longitude => '-112.07255'
+      @walk = Ratis::Walk.walk_stop :start_latitude => '33.45455', :start_longitude => '-112.07064', :end_latitude => '33.45586', :end_longitude => '-112.07255'
     end
 
     describe '#walk_stop' do
