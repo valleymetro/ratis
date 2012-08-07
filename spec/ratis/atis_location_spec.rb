@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AtisLocation do
+describe Ratis::Location do
 
   describe 'Intersection or Stop' do
     pending 'needs implementation'
@@ -25,7 +25,7 @@ describe AtisLocation do
       </Location>
       BODY
 
-      @locations = AtisLocation.where :location => "Central Station", :media => 'a', :max_answers => 3
+      @locations = Ratis::Location.where :location => "Central Station", :media => 'a', :max_answers => 3
       @first_location = @locations.first
     end
 
@@ -105,7 +105,7 @@ describe AtisLocation do
       </Location>
       BODY
 
-      @locations = AtisLocation.where :location => '1600 Pennsylvania Ave', :media => 'W', :max_answers => 1000
+      @locations = Ratis::Location.where :location => '1600 Pennsylvania Ave', :media => 'W', :max_answers => 1000
       @first_location = @locations.first
     end
 
@@ -146,7 +146,7 @@ describe AtisLocation do
     end
 
     describe '#to_hash' do
-      it 'returns a subset of AtisLocation params' do
+      it 'returns a subset of Location params' do
         hash = {
           :latitude   => '33.5811205',
           :longitude  => '-112.2989325',
@@ -174,13 +174,13 @@ describe AtisLocation do
       </Location>
       BODY
 
-      AtisLocation.where :location => 'Some place', :max_answers => 1000
+      Ratis::Location.where :location => 'Some place', :max_answers => 1000
       an_atis_request_for('Locate', 'Location' => 'Some place', 'Media' => 'W', 'Maxanswers' => '1000').should have_been_made
     end
 
     it 'requires a valid media' do
       expect do
-        AtisLocation.where :location => 'Some place', :media => 'XYZZY'
+        Ratis::Location.where :location => 'Some place', :media => 'XYZZY'
       end.to raise_error ArgumentError, 'You must provide media of A|W|I'
     end
 
@@ -191,13 +191,13 @@ describe AtisLocation do
       </Location>
       BODY
 
-      AtisLocation.where :location => 'Some place', :media => 'W'
+      Ratis::Location.where :location => 'Some place', :media => 'W'
       an_atis_request_for('Locate', 'Location' => 'Some place', 'Media' => 'W', 'Maxanswers' => '20').should have_been_made
     end
 
     it 'requires a numeric max_answers' do
       expect do
-        AtisLocation.where :location => 'Some place', :max_answers => 'not a number'
+        Ratis::Location.where :location => 'Some place', :max_answers => 'not a number'
       end.to raise_error ArgumentError, 'You must provide a numeric max_answers'
     end
 
