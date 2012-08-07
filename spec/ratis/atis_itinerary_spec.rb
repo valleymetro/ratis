@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AtisItinerary do
+describe Ratis::Itinerary do
 
   describe 'single itinerary, single service' do
 
@@ -123,7 +123,7 @@ describe AtisItinerary do
       </Itin>
       BODY
 
-      @itineraries = AtisItinerary.where(
+      @itineraries = Ratis::Itinerary.where(
         :date => '07/26/2012', :time => '1843', :minimize => 'T',
         :origin_lat => '33.452082', :origin_long => '-112.074374',
         :destination_lat => '33.446347', :destination_long => '-112.068689' )
@@ -145,7 +145,7 @@ describe AtisItinerary do
 
       it 'returns one itinerary' do
         @itineraries.should have(1).item
-        @itineraries.first.should be_a_kind_of AtisItinerary
+        @itineraries.first.should be_a_kind_of Ratis::Itinerary
       end
 
     end
@@ -689,7 +689,7 @@ describe AtisItinerary do
       </Itin>
     BODY
 
-      @itineraries = AtisItinerary.where(
+      @itineraries = Ratis::Itinerary.where(
         :date => '07/31/2012', :time => '0914', :minimize => 'T',
         :origin_lat => '33.452082', :origin_long => '-112.074374',
         :destination_lat => '33.432254', :destination_long => '-111.904625' )
@@ -711,7 +711,7 @@ describe AtisItinerary do
 
       it 'returns three itineraries' do
         @itineraries.should have(3).item
-        @itineraries.each { |itin| itin.should be_a_kind_of AtisItinerary }
+        @itineraries.each { |itin| itin.should be_a_kind_of Ratis::Itinerary }
       end
 
     end
