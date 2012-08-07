@@ -66,4 +66,3 @@ describe Ratis::Route do
   end
 
 end
-
