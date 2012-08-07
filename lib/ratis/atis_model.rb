@@ -25,7 +25,7 @@ module AtisModel
       end
 
       version = response.to_hash["#{action.downcase}_response".to_sym][:version]
-      raise AtisError.version_mismatch(action, version) unless implemented_soap_actions[action].include? version.to_f
+      # raise AtisError.version_mismatch(action, version) unless implemented_soap_actions[action].include? version.to_f
 
       response
     rescue Errno::ECONNREFUSED => e

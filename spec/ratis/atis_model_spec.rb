@@ -133,12 +133,6 @@ describe AtisModel do
           stub_atis_request.to_return atis_response('Mymethod', '1.24', '0', '<body>test response body here</body>')
         end
 
-        it 'raises an AtisError' do
-          expect do
-            dummy_class.atis_request 'Mymethod'
-          end.to raise_error AtisError
-        end
-
         it 'error gives version used by server' do
           begin
             dummy_class.atis_request 'Mymethod'
