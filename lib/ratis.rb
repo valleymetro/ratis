@@ -1,3 +1,4 @@
+require 'savon'
 require 'ratis/config'
 require 'ratis/core_ext'
 
@@ -15,3 +16,6 @@ require 'ratis/atis_stop'
 require 'ratis/atis_timetable'
 require 'ratis/atis_walk'
 
+module Ratis
+
+end
