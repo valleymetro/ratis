@@ -102,7 +102,7 @@ module Ratis
     def self.atis_stop_from_hash(prefix, stop)
       return nil if stop.blank?
 
-      atis_stop = AtisStop.new
+      atis_stop = Stop.new
       atis_stop.description = stop[:description]
       atis_stop.atis_stop_id = stop[:atisstopid].to_i
       atis_stop.latitude = stop[:lat].to_f

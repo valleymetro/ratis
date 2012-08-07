@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AtisStop do
+describe Ratis::Stop do
 
   describe '#closest' do
 
@@ -49,7 +49,7 @@ describe AtisStop do
       </Stops>
       BODY
 
-      @stops = AtisStop.closest :latitude => '33.4556', :longitude => '-112.071807', :location_text => 'some location text', :num_stops => 15
+      @stops = Ratis::Stop.closest :latitude => '33.4556', :longitude => '-112.071807', :location_text => 'some location text', :num_stops => 15
       @first_stop = @stops.first
     end
 
@@ -127,7 +127,7 @@ describe AtisStop do
       </Stops>
       BODY
 
-      @stops = AtisStop.route_stops :route => '0', :direction => :n, :order => :a
+      @stops = Ratis::Stop.route_stops :route => '0', :direction => :n, :order => :a
       @first_stop = @stops.first
     end
 
