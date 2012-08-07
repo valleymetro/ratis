@@ -5,7 +5,6 @@ class AtisLocation
 
   attr_accessor :name, :area, :response, :areacode, :latitude, :longitude, :landmark_id, :address, :startaddr, :endaddr, :address_string
 
-  implement_soap_action 'Locate', 1.12
 
   def self.where(conditions)
     location = conditions.delete :location

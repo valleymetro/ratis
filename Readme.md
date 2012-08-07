@@ -1,5 +1,4 @@
-Ratis
-==================
+# Ratis
 A Ruby wrapper for Trapeze Group's ATIS SOAP server.
 
 Goals:
@@ -16,10 +15,7 @@ Presently based on:
 
 **ATIS - SOAP Interface Specification Version 2.5.1, February 2012**
 
-Known to work with:
-
- - Ruby 1.8.7
- - Ruby 1.9.3
+Currently Supports Ruby `1.8.7` and `1.9.3`
 
 Gem installation
 -------------------
@@ -136,15 +132,11 @@ To ease interaction with the ATIS SOAP server the `AtisModel` module is availabl
 
 You get the following:
 
-  1. `atis_request` should be used to make request to the ATIS SOAP server. It ensures the request is built in a way which the ATIS SOAP server expects, provides a version check against responses (see `implement_soap_action`) and returns a `Savon::Response`:
+  1. `atis_request` should be used to make request to the ATIS SOAP server. It ensures the request is built in a way which the ATIS SOAP server expects, provides a version check against responses and returns a `Savon::Response`:
 
         atis_request 'Getlandmarks', {'Type' => type}
 
   The method and parameter names should be given as described by the ATIS SOAP Interface reference, with the first character uppercase and all others lowercase.
-
-  1. `implement_soap_action` is used to indicate which SOAP actions your class my make an `atis_request` for and what response versions it handles:
-
-        implement_soap_action 'Getlandmarks', 1.4
 
   Now when a request for `Getlandmarks` is made the response's method version will be checked, and an `AtisError` will be thrown if it has not been declared. This ensures that a change on the SOAP server will not result in invalid response parsing by Ratis.
 

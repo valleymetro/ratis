@@ -5,8 +5,6 @@ describe AtisModel do
   let(:dummy_class) do
     Class.new do
       extend AtisModel
-
-      implement_soap_action 'Mymethod', 1.23
     end
   end
 
@@ -42,22 +40,6 @@ describe AtisModel do
         end
       end
 
-    end
-
-  end
-
-  describe '#who_implements_soap_action' do
-    before do
-      @another_dummy_class = Class.new do
-        extend AtisModel
-        implement_soap_action 'Testaction', 1.23
-      end
-    end
-
-    it 'finds a class which extends AtisModel with a SOAP action' do
-      classes = AtisModel.who_implements_soap_action('Testaction')
-      classes.should have(1).item
-      classes.first.should eql @another_dummy_class
     end
 
   end

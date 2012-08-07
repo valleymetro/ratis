@@ -5,8 +5,6 @@ class AtisScheduleNearby
 
   attr_accessor :atstops
 
-  implement_soap_action 'Schedulenearby', 1.20
-
   def self.where(conditions)
     latitude = conditions.delete :latitude
     longitude = conditions.delete :longitude

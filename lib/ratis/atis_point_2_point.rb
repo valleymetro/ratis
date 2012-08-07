@@ -9,8 +9,6 @@ AtisScheduleTrip = Struct.new :on_time, :off_time, :service
 class AtisPoint2Point
   extend AtisModel
 
-  implement_soap_action 'Point2point', 1.3
-
   def self.where(conditions)
     routes_only = conditions.delete(:routes_only)
 

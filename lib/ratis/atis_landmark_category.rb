@@ -5,8 +5,6 @@ class AtisLandmarkCategory
 
   attr_accessor :type, :description
 
-  implement_soap_action 'Getcategories', 1.1
-
   def self.all
 
     response = atis_request 'Getcategories'

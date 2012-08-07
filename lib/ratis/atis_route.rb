@@ -6,8 +6,6 @@ class AtisRoute
   attr_accessor :short_name
   attr_accessor :directions
 
-  implement_soap_action 'Allroutes', 1.5
-
   def self.all
     response = atis_request 'Allroutes'
     return [] unless response.success?
@@ -16,7 +14,7 @@ class AtisRoute
     atis_routes = routes.map do |r|
       r.strip!
       next if r.blank?
-      r = r.split /, /
+      r = r.split(/, /)
       AtisRoute.new r[0].strip, r[1..-1].map(&:strip)
     end
     atis_routes.compact
