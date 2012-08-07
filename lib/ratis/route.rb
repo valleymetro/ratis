@@ -27,7 +27,7 @@ module Ratis
     end
 
     def timetable(conditions)
-      AtisTimetable.where conditions.merge :route_short_name => short_name
+      Timetable.where conditions.merge :route_short_name => short_name
     end
   end
 
