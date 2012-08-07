@@ -273,7 +273,7 @@ describe Ratis::ScheduleNearby do
             ).should have_been_made
           end
 
-          it 'returns a non nil AtisScheduleNearby' do
+          it 'returns a non nil ScheduleNearby' do
             @schedule_nearby.should_not be_nil
           end
 
