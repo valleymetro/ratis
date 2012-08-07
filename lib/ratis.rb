@@ -14,7 +14,7 @@ require 'ratis/route'
 require 'ratis/schedule_nearby'
 require 'ratis/stop'
 require 'ratis/timetable'
-require 'ratis/atis_walk'
+require 'ratis/walk'
 
 module Ratis
 
