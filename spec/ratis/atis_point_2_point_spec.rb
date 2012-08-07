@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AtisPoint2Point do
+describe Ratis::Point2Point do
 
   describe 'Routesonly => Y' do
 
@@ -27,7 +27,7 @@ describe AtisPoint2Point do
           </Routes>
           BODY
 
-          @services = AtisPoint2Point.where(:routes_only => true,
+          @services = Ratis::Point2Point.where(:routes_only => true,
             :origin_lat => 33.451929, :origin_long => -112.07457,
             :destination_lat => 33.44641, :destination_long => -112.06987,
             :date => '08/04/12', :start_time => '0900', :end_time => '1100')
@@ -177,7 +177,7 @@ describe AtisPoint2Point do
         </Groups>
         BODY
 
-        @schedule = AtisPoint2Point.where(:routes_only => false,
+        @schedule = Ratis::Point2Point.where(:routes_only => false,
           :origin_lat => 33.451929, :origin_long => -112.07457,
           :destination_lat => 33.44641, :destination_long => -112.06987,
           :date => '08/04/12', :start_time => '0900', :end_time => '1100')
