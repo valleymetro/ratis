@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AtisLandmark do
+describe Ratis::Landmark do
 
   before do
     stub_atis_request.to_return( atis_response 'Getlandmarks', '1.4', '0', <<-BODY )
@@ -34,7 +34,7 @@ describe AtisLandmark do
     </Landmarks>
     BODY
 
-    @landmarks = AtisLandmark.where :type => :all
+    @landmarks = Ratis::Landmark.where :type => :all
   end
 
   it 'only makes one request' do

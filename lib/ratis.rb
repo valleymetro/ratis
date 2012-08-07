@@ -4,7 +4,7 @@ require 'ratis/core_ext'
 
 require 'ratis/atis_error'
 require 'ratis/itinerary'
-require 'ratis/atis_landmark'
+require 'ratis/landmark'
 require 'ratis/atis_landmark_category'
 require 'ratis/atis_location'
 require 'ratis/atis_model'
