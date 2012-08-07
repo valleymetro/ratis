@@ -1,5 +1,3 @@
-require 'savon'
-
 module AtisModel
   def self.extended(base)
     base.extend Savon::Model
@@ -25,13 +23,12 @@ module AtisModel
       end
 
       version = response.to_hash["#{action.downcase}_response".to_sym][:version]
-      # raise AtisError.version_mismatch(action, version) unless implemented_soap_actions[action].include? version.to_f
 
       response
     rescue Errno::ECONNREFUSED => e
       raise Errno::ECONNREFUSED.new 'Refused request to ATIS SOAP server'
     rescue Savon::SOAP::Fault => e
-      raise AtisError.new e
+      raise Ratis::AtisError.new e
     end
   end
 

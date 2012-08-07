@@ -110,15 +110,13 @@ describe AtisModel do
         end
 
         it 'raises an AtisError' do
-          expect do
-            dummy_class.atis_request 'Mymethod'
-          end.to raise_error AtisError
+          expect{ dummy_class.atis_request 'Mymethod' }.to raise_error(Ratis::AtisError)
         end
 
         it 'parses out fault code and strings' do
           begin
             dummy_class.atis_request 'Mymethod'
-          rescue AtisError => e
+          rescue Ratis::AtisError => e
             e.fault_code.should eql 10222
             e.fault_string.should eql '#10222--Unknown stop'
             e.verbose_fault_string.should eql 'Invalid STOP ID number. Please enter a valid five digit stop ID number'
@@ -136,7 +134,7 @@ describe AtisModel do
         it 'error gives version used by server' do
           begin
             dummy_class.atis_request 'Mymethod'
-          rescue AtisError => e
+          rescue Ratis::AtisError => e
             e.fault_code.should be_nil
             e.fault_string.should eql 'Unimplemented SOAP method Mymethod 1.24'
             e.verbose_fault_string.should eql 'The server could not handle your request at this time.  Please try again later'
@@ -168,4 +166,3 @@ describe AtisModel do
   end
 
 end
-
