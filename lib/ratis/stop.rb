@@ -1,8 +1,6 @@
-require 'ratis/atis_model'
-
 module Ratis
+
   class Stop
-    extend AtisModel
 
     attr_accessor :description, :atis_stop_id, :latitude, :longitude
     attr_accessor :walk_dist, :walk_dir, :walk_hint
@@ -18,9 +16,9 @@ module Ratis
       raise ArgumentError.new('You must provide a longitude') unless longitude
       raise ArgumentError.new('You must provide a latitude') unless latitude
 
-      all_conditions_used? conditions
+      Ratis.all_conditions_used? conditions
 
-      response = atis_request 'Closeststop',
+      response = Request.get 'Closeststop',
         {'Locationlat' => latitude, 'Locationlong' => longitude, 'Locationtext' => location_text, 'Numstops' => num_stops}
 
       return [] unless response.success?
@@ -53,11 +51,11 @@ module Ratis
       raise ArgumentError.new('You must provide a route') unless route
       raise ArgumentError.new('You must provide a direction') unless direction
 
-      all_conditions_used? conditions
+      Ratis.all_conditions_used? conditions
 
       request_params = {'Route' => route, 'Direction' => direction }
       request_params.merge! order ? { 'Order' => order } : {}
-      response = atis_request 'Routestops', request_params
+      response = Request.get 'Routestops', request_params
 
       return [] unless response.success?
 

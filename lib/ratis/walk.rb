@@ -1,8 +1,6 @@
-require 'ratis/atis_model'
-
 module Ratis
+
   class Walk
-    extend AtisModel
 
     attr_accessor :legs, :walk_distance, :walk_units, :walk_time
 
@@ -17,7 +15,7 @@ module Ratis
       raise ArgumentError.new('You must provide an end_latitude') unless end_latitude
       raise ArgumentError.new('You must provide an end_longitude') unless end_longitude
 
-      response = atis_request 'Walkstop', 'Startlat' => start_latitude, 'Startlong' => start_longitude, 'Endlat' => end_latitude, 'Endlong' => end_longitude
+      response = Request.get 'Walkstop', 'Startlat' => start_latitude, 'Startlong' => start_longitude, 'Endlat' => end_latitude, 'Endlong' => end_longitude
       return nil unless response.success?
 
       response_walk = response[:walkstop_response]

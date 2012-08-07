@@ -1,9 +1,10 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/ratis/version', __FILE__)
+$LOAD_PATH.unshift File.expand_path('../lib', __FILE__)
+require 'ratis/version'
 
 Gem::Specification.new do |s|
   s.name             = 'ratis'
-  s.version          = Ratis::VERSION
+  s.version          = Ratis.version
   s.platform         = Gem::Platform::RUBY
   s.summary          = 'A Ruby wrapper around the ATIS SOAP Interface'
   s.authors          = ['AuthorityLabs']

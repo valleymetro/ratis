@@ -197,8 +197,8 @@ describe Ratis::Point2Point do
 
       it 'gets the groups' do
         @schedule.should have(2).groups
-        @schedule.groups.first.should be_kind_of AtisScheduleGroup
-        @schedule.groups.last.should be_kind_of AtisScheduleGroup
+        @schedule.groups.first.should be_kind_of Ratis::ScheduleGroup
+        @schedule.groups.last.should be_kind_of Ratis::ScheduleGroup
       end
 
       it 'gets the trips within each group' do
@@ -238,7 +238,7 @@ describe Ratis::Point2Point do
         group = @schedule.groups.first
         trip = group.trips.first
 
-        trip.should be_kind_of AtisScheduleTrip
+        trip.should be_kind_of Ratis::ScheduleTrip
         trip.on_time.should eql '09:07 AM'
         trip.off_time.should eql '09:11 AM'
       end
@@ -247,7 +247,7 @@ describe Ratis::Point2Point do
         group = @schedule.groups.first
         service = group.trips.first.service
 
-        service.should be_kind_of AtisService
+        service.should be_kind_of Ratis::Service
         service.route.should eql 'LTRL'
         service.direction.should eql 'E'
         service.service_type.should eql 'S'

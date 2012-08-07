@@ -1,8 +1,6 @@
-require 'ratis/atis_model'
-
 module Ratis
+
   class Landmark
-    extend AtisModel
 
     attr_accessor :type, :verbose, :location, :locality
 
@@ -10,9 +8,9 @@ module Ratis
 
       type = conditions.delete(:type).to_s.upcase
       raise ArgumentError.new('You must provide a type') if type.blank?
-      all_conditions_used? conditions
+      Ratis.all_conditions_used? conditions
 
-      response = atis_request 'Getlandmarks', {'Type' => type}
+      response = Request.get 'Getlandmarks', {'Type' => type}
       return [] unless response.success?
 
       response.to_array(:getlandmarks_response, :landmarks, :landmark).collect do |landmark|
