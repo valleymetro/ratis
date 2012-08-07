@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AtisRoute do
+describe Ratis::Route do
 
   describe '#all' do
 
@@ -12,7 +12,7 @@ describe AtisRoute do
         </Routes>
       BODY
 
-      @all_routes = AtisRoute.all
+      @all_routes = Ratis::Route.all
     end
 
     it 'only makes one request' do
@@ -33,7 +33,7 @@ describe AtisRoute do
 
   describe '#timetable' do
 
-    let(:route) { AtisRoute.new '0', ['N', 'S'] }
+    let(:route) { Ratis::Route.new '0', ['N', 'S'] }
 
     before do
       resp = atis_response_timetable({ :route => '0', :direction => 'N', :service_type => 'W', :operator => 'OP', :effective => '01/15/12' })
@@ -59,7 +59,7 @@ describe AtisRoute do
   end
 
   it 'should initialize' do
-    route = AtisRoute.new '123', ['N', 'S']
+    route = Ratis::Route.new '123', ['N', 'S']
 
     route.short_name.should eql '123'
     route.directions.should eql ['N', 'S']
