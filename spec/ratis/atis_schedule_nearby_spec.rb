@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AtisScheduleNearby do
+describe Ratis::ScheduleNearby do
 
   describe 'single stop nearby' do
 
@@ -51,7 +51,7 @@ describe AtisScheduleNearby do
           </Atstop>
           BODY
 
-          @schedule_nearby = AtisScheduleNearby.where(
+          @schedule_nearby = Ratis::ScheduleNearby.where(
             :latitude => '33.4556', :longitude => '-112.071807',
             :date => '07/23/12', :time => '1323', :window => '60', :walk_distance => '0.50',
             :landmark_id => '0', :stop_id => nil, :app_id => 'na')
@@ -72,7 +72,7 @@ describe AtisScheduleNearby do
             ).should have_been_made
           end
 
-          it 'returns a non nil AtisScheduleNearby' do
+          it 'returns a non nil ScheduleNearby' do
             @schedule_nearby.should_not be_nil
           end
 
@@ -252,7 +252,7 @@ describe AtisScheduleNearby do
           </Atstop>
           BODY
 
-          @schedule_nearby = AtisScheduleNearby.where(
+          @schedule_nearby = Ratis::ScheduleNearby.where(
             :latitude => '33.4556', :longitude => '-112.071807',
             :date => '07/25/12', :time => '1300', :window => '60', :walk_distance => '1.00',
             :landmark_id => '0', :stop_id => nil, :app_id => 'na')
