@@ -1,14 +1,12 @@
-require 'ratis/atis_model'
-
 module Ratis
+
   class LandmarkCategory
-    extend AtisModel
 
     attr_accessor :type, :description
 
     def self.all
 
-      response = atis_request 'Getcategories'
+      response = Request.get 'Getcategories'
       return [] unless response.success?
 
       response.to_array(:getcategories_response, :types, :typeinfo).collect do |typeinfo|

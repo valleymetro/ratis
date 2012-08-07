@@ -1,11 +1,8 @@
-require 'ratis/atis_model'
-
 module Ratis
+
   class Location
-    extend AtisModel
 
     attr_accessor :name, :area, :response, :areacode, :latitude, :longitude, :landmark_id, :address, :startaddr, :endaddr, :address_string
-
 
     def self.where(conditions)
       location = conditions.delete :location
@@ -15,9 +12,9 @@ module Ratis
       raise ArgumentError.new('You must provide a location') unless location
       raise ArgumentError.new('You must provide media of A|W|I') unless ['A','W','I'].include? media
       raise ArgumentError.new('You must provide a numeric max_answers') unless (Integer max_answers rescue false)
-      all_conditions_used? conditions
+      Ratis.all_conditions_used? conditions
 
-      response = atis_request 'Locate', {'Location' => location, 'Media' => media, 'Maxanswers' => max_answers}
+      response = Request.get 'Locate', {'Location' => location, 'Media' => media, 'Maxanswers' => max_answers}
       return [] unless response.success?
 
       meta = response.to_hash[:locate_response]

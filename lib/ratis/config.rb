@@ -1,25 +1,21 @@
 module Ratis
 
-  Config = Struct.new :endpoint, :namespace, :proxy, :timeout do
+  class Config
+
+    attr_accessor :endpoint, :namespace, :proxy, :timeout
 
     def valid?
-      return true unless endpoint.blank? or namespace.blank?
-      false
+      return false if endpoint.nil? or namespace.nil?
+      return false if endpoint.empty? or namespace.empty?
+      true
+    end
+
+  private
+
+    def initialize
+      @timeout = 5
     end
 
   end
-  
-  extend self
-
-  attr_writer :config
-
-  def configure
-    yield config
-  end
-
-  def config
-    @config ||= Config.new
-  end
 
 end
-

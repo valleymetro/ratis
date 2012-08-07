@@ -1,5 +1,6 @@
 module Ratis
-  class AtisError < RuntimeError
+
+  class Error < StandardError
 
     attr_accessor :fault_code, :fault_string
 
@@ -12,7 +13,7 @@ module Ratis
     end
 
     def self.version_mismatch(method, version)
-      error = AtisError.new
+      error = Errors.new
       error.fault_string = "Unimplemented SOAP method #{ method } #{ version }"
       error
     end
@@ -57,6 +58,13 @@ module Ratis
         'The server could not handle your request at this time. Please try again later'
       end
     end
+  end
+
+  module Errors
+
+    class ConfigError < Error; end
+    class SoapError   < Error; end
 
   end
+
 end

@@ -1,14 +1,11 @@
-require 'ratis/atis_model'
-
 module Ratis
-  class Route
-    extend AtisModel
 
-    attr_accessor :short_name
-    attr_accessor :directions
+  class Route
+
+    attr_accessor :short_name, :directions
 
     def self.all
-      response = atis_request 'Allroutes'
+      response = Request.get 'Allroutes'
       return [] unless response.success?
 
       routes = response.to_hash[:allroutes_response][:routes].split(/\n/)

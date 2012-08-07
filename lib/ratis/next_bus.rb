@@ -1,8 +1,6 @@
-require 'ratis/atis_model'
-
 module Ratis
+
   class NextBus
-    extend AtisModel
 
     attr_accessor :stops, :runs
 
@@ -11,12 +9,12 @@ module Ratis
       app_id = conditions.delete(:app_id) || 'na'
 
       raise ArgumentError.new('You must provide a stop ID') unless stop_id
-      all_conditions_used? conditions
+      Ratis.all_conditions_used? conditions
 
-      response = atis_request 'Nextbus2', { 'Stopid' => stop_id, 'Appid' => app_id }
+      response = Request.get 'Nextbus2', { 'Stopid' => stop_id, 'Appid' => app_id }
       return [] unless response.success?
 
-      next_bus = Ratis::NextBus.new
+      next_bus = NextBus.new
       next_bus.stops = response.to_array :nextbus2_response, :stops, :stop
       next_bus.runs = response.to_array :nextbus2_response, :runs, :run
 

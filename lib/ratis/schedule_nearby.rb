@@ -1,8 +1,6 @@
-require 'ratis/atis_model'
-
 module Ratis
+
   class ScheduleNearby
-    extend AtisModel
 
     attr_accessor :atstops
 
@@ -24,9 +22,9 @@ module Ratis
       raise ArgumentError.new('You must provide window') unless window
       raise ArgumentError.new('You must provide walk_distance') unless walk_distance
       raise ArgumentError.new('You must provide landmark_id') unless landmark_id
-      all_conditions_used? conditions
+      Ratis.all_conditions_used? conditions
 
-      response = atis_request 'Schedulenearby',
+      response = Request.get 'Schedulenearby',
         {'Locationlat' => latitude, 'Locationlong' => longitude,
          'Date' => date, 'Time' => time, 'Window' => window, 'Walkdist' => walk_distance,
          'Landmarkid' => landmark_id, 'Stopid' => stop_id, 'Appid' => app_id
@@ -43,7 +41,7 @@ module Ratis
         end
       end
 
-      schedule_nearby = Ratis::ScheduleNearby.new
+      schedule_nearby = ScheduleNearby.new
       schedule_nearby.atstops = atstops
 
       schedule_nearby

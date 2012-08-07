@@ -1,8 +1,6 @@
-require 'ratis/atis_model'
-
 module Ratis
+
   class Itinerary
-    extend AtisModel
 
     attr_accessor :co2_auto, :co2_transit
     attr_accessor :final_walk_dir, :legs
@@ -23,14 +21,14 @@ module Ratis
       raise ArgumentError.new('You must provide a time as 24-hour HHMM') unless DateTime.strptime(time, '%H%M') rescue false
       raise ArgumentError.new('You must provide a conditions of T|X|W to minimize') unless ['T', 'X', 'W'].include? minimize
 
-      raise ArgumentError.new('You must provide an origin latitude') unless valid_latitude? origin_lat
-      raise ArgumentError.new('You must provide an origin longitude') unless valid_longitude? origin_long
-      raise ArgumentError.new('You must provide an destination latitude') unless valid_latitude? destination_lat
-      raise ArgumentError.new('You must provide an destination longitude') unless valid_longitude? destination_long
+      raise ArgumentError.new('You must provide an origin latitude') unless Ratis.valid_latitude? origin_lat
+      raise ArgumentError.new('You must provide an origin longitude') unless Ratis.valid_longitude? origin_long
+      raise ArgumentError.new('You must provide an destination latitude') unless Ratis.valid_latitude? destination_lat
+      raise ArgumentError.new('You must provide an destination longitude') unless Ratis.valid_longitude? destination_long
 
-      all_conditions_used? conditions
+      Ratis.all_conditions_used? conditions
 
-      response = atis_request 'Plantrip',
+      response = Request.get 'Plantrip',
         'Date' => date, 'Time' => time, 'Minimize' => minimize,
         'Originlat' => origin_lat, 'Originlong' => origin_long,
         'Destinationlat' => destination_lat, 'Destinationlong' => destination_long
