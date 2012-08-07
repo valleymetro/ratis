@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AtisNextBus do
+describe Ratis::NextBus do
 
   describe 'single next bus at 10496' do
 
@@ -55,7 +55,7 @@ describe AtisNextBus do
       </Runs>
       BODY
 
-      @next_bus = AtisNextBus.where :stop_id => 10496, :app_id => 'web'
+      @next_bus = Ratis::NextBus.where :stop_id => 10496, :app_id => 'web'
     end
 
     describe '#where' do
@@ -68,7 +68,7 @@ describe AtisNextBus do
         an_atis_request_for('Nextbus2', 'Stopid' => '10496', 'Appid' => 'web').should have_been_made
       end
 
-      it 'returns a non nil AtisNextBus' do
+      it 'returns a non nil NextBus' do
         @next_bus.should_not be_nil
       end
 
