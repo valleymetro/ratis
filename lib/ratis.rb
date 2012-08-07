@@ -13,7 +13,7 @@ require 'ratis/point_2_point.rb'
 require 'ratis/route'
 require 'ratis/schedule_nearby'
 require 'ratis/stop'
-require 'ratis/atis_timetable'
+require 'ratis/timetable'
 require 'ratis/atis_walk'
 
 module Ratis
