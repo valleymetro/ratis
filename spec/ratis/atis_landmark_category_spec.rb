@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AtisLandmarkCategory do
+describe Ratis::LandmarkCategory do
 
   before do
     stub_atis_request.to_return( atis_response 'Getcategories', '1.1', '0', <<-BODY )
@@ -20,7 +20,7 @@ describe AtisLandmarkCategory do
     </Types>
     BODY
 
-    @landmark_categories = AtisLandmarkCategory.all
+    @landmark_categories = Ratis::LandmarkCategory.all
   end
 
   it 'only makes one request' do
