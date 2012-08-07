@@ -8,8 +8,6 @@ class AtisItinerary
   attr_accessor :reduced_fare, :regular_fare
   attr_accessor :transit_time
 
-  implement_soap_action 'Plantrip', 1.27
-
   def self.where(conditions)
     date = conditions.delete :date
     time = conditions.delete :time

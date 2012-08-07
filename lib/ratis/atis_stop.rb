@@ -8,9 +8,6 @@ class AtisStop
   attr_accessor :stop_id, :side, :heading, :stop_position, :route_dir
   attr_accessor :area, :stop_seq
 
-  implement_soap_action 'Closeststop', 1.10
-  implement_soap_action 'Routestops', 1.0
-
   def self.closest(conditions)
     latitude = conditions.delete :latitude
     longitude = conditions.delete :longitude
