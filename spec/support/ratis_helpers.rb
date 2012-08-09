@@ -78,7 +78,7 @@ module RatisHelpers
       <Comment>My trip comment</Comment>
       <Time>12:34 AM</Time>
       <Calendarstartdate>#{ Time.now.strftime '%m/%d/%y' }</Calendarstartdate>
-      <Calendar>#{ 120.times.collect{['y','n'].sample} }</Calendar>
+      <Calendar>#{ 120.times.map{['y','n'].sample} }</Calendar>
       <Commentcode>comment_code_trip</Commentcode>
     </Trip>
   </Times>

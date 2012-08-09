@@ -9,7 +9,7 @@ module Ratis
       response = Request.get 'Getcategories'
       return [] unless response.success?
 
-      response.to_array(:getcategories_response, :types, :typeinfo).collect do |typeinfo|
+      response.to_array(:getcategories_response, :types, :typeinfo).map do |typeinfo|
         atis_landmark_category = LandmarkCategory.new
         atis_landmark_category.type = typeinfo[:type]
         atis_landmark_category.description = typeinfo[:description]

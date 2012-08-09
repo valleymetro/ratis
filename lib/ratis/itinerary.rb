@@ -35,7 +35,7 @@ module Ratis
 
       return [] unless response.success?
 
-      response.to_array(:plantrip_response, :itin).collect do |itinerary|
+      response.to_array(:plantrip_response, :itin).map do |itinerary|
         atis_itinerary = Itinerary.new
         atis_itinerary.co2_auto = itinerary[:co2auto].to_f
         atis_itinerary.co2_transit = itinerary[:co2transit].to_f
