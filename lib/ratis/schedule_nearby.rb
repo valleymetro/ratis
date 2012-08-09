@@ -33,10 +33,10 @@ module Ratis
       return [] unless response.success?
 
       atstops = response.to_array :schedulenearby_response, :atstop
-      atstops.collect do |atstop|
+      atstops.map do |atstop|
         atstop[:services] = atstop.to_array :service
 
-        atstop[:services].collect do |service|
+        atstop[:services].map do |service|
           service[:tripinfos] = service.to_array :tripinfo
         end
       end
@@ -49,7 +49,7 @@ module Ratis
 
     def to_hash
       {
-        :atstops => atstops.collect do |atstop|
+        :atstops => atstops.map do |atstop|
           {
             :description    => atstop[:description],
             :walkdist       => atstop[:walkdist],

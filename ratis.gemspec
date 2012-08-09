@@ -22,4 +22,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'webmock'
   s.add_development_dependency 'hashdiff'
   s.add_development_dependency 'bundler', '>= 1.0.0'
+  s.add_development_dependency 'yard'
+  s.add_development_dependency 'redcarpet'
 end

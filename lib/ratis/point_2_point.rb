@@ -43,7 +43,7 @@ module Ratis
   private
 
     def self.parse_routes_only_yes(response)
-      response.to_array(:point2point_response, :routes, :service).collect do |service|
+      response.to_array(:point2point_response, :routes, :service).map do |service|
         atis_service = Service.new
         atis_service.route = service[:route]
         atis_service.direction = service[:direction]
@@ -58,7 +58,7 @@ module Ratis
       return nil unless response.success?
 
       atis_schedule = Schedule.new
-      atis_schedule.groups = response.to_array(:point2point_response, :groups, :group).collect do |group|
+      atis_schedule.groups = response.to_array(:point2point_response, :groups, :group).map do |group|
         atis_schedule_group = ScheduleGroup.new
 
         # Point2point 1.3 uses inconsistent tag naming, thus: <onstop> <onwalk...>, but <offstop> <offstopwalk...>
@@ -66,12 +66,12 @@ module Ratis
         atis_schedule_group.on_stop = atis_stop_from_hash 'on', group[:onstop]
         atis_schedule_group.off_stop = atis_stop_from_hash 'offstop', group[:offstop]
 
-        atis_schedule_group.trips = group.to_array(:trips, :trip).collect do |trip|
+        atis_schedule_group.trips = group.to_array(:trips, :trip).map do |trip|
           atis_trip = ScheduleTrip.new
           atis_trip.on_time = trip[:ontime]
           atis_trip.off_time = trip[:offtime]
 
-          atis_trip.service = trip.to_array(:service).collect do |service|
+          atis_trip.service = trip.to_array(:service).map do |service|
             atis_service = Service.new
 
             atis_service.route = service[:route]
