@@ -13,7 +13,7 @@ module Ratis
       response = Request.get 'Getlandmarks', {'Type' => type}
       return [] unless response.success?
 
-      response.to_array(:getlandmarks_response, :landmarks, :landmark).collect do |landmark|
+      response.to_array(:getlandmarks_response, :landmarks, :landmark).map do |landmark|
         atis_landmark = Landmark.new
         atis_landmark.type = landmark[:type]
         atis_landmark.verbose = landmark[:verbose]
