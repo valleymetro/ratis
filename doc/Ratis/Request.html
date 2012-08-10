@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Ratis::Request
+  
+    &mdash; Documentation by YARD 0.8.2.1
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (R)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../Ratis.html" title="Ratis (module)">Ratis</a></span></span>
+     &raquo; 
+    <span class="title">Request</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: Ratis::Request
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Ratis::Request</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+      <dt class="r2">Extended by:</dt>
+      <dd class="r2">Savon::Model</dd>
+      
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/ratis/request.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get-class_method" title="get (class method)">+ (Object) <strong>get</strong>(action, params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Request) <strong>initialize</strong>(config = nil) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+A new instance of Request.
+</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Ratis::Request (class)">Request</a></span></tt>) <strong>initialize</strong>(config = nil) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+A new instance of Request
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ratis/request.rb', line 7</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='rubyid_config identifier id'>config</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='rubyid_config identifier id'>config</span> <span class='assign token'>=</span> <span class='rubyid_Ratis constant id'>Ratis</span><span class='dot token'>.</span><span class='rubyid_config identifier id'>config</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_config identifier id'>config</span><span class='dot token'>.</span><span class='rubyid_nil? fid id'>nil?</span>
+  <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_Errors constant id'>Errors</span><span class='colon2 op'>::</span><span class='rubyid_ConfigError constant id'>ConfigError</span><span class='lparen token'>(</span><span class='string val'>'It appears that Ratis.configure has not been called'</span><span class='rparen token'>)</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_config identifier id'>config</span><span class='dot token'>.</span><span class='rubyid_valid? fid id'>valid?</span>
+  <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_client identifier id'>client</span> <span class='rubyid_do do kw'>do</span>
+    <span class='rubyid_wsdl identifier id'>wsdl</span><span class='dot token'>.</span><span class='rubyid_endpoint identifier id'>endpoint</span>     <span class='assign token'>=</span> <span class='rubyid_Ratis constant id'>Ratis</span><span class='dot token'>.</span><span class='rubyid_config identifier id'>config</span><span class='dot token'>.</span><span class='rubyid_endpoint identifier id'>endpoint</span>
+    <span class='rubyid_wsdl identifier id'>wsdl</span><span class='dot token'>.</span><span class='rubyid_namespace identifier id'>namespace</span>    <span class='assign token'>=</span> <span class='rubyid_Ratis constant id'>Ratis</span><span class='dot token'>.</span><span class='rubyid_config identifier id'>config</span><span class='dot token'>.</span><span class='rubyid_namespace identifier id'>namespace</span>
+    <span class='rubyid_http identifier id'>http</span><span class='dot token'>.</span><span class='rubyid_proxy identifier id'>proxy</span>        <span class='assign token'>=</span> <span class='rubyid_Ratis constant id'>Ratis</span><span class='dot token'>.</span><span class='rubyid_config identifier id'>config</span><span class='dot token'>.</span><span class='rubyid_proxy identifier id'>proxy</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_Ratis constant id'>Ratis</span><span class='dot token'>.</span><span class='rubyid_config identifier id'>config</span><span class='dot token'>.</span><span class='rubyid_proxy identifier id'>proxy</span><span class='dot token'>.</span><span class='rubyid_blank? fid id'>blank?</span>
+    <span class='rubyid_http identifier id'>http</span><span class='dot token'>.</span><span class='rubyid_open_timeout identifier id'>open_timeout</span> <span class='assign token'>=</span> <span class='rubyid_Ratis constant id'>Ratis</span><span class='dot token'>.</span><span class='rubyid_config identifier id'>config</span><span class='dot token'>.</span><span class='rubyid_timeout identifier id'>timeout</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_Ratis constant id'>Ratis</span><span class='dot token'>.</span><span class='rubyid_config identifier id'>config</span><span class='dot token'>.</span><span class='rubyid_timeout identifier id'>timeout</span><span class='dot token'>.</span><span class='rubyid_blank? fid id'>blank?</span>
+  <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_rescue rescue kw'>rescue</span> <span class='rubyid_ArgumentError constant id'>ArgumentError</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_e identifier id'>e</span>
+  <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_ArgumentError constant id'>ArgumentError</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span> <span class='string val'>'Invalid ATIS SOAP server configuration: '</span> <span class='plus op'>+</span> <span class='rubyid_e identifier id'>e</span><span class='dot token'>.</span><span class='rubyid_message identifier id'>message</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="get-class_method">
+  
+    + (<tt>Object</tt>) <strong>get</strong>(action, params = {}) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ratis/request.rb', line 20</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='rubyid_action identifier id'>action</span><span class='comma token'>,</span> <span class='rubyid_params identifier id'>params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='rubyid_begin begin kw'>begin</span>
+    <span class='rubyid_req identifier id'>req</span>      <span class='assign token'>=</span> <span class='rubyid_new identifier id'>new</span> <span class='rubyid_Ratis constant id'>Ratis</span><span class='dot token'>.</span><span class='rubyid_config identifier id'>config</span>
+    <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_client identifier id'>client</span><span class='dot token'>.</span><span class='rubyid_request identifier id'>request</span> <span class='rubyid_action identifier id'>action</span><span class='comma token'>,</span> <span class='symbol val'>:soap_action</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>&quot;#{Ratis.config.namespace}##{action}&quot;</span><span class='comma token'>,</span> <span class='symbol val'>:xmlns</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_Ratis constant id'>Ratis</span><span class='dot token'>.</span><span class='rubyid_config identifier id'>config</span><span class='dot token'>.</span><span class='rubyid_namespace identifier id'>namespace</span> <span class='rubyid_do do kw'>do</span>
+      <span class='rubyid_soap identifier id'>soap</span><span class='dot token'>.</span><span class='rubyid_body identifier id'>body</span> <span class='assign token'>=</span> <span class='rubyid_params identifier id'>params</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_params identifier id'>params</span><span class='dot token'>.</span><span class='rubyid_blank? fid id'>blank?</span>
+    <span class='rubyid_end end kw'>end</span>
+
+    <span class='rubyid_version identifier id'>version</span> <span class='assign token'>=</span> <span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_to_hash identifier id'>to_hash</span><span class='lbrack token'>[</span><span class='dstring node'>&quot;#{action.downcase}_response&quot;</span><span class='dot token'>.</span><span class='rubyid_to_sym identifier id'>to_sym</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:version</span><span class='rbrack token'>]</span>
+
+    <span class='rubyid_response identifier id'>response</span>
+  <span class='rubyid_rescue rescue kw'>rescue</span> <span class='rubyid_Errno constant id'>Errno</span><span class='colon2 op'>::</span><span class='rubyid_ECONNREFUSED constant id'>ECONNREFUSED</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_e identifier id'>e</span>
+    <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_Errno constant id'>Errno</span><span class='colon2 op'>::</span><span class='rubyid_ECONNREFUSED constant id'>ECONNREFUSED</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span> <span class='string val'>'Refused request to ATIS SOAP server'</span>
+  <span class='rubyid_rescue rescue kw'>rescue</span> <span class='rubyid_Savon constant id'>Savon</span><span class='colon2 op'>::</span><span class='rubyid_SOAP constant id'>SOAP</span><span class='colon2 op'>::</span><span class='rubyid_Fault constant id'>Fault</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_e identifier id'>e</span>
+    <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_Errors constant id'>Errors</span><span class='colon2 op'>::</span><span class='rubyid_SoapError constant id'>SoapError</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span> <span class='rubyid_e identifier id'>e</span>
+  <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Thu Aug  9 09:36:50 2012 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.2.1 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>
