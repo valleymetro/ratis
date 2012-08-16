@@ -25,7 +25,7 @@ module Ratis
       return [] unless response.success?
 
       response.to_hash[:routestops_response][:stops][:stop].map do |s|
-        stop = Stop.new
+        stop = RouteStops::Stop.new
         stop.description = s[:description]
         stop.area = s[:area]
         stop.atis_stop_id = s[:atisstopid]
