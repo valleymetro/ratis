@@ -197,8 +197,8 @@ describe Ratis::Point2Point do
 
       it 'gets the groups' do
         @schedule.should have(2).groups
-        @schedule.groups.first.should be_kind_of Ratis::ScheduleGroup
-        @schedule.groups.last.should be_kind_of Ratis::ScheduleGroup
+        @schedule.groups.first.should be_kind_of Ratis::Point2Point::Group
+        @schedule.groups.last.should be_kind_of Ratis::Point2Point::Group
       end
 
       it 'gets the trips within each group' do
@@ -210,7 +210,7 @@ describe Ratis::Point2Point do
         group = @schedule.groups.first
         on_stop = group.on_stop
 
-        on_stop.should be_kind_of Ratis::Stop
+        on_stop.should be_kind_of Ratis::Point2Point::Stop
 
         on_stop.description.should eql 'VAN BUREN/1ST AVE LIGHT RAIL STATION'
         on_stop.latitude.should eql 33.452252
@@ -238,7 +238,7 @@ describe Ratis::Point2Point do
         group = @schedule.groups.first
         trip = group.trips.first
 
-        trip.should be_kind_of Ratis::ScheduleTrip
+        trip.should be_kind_of Ratis::Point2Point::Trip
         trip.on_time.should eql '09:07 AM'
         trip.off_time.should eql '09:11 AM'
       end
@@ -247,7 +247,7 @@ describe Ratis::Point2Point do
         group = @schedule.groups.first
         service = group.trips.first.service
 
-        service.should be_kind_of Ratis::Service
+        service.should be_kind_of Ratis::Point2Point::Service
         service.route.should eql 'LTRL'
         service.direction.should eql 'E'
         service.service_type.should eql 'S'

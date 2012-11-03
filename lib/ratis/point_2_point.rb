@@ -44,13 +44,13 @@ module Ratis
 
     def self.parse_routes_only_yes(response)
       response.to_array(:point2point_response, :routes, :service).map do |service|
-        atis_service = Point2Point::RoutesOnlyResponse.new
-        atis_service.route = service[:route]
-        atis_service.direction = service[:direction]
-        atis_service.service_type = service[:servicetype]
-        atis_service.signage = service[:signage]
-        atis_service.route_type = service[:routetype]
-        atis_service
+        Point2Point::RoutesOnlyResponse.new({
+          :route        => service[:route],
+          :direction    => service[:direction],
+          :service_type => service[:servicetype],
+          :signage      => service[:signage],
+          :route_type   => service[:routetype]
+        })
       end
     end
 
