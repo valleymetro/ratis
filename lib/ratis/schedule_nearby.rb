@@ -55,6 +55,7 @@ module Ratis
             :walkdist       => atstop[:walkdist],
             :walkdir        => atstop[:walkdir],
             :stopid         => atstop[:stopid],
+            :heading        => atstop[:heading],
             :lat            => atstop[:lat],
             :long           => atstop[:long],
             :services       => atstop[:services].map do |service|
