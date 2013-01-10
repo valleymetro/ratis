@@ -6,4 +6,3 @@ Bundler::GemHelper.install_tasks
 
 desc 'Run tests'
 task :default => :spec
-
