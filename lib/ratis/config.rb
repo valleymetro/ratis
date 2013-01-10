@@ -2,7 +2,7 @@ module Ratis
 
   class Config
 
-    attr_accessor :endpoint, :namespace, :proxy, :timeout
+    attr_accessor :endpoint, :namespace, :proxy, :timeout, :log
 
     def valid?
       return false if endpoint.nil? or namespace.nil?
