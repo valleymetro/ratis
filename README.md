@@ -92,7 +92,7 @@ Development
         ssh -i ~/.ssh/authoritylabs.pem -L 8080:localhost:3128 ubuntu@codingsanctum.com
 
  1. Run the test suite with `rake`
- 1. Test it out with `irb -r config/valley_metro.rb -I lib/ -r rubygems -r ratis`
+ 1. Test it out with `irb -I lib/ -r rubygems -r ratis`
 
 ### Extending
 

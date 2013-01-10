@@ -7,6 +7,8 @@ module Ratis
     def initialize(config = nil)
       config = Ratis.config if config.nil?
       raise Errors::ConfigError('It appears that Ratis.configure has not been called') unless config.valid?
+      # UPDATED SAVON NEEDS SOMETHING LIKE ...
+      # Savon.client(endpoint: 'http://soap.valleymetro.org/cgi-bin-soap-web-252/soap.cgi', namespace: 'PX_WEB')
       self.class.client do
         wsdl.endpoint     = Ratis.config.endpoint
         wsdl.namespace    = Ratis.config.namespace
