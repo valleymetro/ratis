@@ -88,7 +88,7 @@
   
     <dt class="r1 last">Defined in:</dt>
     <dd class="r1 last">lib/ratis.rb<span class="defines">,<br />
-  lib/ratis/walk.rb,<br /> lib/ratis/stop.rb,<br /> lib/ratis/route.rb,<br /> lib/ratis/config.rb,<br /> lib/ratis/errors.rb,<br /> lib/ratis/version.rb,<br /> lib/ratis/service.rb,<br /> lib/ratis/request.rb,<br /> lib/ratis/location.rb,<br /> lib/ratis/schedule.rb,<br /> lib/ratis/next_bus.rb,<br /> lib/ratis/landmark.rb,<br /> lib/ratis/timetable.rb,<br /> lib/ratis/itinerary.rb,<br /> lib/ratis/schedule_trip.rb,<br /> lib/ratis/point_2_point.rb,<br /> lib/ratis/schedule_group.rb,<br /> lib/ratis/schedule_nearby.rb,<br /> lib/ratis/landmark_category.rb</span>
+  lib/ratis/walk.rb,<br /> lib/ratis/route.rb,<br /> lib/ratis/config.rb,<br /> lib/ratis/errors.rb,<br /> lib/ratis/version.rb,<br /> lib/ratis/request.rb,<br /> lib/ratis/landmark.rb,<br /> lib/ratis/next_bus.rb,<br /> lib/ratis/location.rb,<br /> lib/ratis/timetable.rb,<br /> lib/ratis/itinerary.rb,<br /> lib/ratis/route_stops.rb,<br /> lib/ratis/closest_stop.rb,<br /> lib/ratis/point_2_point.rb,<br /> lib/ratis/timetable/trip.rb,<br /> lib/ratis/timetable/stop.rb,<br /> lib/ratis/schedule_nearby.rb,<br /> lib/ratis/route_stops/stop.rb,<br /> lib/ratis/landmark_category.rb,<br /> lib/ratis/point_2_point/trip.rb,<br /> lib/ratis/point_2_point/stop.rb,<br /> lib/ratis/point_2_point/group.rb,<br /> lib/ratis/point_2_point/service.rb,<br /> lib/ratis/point_2_point/standard_response.rb,<br /> lib/ratis/point_2_point/routes_only_response.rb</span>
 </dd>
   
 </dl>
@@ -102,7 +102,7 @@
     
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Ratis/Config.html" title="Ratis::Config (class)">Config</a></span>, <span class='object_link'><a href="Ratis/Error.html" title="Ratis::Error (class)">Error</a></span>, <span class='object_link'><a href="Ratis/Itinerary.html" title="Ratis::Itinerary (class)">Itinerary</a></span>, <span class='object_link'><a href="Ratis/Landmark.html" title="Ratis::Landmark (class)">Landmark</a></span>, <span class='object_link'><a href="Ratis/LandmarkCategory.html" title="Ratis::LandmarkCategory (class)">LandmarkCategory</a></span>, <span class='object_link'><a href="Ratis/Location.html" title="Ratis::Location (class)">Location</a></span>, <span class='object_link'><a href="Ratis/NextBus.html" title="Ratis::NextBus (class)">NextBus</a></span>, <span class='object_link'><a href="Ratis/Point2Point.html" title="Ratis::Point2Point (class)">Point2Point</a></span>, <span class='object_link'><a href="Ratis/Request.html" title="Ratis::Request (class)">Request</a></span>, <span class='object_link'><a href="Ratis/Route.html" title="Ratis::Route (class)">Route</a></span>, <span class='object_link'><a href="Ratis/Schedule.html" title="Ratis::Schedule (class)">Schedule</a></span>, <span class='object_link'><a href="Ratis/ScheduleGroup.html" title="Ratis::ScheduleGroup (class)">ScheduleGroup</a></span>, <span class='object_link'><a href="Ratis/ScheduleNearby.html" title="Ratis::ScheduleNearby (class)">ScheduleNearby</a></span>, <span class='object_link'><a href="Ratis/ScheduleTrip.html" title="Ratis::ScheduleTrip (class)">ScheduleTrip</a></span>, <span class='object_link'><a href="Ratis/Service.html" title="Ratis::Service (class)">Service</a></span>, <span class='object_link'><a href="Ratis/Stop.html" title="Ratis::Stop (class)">Stop</a></span>, <span class='object_link'><a href="Ratis/Timetable.html" title="Ratis::Timetable (class)">Timetable</a></span>, <span class='object_link'><a href="Ratis/Walk.html" title="Ratis::Walk (class)">Walk</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Ratis/ClosestStop.html" title="Ratis::ClosestStop (class)">ClosestStop</a></span>, <span class='object_link'><a href="Ratis/Config.html" title="Ratis::Config (class)">Config</a></span>, <span class='object_link'><a href="Ratis/Error.html" title="Ratis::Error (class)">Error</a></span>, <span class='object_link'><a href="Ratis/Itinerary.html" title="Ratis::Itinerary (class)">Itinerary</a></span>, <span class='object_link'><a href="Ratis/Landmark.html" title="Ratis::Landmark (class)">Landmark</a></span>, <span class='object_link'><a href="Ratis/LandmarkCategory.html" title="Ratis::LandmarkCategory (class)">LandmarkCategory</a></span>, <span class='object_link'><a href="Ratis/Location.html" title="Ratis::Location (class)">Location</a></span>, <span class='object_link'><a href="Ratis/NextBus.html" title="Ratis::NextBus (class)">NextBus</a></span>, <span class='object_link'><a href="Ratis/Point2Point.html" title="Ratis::Point2Point (class)">Point2Point</a></span>, <span class='object_link'><a href="Ratis/Request.html" title="Ratis::Request (class)">Request</a></span>, <span class='object_link'><a href="Ratis/Route.html" title="Ratis::Route (class)">Route</a></span>, <span class='object_link'><a href="Ratis/RouteStops.html" title="Ratis::RouteStops (class)">RouteStops</a></span>, <span class='object_link'><a href="Ratis/ScheduleNearby.html" title="Ratis::ScheduleNearby (class)">ScheduleNearby</a></span>, <span class='object_link'><a href="Ratis/Timetable.html" title="Ratis::Timetable (class)">Timetable</a></span>, <span class='object_link'><a href="Ratis/Walk.html" title="Ratis::Walk (class)">Walk</a></span>
     
   
 </p>
@@ -312,12 +312,12 @@
       <pre class="lines">
 
 
-43
-44
-45</pre>
+49
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ratis.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/ratis.rb', line 49</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_all_conditions_used? fid id'>all_conditions_used?</span><span class='lparen token'>(</span><span class='rubyid_conditions identifier id'>conditions</span><span class='rparen token'>)</span>
   <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_ArgumentError constant id'>ArgumentError</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='dstring node'>&quot;Conditions not used by this class: #{conditions.keys.inspect}&quot;</span><span class='rparen token'>)</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_conditions identifier id'>conditions</span><span class='dot token'>.</span><span class='rubyid_empty? fid id'>empty?</span>
@@ -343,12 +343,12 @@
       <pre class="lines">
 
 
-31
-32
-33</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ratis.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/ratis.rb', line 37</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_config identifier id'>config</span>
   <span class='rubyid_@config ivar id'>@config</span> <span class='opasgn op'>||=</span> <span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span>
@@ -396,12 +396,12 @@
       <pre class="lines">
 
 
-27
-28
-29</pre>
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ratis.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/ratis.rb', line 33</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_configure identifier id'>configure</span>
   <span class='rubyid_yield yield kw'>yield</span> <span class='rubyid_config identifier id'>config</span>
@@ -449,12 +449,12 @@
       <pre class="lines">
 
 
-35
-36
-37</pre>
+41
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ratis.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/ratis.rb', line 41</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_valid_latitude? fid id'>valid_latitude?</span><span class='lparen token'>(</span><span class='rubyid_lat identifier id'>lat</span><span class='rparen token'>)</span>
   <span class='float val'>-90.0</span> <span class='leq op'>&lt;=</span> <span class='rubyid_lat identifier id'>lat</span><span class='dot token'>.</span><span class='rubyid_to_f identifier id'>to_f</span> <span class='rubyid_and and kw'>and</span> <span class='rubyid_lat identifier id'>lat</span><span class='dot token'>.</span><span class='rubyid_to_f identifier id'>to_f</span> <span class='leq op'>&lt;=</span> <span class='float val'>90.0</span>
@@ -502,12 +502,12 @@
       <pre class="lines">
 
 
-39
-40
-41</pre>
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ratis.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/ratis.rb', line 45</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_valid_longitude? fid id'>valid_longitude?</span><span class='lparen token'>(</span><span class='rubyid_lon identifier id'>lon</span><span class='rparen token'>)</span>
   <span class='float val'>-180.0</span> <span class='leq op'>&lt;=</span> <span class='rubyid_lon identifier id'>lon</span><span class='dot token'>.</span><span class='rubyid_to_f identifier id'>to_f</span> <span class='rubyid_and and kw'>and</span> <span class='rubyid_lon identifier id'>lon</span><span class='dot token'>.</span><span class='rubyid_to_f identifier id'>to_f</span> <span class='leq op'>&lt;=</span> <span class='float val'>180.0</span>
@@ -555,14 +555,18 @@
 24
 25
 26
-27</pre>
+27
+28
+29
+30
+31</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/ratis/version.rb', line 5</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_version identifier id'>version</span>
   <span class='rubyid_@version ivar id'>@version</span> <span class='opasgn op'>||=</span> <span class='rubyid_begin begin kw'>begin</span>
-    <span class='rubyid_string identifier id'>string</span> <span class='assign token'>=</span> <span class='string val'>'2.5.1'</span>
+    <span class='rubyid_string identifier id'>string</span> <span class='assign token'>=</span> <span class='string val'>'2.5.2.5'</span>
 
     <span class='rubyid_def def kw'>def</span> <span class='rubyid_string identifier id'>string</span><span class='dot token'>.</span><span class='rubyid_parts identifier id'>parts</span>
       <span class='rubyid_split identifier id'>split</span><span class='lparen token'>(</span><span class='string val'>'.'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_map identifier id'>map</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='rubyid_p identifier id'>p</span><span class='bitor op'>|</span> <span class='rubyid_p identifier id'>p</span><span class='dot token'>.</span><span class='rubyid_to_i identifier id'>to_i</span> <span class='rbrace token'>}</span>
@@ -576,8 +580,12 @@
       <span class='rubyid_parts identifier id'>parts</span><span class='lbrack token'>[</span><span class='integer val'>1</span><span class='rbrack token'>]</span>
     <span class='rubyid_end end kw'>end</span>
 
-    <span class='rubyid_def def kw'>def</span> <span class='rubyid_string identifier id'>string</span><span class='dot token'>.</span><span class='rubyid_patch identifier id'>patch</span>
+    <span class='rubyid_def def kw'>def</span> <span class='rubyid_string identifier id'>string</span><span class='dot token'>.</span><span class='rubyid_build identifier id'>build</span>
       <span class='rubyid_parts identifier id'>parts</span><span class='lbrack token'>[</span><span class='integer val'>2</span><span class='rbrack token'>]</span>
+    <span class='rubyid_end end kw'>end</span>
+
+    <span class='rubyid_def def kw'>def</span> <span class='rubyid_string identifier id'>string</span><span class='dot token'>.</span><span class='rubyid_patch identifier id'>patch</span>
+      <span class='rubyid_parts identifier id'>parts</span><span class='lbrack token'>[</span><span class='integer val'>3</span><span class='rbrack token'>]</span>
     <span class='rubyid_end end kw'>end</span>
 
     <span class='rubyid_string identifier id'>string</span>
@@ -594,7 +602,7 @@
 </div>
 
     <div id="footer">
-  Generated on Thu Aug  9 09:36:48 2012 by
+  Generated on Wed Jan 16 16:46:42 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.2.1 (ruby-1.8.7).
 </div>

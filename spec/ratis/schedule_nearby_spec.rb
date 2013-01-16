@@ -94,11 +94,11 @@ describe Ratis::ScheduleNearby do
               { :atstops=>
                 [
                   { :walkdir=>"NW", :walkdist=>"0.41", :description=>"ROOSEVELT/CENTRAL AVE LIGHT RAIL STATION",
-                    :lat=>"33.459821", :stopid=>"10011", :long=>"-112.073847",
+                    :lat=>"33.459821", :stopid=>"10011", :heading => "NB", :long=>"-112.073847",
                     :services=>[
                       { :routetype=>"L", :times=>"12:10 AM", :operator=>"LRT",
                         :route=>"LTRL", :sign=>"Metro light rail To 44th St/Washington",
-                        :trips=> [ { :triptime=>"12:10 AM"} ]
+                        :trips=> [ { :triptime=>"12:10 AM"} ],
                       }
                     ]
                   }
@@ -305,7 +305,7 @@ describe Ratis::ScheduleNearby do
             { :atstops=>
               [
                 { :walkdir=>"W", :walkdist=>"0.05", :description=>"1ST AVE & VAN BUREN ST",
-                  :lat=>"33.451748", :stopid=>"10161", :long=>"-112.075169",
+                  :lat=>"33.451748", :stopid=>"10161", :heading=>"SB", :long=>"-112.075169",
                   :services=>[
                     { :routetype=>"B", :times=>"12:40 PM, 01:00 PM", :operator=>"AP",
                       :route=>"0", :sign=>"0 CENTRAL South to Dobbins",
@@ -318,7 +318,7 @@ describe Ratis::ScheduleNearby do
                   ]
                 },
                 { :walkdir=>"SW", :walkdist=>"0.09", :description=>"VAN BUREN ST & 1ST AVE",
-                  :lat=>"33.451367", :stopid=>"10342", :long=>"-112.075485",
+                  :lat=>"33.451367", :stopid=>"10342", :heading=>"EB", :long=>"-112.075485",
                   :services=>[
                     { :routetype=>"B", :times=>"12:59 PM, 01:29 PM", :operator=>"FT",
                       :route=>"3", :sign=>"3 VAN BUREN East to 48th St.",
@@ -332,7 +332,9 @@ describe Ratis::ScheduleNearby do
                 }
               ]
             }
-
+            puts hash.inspect
+            puts "============"
+            puts @schedule_nearby.to_hash.inspect
             HashDiff.diff(@schedule_nearby.to_hash, hash).should eql []
 
           end

@@ -99,6 +99,16 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Point2Point/Group.html" title="Ratis::Point2Point::Group (class)">Group</a></span>, <span class='object_link'><a href="Point2Point/RoutesOnlyResponse.html" title="Ratis::Point2Point::RoutesOnlyResponse (class)">RoutesOnlyResponse</a></span>, <span class='object_link'><a href="Point2Point/Service.html" title="Ratis::Point2Point::Service (class)">Service</a></span>, <span class='object_link'><a href="Point2Point/StandardResponse.html" title="Ratis::Point2Point::StandardResponse (class)">StandardResponse</a></span>, <span class='object_link'><a href="Point2Point/Stop.html" title="Ratis::Point2Point::Stop (class)">Stop</a></span>, <span class='object_link'><a href="Point2Point/Trip.html" title="Ratis::Point2Point::Trip (class)">Trip</a></span>
+    
+  
+</p>
 
 
 
@@ -224,7 +234,7 @@
       <pre class="code"><span class="info file"># File 'lib/ratis/point_2_point.rb', line 5</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_where identifier id'>where</span><span class='lparen token'>(</span><span class='rubyid_conditions identifier id'>conditions</span><span class='rparen token'>)</span>
-  <span class='rubyid_routes_only identifier id'>routes_only</span> <span class='assign token'>=</span> <span class='rubyid_conditions identifier id'>conditions</span><span class='dot token'>.</span><span class='rubyid_delete identifier id'>delete</span><span class='lparen token'>(</span><span class='symbol val'>:routes_only</span><span class='rparen token'>)</span>
+  <span class='rubyid_routes_only identifier id'>routes_only</span> <span class='assign token'>=</span> <span class='rubyid_conditions identifier id'>conditions</span><span class='dot token'>.</span><span class='rubyid_delete identifier id'>delete</span><span class='lparen token'>(</span><span class='symbol val'>:routes_only</span><span class='rparen token'>)</span> <span class='orop op'>||</span> <span class='string val'>'N'</span>
 
   <span class='rubyid_origin_lat identifier id'>origin_lat</span> <span class='assign token'>=</span> <span class='rubyid_conditions identifier id'>conditions</span><span class='dot token'>.</span><span class='rubyid_delete identifier id'>delete</span><span class='lparen token'>(</span><span class='symbol val'>:origin_lat</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_to_f identifier id'>to_f</span>
   <span class='rubyid_origin_long identifier id'>origin_long</span> <span class='assign token'>=</span> <span class='rubyid_conditions identifier id'>conditions</span><span class='dot token'>.</span><span class='rubyid_delete identifier id'>delete</span><span class='lparen token'>(</span><span class='symbol val'>:origin_long</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_to_f identifier id'>to_f</span>
@@ -232,7 +242,7 @@
   <span class='rubyid_destination_long identifier id'>destination_long</span> <span class='assign token'>=</span> <span class='rubyid_conditions identifier id'>conditions</span><span class='dot token'>.</span><span class='rubyid_delete identifier id'>delete</span><span class='lparen token'>(</span><span class='symbol val'>:destination_long</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_to_f identifier id'>to_f</span>
 
   <span class='rubyid_date identifier id'>date</span> <span class='assign token'>=</span> <span class='rubyid_conditions identifier id'>conditions</span><span class='dot token'>.</span><span class='rubyid_delete identifier id'>delete</span> <span class='symbol val'>:date</span>
-  <span class='rubyid_start_time identifier id'>start_time</span> <span class='assign token'>=</span> <span class='rubyid_conditions identifier id'>conditions</span><span class='dot token'>.</span><span class='rubyid_delete identifier id'>delete</span> <span class='symbol val'>:start_time</span>
+  <span class='rubyid_start_time identifier id'>start_time</span> <span class='assign token'>=</span> <span class='rubyid_conditions identifier id'>conditions</span><span class='dot token'>.</span><span class='rubyid_delete identifier id'>delete</span><span class='lparen token'>(</span><span class='symbol val'>:start_time</span><span class='rparen token'>)</span>
   <span class='rubyid_end_time identifier id'>end_time</span> <span class='assign token'>=</span> <span class='rubyid_conditions identifier id'>conditions</span><span class='dot token'>.</span><span class='rubyid_delete identifier id'>delete</span> <span class='symbol val'>:end_time</span>
 
   <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_ArgumentError constant id'>ArgumentError</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>&quot;You must specify routes only with true, false, 'y' or 'n'&quot;</span><span class='rparen token'>)</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_routes_only identifier id'>routes_only</span><span class='dot token'>.</span><span class='rubyid_y_or_n identifier id'>y_or_n</span> <span class='rubyid_rescue rescue kw'>rescue</span> <span class='rubyid_false false kw'>false</span>
@@ -271,7 +281,7 @@
 </div>
 
     <div id="footer">
-  Generated on Thu Aug  9 09:36:51 2012 by
+  Generated on Wed Jan 16 16:46:44 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.2.1 (ruby-1.8.7).
 </div>

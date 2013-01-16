@@ -234,7 +234,8 @@ A new instance of Request
 15
 16
 17
-18</pre>
+18
+19</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/ratis/request.rb', line 7</span>
@@ -242,6 +243,7 @@ A new instance of Request
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='rubyid_config identifier id'>config</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='rubyid_config identifier id'>config</span> <span class='assign token'>=</span> <span class='rubyid_Ratis constant id'>Ratis</span><span class='dot token'>.</span><span class='rubyid_config identifier id'>config</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_config identifier id'>config</span><span class='dot token'>.</span><span class='rubyid_nil? fid id'>nil?</span>
   <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_Errors constant id'>Errors</span><span class='colon2 op'>::</span><span class='rubyid_ConfigError constant id'>ConfigError</span><span class='lparen token'>(</span><span class='string val'>'It appears that Ratis.configure has not been called'</span><span class='rparen token'>)</span> <span class='rubyid_unless unless_mod kw'>unless</span> <span class='rubyid_config identifier id'>config</span><span class='dot token'>.</span><span class='rubyid_valid? fid id'>valid?</span>
+  
   <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_client identifier id'>client</span> <span class='rubyid_do do kw'>do</span>
     <span class='rubyid_wsdl identifier id'>wsdl</span><span class='dot token'>.</span><span class='rubyid_endpoint identifier id'>endpoint</span>     <span class='assign token'>=</span> <span class='rubyid_Ratis constant id'>Ratis</span><span class='dot token'>.</span><span class='rubyid_config identifier id'>config</span><span class='dot token'>.</span><span class='rubyid_endpoint identifier id'>endpoint</span>
     <span class='rubyid_wsdl identifier id'>wsdl</span><span class='dot token'>.</span><span class='rubyid_namespace identifier id'>namespace</span>    <span class='assign token'>=</span> <span class='rubyid_Ratis constant id'>Ratis</span><span class='dot token'>.</span><span class='rubyid_config identifier id'>config</span><span class='dot token'>.</span><span class='rubyid_namespace identifier id'>namespace</span>
@@ -279,7 +281,6 @@ A new instance of Request
       <pre class="lines">
 
 
-20
 21
 22
 23
@@ -294,10 +295,11 @@ A new instance of Request
 32
 33
 34
-35</pre>
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ratis/request.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'lib/ratis/request.rb', line 21</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='rubyid_action identifier id'>action</span><span class='comma token'>,</span> <span class='rubyid_params identifier id'>params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='rubyid_begin begin kw'>begin</span>
@@ -326,7 +328,7 @@ A new instance of Request
 </div>
 
     <div id="footer">
-  Generated on Thu Aug  9 09:36:50 2012 by
+  Generated on Wed Jan 16 16:46:43 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.2.1 (ruby-1.8.7).
 </div>
