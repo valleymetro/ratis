@@ -19,19 +19,19 @@ Currently Supports Ruby `1.8.7` and `1.9.3`
 
 Gem installation
 -------------------
-  1. Ensure that an SSH identity with permission for the *authoritylabs* organisation on github is available to Bundler.
+  1. Ensure that an SSH identity with permission for the *authoritylabs* organization on github is available to Bundler.
   1. Include the gem in your Gemfile thus:
 
         gem 'ratis', :git => 'git@github.com:authoritylabs/ratis.git'
 
-  1. Add the following (Valley Metro specific) configuration block.
+  1. Add the following configuration block.
 
      This must happen before Ratis is `require`d (before `Rails::Initializer.run` in a Rails app).
 
         require 'ratis/config'
         Ratis.configure do |config|
-          config.endpoint = 'http://soap.valleymetro.org/cgi-bin-soap-web-new/soap.cgi'
-          config.namespace = 'PX_WEB'
+          config.endpoint = 'http://(YOUR ENDPOINT URL)'
+          config.namespace = '(YOUR NAMESPACE)'
           config.proxy = 'http://localhost:8080'
           config.timeout = 5
         end
@@ -93,6 +93,14 @@ Development
 
  1. Run the test suite with `rake`
  1. Test it out with `irb -I lib/ -r rubygems -r ratis`
+ 2. After terminal is open with above step, paste in your application's connection config settings. Example:
+
+  Ratis.configure do |config|
+    config.endpoint = 'http://(YOUR ENDPOINT URL)'
+    config.namespace = '(YOUR NAMESPACE)'
+    config.timeout = 5
+  end
+
 
 ### Extending
 

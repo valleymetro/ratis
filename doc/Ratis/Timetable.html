@@ -99,6 +99,16 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Timetable/Stop.html" title="Ratis::Timetable::Stop (class)">Stop</a></span>, <span class='object_link'><a href="Timetable/Trip.html" title="Ratis::Timetable::Trip (class)">Trip</a></span>
+    
+  
+</p>
 
 
 
@@ -246,6 +256,62 @@ Returns the value of attribute service_type.
 </li>
 
     
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#timepoints-instance_method" title="#timepoints (instance method)">- (Object) <strong>timepoints</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute timepoints.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#trips-instance_method" title="#trips (instance method)">- (Object) <strong>trips</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute trips.
+</p>
+</div></span>
+  
+</li>
+
+    
   </ul>
 
 
@@ -276,7 +342,11 @@ Returns the value of attribute service_type.
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>
+Ratis::Timetable.where( :route_short_name =&gt; &quot;460&quot;, :direction
+=&gt; &quot;E&quot;, :service_type =&gt; &#8216;W&#8217;).
+</p>
+</div></span>
   
 </li>
 
@@ -513,6 +583,96 @@ Returns the value of attribute service_type
 </table>
 </div>
     
+      
+      <span id="timepoints=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="timepoints-instance_method">
+  
+    - (<tt>Object</tt>) <strong>timepoints</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute timepoints
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5
+6
+7</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ratis/timetable.rb', line 5</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_timepoints identifier id'>timepoints</span>
+  <span class='rubyid_@timepoints ivar id'>@timepoints</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="trips=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="trips-instance_method">
+  
+    - (<tt>Object</tt>) <strong>trips</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute trips
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5
+6
+7</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ratis/timetable.rb', line 5</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_trips identifier id'>trips</span>
+  <span class='rubyid_@trips ivar id'>@trips</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 
@@ -531,7 +691,11 @@ Returns the value of attribute service_type
   
 </h3><div class="docstring">
   <div class="discussion">
-    
+    <p>
+Ratis::Timetable.where( :route_short_name =&gt; &quot;460&quot;, :direction
+=&gt; &quot;E&quot;, :service_type =&gt; &#8216;W&#8217;)
+</p>
+
 
   </div>
 </div>
@@ -557,7 +721,6 @@ Returns the value of attribute service_type
       <pre class="lines">
 
 
-7
 8
 9
 10
@@ -582,10 +745,18 @@ Returns the value of attribute service_type
 29
 30
 31
-32</pre>
+32
+33
+34
+35
+36
+37
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ratis/timetable.rb', line 7</span>
+      <pre class="code"><span class="info file"># File 'lib/ratis/timetable.rb', line 8</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_where identifier id'>where</span><span class='lparen token'>(</span><span class='rubyid_conditions identifier id'>conditions</span><span class='rparen token'>)</span>
   <span class='rubyid_short_name identifier id'>short_name</span>   <span class='assign token'>=</span> <span class='rubyid_conditions identifier id'>conditions</span><span class='dot token'>.</span><span class='rubyid_delete identifier id'>delete</span> <span class='symbol val'>:route_short_name</span>
@@ -611,6 +782,13 @@ Returns the value of attribute service_type
   <span class='rubyid_timetable identifier id'>timetable</span><span class='dot token'>.</span><span class='rubyid_service_type identifier id'>service_type</span>     <span class='assign token'>=</span> <span class='rubyid_headway identifier id'>headway</span><span class='lbrack token'>[</span><span class='symbol val'>:servicetype</span><span class='rbrack token'>]</span>
   <span class='rubyid_timetable identifier id'>timetable</span><span class='dot token'>.</span><span class='rubyid_operator identifier id'>operator</span>         <span class='assign token'>=</span> <span class='rubyid_headway identifier id'>headway</span><span class='lbrack token'>[</span><span class='symbol val'>:operator</span><span class='rbrack token'>]</span>
   <span class='rubyid_timetable identifier id'>timetable</span><span class='dot token'>.</span><span class='rubyid_effective identifier id'>effective</span>        <span class='assign token'>=</span> <span class='rubyid_headway identifier id'>headway</span><span class='lbrack token'>[</span><span class='symbol val'>:effective</span><span class='rbrack token'>]</span>
+
+  <span class='rubyid_stop identifier id'>stop</span> <span class='assign token'>=</span> <span class='rubyid_headway identifier id'>headway</span><span class='lbrack token'>[</span><span class='symbol val'>:timepoints</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:stop</span><span class='rbrack token'>]</span>
+  <span class='rubyid_timetable identifier id'>timetable</span><span class='dot token'>.</span><span class='rubyid_timepoints identifier id'>timepoints</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span> <span class='rubyid_Timetable constant id'>Timetable</span><span class='colon2 op'>::</span><span class='rubyid_Stop constant id'>Stop</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_stop identifier id'>stop</span><span class='lbrack token'>[</span><span class='symbol val'>:atisstopid</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='rubyid_stop identifier id'>stop</span><span class='lbrack token'>[</span><span class='symbol val'>:stopid</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='rubyid_stop identifier id'>stop</span><span class='lbrack token'>[</span><span class='symbol val'>:description</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='rubyid_stop identifier id'>stop</span><span class='lbrack token'>[</span><span class='symbol val'>:area</span><span class='rbrack token'>]</span><span class='rparen token'>)</span> <span class='rbrack token'>]</span>
+
+  <span class='rubyid_trip identifier id'>trip</span> <span class='assign token'>=</span> <span class='rubyid_headway identifier id'>headway</span><span class='lbrack token'>[</span><span class='symbol val'>:times</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:trip</span><span class='rbrack token'>]</span>
+  <span class='rubyid_timetable identifier id'>timetable</span><span class='dot token'>.</span><span class='rubyid_trips identifier id'>trips</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span> <span class='rubyid_Timetable constant id'>Timetable</span><span class='colon2 op'>::</span><span class='rubyid_Trip constant id'>Trip</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_trip identifier id'>trip</span><span class='lbrack token'>[</span><span class='symbol val'>:time</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='rubyid_trip identifier id'>trip</span><span class='lbrack token'>[</span><span class='symbol val'>:comment</span><span class='rbrack token'>]</span><span class='rparen token'>)</span> <span class='rbrack token'>]</span>
+
   <span class='rubyid_timetable identifier id'>timetable</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -624,7 +802,7 @@ Returns the value of attribute service_type
 </div>
 
     <div id="footer">
-  Generated on Thu Aug  9 09:36:51 2012 by
+  Generated on Wed Jan 16 16:46:43 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.2.1 (ruby-1.8.7).
 </div>

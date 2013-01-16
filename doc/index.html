@@ -86,19 +86,19 @@
 <h2>Gem installation</h2>
 
 <ol>
-<li>Ensure that an SSH identity with permission for the <em>authoritylabs</em> organisation on github is available to Bundler.</li>
+<li>Ensure that an SSH identity with permission for the <em>authoritylabs</em> organization on github is available to Bundler.</li>
 <li><p>Include the gem in your Gemfile thus:</p>
 
 <pre class="code ruby"><code><span class='rubyid_gem identifier id'>gem</span> <span class='string val'>'ratis'</span><span class='comma token'>,</span> <span class='symbol val'>:git</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'git@github.com:authoritylabs/ratis.git'</span>
 </code></pre></li>
-<li><p>Add the following (Valley Metro specific) configuration block.</p>
+<li><p>Add the following configuration block.</p>
 
 <p>This must happen before Ratis is <code>require</code>d (before <code>Rails::Initializer.run</code> in a Rails app).</p>
 
 <pre class="code ruby"><code><span class='rubyid_require identifier id'>require</span> <span class='string val'>'ratis/config'</span>
 <span class='rubyid_Ratis constant id'>Ratis</span><span class='dot token'>.</span><span class='rubyid_configure identifier id'>configure</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_config identifier id'>config</span><span class='bitor op'>|</span>
-  <span class='rubyid_config identifier id'>config</span><span class='dot token'>.</span><span class='rubyid_endpoint identifier id'>endpoint</span> <span class='assign token'>=</span> <span class='string val'>'http://soap.valleymetro.org/cgi-bin-soap-web-new/soap.cgi'</span>
-  <span class='rubyid_config identifier id'>config</span><span class='dot token'>.</span><span class='rubyid_namespace identifier id'>namespace</span> <span class='assign token'>=</span> <span class='string val'>'PX_WEB'</span>
+  <span class='rubyid_config identifier id'>config</span><span class='dot token'>.</span><span class='rubyid_endpoint identifier id'>endpoint</span> <span class='assign token'>=</span> <span class='string val'>'http://(YOUR ENDPOINT URL)'</span>
+  <span class='rubyid_config identifier id'>config</span><span class='dot token'>.</span><span class='rubyid_namespace identifier id'>namespace</span> <span class='assign token'>=</span> <span class='string val'>'(YOUR NAMESPACE)'</span>
   <span class='rubyid_config identifier id'>config</span><span class='dot token'>.</span><span class='rubyid_proxy identifier id'>proxy</span> <span class='assign token'>=</span> <span class='string val'>'http://localhost:8080'</span>
   <span class='rubyid_config identifier id'>config</span><span class='dot token'>.</span><span class='rubyid_timeout identifier id'>timeout</span> <span class='assign token'>=</span> <span class='integer val'>5</span>
 <span class='rubyid_end end kw'>end</span>
@@ -170,8 +170,15 @@
 <pre class="code ruby"><code><span class='rubyid_ssh identifier id'>ssh</span> <span class='minus op'>-</span><span class='rubyid_i identifier id'>i</span> <span class='bitnot op'>~</span><span class='regexp val'>/.ssh/</span><span class='rubyid_authoritylabs identifier id'>authoritylabs</span><span class='dot token'>.</span><span class='rubyid_pem identifier id'>pem</span> <span class='minus op'>-</span><span class='rubyid_L constant id'>L</span> <span class='integer val'>8080</span><span class='symbol val'>:localhost</span><span class='symbol val'>:3128</span> <span class='rubyid_ubuntu identifier id'>ubuntu</span><span class='rubyid_@codingsanctum ivar id'>@codingsanctum</span><span class='dot token'>.</span><span class='rubyid_com identifier id'>com</span>
 </code></pre></li>
 <li><p>Run the test suite with <code>rake</code></p></li>
-<li><p>Test it out with <code>irb -r config/valley_metro.rb -I lib/ -r rubygems -r ratis</code></p></li>
+<li><p>Test it out with <code>irb -I lib/ -r rubygems -r ratis</code></p></li>
+<li><p>After terminal is open with above step, paste in your application&#39;s connection config settings. Example:</p></li>
 </ol>
+
+<p>Ratis.configure do |config|
+    config.endpoint = &#39;http://(YOUR ENDPOINT URL)&#39;
+    config.namespace = &#39;(YOUR NAMESPACE)&#39;
+    config.timeout = 5
+  end</p>
 
 <h3>Extending</h3>
 
@@ -246,7 +253,7 @@
 </div></div>
 
     <div id="footer">
-  Generated on Thu Aug  9 09:36:48 2012 by
+  Generated on Wed Jan 16 16:46:42 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.2.1 (ruby-1.8.7).
 </div>
