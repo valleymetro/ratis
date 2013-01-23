@@ -332,9 +332,6 @@ describe Ratis::ScheduleNearby do
                 }
               ]
             }
-            puts hash.inspect
-            puts "============"
-            puts @schedule_nearby.to_hash.inspect
             HashDiff.diff(@schedule_nearby.to_hash, hash).should eql []
 
           end
