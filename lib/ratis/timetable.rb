@@ -13,7 +13,7 @@ module Ratis
 
       raise ArgumentError.new('You must provide a route_short_name') unless short_name
       raise ArgumentError.new('You must provide a direction') unless direction
-      raise ArgumentError.new('You must provide either date or service_type') unless date ^ service_type
+      raise ArgumentError.new('You must provide either date or service_type') if date.blank? && service_type.blank?
       Ratis.all_conditions_used? conditions
 
       request_params = { 'Route' => short_name, 'Direction' => direction }
