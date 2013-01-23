@@ -29,8 +29,8 @@ module Ratis
       timetable.service_type     = headway[:servicetype]
       timetable.operator         = headway[:operator]
       timetable.effective        = headway[:effective]
-      timetable.timepoints       = headway[:timepoints][:stop].collect{|tp| Timetable::Stop.new(tp[:atisstopid], tp[:stopid], tp[:description], tp[:area])} unless headway[:timepoints][:stop]
-      timetable.trips            = headway[:times][:trip].collect{|t| Timetable::Trip.new(t[:time], t[:comment])} unless headway[:times][:trip]
+      timetable.timepoints       = headway[:timepoints][:stop].collect{|tp| Timetable::Stop.new(tp[:atisstopid], tp[:stopid], tp[:description], tp[:area])} rescue []
+      timetable.trips            = headway[:times][:trip].collect{|t| Timetable::Trip.new(t[:time], t[:comment])} rescue []
 
       timetable
     end
