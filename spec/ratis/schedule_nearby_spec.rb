@@ -332,6 +332,7 @@ describe Ratis::ScheduleNearby do
                 }
               ]
             }
+            
             HashDiff.diff(@schedule_nearby.to_hash, hash).should eql []
 
           end
