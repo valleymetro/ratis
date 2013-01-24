@@ -5,7 +5,7 @@ describe Ratis::Timetable do
   describe '#where' do
 
     before do
-      resp = atis_response_timetable({ :route => '0', :direction => 'N', :service_type => 'W', :operator => 'OP', :effective => '01/15/12' })
+      resp = atis_response_timetable({ :route => '0', :direction => 'N', :service_type => 'W', :operator => 'OP', :effective => '01/15/12', :timepoints => [], :times => [] })
       stub_atis_request.to_return( atis_response 'Timetable', '1.1', '0', resp)
 
       @timetable = Ratis::Timetable.where :route_short_name => '0', :direction => 'N', :service_type => 'W'

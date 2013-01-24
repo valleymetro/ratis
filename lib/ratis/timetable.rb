@@ -13,7 +13,7 @@ module Ratis
 
       raise ArgumentError.new('You must provide a route_short_name') unless short_name
       raise ArgumentError.new('You must provide a direction') unless direction
-      raise ArgumentError.new('You must provide either date or service_type') unless date ^ service_type
+      raise ArgumentError.new('You must provide either date or service_type') if date.blank? && service_type.blank?
       Ratis.all_conditions_used? conditions
 
       request_params = { 'Route' => short_name, 'Direction' => direction }
@@ -30,14 +30,13 @@ module Ratis
       timetable.operator         = headway[:operator]
       timetable.effective        = headway[:effective]
 
-      stop = headway[:timepoints][:stop]
-      timetable.timepoints = [ Timetable::Stop.new(stop[:atisstopid], stop[:stopid], stop[:description], stop[:area]) ]
-
-      trip = headway[:times][:trip]
-      timetable.trips = [ Timetable::Trip.new(trip[:time], trip[:comment]) ]
+      timetable.timepoints       = headway[:timepoints][:stop].collect{|tp| Timetable::Stop.new(tp[:atisstopid], tp[:stopid], tp[:description], tp[:area])} rescue []
+      timetable.trips            = headway[:times][:trip].collect{|t| Timetable::Trip.new(t[:time], t[:comment])} rescue []
 
       timetable
     end
+    
+    
 
   end
 
