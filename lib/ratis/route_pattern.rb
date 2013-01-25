@@ -6,21 +6,22 @@ module Ratis
 
     def self.where(conditions)
 
-      #just trying to find by date for now. once this works, will add servicetype condition 
       date = conditions.delete :date
+      servicetype = conditions.delete :servicetype
       routeid = conditions.delete :routeid
       direction = conditions.delete :direction
 
-      raise ArgumentError.new('You must provide a date') if date.blank?
+      raise ArgumentError.new('You must provide either a date or servicetype') if date.blank? && servicetype.blank?
       raise ArgumentError.new('You must provide a routeid') unless routeid
       raise ArgumentError.new('You must provide a direction') unless direction
 
-
-      #not sure what below code does
       Ratis.all_conditions_used? conditions
 
-      response = Request.get 'Routepattern', {'Date' => date, 'Routeid' => routeid, 'Direction' => direction} 
-      return [] unless response.success?
+      request_params = { 'Routeid' => routeid, 'Direction' => direction} 
+      request_params.merge! date ? { 'Date' => date } : { 'servicetype' => servicetype } 
+
+      response = Request.get 'Routepattern', request_params 
+      return nil unless response.success?
 
       response.to_array(:routepattern_response, :stops, :stop).map do |stop|
         atis_stop = RoutePattern.new
