@@ -29,6 +29,7 @@ describe Ratis::RoutePattern do
       BODY
 
       @stops = Ratis::RoutePattern.where :date => "11/11/11", :routeid => '777', :direction => 'N'
+
     end
 
     it 'only makes one request' do
@@ -39,22 +40,19 @@ describe Ratis::RoutePattern do
       an_atis_request_for('Routepattern', { 'Date' => '11/11/11', 'Routeid' => '777', 'Direction' => 'N'} ).should have_been_made
     end
 
-
-    ##### The three tests below do not pass right now. Not sure of correct syntax.
-
     #fail if date isn't provided
     it 'should fail if date isn\'t provide' do
-      expect{an_atis_request_for('Routepattern', 'Routeid' => '777', 'Direction' => 'N')}.to raise_error(RoutePattern::ArgumentError, "You must provide a date")
+      expect{ Ratis::RoutePattern.where('Routeid' => '777', 'Direction' => 'N') }.to raise_error(ArgumentError, "You must provide a date")
     end
 
     #fail if routeid isn't provided
     it 'should fail if routeid isn\'t provided' do
-      expect{an_atis_request_for('Routepattern', 'Date' => '11/11/11', 'Direction' => 'N')}.to raise_error(ArgumentError, "You must provide a routeid")
+      expect{ Ratis::RoutePattern.where(:date => '11/11/11', :direction => 'N')}.to raise_error(ArgumentError, "You must provide a routeid")
     end
 
     #fail if direction isn't provided
     it 'should fail if direction isn\'t provided' do
-      expect{an_atis_request_for('Routepattern', 'Routeid' => '777', 'Date' => '11/11/11')}.to raise_error(ArgumentError, "You must provide a direction")
+      expect{ Ratis::RoutePattern.where(:routeid => '777', :date => '11/11/11' )}.to raise_error(ArgumentError, "You must provide a direction")
     end
 
 
