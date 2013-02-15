@@ -30,8 +30,13 @@ module Ratis
       timetable.operator         = headway[:operator]
       timetable.effective        = headway[:effective]
 
-      timetable.timepoints       = headway[:timepoints][:stop].collect{|tp| Timetable::Stop.new(tp[:atisstopid], tp[:stopid], tp[:description], tp[:area])} rescue []
-      timetable.trips            = headway[:times][:trip].collect{|t| Timetable::Trip.new(t[:time], t[:comment])} rescue []
+      timepoints_array = []
+      headway[:timepoints][:stop].each_with_index{|tp, i| timepoints_array.push(Timetable::Stop.new(i, tp[:stopid], tp[:description], tp[:area]) )} rescue []
+      timetable.timepoints       = timepoints_array
+
+      trips_array = []
+      headway[:times][:trip].each_with_index{|t,i| trips_array.push(Timetable::Trip.new(i, t[:time], t[:comment]))} rescue []
+      timetable.trips            =  trips_array
 
       timetable
     end
