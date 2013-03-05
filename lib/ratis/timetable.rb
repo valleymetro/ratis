@@ -31,7 +31,7 @@ module Ratis
       timetable.effective        = headway[:effective]
 
       timepoints_array = []
-      headway[:timepoints][:stop].each_with_index{|tp, i| timepoints_array.push(Timetable::Stop.new(i, tp[:stopid], tp[:description], tp[:area]) )} rescue []
+      headway[:timepoints][:stop].each_with_index{|tp, i| timepoints_array.push(Timetable::Stop.new(i, tp[:atisstopid], tp[:stopid], tp[:description], tp[:area]) )} rescue []
       timetable.timepoints       = timepoints_array
 
       trips_array = []
