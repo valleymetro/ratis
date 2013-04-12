@@ -1,6 +1,13 @@
 require 'spec_helper'
 
 describe Ratis::Walk do
+  before do
+    Ratis.reset
+    Ratis.configure do |config|
+      config.endpoint  = 'http://example.com/soap.cgi'
+      config.namespace = 'TEST_NS'
+    end
+  end
 
   describe 'walk to the pub' do
 
@@ -52,7 +59,7 @@ describe Ratis::Walk do
     describe '#to_hash' do
 
       it 'returns only the correct keys' do
-        hash = { :legs => [ { :description => 'Do some walking' }, { :description => 'Walk some more' } ], 
+        hash = { :legs => [ { :description => 'Do some walking' }, { :description => 'Walk some more' } ],
                  :walk_distance => '1.2', :walk_units => 'miles', :walk_time => '22' }
         HashDiff.diff(@walk.to_hash, hash).should eql []
       end

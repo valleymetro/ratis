@@ -7,7 +7,7 @@ module Ratis
 
     def initialize(attrs = {})
       VALID_ATTRS.each do |attr|
-        instance_variable_set "@#{attr.to_s}", attrs[attr] || attrs[attr.to_s]
+        instance_variable_set "@#{attr.to_s}", (attrs[attr] || attrs[attr.to_s])
       end
     end
 

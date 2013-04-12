@@ -1,6 +1,13 @@
 require 'spec_helper'
 
 describe Ratis::Route do
+  before do
+    Ratis.reset
+    Ratis.configure do |config|
+      config.endpoint  = 'http://example.com/soap.cgi'
+      config.namespace = 'TEST_NS'
+    end
+  end
 
   describe '#all' do
 

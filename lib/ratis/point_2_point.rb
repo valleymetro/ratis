@@ -3,16 +3,17 @@ module Ratis
   class Point2Point
 
     def self.where(conditions)
-      routes_only = conditions.delete(:routes_only) || 'N'
+      routes_only      = conditions.delete(:routes_only) || 'N'
+      routes           = conditions.delete(:routes) || []
 
-      origin_lat = conditions.delete(:origin_lat).to_f
-      origin_long = conditions.delete(:origin_long).to_f
-      destination_lat = conditions.delete(:destination_lat).to_f
+      origin_lat       = conditions.delete(:origin_lat).to_f
+      origin_long      = conditions.delete(:origin_long).to_f
+      destination_lat  = conditions.delete(:destination_lat).to_f
       destination_long = conditions.delete(:destination_long).to_f
 
-      date = conditions.delete :date
-      start_time = conditions.delete(:start_time)
-      end_time = conditions.delete :end_time
+      date             = conditions.delete :date
+      start_time       = conditions.delete(:start_time)
+      end_time         = conditions.delete :end_time
 
       raise ArgumentError.new("You must specify routes only with true, false, 'y' or 'n'") unless routes_only.y_or_n rescue false
 
@@ -27,15 +28,20 @@ module Ratis
 
       Ratis.all_conditions_used? conditions
 
-      response = Request.get 'Point2point', 'Routesonly' => routes_only.y_or_n.upcase,
-        'Originlat' => origin_lat, 'Originlong' => origin_long,
-        'Destinationlat' => destination_lat, 'Destinationlong' => destination_long,
-        'Date' => date, 'Starttime' => start_time, 'Endtime' => end_time
+      response = Request.get 'Point2point', 'Routesonly'      => routes_only.y_or_n.upcase,
+                                            'Originlat'       => origin_lat,
+                                            'Originlong'      => origin_long,
+                                            'Destinationlat'  => destination_lat,
+                                            'Destinationlong' => destination_long,
+                                            'Date'            => date,
+                                            'Starttime'       => start_time,
+                                            'Endtime'         => end_time,
+                                            'Routes'          => routes.join(',')
 
       return nil unless response.success?
 
-      return parse_routes_only_yes response if routes_only.y_or_n.downcase == 'y'
-      return parse_routes_only_no response if routes_only.y_or_n.downcase == 'n'
+      return parse_routes_only_yes(response) if routes_only.y_or_n.downcase == 'y'
+      return parse_routes_only_no(response)  if routes_only.y_or_n.downcase == 'n'
 
       nil
     end
