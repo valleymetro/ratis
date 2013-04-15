@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ratis (2.5.2.6)
+    ratis (2.5.2.8)
       savon (< 2.0)
 
 GEM
@@ -17,7 +17,7 @@ GEM
     builder (3.2.0)
     columnize (0.3.6)
     crack (0.3.2)
-    diff-lcs (1.2.2)
+    diff-lcs (1.2.3)
     gyoku (0.4.6)
       builder (>= 2.1.2)
     hashdiff (0.0.6)
