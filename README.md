@@ -1,6 +1,8 @@
 # Ratis
 A Ruby wrapper for Trapeze Group's ATIS SOAP server.
 
+*Note* This is NOT a public api.  You won't be able to use this gem without being first setup with the Trapeze Group.
+
 Goals:
 
   - Wrap SOAP methods
@@ -19,7 +21,6 @@ Currently Supports Ruby `1.8.7` and `1.9.3`
 
 Gem installation
 -------------------
-  1. Ensure that an SSH identity with permission for the *authoritylabs* organization on github is available to Bundler.
   1. Include the gem in your Gemfile thus:
 
         gem 'ratis', '[VERSION]'
@@ -69,7 +70,7 @@ All the classes should be named to match the ATIS method:
 Notable exceptions:
 
     Routes contains Allroutes method with the thinking that this might be extened for other routes methods, but is probably not necessary and should be renamed
-    
+
 ### Queries
 By convention most provide either an `all` or `where` class method (following [Active Record's hash conditions syntax](http://guides.rubyonrails.org/active_record_querying.html#hash-conditions)), which will return an array of objects which wrap the response, e.g:
 
@@ -94,7 +95,7 @@ When something goes wrong with the SOAP transaction an `Error` will be raised:
     #<Error: #10222--Unknown stop>
 
 
-Development 
+Development
 -------------------
 
 ### Installation
@@ -155,7 +156,7 @@ You get the following:
 
   Now when a request for `Getlandmarks` is made the response's method version will be checked, and an `AtisError` will be thrown if it has not been declared. This ensures that a change on the SOAP server will not result in invalid response parsing by Ratis.
 
-  1. `all_conditions_used?` will raise an `ArgumentError` if the given hash is not empty. 
+  1. `all_conditions_used?` will raise an `ArgumentError` if the given hash is not empty.
 
   Convention in Ratis is to provide a `self.where(conditions)` method (following [Active Record's hash conditions syntax](http://guides.rubyonrails.org/active_record_querying.html#hash-conditions)). As each key in `conditions` is used it can be  `delete`d from `conditions`, then `all_conditions_used? conditions` can be called to ensure nothing unimplemented was passed to `where`.
 

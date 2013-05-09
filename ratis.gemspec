@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version          = Ratis.version
   s.platform         = Gem::Platform::RUBY
   s.summary          = 'A Ruby wrapper around the ATIS SOAP Interface'
-  s.authors          = ['AuthorityLabs', 'Burst Software']
+  s.authors          = ['Burst Software']
   s.email            = 'irish@burstdev.com'
   s.files            = Dir.glob("{bin,lib}/**/*") + %w[README.md]
   s.require_paths    = ['lib']
