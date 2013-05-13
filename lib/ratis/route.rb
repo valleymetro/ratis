@@ -12,7 +12,7 @@ module Ratis
       atis_routes = routes.map do |r|
         r.strip!
         next if r.blank?
-        r = r.split(/, /)
+        r = r.split(/,/)
         Route.new r[0].strip, r[1..-1].map(&:strip)
       end
       atis_routes.compact
