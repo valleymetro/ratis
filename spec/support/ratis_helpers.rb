@@ -12,8 +12,8 @@ module RatisHelpers
     an_atis_request.with do |request|
       request.headers['Soapaction'] == %Q{"TEST_NS##{ action }"}
 
-      params_body = { action => params.merge( { 'xmlns' => 'TEST_NS' } ) }
-      request_body = Hash.from_xml(request.body)['Envelope']['Body']
+      params_body   = { action => params.merge( { 'xmlns' => 'TEST_NS' } ) }
+      request_body  = Hash.from_xml(request.body)['Envelope']['Body']
       HashDiff.diff(params_body, request_body).should eql []
     end
   end
@@ -67,7 +67,7 @@ module RatisHelpers
       <Stop>
         <Atisstopid>1337</Atisstopid>
         <Stopid>80085</Stopid>
-        <Description>ALPHA ST &amp; BETA RD</Description> 
+        <Description>ALPHA ST &amp; BETA RD</Description>
         <Area>Townsville</Area>
       </Stop>
     </Timepoints>

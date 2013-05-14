@@ -55,4 +55,9 @@ module Ratis
     raise ArgumentError.new("Conditions not used by this class: #{conditions.keys.inspect}") unless conditions.empty?
   end
 
+  # null out the config so that it can be rewritten to, then used in new 'get' calls
+  def reset
+    @config = nil
+  end
+
 end

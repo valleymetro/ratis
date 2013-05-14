@@ -12,11 +12,11 @@ module Ratis
       self.fault_string = fault[:faultstring]
     end
 
-    def self.version_mismatch(method, version)
-      error = Errors.new
-      error.fault_string = "Unimplemented SOAP method #{ method } #{ version }"
-      error
-    end
+    # def self.version_mismatch(method, version)
+    #   error = Errors.new
+    #   error.fault_string = "Unimplemented SOAP method #{ method } #{ version }"
+    #   error
+    # end
 
     def to_s
       fault_string
@@ -62,7 +62,7 @@ module Ratis
 
   module Errors
 
-    class ConfigError < Error; end
+    class ConfigError < StandardError; end
     class SoapError   < Error; end
 
   end
