@@ -1,6 +1,6 @@
 module Ratis
 
-  class Pattern::Routeinfo 
+  class Pattern::RouteInfo
     attr_accessor :route, :headsign, :operate, :effective, :routeid, :routetype, :tripcount, :school
   end
 

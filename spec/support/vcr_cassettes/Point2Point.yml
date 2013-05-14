@@ -20,14 +20,14 @@ http_interactions:
         aW50MnBvaW50PjwvZW52OkJvZHk+PC9lbnY6RW52ZWxvcGU+
 
     headers: 
-      Soapaction: 
-      - "\"PX_WEB#Point2point\""
-      Content-Type: 
-      - text/xml;charset=UTF-8
       Content-Length: 
       - "576"
+      Content-Type: 
+      - text/xml;charset=UTF-8
       Accept: 
       - "*/*"
+      Soapaction: 
+      - "\"PX_WEB#Point2point\""
   response: 
     status: 
       code: 302
@@ -52,44 +52,44 @@ http_interactions:
       base64_string: |
         PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48ZW52OkVu
         dmVsb3BlIHhtbG5zOmVudj0iaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcv
-        c29hcC9lbnZlbG9wZS8iIHhtbG5zOndzZGw9IlBYX1dFQiIgeG1sbnM6eHNk
-        PSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYSIgeG1sbnM6eHNp
-        PSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSI+
-        PGVudjpCb2R5PjxQb2ludDJwb2ludCB4bWxucz0iUFhfV0VCIj48Um91dGVz
-        b25seT5ZPC9Sb3V0ZXNvbmx5PjxFbmR0aW1lPjE4MDA8L0VuZHRpbWU+PFJv
-        dXRlcz4xPC9Sb3V0ZXM+PERhdGU+MDQvMTEvMjAxMzwvRGF0ZT48T3JpZ2lu
-        bG9uZz4tMTEyLjA5NzkwMzwvT3JpZ2lubG9uZz48RGVzdGluYXRpb25sYXQ+
-        MzMuNDQ3MDk4PC9EZXN0aW5hdGlvbmxhdD48T3JpZ2lubGF0PjMzLjQ0Njkz
-        MTwvT3JpZ2lubGF0PjxTdGFydHRpbWU+MTcwMDwvU3RhcnR0aW1lPjxEZXN0
-        aW5hdGlvbmxvbmc+LTExMi4wNzcyMTM8L0Rlc3RpbmF0aW9ubG9uZz48L1Bv
+        c29hcC9lbnZlbG9wZS8iIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcv
+        MjAwMS9YTUxTY2hlbWEiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcv
+        MjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOndzZGw9IlBYX1dFQiI+
+        PGVudjpCb2R5PjxQb2ludDJwb2ludCB4bWxucz0iUFhfV0VCIj48RGF0ZT4w
+        NS8xNC8yMDEzPC9EYXRlPjxSb3V0ZXNvbmx5Plk8L1JvdXRlc29ubHk+PE9y
+        aWdpbmxhdD4zMy40NDY5MzE8L09yaWdpbmxhdD48RGVzdGluYXRpb25sb25n
+        Pi0xMTIuMDc3MjEzPC9EZXN0aW5hdGlvbmxvbmc+PERlc3RpbmF0aW9ubGF0
+        PjMzLjQ0NzA5ODwvRGVzdGluYXRpb25sYXQ+PE9yaWdpbmxvbmc+LTExMi4w
+        OTc5MDM8L09yaWdpbmxvbmc+PFN0YXJ0dGltZT4xNzAwPC9TdGFydHRpbWU+
+        PEVuZHRpbWU+MTgwMDwvRW5kdGltZT48Um91dGVzPjE8L1JvdXRlcz48L1Bv
         aW50MnBvaW50PjwvZW52OkJvZHk+PC9lbnY6RW52ZWxvcGU+
 
     headers: 
-      Soapaction: 
-      - "\"PX_WEB#Point2point\""
-      Content-Type: 
-      - text/xml;charset=UTF-8
       Content-Length: 
       - "576"
+      Content-Type: 
+      - text/xml;charset=UTF-8
       Accept: 
       - "*/*"
+      Soapaction: 
+      - "\"PX_WEB#Point2point\""
   response: 
     status: 
       code: 200
       message: OK
     headers: 
-      Soapserver: 
-      - SOAP::Lite/Perl/0.55
+      Date: 
+      - Tue, 14 May 2013 23:39:45 GMT
+      Content-Length: 
+      - "4558"
       Server: 
       - Apache/2.2.3 (CentOS)
       Content-Type: 
       - text/xml; charset=utf-8
-      Content-Length: 
-      - "4558"
-      Date: 
-      - Fri, 12 Apr 2013 02:38:02 GMT
       Connection: 
       - close
+      Soapserver: 
+      - SOAP::Lite/Perl/0.55
     body: 
       base64_string: |
         PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48U09BUC1F
@@ -196,5 +196,5 @@ http_interactions:
         RU5WOkVudmVsb3BlPg==
 
     http_version: 
-  recorded_at: Fri, 12 Apr 2013 02:38:02 GMT
+  recorded_at: Tue, 14 May 2013 23:39:45 GMT
 recorded_with: VCR 2.4.0

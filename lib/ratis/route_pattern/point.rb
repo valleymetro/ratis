@@ -1,6 +1,6 @@
 module Ratis
 
-  class Routepattern::Point 
+  class RoutePattern::Point
       attr_accessor :lat, :lng
   end
 

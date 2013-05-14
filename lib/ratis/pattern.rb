@@ -1,10 +1,11 @@
 module Ratis
-
   class Pattern
-
     attr_accessor :route_short_name, :direction, :date, :service_type, :longest, :routeinfos
 
-    #Ratis::Pattern.all( :route_short_name => "0", :direction => "N", :date => "01/28/2013", :service_type => 'W', :longest => "N")
+    def initialize(options)
+      self.routeinfos = options[:routeinfos]
+    end
+
     def self.all(conditions)
       short_name   = conditions.delete :route_short_name
       direction    = conditions.delete :direction
@@ -17,29 +18,32 @@ module Ratis
       raise ArgumentError.new('You must provide a date') unless date
       raise ArgumentError.new('You must provide a service_type') unless service_type
       raise ArgumentError.new('You must provide a longest') unless longest
+
       Ratis.all_conditions_used? conditions
 
-      request_params = { 'Route' => short_name, 'Direction' => direction, 'Date' => date, 'Servicetype' => service_type, 'Longest' => longest }
-      
-      response = Request.get 'Getpatterns', request_params
-      return nil unless response.success?
-      
-      getpattern = Pattern.new
-      
-      getpattern.routeinfos = response.to_hash[:getpatterns_response][:routes][:routeinfo].map do |r|
-        info = Pattern::Routeinfo.new
-        info.route = r[:route]
-        info.headsign = r[:signage]
-        info.operate = r[:operator]
-        info.effective = r[:effective]
-        info.routeid = r[:routeid]
-        info.routetype = r[:routetype]
-        info.tripcount = r[:tripcount]
-        info.school = r[:school]
-        info
-      end
+      response = Request.get 'Getpatterns',
+                            {'Route'       => short_name,
+                             'Direction'   => direction,
+                             'Date'        => date,
+                             'Servicetype' => service_type,
+                             'Longest'     => longest }
 
-      getpattern
+      return nil unless response.success?
+
+      routeinfos = response.to_hash[:getpatterns_response][:routes][:routeinfo].map do |r|
+                     info = Pattern::RouteInfo.new
+                     info.route     = r[:route]
+                     info.headsign  = r[:signage]
+                     info.operate   = r[:operator]
+                     info.effective = r[:effective]
+                     info.routeid   = r[:routeid]
+                     info.routetype = r[:routetype]
+                     info.tripcount = r[:tripcount]
+                     info.school    = r[:school]
+                     info
+                   end
+
+      Pattern.new(:routeinfos => routeinfos)
     end
 
   end

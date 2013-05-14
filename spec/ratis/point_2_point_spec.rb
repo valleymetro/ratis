@@ -101,7 +101,7 @@ describe Ratis::Point2Point do
         Ratis::Point2Point.where(@conditions.dup)
       end
 
-      it 'requests the correct SOAP action' do
+      it 'requests the correct SOAP action with correct args' do
         Ratis::Request.should_receive(:get) do |action, options|
           action.should eq('Point2point')
           options["Date"].should eq(@today)
