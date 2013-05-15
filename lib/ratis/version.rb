@@ -5,7 +5,7 @@ module Ratis
   def version
     @version ||= begin
 
-      string = '2.5.2.8'
+      string = '3.0.0'
 
       def string.parts
         split('.').map { |p| p.to_i }
@@ -21,10 +21,6 @@ module Ratis
 
       def string.build
         parts[2]
-      end
-
-      def string.patch
-        parts[3]
       end
 
       string
