@@ -31,6 +31,7 @@ require 'ratis/timetable'
 require 'ratis/timetable/stop'
 require 'ratis/timetable/trip'
 require 'ratis/walk'
+require 'ratis/area'
 
 module Ratis
 
