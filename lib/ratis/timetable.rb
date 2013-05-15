@@ -1,10 +1,8 @@
 module Ratis
 
   class Timetable
-
     attr_accessor :route_short_name, :direction, :service_type, :operator, :effective, :timepoints, :trips
 
-    #Ratis::Timetable.where( :route_short_name => "460", :direction => "E", :service_type => 'W')
     def self.where(conditions)
       short_name   = conditions.delete :route_short_name
       direction    = conditions.delete :direction
