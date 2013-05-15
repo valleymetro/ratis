@@ -3,3 +3,4 @@ coverage
 .yardoc
 _yardoc
 doc/
+/gem_reference/

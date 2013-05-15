@@ -9,6 +9,8 @@ require 'ratis/landmark'
 require 'ratis/landmark_category'
 require 'ratis/location'
 require 'ratis/next_bus'
+require 'ratis/pattern'
+require 'ratis/pattern/routeinfo'
 require 'ratis/point_2_point'
 require 'ratis/point_2_point/group'
 require 'ratis/point_2_point/routes_only_response'
@@ -18,9 +20,13 @@ require 'ratis/point_2_point/stop'
 require 'ratis/point_2_point/trip'
 require 'ratis/request'
 require 'ratis/route'
+require 'ratis/route_pattern'
+require 'ratis/route_pattern/stop'
+require 'ratis/route_pattern/point'
 require 'ratis/route_stops'
 require 'ratis/route_stops/stop'
 require 'ratis/schedule_nearby'
+require 'ratis/stop'
 require 'ratis/timetable'
 require 'ratis/timetable/stop'
 require 'ratis/timetable/trip'
@@ -49,6 +55,11 @@ module Ratis
 
   def all_conditions_used?(conditions)
     raise ArgumentError.new("Conditions not used by this class: #{conditions.keys.inspect}") unless conditions.empty?
+  end
+
+  # null out the config so that it can be rewritten to, then used in new 'get' calls
+  def reset
+    @config = nil
   end
 
 end

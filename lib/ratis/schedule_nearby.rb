@@ -5,15 +5,15 @@ module Ratis
     attr_accessor :atstops
 
     def self.where(conditions)
-      latitude = conditions.delete :latitude
-      longitude = conditions.delete :longitude
-      date = conditions.delete :date
-      time = conditions.delete :time
-      window = conditions.delete :window
-      walk_distance = conditions.delete :walk_distance
-      landmark_id = conditions.delete :landmark_id
-      stop_id = conditions.delete(:stop_id) || ''
-      app_id = conditions.delete(:app_id) || 'na'
+      latitude      = conditions.delete(:latitude)
+      longitude     = conditions.delete(:longitude)
+      date          = conditions.delete(:date)
+      time          = conditions.delete(:time)
+      window        = conditions.delete(:window)
+      walk_distance = conditions.delete(:walk_distance)
+      landmark_id   = conditions.delete(:landmark_id)
+      stop_id       = conditions.delete(:stop_id) || ''
+      app_id        = conditions.delete(:app_id) || 'na'
 
       raise ArgumentError.new('You must provide latitude') unless latitude
       raise ArgumentError.new('You must provide longitude') unless longitude
@@ -22,16 +22,25 @@ module Ratis
       raise ArgumentError.new('You must provide window') unless window
       raise ArgumentError.new('You must provide walk_distance') unless walk_distance
       raise ArgumentError.new('You must provide landmark_id') unless landmark_id
+
       Ratis.all_conditions_used? conditions
 
       response = Request.get 'Schedulenearby',
-        {'Locationlat' => latitude, 'Locationlong' => longitude,
-         'Date' => date, 'Time' => time, 'Window' => window, 'Walkdist' => walk_distance,
-         'Landmarkid' => landmark_id, 'Stopid' => stop_id, 'Appid' => app_id
-        }
+                            {'Locationlat'  => latitude,
+                             'Locationlong' => longitude,
+                             'Date'         => date,
+                             'Time'         => time,
+                             'Window'       => window,
+                             'Walkdist'     => walk_distance,
+                             'Landmarkid'   => landmark_id,
+                             'Stopid'       => stop_id,
+                             'Appid'        => app_id
+                            }
 
       return [] unless response.success?
 
+      # TODO: where is this nightmare-ish hash being used?
+      # need to refactor this into something more OO
       atstops = response.to_array :schedulenearby_response, :atstop
       atstops.map do |atstop|
         atstop[:services] = atstop.to_array :service

@@ -1,65 +1,81 @@
 require 'spec_helper'
 
 describe Ratis::Point2Point do
+  before do
+    Ratis.reset
+    Ratis.configure do |config|
+      config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-252/soap.cgi'
+      config.namespace  = 'PX_WEB'
+    end
+  end
 
   describe 'Routesonly => Y' do
-
     describe '#where' do
-
-      describe 'services from origin to destination' do
+      describe 'services from origin to destination', {:vcr => {:cassette_name => "Point2Point"}} do
         before do
-          stub_atis_request.to_return( atis_response 'Point2point', '1.3', '0', <<-BODY )
-          <Routes>
-            <Service>
-              <Route>10</Route>
-              <Direction>W</Direction>
-              <Servicetype>S</Servicetype>
-              <Signage>10 Roosvlt&#x2F;Grnt To 35Av&#x2F;Lwr Buckeye</Signage>
-              <Routetype>B</Routetype>
-            </Service>
-            <Service>
-              <Route>3</Route>
-              <Direction>E</Direction>
-              <Servicetype>S</Servicetype>
-              <Signage>3 VAN BUREN East to 48th St.</Signage>
-              <Routetype>B</Routetype>
-            </Service>
-          </Routes>
-          BODY
+          @today      = Time.now.strftime("%m/%d/%Y")
+          @conditions = {:routes_only      => true,
+                         :origin_lat       => 33.446931,
+                         :origin_long      => -112.097903,
+                         :destination_lat  => 33.447098,
+                         :destination_long => -112.077213,
+                         :date             => @today,
+                         :start_time       => '1700',
+                         :end_time         => '1800'}
 
-          @services = Ratis::Point2Point.where(:routes_only => true,
-            :origin_lat => 33.451929, :origin_long => -112.07457,
-            :destination_lat => 33.44641, :destination_long => -112.06987,
-            :date => '08/04/12', :start_time => '0900', :end_time => '1100')
+        end
+
+        it 'returns all matching services that fit the origin/destination for a given time frame' do
+          services = Ratis::Point2Point.where(@conditions.dup)
+          services.should have(20).items
         end
 
         it 'only makes one request' do
-          an_atis_request.should have_been_made.times 1
+          # false just to stop further processing of response
+          Ratis::Request.should_receive(:get).once.and_call_original
+          Ratis::Point2Point.where(@conditions.dup)
         end
 
         it 'requests the correct SOAP action' do
-          an_atis_request_for('Point2point',
-            'Originlat' => '33.451929', 'Originlong' => '-112.07457',
-            'Destinationlat' => '33.44641', 'Destinationlong' => '-112.06987',
-            'Date' => '08/04/12', 'Starttime' => '0900', 'Endtime' => '1100',
-            'Routesonly' => 'Y'
-             ).should have_been_made
+          Ratis::Request.should_receive(:get) do |action, options|
+                           action.should eq('Point2point')
+                           options["Date"].should eq(@today)
+                           options["Destinationlong"].should eq(-112.077213)
+                           options["Starttime"].should eq("1700")
+                           options["Endtime"].should eq("1800")
+                           options["Destinationlat"].should eq(33.447098)
+                           options["Routesonly"].should eq("Y")
+                           options["Originlong"].should eq(-112.097903)
+                           options["Originlat"].should eq(33.446931)
+
+                         end.and_return(double('response', :success? => false)) # false only to stop further running
+
+          Ratis::Point2Point.where(@conditions.dup)
         end
 
-        it 'gets matched services' do
-          @services.should have(2).items
+        it 'returns a routes only response for each matched service' do
+          services = Ratis::Point2Point.where(@conditions.dup)
+          services.should be_a( Array )
+          services.each{|response| response.should be_a( Ratis::Point2Point::RoutesOnlyResponse ) }
         end
 
         it 'parses out service fields' do
-          service = @services.first
-          service.route.should eql '10'
-          service.direction.should eql 'W'
-          service.service_type.should eql 'S'
-          service.signage.should eql '10 Roosvlt/Grnt To 35Av/Lwr Buckeye'
-          service.route_type.should eql 'B'
+          services = Ratis::Point2Point.where(@conditions.dup)
+          service  = services.first
+
+          service.route.should eql '562'
+          service.direction.should eql 'O'
+          service.service_type.should eql 'W'
+          service.signage.should eql "562 Goodyear To Goodyear"
+          service.route_type.should eql 'X'
+        end
+
+        it "should NOT filter by passed in routes" do
+          # According to Marc Ferguson of Trapeze group, route filter only works when Routesonly = 'N'
+          services = Ratis::Point2Point.where(@conditions.dup.merge(:routes => ['1']))
+          services.should have(20).items
         end
       end
-
     end
   end
 
@@ -68,193 +84,137 @@ describe Ratis::Point2Point do
     describe '#where' do
 
       before do
-        stub_atis_request.to_return( atis_response 'Point2point', '1.3', '0', <<-BODY )
-        <Groups>
-          <Group>
-            <Onstop>
-              <Description>VAN BUREN&#x2F;1ST AVE LIGHT RAIL STATION</Description>
-              <Lat>33.452252</Lat>
-              <Long>-112.075081</Long>
-              <Atisstopid>10880</Atisstopid>
-              <Onwalkdist>0.077</Onwalkdist>
-              <Onwalkdir>NW</Onwalkdir>
-              <Onwalkhint>N</Onwalkhint>
-            </Onstop>
-            <Offstop>
-              <Description>3RD STREET&#x2F;JEFFERSON LIGHT RAIL STATION</Description>
-              <Lat>33.446270</Lat>
-              <Long>-112.069777</Long>
-              <Atisstopid>10892</Atisstopid>
-              <Offstopwalk>0.016</Offstopwalk>
-              <Offstopwalkdir>SE</Offstopwalkdir>
-              <Offstopwalkhint>N</Offstopwalkhint>
-            </Offstop>
-            <Trips>
-              <Trip>
-                <Ontime>09:07 AM</Ontime>
-                <Offtime>09:11 AM</Offtime>
-                <Service>
-                  <Route>LTRL</Route>
-                  <Direction>E</Direction>
-                  <Servicetype>S</Servicetype>
-                  <Signage>Metro light rail To Sycamore&#x2F;Main</Signage>
-                  <Routetype>L</Routetype>
-                  <Exception>N</Exception>
-                </Service>
-              </Trip>
-              <Trip>
-                <Ontime>09:22 AM</Ontime>
-                <Offtime>09:26 AM</Offtime>
-                <Service>
-                  <Route>LTRL</Route>
-                  <Direction>E</Direction>
-                  <Servicetype>S</Servicetype>
-                  <Signage>Metro light rail To Sycamore&#x2F;Main</Signage>
-                  <Routetype>L</Routetype>
-                  <Exception>N</Exception>
-                </Service>
-              </Trip>
-            </Trips>
-          </Group>
-          <Group>
-            <Onstop>
-              <Description>1ST AVE &amp; VAN BUREN ST</Description>
-              <Lat>33.451748</Lat>
-              <Long>-112.075169</Long>
-              <Atisstopid>3795</Atisstopid>
-              <Onwalkdist>0.046</Onwalkdist>
-              <Onwalkdir>W</Onwalkdir>
-              <Onwalkhint>N</Onwalkhint>
-            </Onstop>
-            <Offstop>
-              <Description>1ST AVE &amp; JEFFERSON ST</Description>
-              <Lat>33.446947</Lat>
-              <Long>-112.075255</Long>
-              <Atisstopid>9959</Atisstopid>
-              <Offstopwalk>0.327</Offstopwalk>
-              <Offstopwalkdir>W</Offstopwalkdir>
-              <Offstopwalkhint>N</Offstopwalkhint>
-            </Offstop>
-            <Trips>
-              <Trip>
-                <Ontime>09:00 AM</Ontime>
-                <Offtime>09:01 AM</Offtime>
-                <Service>
-                  <Route>10</Route>
-                  <Direction>W</Direction>
-                  <Servicetype>S</Servicetype>
-                  <Signage>10 Roosvlt&#x2F;Grnt To 35Av&#x2F;Lwr Buckeye</Signage>
-                  <Routetype>B</Routetype>
-                  <Exception>N</Exception>
-                </Service>
-              </Trip>
-              <Trip>
-                <Ontime>09:10 AM</Ontime>
-                <Offtime>09:11 AM</Offtime>
-                <Service>
-                  <Route>0</Route>
-                  <Direction>S</Direction>
-                  <Servicetype>S</Servicetype>
-                  <Signage>0 Central South To Baseline Rd</Signage>
-                  <Routetype>B</Routetype>
-                  <Exception>N</Exception>
-                </Service>
-              </Trip>
-              <Trip>
-                <Ontime>09:40 AM</Ontime>
-                <Offtime>09:41 AM</Offtime>
-                <Service>
-                  <Route>0</Route>
-                  <Direction>S</Direction>
-                  <Servicetype>S</Servicetype>
-                  <Signage>0 CENTRAL South to Dobbins</Signage>
-                  <Routetype>B</Routetype>
-                  <Exception>N</Exception>
-                </Service>
-              </Trip>
-            </Trips>
-          </Group>
-        </Groups>
-        BODY
+        @today      = Time.now.strftime("%m/%d/%Y")
+        @conditions = {:routes_only      => false,
+                       :origin_lat       => 33.446931,
+                       :origin_long      => -112.097903,
+                       :destination_lat  => 33.447098,
+                       :destination_long => -112.077213,
+                       :date             => @today,
+                       :start_time       => '1700',
+                       :end_time         => '1800'}
 
-        @schedule = Ratis::Point2Point.where(:routes_only => false,
-          :origin_lat => 33.451929, :origin_long => -112.07457,
-          :destination_lat => 33.44641, :destination_long => -112.06987,
-          :date => '08/04/12', :start_time => '0900', :end_time => '1100')
       end
 
       it 'only makes one request' do
-        an_atis_request.should have_been_made.times 1
+        Ratis::Request.should_receive(:get).once.and_call_original
+        Ratis::Point2Point.where(@conditions.dup)
       end
 
-      it 'requests the correct SOAP action' do an_atis_request_for('Point2point',
-          'Originlat' => '33.451929', 'Originlong' => '-112.07457',
-          'Destinationlat' => '33.44641', 'Destinationlong' => '-112.06987',
-          'Date' => '08/04/12', 'Starttime' => '0900', 'Endtime' => '1100',
-          'Routesonly' => 'N'
-           ).should have_been_made
+      it 'requests the correct SOAP action with correct args' do
+        Ratis::Request.should_receive(:get) do |action, options|
+          action.should eq('Point2point')
+          options["Date"].should eq(@today)
+          options["Destinationlong"].should eq(-112.077213)
+          options["Starttime"].should eq("1700")
+          options["Endtime"].should eq("1800")
+          options["Destinationlat"].should eq(33.447098)
+          options["Routesonly"].should eq("N")
+          options["Originlong"].should eq(-112.097903)
+          options["Originlat"].should eq(33.446931)
+
+        end.and_return(double('response', :success? => false)) # false only to stop further running
+
+        Ratis::Point2Point.where(@conditions.dup)
       end
 
       it 'gets the groups' do
-        @schedule.should have(2).groups
-        @schedule.groups.first.should be_kind_of Ratis::Point2Point::Group
-        @schedule.groups.last.should be_kind_of Ratis::Point2Point::Group
+        schedule = Ratis::Point2Point.where(@conditions.dup)
+        schedule.should have(3).groups
+        schedule.groups.each{|group| group.should be_a(Ratis::Point2Point::Group) }
       end
 
       it 'gets the trips within each group' do
-        @schedule.groups.first.should have(2).trips
-        @schedule.groups.last.should have(3).trips
+        schedule = Ratis::Point2Point.where(@conditions.dup)
+        schedule.groups[0].should have(18).trips
+        schedule.groups[1].should have(16).trips
+        schedule.groups[2].should have(4).trips
       end
 
       it 'parses out the on stop fields' do
-        group = @schedule.groups.first
-        on_stop = group.on_stop
+        schedule = Ratis::Point2Point.where(@conditions.dup)
+        group    = schedule.groups.first
+        on_stop  = group.on_stop
 
-        on_stop.should be_kind_of Ratis::Point2Point::Stop
+        on_stop.should be_a(Ratis::Point2Point::Stop)
 
-        on_stop.description.should eql 'VAN BUREN/1ST AVE LIGHT RAIL STATION'
-        on_stop.latitude.should eql 33.452252
-        on_stop.longitude.should eql -112.075081
-        on_stop.atis_stop_id.should eql 10880
-        on_stop.walk_dist.should eql 0.077
-        on_stop.walk_dir.should eql 'NW'
-        on_stop.walk_hint.should eql 'N'
+        on_stop.description.should eql('JEFFERSON ST & 18TH AVE')
+        on_stop.latitude.should eql(33.446931)
+        on_stop.longitude.should eql(-112.097903)
+        on_stop.atis_stop_id.should eql(9469)
+        on_stop.walk_dist.should eql(0.01)
+        on_stop.walk_dir.should eql('E')
+        on_stop.walk_hint.should eql('N')
       end
 
       it 'parses out the off stop fields' do
-        group = @schedule.groups.first
-        off_stop = group.off_stop
+        schedule  = Ratis::Point2Point.where(@conditions.dup)
+        group     = schedule.groups.first
+        off_stop  = group.off_stop
 
-        off_stop.description.should eql '3RD STREET/JEFFERSON LIGHT RAIL STATION'
-        off_stop.latitude.should eql 33.446270
-        off_stop.longitude.should eql -112.069777
-        off_stop.atis_stop_id.should eql 10892
-        off_stop.walk_dist.should eql 0.016
-        off_stop.walk_dir.should eql 'SE'
-        off_stop.walk_hint.should eql 'N'
+        off_stop.should be_a(Ratis::Point2Point::Stop)
+
+        off_stop.description.should eql('JEFFERSON ST & 3RD AVE')
+        off_stop.latitude.should eql(33.447098)
+        off_stop.longitude.should eql(-112.077213)
+        off_stop.atis_stop_id.should eql(1463)
+        off_stop.walk_dist.should eql(0.007)
+        off_stop.walk_dir.should eql('E')
+        off_stop.walk_hint.should eql('N')
       end
 
       it 'parses out the trip' do
-        group = @schedule.groups.first
-        trip = group.trips.first
+        schedule = Ratis::Point2Point.where(@conditions.dup)
+        group    = schedule.groups.first
+        trip     = group.trips.first
 
-        trip.should be_kind_of Ratis::Point2Point::Trip
-        trip.on_time.should eql '09:07 AM'
-        trip.off_time.should eql '09:11 AM'
+        trip.should be_a(Ratis::Point2Point::Trip)
+
+        trip.on_time.should eql('05:00 PM')
+        trip.off_time.should eql('05:06 PM')
       end
 
       it 'parses out the service' do
-        group = @schedule.groups.first
-        service = group.trips.first.service
+        schedule = Ratis::Point2Point.where(@conditions.dup)
+        group    = schedule.groups.first
+        service  = group.trips.first.service
 
-        service.should be_kind_of Ratis::Point2Point::Service
-        service.route.should eql 'LTRL'
-        service.direction.should eql 'E'
-        service.service_type.should eql 'S'
-        service.signage.should eql 'Metro light rail To Sycamore/Main'
-        service.route_type.should eql 'L'
-        service.exception.should eql 'N'
+        service.should be_a(Ratis::Point2Point::Service)
+
+        service.route.should eql('451')
+        service.direction.should eql('S')
+        service.service_type.should eql('W')
+        service.signage.should eql('CSM RAPID To 27th Av/Bsln PNR')
+        service.route_type.should eql('X')
+        service.exception.should eql('N')
       end
+
+      it "should only return result groups for filtered route" do
+        schedule = Ratis::Point2Point.where(@conditions.dup.merge(:routes => ['451']))
+        schedule.groups.size.should eq(1)
+      end
+
+      it "should only return result groups for filtered routes" do
+        schedule = Ratis::Point2Point.where(@conditions.dup.merge(:routes => ['1', '451']))
+        schedule.groups.size.should eq(2)
+      end
+
+      it "should raise error if the trip is NOT possible for a route being attempted to filter on" do
+        # According to Marc Ferguson of Trapeze group, route filter only works when Routesonly = 'N'
+        lambda {
+          Ratis::Point2Point.where(@conditions.dup.merge(:routes => ['GAL']))
+        }.should raise_error(Ratis::Errors::SoapError)
+      end
+
+      it "should raise error if the trip is NOT possible for a route being attempted to filter on" do
+        # According to Marc Ferguson of Trapeze group, route filter only works when Routesonly = 'N'
+        begin
+          Ratis::Point2Point.where(@conditions.dup.merge(:routes => ['GAL']))
+        rescue Exception => e
+          e.message.should eq('Trip not possible')
+        end
+      end
+
 
     end
   end
