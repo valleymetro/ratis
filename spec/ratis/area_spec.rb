@@ -1,38 +1,41 @@
 require 'spec_helper'
 
 describe Ratis::Area do
-
   before do
-    stub_atis_request.to_return( atis_response 'Getareas', '1.0', '0', <<-BODY )
-      <Areainfo>
-        <Area>Area1</Area>
-        <Description>D1</Description> 
-      </Areainfo>
-      <Areainfo>
-        <Area>Area2</Area>
-        <Description>D2</Description>
-      </Areainfo>
-    BODY
-
-    @areas = Ratis::Area.all
+    Ratis.reset
+    Ratis.configure do |config|
+      config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-252/soap.cgi'
+      config.namespace  = 'PX_WEB'
+    end
   end
 
-  it 'only makes one request' do
-    an_atis_request.should have_been_made.times 1
-  end
+  describe '#all' do
+    it 'only makes one request' do
+      # false just to stop further processing of response
+      Ratis::Request.should_receive(:get).once.and_call_original
+      Ratis::Area.all
+    end
 
-  it 'requests the correct SOAP action' do
-    an_atis_request_for('Getareas').should have_been_made
-  end
+    it 'requests the correct SOAP action with correct args' do
+      Ratis::Request.should_receive(:get) do |action, options|
+        action.should eq('Getareas')
+      end.and_return(double('response', :success? => false))
 
-  it 'should return all areas' do
-    @areas.should have(2).items
+      Ratis::Area.all
+    end
 
-    @areas[0].area.should eql 'Area1'
-    @areas[0].description.should eql 'D1'
-    @areas[1].area.should eql 'Area2'
-    @areas[1].description.should eql 'D2'
+    it 'should return all areas' do
+      areas = Ratis::Area.all
+      areas.should have(29).items
+    end
+
+    it "should parse the area fields" do
+      areas = Ratis::Area.all
+      area  = areas.last
+
+      expect(area.area).to eq('YG')
+      expect(area.description).to eq('Youngtown')
+    end
   end
 
 end
-
