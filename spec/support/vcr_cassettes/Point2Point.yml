@@ -35,12 +35,12 @@ http_interactions:
     headers: 
       Content-Length: 
       - "0"
+      Location: 
+      - http://www.iana.org/domains/example/
       Server: 
       - BigIP
       Connection: 
       - Keep-Alive
-      Location: 
-      - http://www.iana.org/domains/example/
     body: 
       base64_string: ""
     http_version: 
@@ -51,17 +51,17 @@ http_interactions:
     body: 
       base64_string: |
         PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48ZW52OkVu
-        dmVsb3BlIHhtbG5zOmVudj0iaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcv
-        c29hcC9lbnZlbG9wZS8iIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcv
-        MjAwMS9YTUxTY2hlbWEiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcv
-        MjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOndzZGw9IlBYX1dFQiI+
-        PGVudjpCb2R5PjxQb2ludDJwb2ludCB4bWxucz0iUFhfV0VCIj48RGF0ZT4w
-        NS8xNC8yMDEzPC9EYXRlPjxSb3V0ZXNvbmx5Plk8L1JvdXRlc29ubHk+PE9y
-        aWdpbmxhdD4zMy40NDY5MzE8L09yaWdpbmxhdD48RGVzdGluYXRpb25sb25n
-        Pi0xMTIuMDc3MjEzPC9EZXN0aW5hdGlvbmxvbmc+PERlc3RpbmF0aW9ubGF0
-        PjMzLjQ0NzA5ODwvRGVzdGluYXRpb25sYXQ+PE9yaWdpbmxvbmc+LTExMi4w
-        OTc5MDM8L09yaWdpbmxvbmc+PFN0YXJ0dGltZT4xNzAwPC9TdGFydHRpbWU+
-        PEVuZHRpbWU+MTgwMDwvRW5kdGltZT48Um91dGVzPjE8L1JvdXRlcz48L1Bv
+        dmVsb3BlIHhtbG5zOndzZGw9IlBYX1dFQiIgeG1sbnM6eHNkPSJodHRwOi8v
+        d3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYSIgeG1sbnM6eHNpPSJodHRwOi8v
+        d3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeG1sbnM6ZW52
+        PSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy9zb2FwL2VudmVsb3BlLyI+
+        PGVudjpCb2R5PjxQb2ludDJwb2ludCB4bWxucz0iUFhfV0VCIj48U3RhcnR0
+        aW1lPjE3MDA8L1N0YXJ0dGltZT48T3JpZ2lubG9uZz4tMTEyLjA5NzkwMzwv
+        T3JpZ2lubG9uZz48Um91dGVzPjE8L1JvdXRlcz48RGVzdGluYXRpb25sYXQ+
+        MzMuNDQ3MDk4PC9EZXN0aW5hdGlvbmxhdD48RGVzdGluYXRpb25sb25nPi0x
+        MTIuMDc3MjEzPC9EZXN0aW5hdGlvbmxvbmc+PE9yaWdpbmxhdD4zMy40NDY5
+        MzE8L09yaWdpbmxhdD48RW5kdGltZT4xODAwPC9FbmR0aW1lPjxEYXRlPjA1
+        LzE0LzIwMTM8L0RhdGU+PFJvdXRlc29ubHk+WTwvUm91dGVzb25seT48L1Bv
         aW50MnBvaW50PjwvZW52OkJvZHk+PC9lbnY6RW52ZWxvcGU+
 
     headers: 
@@ -78,18 +78,18 @@ http_interactions:
       code: 200
       message: OK
     headers: 
-      Date: 
-      - Tue, 14 May 2013 23:39:45 GMT
+      Soapserver: 
+      - SOAP::Lite/Perl/0.55
       Content-Length: 
       - "4558"
       Server: 
       - Apache/2.2.3 (CentOS)
-      Content-Type: 
-      - text/xml; charset=utf-8
       Connection: 
       - close
-      Soapserver: 
-      - SOAP::Lite/Perl/0.55
+      Content-Type: 
+      - text/xml; charset=utf-8
+      Date: 
+      - Wed, 15 May 2013 00:54:01 GMT
     body: 
       base64_string: |
         PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48U09BUC1F
@@ -196,5 +196,5 @@ http_interactions:
         RU5WOkVudmVsb3BlPg==
 
     http_version: 
-  recorded_at: Tue, 14 May 2013 23:39:45 GMT
+  recorded_at: Wed, 15 May 2013 00:54:01 GMT
 recorded_with: VCR 2.4.0

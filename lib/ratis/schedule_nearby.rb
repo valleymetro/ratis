@@ -5,13 +5,13 @@ module Ratis
     attr_accessor :atstops
 
     def self.where(conditions)
-      latitude      = conditions.delete :latitude
-      longitude     = conditions.delete :longitude
-      date          = conditions.delete :date
-      time          = conditions.delete :time
-      window        = conditions.delete :window
-      walk_distance = conditions.delete :walk_distance
-      landmark_id   = conditions.delete :landmark_id
+      latitude      = conditions.delete(:latitude)
+      longitude     = conditions.delete(:longitude)
+      date          = conditions.delete(:date)
+      time          = conditions.delete(:time)
+      window        = conditions.delete(:window)
+      walk_distance = conditions.delete(:walk_distance)
+      landmark_id   = conditions.delete(:landmark_id)
       stop_id       = conditions.delete(:stop_id) || ''
       app_id        = conditions.delete(:app_id) || 'na'
 
@@ -39,6 +39,8 @@ module Ratis
 
       return [] unless response.success?
 
+      # TODO: where is this nightmare-ish hash being used?
+      # need to refactor this into something more OO
       atstops = response.to_array :schedulenearby_response, :atstop
       atstops.map do |atstop|
         atstop[:services] = atstop.to_array :service

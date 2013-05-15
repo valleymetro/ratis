@@ -10,11 +10,13 @@ module Ratis
 
     def self.all(conditions)
       route     = conditions.delete(:route)
-      direction = conditions.delete(:direction).to_s.upcase
-      order     = conditions.delete(:order).to_s.upcase
+      direction = conditions.delete(:direction)
 
       raise ArgumentError.new('You must provide a route')     unless route
       raise ArgumentError.new('You must provide a direction') unless direction
+
+      direction = direction.to_s.upcase
+      order     = conditions.delete(:order).to_s.upcase
 
       Ratis.all_conditions_used? conditions
 
