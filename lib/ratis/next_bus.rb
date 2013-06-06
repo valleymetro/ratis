@@ -2,58 +2,50 @@ module Ratis
 
   class NextBus
 
-    attr_accessor :stops, :runs
+    attr_accessor :runs, :status, :sign, :routetype, :times, :direction
 
-    # Initializes a NextBus object with stops and runs.
-    # @return     [NextBus]
-    #
-    # == Parameters:
-    #
-    # [stops]    <em>Optional</em> - 
-    #            An array of stops. Defaults to empty array.
-    # [runs]     <em>Optional</em> - 
-    #            An array of runs. Defaults to empty array.
+    def initialize(service, _runs = [])
+      @runs      = _runs
 
-    def initialize(_stops = [], _runs = [])
-      @stops, @runs = _stops, _runs
+      @status    = service[:status]
+      @sign      = service[:sign]
+      @routetype = service[:routetype]
+      @times     = service[:times]
+      @direction = service[:direction]
     end
 
-    # Returns results of NextBus query containing arrays of stops and runs.
-    # @return     [NextBus] containing next buses.
-    #
-    # == Parameters:
-    #
-    # Takes hash of conditions
-    #
-    # [option1]      <b>Required</b> - 
-    #                Description of required param
-    # [option2]      <em>Optional</em> - 
-    #                Description of optional param
-    # [option3]      <em>Optional</em> - 
-    #                Description of optional param
-    # [option4]      <em>Optional</em> - 
-    #                Description of optional param
-
     def self.where(conditions)
-      stop_id = conditions.delete :stop_id
-      app_id  = conditions.delete(:app_id) || 'na'
+      stop_id = conditions.delete(:stop_id)
+      app_id  = conditions.delete(:app_id) || 'ratis-specs'
+      type    = conditions.delete(:type) || 'N' # N for Next Bus
+
+      if datetime = conditions.delete(:datetime)
+        raise ArgumentError.new('If datetime supplied it should be a Time or DateTime instance, otherwise it defaults to Time.now') unless datetime.is_a?(DateTime) || datetime.is_a?(Time)
+      else
+        datetime = Time.now
+      end
 
       raise ArgumentError.new('You must provide a stop ID') unless stop_id
+
       Ratis.all_conditions_used? conditions
 
-      response = Request.get 'Nextbus2', { 'Stopid' => stop_id, 'Appid' => app_id }
+      response = Request.get 'Nextbus', {'Stopid' => stop_id,
+                                         'Appid' => app_id,
+                                         'Date' => datetime.strftime("%m/%d/%Y"),
+                                         'Time' => datetime.strftime("%I%M"),
+                                         'Type' => type }
       return [] unless response.success?
 
-      stops = response.to_array :nextbus2_response, :stops, :stop
-      runs  = response.to_array :nextbus2_response, :runs, :run
-
-      NextBus.new stops, runs
+      service = response.body[:nextbus_response][:atstop][:service]
+      runs    = response.to_array :nextbus_response, :atstop, :service, :tripinfo
+      NextBus.new service, runs
     end
 
     # Gets description of first stop
     # @return [String] Description of first stop or nil.
 
     def first_stop_description
+      raise 'Not yet implemented'
       stops.first ? stops.first[:description] : nil
     end
 
@@ -61,6 +53,7 @@ module Ratis
     # @return     [Hash] NextBus details in a hash.
 
     def to_hash
+      raise 'Not yet implemented'
       { :stopname => first_stop_description,
         :signs    => runs.map { |run| run[:sign] }.uniq,
         :runs     => runs.map do |run|
@@ -77,6 +70,7 @@ module Ratis
     # @private
 
     def to_hash_for_xml
+      raise 'Not yet implemented'
       { :stopname => first_stop_description,
         :runs     => runs.map do |run|
           { :time           => run[:estimatedtime],

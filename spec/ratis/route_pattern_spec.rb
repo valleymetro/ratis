@@ -12,12 +12,12 @@ describe Ratis::RoutePattern do
   describe '#where' do
 
     before do
-      @today      = Time.now.strftime("%m/%d/%Y")
+      @today      = Chronic.parse('tomorrow at 8am') # Time.now.strftime("%m/%d/%Y")
       @conditions = {:route_short_name => '0',
                      :direction        => 'N',
                      :date             => @today,
                      :service_type     => 'W',
-                     :routeid          => '61540' }
+                     :routeid          => '83720' }
     end
 
     it 'only makes one request' do
@@ -33,7 +33,7 @@ describe Ratis::RoutePattern do
         options["Direction"].should eq('N')
         options["Date"].should eq(@today)
         options["Servicetype"].should eq('W')
-        options["Routeid"].should eq('61540')
+        options["Routeid"].should eq('83720')
 
       end.and_return(double('response', :success? => false))
 

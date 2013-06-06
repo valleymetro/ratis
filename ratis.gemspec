@@ -27,4 +27,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rake'
   s.add_development_dependency 'vcr'
   s.add_development_dependency 'ruby-debug'
+  s.add_development_dependency 'rspec-instafail'
+  s.add_development_dependency 'chronic'
 end

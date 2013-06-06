@@ -63,7 +63,7 @@ describe Ratis::Timetable do
       expect(timetable.direction).to eq('N')
       expect(timetable.service_type).to eq('Weekday')
       expect(timetable.operator).to eq('AP')
-      expect(timetable.effective).to eq('01/28/13')
+      expect(timetable.effective).to eq('05/20/13')
 
       stop = timetable.timepoints.first
 
@@ -77,7 +77,7 @@ describe Ratis::Timetable do
 
       expect(trip.ratis_stop_id).to eq(0)
       expect(trip.times).to eq( ["05:10 AM", "05:14 AM", "05:22 AM", "05:35 AM", "05:43 AM", "05:51 AM", "05:59 AM", "06:10 AM"] )
-      expect(trip.comment).to be_nil
+      expect(trip.comment).to eq('F')
 
     end
 

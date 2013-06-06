@@ -12,7 +12,7 @@ describe Ratis::Pattern do
   describe '#all' do
 
     before do
-      @today      = Time.now.strftime("%m/%d/%Y")
+      @today      = Chronic.parse('tomorrow at 8am') # Time.now.strftime("%m/%d/%Y")
       @conditions = {:route_short_name => '0',
                      :direction        => 'N',
                      :date             => @today,
@@ -63,10 +63,10 @@ describe Ratis::Pattern do
       expect(routeinfo.operate).to eq('AP')
       expect(routeinfo.routetype).to eq('B')
       expect(routeinfo.headsign).to eq("0 CENTRAL North to Dunlap/3rd St.")
-      expect(routeinfo.routeid).to eq('61540')
+      expect(routeinfo.routeid).to eq('83720')
       expect(routeinfo.route).to eq('0')
       expect(routeinfo.school).to be_nil
-      expect(routeinfo.effective).to eq('01/28/13')
+      expect(routeinfo.effective).to eq('05/20/13')
       expect(routeinfo.tripcount).to eq('51')
 
     end
