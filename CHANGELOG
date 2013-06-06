@@ -1,3 +1,10 @@
 3.1
 - The NextBus class was really using the Nextbus2 api call all along.  This was pretty confusing, so 2 seperate classes now exist; one for NextBus and NextBus2.  This means any code using NextBus prior to 3.1 will break since it was really calling the Nextbus2 api and we've updated it so the class of matching name is calling the matching api method.
 - Dev dependencies of chronic and rspec-instafail were also added to aid testing
+
+3.1.1
+- spec updates, and general tidy
+
+3.1.2
+- NextBus#stop added
+- Contains info about the stop (:side, :stopid, :heading, :lat, :area, :servicetype, :route, :operator)
