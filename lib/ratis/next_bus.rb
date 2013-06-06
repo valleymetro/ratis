@@ -2,10 +2,11 @@ module Ratis
 
   class NextBus
 
-    attr_accessor :runs, :status, :sign, :routetype, :times, :direction
+    attr_accessor :runs, :status, :sign, :routetype, :times, :direction, :stop
 
-    def initialize(service, _runs = [])
+    def initialize(service, _runs = [], _stop = {})
       @runs      = _runs
+      @stop      = _stop
 
       @status    = service[:status]
       @sign      = service[:sign]
@@ -36,9 +37,11 @@ module Ratis
                                          'Type' => type }
       return [] unless response.success?
 
-      service = response.body[:nextbus_response][:atstop][:service]
-      runs    = response.to_array :nextbus_response, :atstop, :service, :tripinfo
-      NextBus.new service, runs
+      stop    = response.body[:nextbus_response][:atstop]
+      service = stop.delete(:service)
+      runs    = service.delete(:tripinfo)
+
+      NextBus.new service, runs, stop
     end
 
     # Gets description of first stop
