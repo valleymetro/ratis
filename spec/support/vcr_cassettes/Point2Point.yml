@@ -1,5 +1,4 @@
 --- 
-recorded_with: VCR 2.4.0
 http_interactions: 
 - request: 
     method: post
@@ -21,12 +20,12 @@ http_interactions:
         aW50MnBvaW50PjwvZW52OkJvZHk+PC9lbnY6RW52ZWxvcGU+
 
     headers: 
-      Content-Length: 
-      - "576"
       Accept: 
       - "*/*"
       Soapaction: 
       - "\"PX_WEB#Point2point\""
+      Content-Length: 
+      - "576"
       Content-Type: 
       - text/xml;charset=UTF-8
   response: 
@@ -34,14 +33,14 @@ http_interactions:
       code: 302
       message: Found
     headers: 
-      Content-Length: 
-      - "0"
+      Connection: 
+      - Keep-Alive
       Server: 
       - BigIP
       Location: 
       - http://www.iana.org/domains/example/
-      Connection: 
-      - Keep-Alive
+      Content-Length: 
+      - "0"
     body: 
       base64_string: ""
     http_version: 
@@ -54,24 +53,24 @@ http_interactions:
         PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48ZW52OkVu
         dmVsb3BlIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxT
         Y2hlbWEiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxT
-        Y2hlbWEtaW5zdGFuY2UiIHhtbG5zOndzZGw9IlBYX1dFQiIgeG1sbnM6ZW52
-        PSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy9zb2FwL2VudmVsb3BlLyI+
-        PGVudjpCb2R5PjxQb2ludDJwb2ludCB4bWxucz0iUFhfV0VCIj48RGVzdGlu
-        YXRpb25sb25nPi0xMTIuMDc3MjEzPC9EZXN0aW5hdGlvbmxvbmc+PEVuZHRp
-        bWU+MTgwMDwvRW5kdGltZT48Um91dGVzPjE8L1JvdXRlcz48Um91dGVzb25s
-        eT5ZPC9Sb3V0ZXNvbmx5PjxPcmlnaW5sb25nPi0xMTIuMDk3OTAzPC9Pcmln
-        aW5sb25nPjxTdGFydHRpbWU+MTcwMDwvU3RhcnR0aW1lPjxPcmlnaW5sYXQ+
-        MzMuNDQ2OTMxPC9PcmlnaW5sYXQ+PERlc3RpbmF0aW9ubGF0PjMzLjQ0NzA5
-        ODwvRGVzdGluYXRpb25sYXQ+PERhdGU+MDYvMDYvMjAxMzwvRGF0ZT48L1Bv
+        Y2hlbWEtaW5zdGFuY2UiIHhtbG5zOmVudj0iaHR0cDovL3NjaGVtYXMueG1s
+        c29hcC5vcmcvc29hcC9lbnZlbG9wZS8iIHhtbG5zOndzZGw9IlBYX1dFQiI+
+        PGVudjpCb2R5PjxQb2ludDJwb2ludCB4bWxucz0iUFhfV0VCIj48T3JpZ2lu
+        bG9uZz4tMTEyLjA5NzkwMzwvT3JpZ2lubG9uZz48Um91dGVzPjE8L1JvdXRl
+        cz48Um91dGVzb25seT5ZPC9Sb3V0ZXNvbmx5PjxEYXRlPjA2LzA2LzIwMTM8
+        L0RhdGU+PERlc3RpbmF0aW9ubGF0PjMzLjQ0NzA5ODwvRGVzdGluYXRpb25s
+        YXQ+PE9yaWdpbmxhdD4zMy40NDY5MzE8L09yaWdpbmxhdD48U3RhcnR0aW1l
+        PjE3MDA8L1N0YXJ0dGltZT48RW5kdGltZT4xODAwPC9FbmR0aW1lPjxEZXN0
+        aW5hdGlvbmxvbmc+LTExMi4wNzcyMTM8L0Rlc3RpbmF0aW9ubG9uZz48L1Bv
         aW50MnBvaW50PjwvZW52OkJvZHk+PC9lbnY6RW52ZWxvcGU+
 
     headers: 
-      Content-Length: 
-      - "576"
       Accept: 
       - "*/*"
       Soapaction: 
       - "\"PX_WEB#Point2point\""
+      Content-Length: 
+      - "576"
       Content-Type: 
       - text/xml;charset=UTF-8
   response: 
@@ -79,18 +78,18 @@ http_interactions:
       code: 200
       message: OK
     headers: 
-      Content-Length: 
-      - "4558"
-      Server: 
-      - Apache/2.2.3 (CentOS)
       Connection: 
       - close
+      Server: 
+      - Apache/2.2.3 (CentOS)
+      Date: 
+      - Thu, 06 Jun 2013 19:05:58 GMT
       Soapserver: 
       - SOAP::Lite/Perl/0.55
+      Content-Length: 
+      - "4558"
       Content-Type: 
       - text/xml; charset=utf-8
-      Date: 
-      - Thu, 06 Jun 2013 07:12:29 GMT
     body: 
       base64_string: |
         PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48U09BUC1F
@@ -197,4 +196,5 @@ http_interactions:
         RU5WOkVudmVsb3BlPg==
 
     http_version: 
-  recorded_at: Thu, 06 Jun 2013 07:12:29 GMT
+  recorded_at: Thu, 06 Jun 2013 19:05:58 GMT
+recorded_with: VCR 2.4.0

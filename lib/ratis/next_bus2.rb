@@ -36,7 +36,7 @@ module Ratis
 
     def self.where(conditions)
       stop_id = conditions.delete :stop_id
-      app_id  = conditions.delete(:app_id) || 'na'
+      app_id  = conditions.delete(:app_id) || 'ratis-gem'
 
       raise ArgumentError.new('You must provide a stop ID') unless stop_id
       Ratis.all_conditions_used? conditions

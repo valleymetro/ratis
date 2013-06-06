@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.summary          = 'A Ruby wrapper around the ATIS SOAP Interface'
   s.authors          = ['Burst Software']
   s.email            = 'irish@burstdev.com'
-  s.files            = Dir.glob("{bin,lib}/**/*") + %w[README.md]
+  s.files            = `git ls-files`.split($/)
   s.require_paths    = ['lib']
   s.rdoc_options     = ['--charset=UTF-8 --main=README.md']
   s.extra_rdoc_files = ['README.md']
@@ -17,16 +17,17 @@ Gem::Specification.new do |s|
   s.add_dependency 'savon', '<2.0'
 
   s.add_development_dependency 'activesupport'
-  s.add_development_dependency 'rspec', '~> 2.13.0'
-  s.add_development_dependency 'simplecov'
-  s.add_development_dependency 'webmock'
-  s.add_development_dependency 'hashdiff'
   s.add_development_dependency 'bundler', '>= 1.0.0'
-  s.add_development_dependency 'yard'
-  s.add_development_dependency 'redcarpet'
-  s.add_development_dependency 'rake'
-  s.add_development_dependency 'vcr'
-  s.add_development_dependency 'ruby-debug'
-  s.add_development_dependency 'rspec-instafail'
   s.add_development_dependency 'chronic'
+  s.add_development_dependency 'hashdiff'
+  s.add_development_dependency 'rake'
+  s.add_development_dependency 'redcarpet'
+  s.add_development_dependency 'rspec', '~> 2.13.0'
+  s.add_development_dependency 'rspec-instafail'
+  s.add_development_dependency 'ruby-debug'
+  s.add_development_dependency 'simplecov'
+  s.add_development_dependency 'vcr'
+  s.add_development_dependency 'webmock'
+  s.add_development_dependency 'yard'
+
 end

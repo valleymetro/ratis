@@ -16,7 +16,7 @@ module Ratis
 
     def self.where(conditions)
       stop_id = conditions.delete(:stop_id)
-      app_id  = conditions.delete(:app_id) || 'ratis-specs'
+      app_id  = conditions.delete(:app_id) || 'ratis-gem'
       type    = conditions.delete(:type) || 'N' # N for Next Bus
 
       if datetime = conditions.delete(:datetime)

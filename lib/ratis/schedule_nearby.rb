@@ -13,7 +13,7 @@ module Ratis
       walk_distance = conditions.delete(:walk_distance)
       landmark_id   = conditions.delete(:landmark_id)
       stop_id       = conditions.delete(:stop_id) || ''
-      app_id        = conditions.delete(:app_id) || 'na'
+      app_id        = conditions.delete(:app_id) || 'ratis-gem'
 
       raise ArgumentError.new('You must provide latitude') unless latitude
       raise ArgumentError.new('You must provide longitude') unless longitude
