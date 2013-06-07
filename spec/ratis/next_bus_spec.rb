@@ -8,86 +8,210 @@ describe Ratis::NextBus do
       config.namespace  = 'PX_WEB'
     end
 
-    @stop_id = 10050
     @time    = Chronic.parse('tomorrow at 6am')
   end
 
-  describe '#where' do
-    before do
-      # appid
-      # a short string that can be used to separate requests from different applications or different modules with
-      # Optional (highly recommended)
-      @conditions = {:stop_id      => @stop_id,
-                     :app_id       => 'ratis-specs',
-                     :type         => 'N',
-                     :datetime     => @time }
-    end
+  let(:empty_body){ {:nextbus_response => {:atstop => {:service => []}}} }
 
-    it 'returns the next 4 bus times' do
-      # raises exception when no runs available:
-      # Ratis::Errors::SoapError:
-      # SOAP - no runs available
-      response = Ratis::NextBus.where(@conditions.dup)
-      expect(response.runs).to have(4).items
-    end
-
-    it 'only makes one request' do
-      # false just to stop further processing of response
-      Ratis::Request.should_receive(:get).once.and_call_original
-      Ratis::NextBus.where(@conditions.dup)
-    end
-
-    it 'requests the correct SOAP action' do
-      Ratis::Request.should_receive(:get) do |action, options|
-                       action.should eq('Nextbus')
-                       options["Stopid"].should eq(@stop_id)
-                       options["Appid"].should eq('ratis-specs')
-                       options["Date"].should eq(@time.strftime("%m/%d/%Y"))
-                       options["Time"].should eq(@time.strftime("%I%M"))
-                       options["Type"].should eq('N')
-
-                     end.and_return(double('response', :success? => false)) # false only to stop further running
-
-      Ratis::NextBus.where(@conditions.dup)
-    end
-
-    it "should set all the service values to instance vars" do
-      response = Ratis::NextBus.where(@conditions.dup)
-      expect(response).to be_a(Ratis::NextBus)
-      expect(response.status).to eq('N')
-      expect(response.sign).to eq('0 CENTRAL North to Dunlap/3rd St.')
-      expect(response.routetype).to eq('B')
-      expect(response.times).to eq("05:49 AM, 06:09 AM, 06:29 AM, 06:49 AM")
-      expect(response.direction).to eq('N')
-    end
-
-    it "should raise error if datetime condition is not a DateTime or Time" do
-      lambda {
-        Ratis::NextBus.where(@conditions.dup.merge(:datetime => '01/01/2013'))
-      }.should raise_error(ArgumentError, 'If datetime supplied it should be a Time or DateTime instance, otherwise it defaults to Time.now')
-
-      lambda {
-        Ratis::NextBus.where(@conditions.dup.merge(:datetime => Time.now))
-      }.should_not raise_error(ArgumentError)
-
-      lambda {
-        Ratis::NextBus.where(@conditions.dup.merge(:datetime => DateTime.today))
-      }.should_not raise_error(ArgumentError)
-    end
-
-    it "should raise error if stop id is not provided" do
-      lambda {
-        Ratis::NextBus.where(@conditions.dup.merge(:stop_id => nil))
-      }.should raise_error(ArgumentError, 'You must provide a stop ID')
-    end
-
-    it "should return an empty array if the api request isn't successful" do
-      Ratis::Request.should_receive('get').
-                     with('Nextbus', {"Time"=>@time.strftime("%I%M"), "Type"=>"N", "Stopid"=>10050, "Date"=>@time.strftime("%m/%d/%Y"), "Appid"=>"ratis-specs"}).
-                     and_return(double('response', :success? => false))
-      expect(Ratis::NextBus.where(@conditions.dup)).to be_empty
+  describe '#success?' do
+    it "do something" do
+      pending
     end
   end
+
+  describe '#where' do
+    describe 'single service return' do
+      before do
+        @stop_id = 10050
+        @conditions = {:stop_id      => @stop_id,
+                       :app_id       => 'ratis-specs', # a short string that can be used to separate requests from different applications or different modules with
+                       :type         => 'N',
+                       :datetime     => @time }
+      end
+
+      it 'returns the next 4 bus times' do
+        # raises exception when no runs available:
+        # Ratis::Errors::SoapError:
+        # SOAP - no runs available
+        response = Ratis::NextBus.where(@conditions.dup)
+        expect(response.services).to have(1).items
+      end
+
+      it 'only makes one request' do
+        # false just to stop further processing of response
+        Ratis::Request.should_receive(:get).once.and_call_original
+        Ratis::NextBus.where(@conditions.dup)
+      end
+
+      it 'requests the correct SOAP action' do
+        Ratis::Request.should_receive(:get) do |action, options|
+                         action.should eq('Nextbus')
+                         options["Stopid"].should eq(@stop_id)
+                         options["Appid"].should eq('ratis-specs')
+                         options["Date"].should eq(@time.strftime("%m/%d/%Y"))
+                         options["Time"].should eq(@time.strftime("%I%M"))
+                         options["Type"].should eq('N')
+
+                       end.and_return(double('response', :success? => false, :body => empty_body)) # false only to stop further running
+
+        Ratis::NextBus.where(@conditions.dup)
+      end
+
+      it "should set all the service values to instance vars" do
+        response = Ratis::NextBus.where(@conditions.dup)
+        service = response.services.first
+        expect(response).to be_a(Ratis::NextBus)
+        expect(response.services).to be_a(Array)
+
+        expect(service.status).to eq('N')
+        expect(service.sign).to eq('0 CENTRAL North to Dunlap/3rd St.')
+        expect(service.routetype).to eq('B')
+        expect(service.times).to eq("05:49 AM, 06:09 AM, 06:29 AM, 06:49 AM")
+        expect(service.direction).to eq('N')
+        expect(service.servicetype).to eq('W')
+        expect(service.route).to eq('0')
+        expect(service.operator).to eq('AP')
+      end
+
+      it "should raise error if datetime condition is not a DateTime or Time" do
+        lambda {
+          Ratis::NextBus.where(@conditions.dup.merge(:datetime => '01/01/2013'))
+        }.should raise_error(ArgumentError, 'If datetime supplied it should be a Time or DateTime instance, otherwise it defaults to Time.now')
+
+        lambda {
+          Ratis::NextBus.where(@conditions.dup.merge(:datetime => Time.now))
+        }.should_not raise_error(ArgumentError)
+
+        lambda {
+          Ratis::NextBus.where(@conditions.dup.merge(:datetime => DateTime.today))
+        }.should_not raise_error(ArgumentError)
+      end
+
+      it "should raise error if stop id is not provided" do
+        lambda {
+          Ratis::NextBus.where(@conditions.dup.merge(:stop_id => nil))
+        }.should raise_error(ArgumentError, 'You must provide a stop ID')
+      end
+
+      it "should return an empty array if the api request isn't successful" do
+        Ratis::Request.should_receive(:get) do |action, options|
+                         action.should eq('Nextbus')
+                         options["Stopid"].should eq(@stop_id)
+                         options["Appid"].should eq('ratis-specs')
+                         options["Date"].should eq(@time.strftime("%m/%d/%Y"))
+                         options["Time"].should eq(@time.strftime("%I%M"))
+                         options["Type"].should eq('N')
+
+                       end.and_return(double('response', :success? => false, :body => empty_body)) # false only to stop further running
+
+        expect(Ratis::NextBus.where(@conditions.dup).services).to be_empty
+      end
+    end
+
+    describe 'multiple services returned' do
+      before do
+        @stop_id = 15894
+        @conditions = {:stop_id      => @stop_id,
+                       :app_id       => 'ratis-specs', # a short string that can be used to separate requests from different applications or different modules with
+                       :type         => 'N',
+                       :datetime     => @time }
+      end
+
+      it 'returns the next 4 bus times' do
+        # raises exception when no runs available:
+        # Ratis::Errors::SoapError:
+        # SOAP - no runs available
+        response = Ratis::NextBus.where(@conditions.dup)
+        expect(response.services).to have(2).items
+      end
+
+      it 'only makes one request' do
+        # false just to stop further processing of response
+        Ratis::Request.should_receive(:get).once.and_call_original
+        Ratis::NextBus.where(@conditions.dup)
+      end
+
+      it 'requests the correct SOAP action' do
+        Ratis::Request.should_receive(:get) do |action, options|
+                         action.should eq('Nextbus')
+                         options["Stopid"].should eq(@stop_id)
+                         options["Appid"].should eq('ratis-specs')
+                         options["Date"].should eq(@time.strftime("%m/%d/%Y"))
+                         options["Time"].should eq(@time.strftime("%I%M"))
+                         options["Type"].should eq('N')
+
+                       end.and_return(double('response', :success? => false, :body => empty_body)) # false only to stop further running
+
+        Ratis::NextBus.where(@conditions.dup)
+      end
+
+      it "should map all the services to service openstruct objects" do
+        response = Ratis::NextBus.where(@conditions.dup)
+        expect(response).to be_a(Ratis::NextBus)
+        expect(response.services).to be_a(Array)
+
+        service = response.services.first
+        expect(service).to be_a(OpenStruct)
+
+        expect(service.status).to eq('N')
+        expect(service.sign).to eq('108 Elliot West To Priest')
+        expect(service.routetype).to eq('B')
+        expect(service.times).to eq("06:46 AM, 07:46 AM, 08:46 AM, 09:46 AM")
+        expect(service.direction).to eq('W')
+        expect(service.servicetype).to eq('W')
+        expect(service.route).to eq('108')
+        expect(service.operator).to eq('AT')
+
+        service = response.services.last
+        expect(service).to be_a(OpenStruct)
+
+        expect(service.status).to eq('N')
+        expect(service.sign).to eq('108 Elliot West To Priest Via Sosmn/Bsnln')
+        expect(service.routetype).to eq('B')
+        expect(service.times).to eq("10:46 AM, 02:46 PM, 06:46 PM")
+        expect(service.direction).to eq('W')
+        expect(service.servicetype).to eq('W')
+        expect(service.route).to eq('108')
+        expect(service.operator).to eq('AT')
+      end
+
+      it "should raise error if datetime condition is not a DateTime or Time" do
+        lambda {
+          Ratis::NextBus.where(@conditions.dup.merge(:datetime => '01/01/2013'))
+        }.should raise_error(ArgumentError, 'If datetime supplied it should be a Time or DateTime instance, otherwise it defaults to Time.now')
+
+        lambda {
+          Ratis::NextBus.where(@conditions.dup.merge(:datetime => Time.now))
+        }.should_not raise_error(ArgumentError)
+
+        lambda {
+          Ratis::NextBus.where(@conditions.dup.merge(:datetime => DateTime.today))
+        }.should_not raise_error(ArgumentError)
+      end
+
+      it "should raise error if stop id is not provided" do
+        lambda {
+          Ratis::NextBus.where(@conditions.dup.merge(:stop_id => nil))
+        }.should raise_error(ArgumentError, 'You must provide a stop ID')
+      end
+
+      it "should return an empty array if the api request isn't successful" do
+        Ratis::Request.should_receive('get') do |action, options|
+                        action.should eq('Nextbus')
+                        options["Time"].should eq(@time.strftime("%I%M") )
+                        options["Type"].should eq("N")
+                        options["Stopid"].should eq(@stop_id)
+                        options["Date"].should eq(@time.strftime("%m/%d/%Y") )
+                        options["Appid"].should eq("ratis-specs")
+
+                      end.and_return(double('response', :success? => false, :body => empty_body))
+
+        expect(Ratis::NextBus.where(@conditions.dup).services).to be_empty
+      end
+    end
+  end
+
+
 
 end
 

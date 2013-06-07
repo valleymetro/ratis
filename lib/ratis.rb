@@ -1,4 +1,5 @@
 require 'savon'
+require 'ostruct'
 
 require 'ratis/closest_stop'
 require 'ratis/config'

@@ -2,17 +2,61 @@ module Ratis
 
   class NextBus
 
-    attr_accessor :runs, :status, :sign, :routetype, :times, :direction, :stop
+    attr_accessor :stop, :services, :success
 
-    def initialize(service, _runs = [], _stop = {})
-      @runs      = _runs
-      @stop      = _stop
+    def initialize(response)
+      @success  = response.success?
+      @stop     = response.body[:nextbus_response][:atstop]
+      _services = @stop.delete(:service)
 
-      @status    = service[:status]
-      @sign      = service[:sign]
-      @routetype = service[:routetype]
-      @times     = service[:times]
-      @direction = service[:direction]
+      unless _services.is_a?(Array)
+        _services = [_services]
+      end
+
+      @services = _services.map do |service|
+        OpenStruct.new(:status      => service[:status],
+                       :sign        => service[:sign],
+                       :routetype   => service[:routetype],
+                       :times       => service[:times],
+                       :direction   => service[:direction],
+                       :servicetype => service[:servicetype],
+                       :route       => service[:route],
+                       :operator    => service[:operator],
+                       :trips       => parse_trip_info(service[:tripinfo])
+                       )
+      end
+
+    end
+
+    def parse_trip_info(trips)
+      # can come back as an Array or single Hash...
+      if trips.is_a?(Array)
+        trips.map do |ti|
+          create_trip(ti)
+        end
+      else # Hash
+        [create_trip(trips)]
+      end
+    end
+
+    # TODO: turn into real classes
+    def create_trip(trip)
+      OpenStruct.new(:triptime   => trip[:triptime],
+                     :block      => trip[:block],
+                     :tripid     => trip[:tripid],
+                     :exception  => trip[:exception],
+                     :skedtripid => trip[:skedtripid],
+                     :realtime   => OpenStruct.new(:valid            => trip[:realtime][:valid],
+                                                   :adherence        => trip[:realtime][:adherence],
+                                                   :estimatedtime    => trip[:realtime][:estimatedtime],
+                                                   :estimatedminutes => trip[:realtime][:estimatedminutes],
+                                                   :polltime         => trip[:realtime][:polltime],
+                                                   :trend            => trip[:realtime][:trend],
+                                                   :speed            => trip[:realtime][:speed],
+                                                   :reliable         => trip[:realtime][:reliable],
+                                                   :stopped          => trip[:realtime][:stopped],
+                                                   :lat              => trip[:realtime][:lat],
+                                                   :long             => trip[:realtime][:long] ))
     end
 
     def self.where(conditions)
@@ -28,20 +72,19 @@ module Ratis
 
       raise ArgumentError.new('You must provide a stop ID') unless stop_id
 
-      Ratis.all_conditions_used? conditions
+      Ratis.all_conditions_used?(conditions)
 
       response = Request.get 'Nextbus', {'Stopid' => stop_id,
                                          'Appid' => app_id,
                                          'Date' => datetime.strftime("%m/%d/%Y"),
                                          'Time' => datetime.strftime("%I%M"),
                                          'Type' => type }
-      return [] unless response.success?
 
-      stop    = response.body[:nextbus_response][:atstop]
-      service = stop.delete(:service)
-      runs    = service.delete(:tripinfo)
+      NextBus.new(response)
+    end
 
-      NextBus.new service, runs, stop
+    def success?
+      @success
     end
 
     # Gets description of first stop

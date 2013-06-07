@@ -8,3 +8,6 @@
 3.1.2
 - NextBus#stop added
 - Contains info about the stop (:side, :stopid, :heading, :lat, :area, :servicetype, :route, :operator)
+
+3.1.3
+- Turns out that in the NextBus calls the <service> tag can come back as either a single node or list of nodes.  In one case savon turns this into an array, in the other case it's just a single entity.  Rewrote NextBus.where to handle these two cases, this also means NextBus would never really represent a single service.  Created a NextBus.services method that returns all these entities in a similar manner.  Update test specs
