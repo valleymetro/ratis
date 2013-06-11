@@ -34,8 +34,6 @@ module Ratis
         @services = []
       end
 
-      debugger
-      x = 1
     end
 
     def parse_trip_info(trips)
