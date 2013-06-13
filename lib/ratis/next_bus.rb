@@ -104,9 +104,9 @@ module Ratis
                        service.trips.map do |trip|
 
                          { :time      => trip.realtime.estimatedtime,
-                           :sign      => trip.realtime.sign,
+                           :sign      => service.sign,
                            :adherence => trip.realtime.adherence,
-                           :route     => trip.realtime.route
+                           :route     => service.route
                          }
                        end
                      end.flatten

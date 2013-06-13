@@ -23,3 +23,6 @@
 
 3.1.7
 - Removed to_hash, instead use better named to_hash_for_xml for use with NextRide SMS service end-point
+
+3.1.8
+- Within to_hash_from_xml, pull route and sign attributes from the service instead of the realtime info (they always seem to be blank)
