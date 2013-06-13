@@ -77,7 +77,7 @@ module Ratis
       response = Request.get 'Nextbus', {'Stopid' => stop_id,
                                          'Appid' => app_id,
                                          'Date' => datetime.strftime("%m/%d/%Y"),
-                                         'Time' => datetime.strftime("%I%M"),
+                                         'Time' => datetime.strftime("%H%M"),
                                          'Type' => type }
 
       NextBus.new(response)
@@ -99,16 +99,19 @@ module Ratis
     # @return     [Hash] NextBus details in a hash.
 
     def to_hash
-      raise 'Not yet implemented'
-      { :stopname => first_stop_description,
-        :signs    => runs.map { |run| run[:sign] }.uniq,
-        :runs     => runs.map do |run|
-          { :time      => run[:estimatedtime],
-            :sign      => run[:sign],
-            :adherence => run[:adherence],
-            :route     => run[:route]
-          }
-        end
+
+      { :stopname => @stop[:description],
+        :signs    => @services.map(&:sign).uniq,
+        :runs     => @services.map do |service|
+                       service.trips.map do |realtime|
+                         { :time      => realtime[:estimatedtime],
+                           :sign      => realtime[:sign],
+                           :adherence => realtime[:adherence],
+                           :route     => realtime[:route]
+                         }
+                       end
+                     end.flatten
+
       }
     end
 
