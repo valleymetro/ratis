@@ -54,6 +54,7 @@ module Ratis
     # @return [String] Description of first stop or nil.
 
     def first_stop_description
+      raise 'Not yet implemented'
       stops.first ? stops.first[:description] : nil
     end
 
@@ -61,6 +62,7 @@ module Ratis
     # @return     [Hash] NextBus details in a hash.
 
     def to_hash
+      raise 'Not yet implemented'
       { :stopname => first_stop_description,
         :signs    => runs.map { |run| run[:sign] }.uniq,
         :runs     => runs.map do |run|
@@ -77,6 +79,7 @@ module Ratis
     # @private
 
     def to_hash_for_xml
+      raise 'Not yet implemented'
       { :stopname => first_stop_description,
         :runs     => runs.map do |run|
           { :time           => run[:estimatedtime],

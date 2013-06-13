@@ -95,48 +95,22 @@ module Ratis
       @success
     end
 
-    # Gets description of first stop
-    # @return [String] Description of first stop or nil.
+    # Used to create an XML response for the NextBus SMS services which hits
+    # /nextride.xml?stop_id=<STOPID>
 
-    def first_stop_description
-      raise 'Not yet implemented'
-      stops.first ? stops.first[:description] : nil
-    end
-
-    # Details of NextBus instance in a hash.
-    # @return     [Hash] NextBus details in a hash.
-
-    def to_hash
-
+    def to_hash_for_xml
       { :stopname => @stop[:description],
-        :signs    => @services.map(&:sign).uniq,
         :runs     => @services.map do |service|
-                       service.trips.map do |realtime|
-                         { :time      => realtime[:estimatedtime],
-                           :sign      => realtime[:sign],
-                           :adherence => realtime[:adherence],
-                           :route     => realtime[:route]
+                       service.trips.map do |trip|
+
+                         { :time      => trip.realtime.estimatedtime,
+                           :sign      => trip.realtime.sign,
+                           :adherence => trip.realtime.adherence,
+                           :route     => trip.realtime.route
                          }
                        end
                      end.flatten
 
-      }
-    end
-
-    # Details of NextBus instance in a hash to be transformed to xml
-    # @private
-
-    def to_hash_for_xml
-      raise 'Not yet implemented'
-      { :stopname => first_stop_description,
-        :runs     => runs.map do |run|
-          { :time           => run[:estimatedtime],
-            :scheduled_time => run[:triptime],
-            :sign           => run[:sign],
-            :adherence      => run[:adherence],
-            :route          => run[:route]
-          }
-        end
       }
     end
   end
