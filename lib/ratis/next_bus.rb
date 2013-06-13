@@ -5,25 +5,33 @@ module Ratis
     attr_accessor :stop, :services, :success
 
     def initialize(response)
-      @success  = response.success?
-      @stop     = response.body[:nextbus_response][:atstop]
-      _services = @stop.delete(:service)
+      @success = response.success?
 
-      unless _services.is_a?(Array)
-        _services = [_services]
-      end
+      if @success
+        @stop     = response.body[:nextbus_response][:atstop]
 
-      @services = _services.map do |service|
-        OpenStruct.new(:status      => service[:status],
-                       :sign        => service[:sign],
-                       :routetype   => service[:routetype],
-                       :times       => service[:times],
-                       :direction   => service[:direction],
-                       :servicetype => service[:servicetype],
-                       :route       => service[:route],
-                       :operator    => service[:operator],
-                       :trips       => parse_trip_info(service[:tripinfo])
-                       )
+        _services = @stop.delete(:service)
+
+        unless _services.is_a?(Array)
+          _services = [_services]
+        end
+
+        @services = _services.map do |service|
+          OpenStruct.new(:status      => service[:status],
+                         :sign        => service[:sign],
+                         :routetype   => service[:routetype],
+                         :times       => service[:times],
+                         :direction   => service[:direction],
+                         :servicetype => service[:servicetype],
+                         :route       => service[:route],
+                         :operator    => service[:operator],
+                         :trips       => parse_trip_info(service[:tripinfo])
+                         )
+        end
+
+      else
+        @stop = {}
+        @services = []
       end
 
     end

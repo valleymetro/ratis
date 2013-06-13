@@ -20,6 +20,25 @@ describe Ratis::NextBus do
   end
 
   describe '#where' do
+    describe 'time formatting' do
+      it 'should make requests with 24 hour time format' do
+        @stop_id    = 10050
+        @time       = Chronic.parse('tomorrow at 3pm')
+        @conditions = {:stop_id      => @stop_id,
+                       :app_id       => 'ratis-specs', # a short string that can be used to separate requests from different applications or different modules with
+                       :type         => 'N',
+                       :datetime     => @time }
+
+        Ratis::Request.should_receive(:get) do |action, options|
+                         action.should eq('Nextbus')
+                         options["Time"].should eq(@time.strftime("%H%M"))
+
+                       end.and_return(double('response', :success? => false, :body => empty_body)) # false only to stop further running
+
+        Ratis::NextBus.where(@conditions.dup)
+      end
+    end
+
     describe 'single service return' do
       before do
         @stop_id = 10050
@@ -27,9 +46,10 @@ describe Ratis::NextBus do
                        :app_id       => 'ratis-specs', # a short string that can be used to separate requests from different applications or different modules with
                        :type         => 'N',
                        :datetime     => @time }
+
       end
 
-      it 'returns the next 4 bus times' do
+      it 'returns the next bus times' do
         # raises exception when no runs available:
         # Ratis::Errors::SoapError:
         # SOAP - no runs available
@@ -49,7 +69,7 @@ describe Ratis::NextBus do
                          options["Stopid"].should eq(@stop_id)
                          options["Appid"].should eq('ratis-specs')
                          options["Date"].should eq(@time.strftime("%m/%d/%Y"))
-                         options["Time"].should eq(@time.strftime("%I%M"))
+                         options["Time"].should eq(@time.strftime("%H%M"))
                          options["Type"].should eq('N')
 
                        end.and_return(double('response', :success? => false, :body => empty_body)) # false only to stop further running
@@ -99,7 +119,7 @@ describe Ratis::NextBus do
                          options["Stopid"].should eq(@stop_id)
                          options["Appid"].should eq('ratis-specs')
                          options["Date"].should eq(@time.strftime("%m/%d/%Y"))
-                         options["Time"].should eq(@time.strftime("%I%M"))
+                         options["Time"].should eq(@time.strftime("%H%M"))
                          options["Type"].should eq('N')
 
                        end.and_return(double('response', :success? => false, :body => empty_body)) # false only to stop further running
@@ -137,7 +157,7 @@ describe Ratis::NextBus do
                          options["Stopid"].should eq(@stop_id)
                          options["Appid"].should eq('ratis-specs')
                          options["Date"].should eq(@time.strftime("%m/%d/%Y"))
-                         options["Time"].should eq(@time.strftime("%I%M"))
+                         options["Time"].should eq(@time.strftime("%H%M"))
                          options["Type"].should eq('N')
 
                        end.and_return(double('response', :success? => false, :body => empty_body)) # false only to stop further running
@@ -198,7 +218,7 @@ describe Ratis::NextBus do
       it "should return an empty array if the api request isn't successful" do
         Ratis::Request.should_receive('get') do |action, options|
                         action.should eq('Nextbus')
-                        options["Time"].should eq(@time.strftime("%I%M") )
+                        options["Time"].should eq(@time.strftime("%H%M") )
                         options["Type"].should eq("N")
                         options["Stopid"].should eq(@stop_id)
                         options["Date"].should eq(@time.strftime("%m/%d/%Y") )

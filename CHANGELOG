@@ -14,3 +14,9 @@
 
 3.1.4
 - Bug Fix: NextBus trips returned can be an array or a single hash
+
+3.1.5
+- Bug Fix: NextBus where was incorrectly sending Time in 12 hour format when ATIS needs it in 24 hour format.
+
+3.1.6
+- Added field 'sign' to Ratis::Timetable::Trip, this is the headsign for a bus running a given trip
