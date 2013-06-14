@@ -5,35 +5,45 @@ module Ratis
     attr_accessor :stop, :services, :success
 
     def initialize(response)
-      @success = response.success?
+      @success  = response.success?
+      @stop     = []
+      @services = []
 
       if @success
-        @stop     = response.body[:nextbus_response][:atstop]
+        @stop = response.body[:nextbus_response][:atstop]
 
-        _services = @stop.delete(:service)
-
-        unless _services.is_a?(Array)
-          _services = [_services]
+        # Only Light Rail stops will return 2 stops from ATIS for a single NextRide id
+        if @stop.is_a?(Array)
+          @stop.each do |_stop|
+            parse_stop(_stop)
+          end
+        else
+          parse_stop(@stop)
         end
 
-        @services = _services.map do |service|
-          OpenStruct.new(:status      => service[:status],
-                         :sign        => service[:sign],
-                         :routetype   => service[:routetype],
-                         :times       => service[:times],
-                         :direction   => service[:direction],
-                         :servicetype => service[:servicetype],
-                         :route       => service[:route],
-                         :operator    => service[:operator],
-                         :trips       => parse_trip_info(service[:tripinfo])
-                         )
-        end
-
-      else
-        @stop = {}
-        @services = []
       end
 
+    end
+
+    def parse_stop(single_stop)
+      _services = single_stop.delete(:service)
+
+      _services = [_services] unless _services.is_a?(Array)
+
+      @services << _services.map do |service|
+                      OpenStruct.new(:status      => service[:status],
+                                     :sign        => service[:sign],
+                                     :routetype   => service[:routetype],
+                                     :times       => service[:times],
+                                     :direction   => service[:direction],
+                                     :servicetype => service[:servicetype],
+                                     :route       => service[:route],
+                                     :operator    => service[:operator],
+                                     :trips       => parse_trip_info(service[:tripinfo])
+                                     )
+                   end
+
+      @services.flatten!
     end
 
     def parse_trip_info(trips)
@@ -95,11 +105,19 @@ module Ratis
       @success
     end
 
+    def stop_description
+      if @stop.is_a?(Array)
+        @stop.first[:description]
+      else
+        @stop[:description]
+      end
+    end
+
     # Used to create an XML response for the NextBus SMS services which hits
     # /nextride.xml?stop_id=<STOPID>
 
     def to_hash_for_xml
-      { :stopname => @stop[:description],
+      { :stopname => stop_description,
         :runs     => @services.map do |service|
                        service.trips.map do |trip|
 

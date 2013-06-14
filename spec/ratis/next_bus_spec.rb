@@ -8,7 +8,7 @@ describe Ratis::NextBus do
       config.namespace  = 'PX_WEB'
     end
 
-    @time    = Chronic.parse('tomorrow at 6am')
+    @time    = Chronic.parse('next monday at 6am')
   end
 
   let(:empty_body){ {:nextbus_response => {:atstop => {:service => []}}} }
@@ -20,6 +20,13 @@ describe Ratis::NextBus do
   end
 
   describe '#where' do
+    # TODO: Light Rails Stops can return 2 Atstop tags... how do we best handle this case
+    describe 'Light Rails stops' do
+      it "description" do
+        pending
+      end
+    end
+
     describe 'time formatting' do
       it 'should make requests with 24 hour time format' do
         @stop_id    = 10050
@@ -131,6 +138,7 @@ describe Ratis::NextBus do
     describe 'multiple services returned' do
       before do
         @stop_id = 15894
+        @time       = Chronic.parse('next monday at 3pm')
         @conditions = {:stop_id      => @stop_id,
                        :app_id       => 'ratis-specs', # a short string that can be used to separate requests from different applications or different modules with
                        :type         => 'N',
@@ -176,7 +184,7 @@ describe Ratis::NextBus do
         expect(service.status).to eq('N')
         expect(service.sign).to eq('108 Elliot West To Priest')
         expect(service.routetype).to eq('B')
-        expect(service.times).to eq("06:46 AM, 07:46 AM, 08:46 AM, 09:46 AM")
+        expect(service.times).to eq("01:46 PM, 03:46 PM, 04:46 PM, 05:46 PM")
         expect(service.direction).to eq('W')
         expect(service.servicetype).to eq('W')
         expect(service.route).to eq('108')
@@ -188,7 +196,7 @@ describe Ratis::NextBus do
         expect(service.status).to eq('N')
         expect(service.sign).to eq('108 Elliot West To Priest Via Sosmn/Bsnln')
         expect(service.routetype).to eq('B')
-        expect(service.times).to eq("10:46 AM, 02:46 PM, 06:46 PM")
+        expect(service.times).to eq("02:46 PM, 06:46 PM")
         expect(service.direction).to eq('W')
         expect(service.servicetype).to eq('W')
         expect(service.route).to eq('108')

@@ -26,3 +26,6 @@
 
 3.1.8
 - Within to_hash_from_xml, pull route and sign attributes from the service instead of the realtime info (they always seem to be blank)
+
+3.2.0
+- When querying Nextbus for a Light Rail stop, in most cases you will actually get back 2 stops for a single NextRide ID.  One for each side of the stop platform.  Made changes to handle this case.  Both stops services are flattened into the #services attribute.

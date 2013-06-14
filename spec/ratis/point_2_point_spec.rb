@@ -13,7 +13,7 @@ describe Ratis::Point2Point do
     describe '#where' do
       describe 'services from origin to destination', {:vcr => {:cassette_name => "Point2Point"}} do
         before do
-          @today      = Time.now.strftime("%m/%d/%Y")
+          @today      = Chronic.parse('next monday at 6am').strftime("%m/%d/%Y")
           @conditions = {:routes_only      => true,
                          :origin_lat       => 33.446931,
                          :origin_long      => -112.097903,
@@ -126,7 +126,7 @@ describe Ratis::Point2Point do
 
       it 'gets the trips within each group' do
         schedule = Ratis::Point2Point.where(@conditions.dup)
-        schedule.groups[0].should have(18).trips
+        schedule.groups[0].should have(15).trips
         schedule.groups[1].should have(16).trips
         schedule.groups[2].should have(4).trips
       end
