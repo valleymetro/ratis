@@ -29,3 +29,6 @@
 
 3.2.0
 - When querying Nextbus for a Light Rail stop, in most cases you will actually get back 2 stops for a single NextRide ID.  One for each side of the stop platform.  Made changes to handle this case.  Both stops services are flattened into the #services attribute.
+
+3.2.1
+- Timetable::Trip now contains the trip's headsign

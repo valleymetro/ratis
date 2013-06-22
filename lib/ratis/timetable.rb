@@ -42,7 +42,7 @@ module Ratis
       trips_array = []
 
       headway[:times][:trip].each_with_index do |t,i|
-        trips_array << Timetable::Trip.new(i, t[:time], t[:comment])
+        trips_array << Timetable::Trip.new(i, t[:time], t[:comment], t[:sign])
       end rescue []
 
       timetable.trips            =  trips_array
