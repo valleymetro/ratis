@@ -1,96 +1,50 @@
 --- 
-recorded_with: VCR 2.5.0
 http_interactions: 
-- request: 
-    method: post
-    uri: http://example.com/soap.cgi
-    body: 
-      base64_string: |
-        PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48ZW52OkVu
-        dmVsb3BlIHhtbG5zOndzZGw9IlRFU1RfTlMiIHhtbG5zOnhzZD0iaHR0cDov
-        L3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOnhzaT0iaHR0cDov
-        L3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOmVu
-        dj0iaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvc29hcC9lbnZlbG9wZS8i
-        PjxlbnY6Qm9keT48UG9pbnQycG9pbnQgeG1sbnM9IlBYX1dFQiI+PERlc3Rp
-        bmF0aW9ubGF0PjMzLjQ0NzA5ODwvRGVzdGluYXRpb25sYXQ+PFJvdXRlc29u
-        bHk+WTwvUm91dGVzb25seT48U3RhcnR0aW1lPjE3MDA8L1N0YXJ0dGltZT48
-        RW5kdGltZT4xODAwPC9FbmR0aW1lPjxPcmlnaW5sb25nPi0xMTIuMDk3OTAz
-        PC9PcmlnaW5sb25nPjxPcmlnaW5sYXQ+MzMuNDQ2OTMxPC9PcmlnaW5sYXQ+
-        PERlc3RpbmF0aW9ubG9uZz4tMTEyLjA3NzIxMzwvRGVzdGluYXRpb25sb25n
-        PjxEYXRlPjA0LzExLzIwMTM8L0RhdGU+PFJvdXRlcz48L1JvdXRlcz48L1Bv
-        aW50MnBvaW50PjwvZW52OkJvZHk+PC9lbnY6RW52ZWxvcGU+
-
-    headers: 
-      Soapaction: 
-      - "\"PX_WEB#Point2point\""
-      Content-Length: 
-      - "576"
-      Content-Type: 
-      - text/xml;charset=UTF-8
-      Accept: 
-      - "*/*"
-  response: 
-    status: 
-      code: 302
-      message: Found
-    headers: 
-      Content-Length: 
-      - "0"
-      Connection: 
-      - Keep-Alive
-      Server: 
-      - BigIP
-      Location: 
-      - http://www.iana.org/domains/example/
-    body: 
-      base64_string: ""
-    http_version: 
-  recorded_at: Fri, 12 Apr 2013 01:39:08 GMT
 - request: 
     method: post
     uri: http://soap.valleymetro.org/cgi-bin-soap-web-252/soap.cgi
     body: 
       base64_string: |
         PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48ZW52OkVu
-        dmVsb3BlIHhtbG5zOndzZGw9IlBYX1dFQiIgeG1sbnM6ZW52PSJodHRwOi8v
-        c2NoZW1hcy54bWxzb2FwLm9yZy9zb2FwL2VudmVsb3BlLyIgeG1sbnM6eHNk
+        dmVsb3BlIHhtbG5zOmVudj0iaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcv
+        c29hcC9lbnZlbG9wZS8iIHhtbG5zOndzZGw9IlBYX1dFQiIgeG1sbnM6eHNk
         PSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYSIgeG1sbnM6eHNp
         PSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSI+
-        PGVudjpCb2R5PjxQb2ludDJwb2ludCB4bWxucz0iUFhfV0VCIj48T3JpZ2lu
-        bGF0PjMzLjQ0NjkzMTwvT3JpZ2lubGF0PjxEZXN0aW5hdGlvbmxhdD4zMy40
-        NDcwOTg8L0Rlc3RpbmF0aW9ubGF0PjxSb3V0ZXNvbmx5Plk8L1JvdXRlc29u
-        bHk+PFN0YXJ0dGltZT4xNzAwPC9TdGFydHRpbWU+PE9yaWdpbmxvbmc+LTEx
-        Mi4wOTc5MDM8L09yaWdpbmxvbmc+PERlc3RpbmF0aW9ubG9uZz4tMTEyLjA3
-        NzIxMzwvRGVzdGluYXRpb25sb25nPjxEYXRlPjA3LzE1LzIwMTM8L0RhdGU+
-        PEVuZHRpbWU+MTgwMDwvRW5kdGltZT48Um91dGVzPjE8L1JvdXRlcz48L1Bv
-        aW50MnBvaW50PjwvZW52OkJvZHk+PC9lbnY6RW52ZWxvcGU+
+        PGVudjpCb2R5PjxQb2ludDJwb2ludCB4bWxucz0iUFhfV0VCIj48RGF0ZT4w
+        Ny8xNS8yMDEzPC9EYXRlPjxTdGFydHRpbWU+MTcwMDwvU3RhcnR0aW1lPjxP
+        cmlnaW5sb25nPi0xMTIuMDk3OTAzPC9PcmlnaW5sb25nPjxEZXN0aW5hdGlv
+        bmxhdD4zMy40NDcwOTg8L0Rlc3RpbmF0aW9ubGF0PjxPcmlnaW5sYXQ+MzMu
+        NDQ2OTMxPC9PcmlnaW5sYXQ+PFJvdXRlcz48L1JvdXRlcz48RW5kdGltZT4x
+        ODAwPC9FbmR0aW1lPjxSb3V0ZXNvbmx5Plk8L1JvdXRlc29ubHk+PERlc3Rp
+        bmF0aW9ubG9uZz4tMTEyLjA3NzIxMzwvRGVzdGluYXRpb25sb25nPjwvUG9p
+        bnQycG9pbnQ+PC9lbnY6Qm9keT48L2VudjpFbnZlbG9wZT4=
 
     headers: 
       Soapaction: 
       - "\"PX_WEB#Point2point\""
-      Content-Length: 
-      - "576"
       Content-Type: 
       - text/xml;charset=UTF-8
       Accept: 
       - "*/*"
+      Content-Length: 
+      - "575"
   response: 
     status: 
       code: 200
       message: OK
     headers: 
-      Soapserver: 
-      - SOAP::Lite/Perl/0.55
-      Content-Length: 
-      - "4558"
-      Connection: 
-      - close
+      Date: 
+      - Fri, 12 Jul 2013 15:39:35 GMT
       Content-Type: 
       - text/xml; charset=utf-8
-      Date: 
-      - Fri, 12 Jul 2013 00:35:04 GMT
+      Soapserver: 
+      - SOAP::Lite/Perl/0.55
+      Connection: 
+      - close
       Server: 
       - Apache/2.2.3 (CentOS)
+      Content-Length: 
+      - "4558"
     body: 
       base64_string: |
         PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48U09BUC1F
@@ -197,4 +151,5 @@ http_interactions:
         RU5WOkVudmVsb3BlPg==
 
     http_version: 
-  recorded_at: Fri, 12 Jul 2013 00:35:04 GMT
+  recorded_at: Fri, 12 Jul 2013 15:39:35 GMT
+recorded_with: VCR 2.5.0
