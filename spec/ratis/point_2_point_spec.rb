@@ -126,7 +126,7 @@ describe Ratis::Point2Point do
 
       it 'gets the trips within each group' do
         schedule = Ratis::Point2Point.where(@conditions.dup)
-        schedule.groups[0].should have(15).trips
+        schedule.groups[0].should have(18).trips
         schedule.groups[1].should have(16).trips
         schedule.groups[2].should have(4).trips
       end

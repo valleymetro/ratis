@@ -1,17 +1,4 @@
 module Ratis
-  class Route
-    attr_accessor :short_name, :directions
-
-    def initialize(short_name, directions)
-      self.short_name = short_name
-      self.directions = directions
-    end
-
-    def timetable(conditions)
-      Timetable.where conditions.merge :route_short_name => short_name
-    end
-  end
-
   class Routes
     def self.all
       response = Request.get 'Allroutes2'
@@ -34,4 +21,5 @@ module Ratis
       end.compact.sort_by{|rte| rte.short_name }
     end
   end
+
 end

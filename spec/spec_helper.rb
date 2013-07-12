@@ -1,5 +1,5 @@
-require 'simplecov'
-SimpleCov.start
+# require 'simplecov'
+# SimpleCov.start
 
 project_root = File.expand_path(File.dirname(__FILE__) + "/..")
 $LOAD_PATH << "#{project_root}/lib"
@@ -12,6 +12,7 @@ require 'ratis'
 require 'vcr'
 require 'chronic'
 
+# Dir[("#{project_root}/lib/ratis/**/*.rb")].each { |f| require f }
 Dir[("#{project_root}/spec/support/**/*.rb")].each { |f| require f }
 
 RSpec.configure do |config|

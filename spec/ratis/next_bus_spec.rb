@@ -188,7 +188,7 @@ describe Ratis::NextBus do
         expect(service.direction).to eq('W')
         expect(service.servicetype).to eq('W')
         expect(service.route).to eq('108')
-        expect(service.operator).to eq('AT')
+        expect(service.operator).to eq('FTE')
 
         service = response.services.last
         expect(service).to be_a(OpenStruct)
@@ -200,7 +200,7 @@ describe Ratis::NextBus do
         expect(service.direction).to eq('W')
         expect(service.servicetype).to eq('W')
         expect(service.route).to eq('108')
-        expect(service.operator).to eq('AT')
+        expect(service.operator).to eq('FTE')
       end
 
       it "should raise error if datetime condition is not a DateTime or Time" do

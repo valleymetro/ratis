@@ -61,8 +61,6 @@ module Ratis
     end
 
     def self.parse_routes_only_no(response)
-      return nil unless response.success?
-
       atis_schedule = Point2Point::StandardResponse.new
 
       atis_schedule.groups = response.to_array(:point2point_response, :groups, :group).map do |group|
@@ -70,8 +68,8 @@ module Ratis
 
         # Point2point 1.3 uses inconsistent tag naming, thus: <onstop> <onwalk...>, but <offstop> <offstopwalk...>
         # this docs says this is fixed in 1.4, so watch out
-        atis_schedule_group.on_stop  = atis_stop_from_hash 'on', group[:onstop]
-        atis_schedule_group.off_stop = atis_stop_from_hash 'offstop', group[:offstop]
+        atis_schedule_group.on_stop  = atis_stop_from_hash('on', group[:onstop])
+        atis_schedule_group.off_stop = atis_stop_from_hash('offstop', group[:offstop])
 
         atis_schedule_group.trips = group.to_array(:trips, :trip).map do |trip|
           atis_trip          = Point2Point::Trip.new
