@@ -13,7 +13,7 @@ describe Ratis::Timetable do
 
     before do
       @today      = Time.now.strftime("%m/%d/%Y")
-      @conditions = {:route_short_name => '0',
+      @conditions = {:route_short_name => 'ZERO',
                      :direction        => 'N',
                      :service_type     => 'W',
                      :date             => @today}
@@ -28,7 +28,7 @@ describe Ratis::Timetable do
     it 'requests the correct SOAP action with correct args' do
       Ratis::Request.should_receive(:get) do |action, options|
         action.should eq('Timetable')
-        options["Route"].should eq('0')
+        options["Route"].should eq('ZERO')
         options["Direction"].should eq('N')
         options["Date"].should eq(@today)
         options["Servicetype"].should be_nil
@@ -59,11 +59,11 @@ describe Ratis::Timetable do
     it "should parse the timetable/stop/trip fields" do
       timetable = Ratis::Timetable.where(@conditions.dup)
 
-      expect(timetable.route_short_name).to eq('0')
+      expect(timetable.route_short_name).to eq('ZERO')
       expect(timetable.direction).to eq('N')
       expect(timetable.service_type).to eq('Weekday')
       expect(timetable.operator).to eq('AP')
-      expect(timetable.effective).to eq('05/20/13')
+      expect(timetable.effective).to eq('07/22/13')
 
       stop = timetable.timepoints.first
 

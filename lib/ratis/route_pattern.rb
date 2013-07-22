@@ -26,7 +26,7 @@ module Ratis
 
       routepattern = RoutePattern.new
 
-      routepattern.stops = response.to_hash[:routepattern_response][:stops][:stop].map do |s|
+      routepattern.stops = response.to_array(:routepattern_response, :stops, :stop).map do |s|
         stop               = RoutePattern::Stop.new
         stop.desc          = s[:description]
         stop.area          = s[:area]
@@ -39,7 +39,7 @@ module Ratis
         stop
       end
 
-      routepattern.points = response.to_hash[:routepattern_response][:points][:point].map do |p|
+      routepattern.points = response.to_array(:routepattern_response, :points, :point).map do |p|
         point                = RoutePattern::Point.new
         point.lat, point.lng = p.split ','
         point

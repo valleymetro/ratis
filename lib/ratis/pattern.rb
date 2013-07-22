@@ -30,16 +30,16 @@ module Ratis
 
       return nil unless response.success?
 
-      routeinfos = response.to_hash[:getpatterns_response][:routes][:routeinfo].map do |r|
+      routeinfos = response.to_array(:getpatterns_response, :routes, :routeinfo).map do |rinfo|
                      info = Pattern::RouteInfo.new
-                     info.route     = r[:route]
-                     info.headsign  = r[:signage]
-                     info.operate   = r[:operator]
-                     info.effective = r[:effective]
-                     info.routeid   = r[:routeid]
-                     info.routetype = r[:routetype]
-                     info.tripcount = r[:tripcount]
-                     info.school    = r[:school]
+                     info.route     = rinfo[:route]
+                     info.headsign  = rinfo[:signage]
+                     info.operate   = rinfo[:operator]
+                     info.effective = rinfo[:effective]
+                     info.routeid   = rinfo[:routeid]
+                     info.routetype = rinfo[:routetype]
+                     info.tripcount = rinfo[:tripcount]
+                     info.school    = rinfo[:school]
                      info
                    end
 

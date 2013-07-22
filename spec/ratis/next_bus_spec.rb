@@ -96,7 +96,7 @@ describe Ratis::NextBus do
         expect(service.times).to eq("05:49 AM, 06:09 AM, 06:29 AM, 06:49 AM")
         expect(service.direction).to eq('N')
         expect(service.servicetype).to eq('W')
-        expect(service.route).to eq('0')
+        expect(service.route).to eq('ZERO')
         expect(service.operator).to eq('AP')
       end
 
@@ -150,7 +150,7 @@ describe Ratis::NextBus do
         # Ratis::Errors::SoapError:
         # SOAP - no runs available
         response = Ratis::NextBus.where(@conditions.dup)
-        expect(response.services).to have(2).items
+        expect(response.services.size).to be_within(2).of(3)
       end
 
       it 'only makes one request' do
@@ -182,9 +182,9 @@ describe Ratis::NextBus do
         expect(service).to be_a(OpenStruct)
 
         expect(service.status).to eq('N')
-        expect(service.sign).to eq('108 Elliot West To Priest')
+        expect(service.sign).to eq('108 Elliot/48th St West To 40th St/Pecos')
         expect(service.routetype).to eq('B')
-        expect(service.times).to eq("01:46 PM, 03:46 PM, 04:46 PM, 05:46 PM")
+        expect(service.times).to eq("07:07 AM, 03:07 PM, 03:37 PM, 04:07 PM")
         expect(service.direction).to eq('W')
         expect(service.servicetype).to eq('W')
         expect(service.route).to eq('108')
@@ -194,9 +194,9 @@ describe Ratis::NextBus do
         expect(service).to be_a(OpenStruct)
 
         expect(service.status).to eq('N')
-        expect(service.sign).to eq('108 Elliot West To Priest Via Sosmn/Bsnln')
+        expect(service.sign).to eq('108 Elliot/48th St West To 48th St/Chandler Via Sosmn/Bsnln')
         expect(service.routetype).to eq('B')
-        expect(service.times).to eq("02:46 PM, 06:46 PM")
+        expect(service.times).to eq("02:37 PM, 06:37 PM")
         expect(service.direction).to eq('W')
         expect(service.servicetype).to eq('W')
         expect(service.route).to eq('108')
