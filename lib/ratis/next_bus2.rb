@@ -43,7 +43,7 @@ module Ratis
 
       response = Request.get 'Nextbus2', { 'Stopid' => stop_id, 'Appid' => app_id }
       return [] unless response.success?
-      debugger
+
       stops = response.to_array :nextbus2_response, :stops, :stop
       runs  = response.to_array :nextbus2_response, :runs, :run
 

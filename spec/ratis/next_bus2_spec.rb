@@ -28,7 +28,7 @@ describe Ratis::NextBus2 do
       # Ratis::Errors::SoapError:
       # SOAP - no runs available
       response = Ratis::NextBus2.where(@conditions.dup)
-      debugger
+
       x = 1
     end
 
