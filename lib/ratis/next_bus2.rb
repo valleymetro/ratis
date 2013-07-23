@@ -1,5 +1,7 @@
 module Ratis
-
+  # This method returns the time of the next vehicles at a location based on TA ID or
+  # ATIS stop ID only. The date and time of the query are “today” and “now.” The response
+  # is a subset of the data returned by the Nextbus method.
   class NextBus2
 
     attr_accessor :stops, :runs
@@ -47,7 +49,7 @@ module Ratis
       stops = response.to_array :nextbus2_response, :stops, :stop
       runs  = response.to_array :nextbus2_response, :runs, :run
 
-      NextBus.new stops, runs
+      NextBus2.new stops, runs
     end
 
     # Gets description of first stop

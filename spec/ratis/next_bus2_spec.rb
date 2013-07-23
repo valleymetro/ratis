@@ -1,8 +1,5 @@
 require 'spec_helper'
 
-# NOTE: this should be called NextBus2 or something as that's the API call it really makes.
-# need to find all places where this is used and update them before being able to push a new
-# gem version for this backwards breaking change
 describe Ratis::NextBus2 do
   before do
     Ratis.reset
@@ -12,137 +9,131 @@ describe Ratis::NextBus2 do
     end
   end
 
+  let(:empty_body){ {:nextbus_response => {:atstop => {:service => []}}} }
+
   describe '#where' do
     before do
       # appid
       # a short string that can be used to separate requests from different applications or different modules with
       # Optional (highly recommended)
-      @today      = Time.now.strftime("%m/%d/%Y")
-      @conditions = {:stop_id      => 10050,
+      @stop_id = 10050
+      @conditions = {:stop_id      => @stop_id,
                      :app_id       => 'ratis-specs'}
     end
 
-    it 'stops' do
-      pending
-      # raises exception when no runs available:
-      # Ratis::Errors::SoapError:
-      # SOAP - no runs available
-      response = Ratis::NextBus2.where(@conditions.dup)
+    describe 'single next bus' do
+      it "only makes one request" do
+        # false just to stop further processing of response
+        Ratis::Request.should_receive(:get).once.and_call_original
+        Ratis::NextBus.where(@conditions.dup)
+      end
 
-      x = 1
-    end
+      it 'requests the correct SOAP action with args' do
+        Ratis::Request.should_receive(:get) do |action, options|
+                       action.should eq('Nextbus2')
+                       options["Stopid"].should eq(@stop_id)
 
-    it 'runs' do
-      pending
-    end
-  end
+                     end.and_return(double('response', :success? => false, :body => empty_body)) # false only to stop further running
 
-  describe 'single next bus at 10496' do
-
-    let(:next_bus_time_scheduled) { 10.minutes.from_now.strftime '%H:%M %p' }
-    let(:next_bus_time_estimated) { 12.minutes.from_now.strftime '%H:%M %p' }
-
-    before do
-      stub_atis_request.to_return( atis_response 'Nextbus2', '1.3', '0', <<-BODY )
-      <Input>
-        <Stopid>10496</Stopid>
-        <Atisstopid>0</Atisstopid>
-        <Route></Route>
-        <Runs>999</Runs>
-        <Xmode></Xmode>
-        <Date>#{ Time.now.strftime '%m/%d/%y' }</Date>
-        <Time>#{ Time.now.strftime '%H:%M %p' }</Time>
-      </Input>
-      <Stops>
-        <Stop>
-          <Stopid>10496</Stopid>
-          <Atisstopid>366</Atisstopid>
-          <Stopstatustype>N</Stopstatustype>
-          <Description>FILLMORE ST & CENTRAL AVE</Description>
-          <Lat>33.454483</Lat>
-          <Long>-112.073307</Long>
-          <Stopposition>G</Stopposition>
-          <Heading>EB</Heading>
-          <Side>Far</Side>
-        </Stop>
-      </Stops>
-      <Runs>
-        <Run>
-          <Route>7</Route>
-          <Sign>7 7th Street to Union Hills Via Cent Station</Sign>
-          <Operator>AP</Operator>
-          <Direction>N</Direction>
-          <Status>N</Status>
-          <Servicetype>W</Servicetype>
-          <Routetype>B</Routetype>
-          <Triptime>#{ next_bus_time_scheduled }</Triptime>
-          <Tripid>85-20</Tripid>
-          <Adherence>0</Adherence>
-          <Estimatedtime>#{ next_bus_time_estimated }</Estimatedtime>
-          <Polltime></Polltime>
-          <Lat></Lat>
-          <Long></Long>
-          <Block>22</Block>
-          <Exception></Exception>
-          <Atisstopid>366</Atisstopid>
-          <Stopid>10496</Stopid>
-        </Run>
-      </Runs>
-      BODY
-
-      # @next_bus = Ratis::NextBus2.where :stop_id => 10496, :app_id => 'web'
-    end
-
-    describe '#where' do
-
-      it 'only makes one request' do
-        pending
-        an_atis_request.should have_been_made.times 1
+        Ratis::NextBus2.where(@conditions.dup)
       end
 
       it 'requests the correct SOAP action' do
-        pending
-        an_atis_request_for('Nextbus2', 'Stopid' => '10496', 'Appid' => 'web').should have_been_made
+        response = Ratis::NextBus2.where(@conditions.dup)
+        expect(response.stops).to_not be_empty
+        expect(response.runs).to_not be_empty
       end
 
-      it 'returns a non nil NextBus' do
-        pending
-        @next_bus.should_not be_nil
+      it "should raise error when no stop id provided" do
+        lambda {
+          Ratis::NextBus2.where(@conditions.dup.merge(:stop_id => nil))
+        }.should raise_error(ArgumentError, 'You must provide a stop ID')
       end
 
-    end
+      describe 'stops' do
+        # TODO: should return Stops not hashes
+        it 'should set the stop values to instance vars' do
+          response = Ratis::NextBus2.where(@conditions.dup)
+          stop     = response.stops.first
 
-    describe '#to_hash' do
+          expect(response).to be_a(Ratis::NextBus2)
+          expect(response.stops).to be_a(Array)
 
-      it 'returns a subset of NextBus params' do
-        pending
-        hash = {
-          :stopname => 'FILLMORE ST & CENTRAL AVE',
-          :signs => ['7 7th Street to Union Hills Via Cent Station'],
-          :runs => [
-            { :time => next_bus_time_estimated, :adherence => '0', :route => '7', :sign => '7 7th Street to Union Hills Via Cent Station' }
-          ]
-        }
+          expect(stop[:area]).to eq("Phoenix")
+          expect(stop[:atisstopid]).to eq("3317")
+          expect(stop[:stopposition]).to eq("O")
+          expect(stop[:description]).to eq("CENTRAL AVE & DOBBINS RD")
+          expect(stop[:stopstatustype]).to eq("N")
+          expect(stop[:lat]).to eq("33.363692")
+          expect(stop[:long]).to eq("-112.073191")
+          expect(stop[:side]).to eq("Far")
+          expect(stop[:stopid]).to eq("10050")
+          expect(stop[:heading]).to eq("NB")
+        end
 
-        HashDiff.diff(@next_bus.to_hash, hash).should eql []
+        it "should return an empty array if the api request isn't successful" do
+          Ratis::Request.should_receive(:get) do |action, options|
+                           action.should eq('Nextbus2')
+                           options["Stopid"].should eq(@stop_id)
+
+                         end.and_return(double('response', :success? => false, :body => empty_body)) # false only to stop further running
+
+          response = Ratis::NextBus2.where(@conditions.dup)
+          expect(response).to be_a(Array)
+          expect(response).to be_empty
+        end
       end
-    end
 
-    describe '#to_hash_for_xml' do
+      describe 'runs' do
+        # TODO: should return Runs not hashes
+        it "should set the run values to instance vars" do
+          response = Ratis::NextBus2.where(@conditions.dup)
+          run     = response.runs.first
 
-      it 'returns a subset of NextBus params' do
-        pending
-        hash = {
-          :stopname => 'FILLMORE ST & CENTRAL AVE',
-          :runs => [
-            { :time => next_bus_time_estimated, :adherence => '0', :route => '7', :sign => '7 7th Street to Union Hills Via Cent Station', :scheduled_time => next_bus_time_scheduled }
-          ]
-        }
+          expect(response).to be_a(Ratis::NextBus2)
+          expect(response.runs).to be_a(Array)
 
-        HashDiff.diff(@next_bus.to_hash_for_xml, hash).should eql []
+          expect(run[:operator]).to eq "AP"
+          expect(run[:status]).to eq "N"
+          expect(run[:sign]).to eq "0 CENTRAL North to Dunlap/3rd St."
+          expect(run[:triptime]).to_not be_nil #eq "12:29 PM"
+          expect(run[:triptime]).to_not be_empty
+          # expect(run.realtime=>{:valid=>nil, :estimatedminutes=>nil, :polltime=>nil, :lat=>nil, :trend=>nil, :vehicleid=>nil, :speed=>nil, :adherence=>nil, :long=>nil, :reliable=>nil, :estimatedtime=>"12:09 PM", :stopped=>nil}
+          expect(run[:exception]).to be_nil
+          expect(run[:tripid]).to eq "10709-11"
+          expect(run[:routetype]).to eq "B"
+          expect(run[:skedtripid]).to be_nil
+          expect(run[:stopid]).to eq "10050"
+          expect(run[:servicetype]).to eq "W"
+          expect(run[:adherence]).to be_nil
+          expect(run[:atisstopid]).to eq "3317"
+          # expect(run[:block]).to eq "5"
+          expect(run[:route]).to eq "ZERO"
+          expect(run[:estimatedtime]).to_not be_nil
+          expect(run[:estimatedtime]).to_not be_empty
+          expect(run[:direction]).to eq "N"
+        end
       end
+
     end
   end
 
+  describe '#first_stop_description' do
+    it "should return the correct description" do
+      pending
+    end
+  end
+
+  describe '#to_hash' do
+    it "description" do
+      pending
+    end
+  end
+
+  describe '#to_hash_for_xml' do
+    it "description" do
+      pending
+    end
+  end
 end
 
