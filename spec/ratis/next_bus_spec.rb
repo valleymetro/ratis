@@ -4,7 +4,7 @@ describe Ratis::NextBus do
   before do
     Ratis.reset
     Ratis.configure do |config|
-      config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-252/soap.cgi'
+      config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi'
       config.namespace  = 'PX_WEB'
     end
 
@@ -13,13 +13,37 @@ describe Ratis::NextBus do
 
   let(:empty_body){ {:nextbus_response => {:atstop => {:service => []}}} }
 
+  describe "Developer can find a late bus to a stop" do
+    it "will give developer happiness :-)" do
+      @conditions = {:app_id       => 'ratis-specs', # a short string that can be used to separate requests from different applications or different modules with
+                     :type         => 'N',
+                     :datetime     => Chronic.parse('now') }
+
+      require 'pp'
+      10030.upto(10039).each do |id|
+        puts id
+        response = Ratis::NextBus.where(@conditions.dup.merge(:stop_id => id))
+        # expect(response.stops).to_not be_empty
+        # expect(response.runs).to_not be_empty
+
+        response.services.each do |service|
+          service.trips.each do |trip|
+            if trip.realtime.valid != 'N'
+              y trip.realtime
+            end
+          end
+        end
+      end
+    end
+  end
+
   describe '#success?' do
     it "do something" do
       pending
     end
   end
 
-  describe '#where' do
+  describe '#where', {:vcr => {:cassette_name => "Nextbus"}} do # , {:vcr => {:cassette_name => "Nextbus2_running_LATE", :re_record_interval => 6.months}}
     # TODO: Light Rails Stops can return 2 Atstop tags... how do we best handle this case
     describe 'Light Rails stops' do
       it "description" do

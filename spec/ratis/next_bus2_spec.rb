@@ -4,7 +4,7 @@ describe Ratis::NextBus2 do
   before do
     Ratis.reset
     Ratis.configure do |config|
-      config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-252/soap.cgi'
+      config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi'
       config.namespace  = 'PX_WEB'
     end
   end
@@ -16,16 +16,34 @@ describe Ratis::NextBus2 do
       # appid
       # a short string that can be used to separate requests from different applications or different modules with
       # Optional (highly recommended)
-      @stop_id = 10050
+      @stop_id = 10040
       @conditions = {:stop_id      => @stop_id,
                      :app_id       => 'ratis-specs'}
+    end
+
+    describe "Developer can find a late bus to a stop" do
+      it "will give developer happiness :-)" do
+
+        require 'pp'
+        10001.upto(10039).each do |id|
+          puts id
+          response = Ratis::NextBus2.where(@conditions.dup.merge(:stop_id => id))
+          # expect(response.stops).to_not be_empty
+          # expect(response.runs).to_not be_empty
+
+          response.runs.each do |run|
+            if run[:realtime][:valid] != 'N'
+              pp run[:realtime]
+            end
+          end
+      end
     end
 
     describe 'single next bus' do
       it "only makes one request" do
         # false just to stop further processing of response
         Ratis::Request.should_receive(:get).once.and_call_original
-        Ratis::NextBus.where(@conditions.dup)
+        Ratis::NextBus2.where(@conditions.dup)
       end
 
       it 'requests the correct SOAP action with args' do
@@ -38,10 +56,24 @@ describe Ratis::NextBus2 do
         Ratis::NextBus2.where(@conditions.dup)
       end
 
-      it 'requests the correct SOAP action' do
+      it "description", {:vcr => {:cassette_name => "Nextbus2_running_LATE", :re_record_interval => 6.months}} do
+
         response = Ratis::NextBus2.where(@conditions.dup)
-        expect(response.stops).to_not be_empty
-        expect(response.runs).to_not be_empty
+        late_run = response.runs.first
+        expect(late_run[:realtime][:valid]).to eq("Y")
+        expect(late_run[:realtime][:estimatedtime]).to_not eq(late_run[:triptime])
+        expect(late_run[:realtime][:reliable]).to eq("Y")
+        expect(late_run[:realtime][:estimatedtime]).to eq("02:52 PM")
+        expect(late_run[:realtime][:estimatedminutes]).to eq("16")
+
+        # :realtime=>{:valid=>"Y", :estimatedtime=>"02:52 PM", :reliable=>"Y", :stopped=>"N", :estimatedminutes=>"16", :lat=>"33.451187", :polltime=>"02:35 PM", :long=>"-111.982079", :adherence=>"0", :trend=>"D", :speed=>"0.00", :vehicleid=>"6050"},
+      end
+
+      it 'requests the correct SOAP action' do
+        response = Ratis::NextBus2.where(@conditions.dup.merge(:stop_id => id))
+          expect(response.stops).to_not be_empty
+          expect(response.runs).to_not be_empty
+        end
       end
 
       it "should raise error when no stop id provided" do
