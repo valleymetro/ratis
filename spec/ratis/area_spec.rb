@@ -4,7 +4,7 @@ describe Ratis::Area do
   before do
     Ratis.reset
     Ratis.configure do |config|
-      config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-252/soap.cgi'
+      config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi'
       config.namespace  = 'PX_WEB'
     end
   end

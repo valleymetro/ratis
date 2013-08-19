@@ -4,7 +4,7 @@ describe Ratis::Request do
   before do
     Ratis.reset
     Ratis.configure do |config|
-      config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-252/soap.cgi'
+      config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi'
       config.namespace  = 'PX_WEB'
     end
   end
@@ -12,7 +12,7 @@ describe Ratis::Request do
   context 'new Requests get config from Ratis.configure block' do
     it 'gets config from initializing' do
       pending
-      Ratis::Request.client.wsdl.endpoint.should eql('http://soap.valleymetro.org/cgi-bin-soap-web-252/soap.cgi')
+      Ratis::Request.client.wsdl.endpoint.should eql('http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi')
       Ratis::Request.client.wsdl.namespace.should eql('PX_WEB')
     end
   end
@@ -37,7 +37,7 @@ describe Ratis::Request do
     before do
       Ratis.reset
       Ratis.configure do |config|
-        config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-252/soap.cgi'
+        config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi'
         config.namespace  = 'PX_WEB'
       end
     end

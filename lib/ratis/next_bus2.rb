@@ -16,8 +16,9 @@ module Ratis
     # [runs]     <em>Optional</em> -
     #            An array of runs. Defaults to empty array.
 
-    def initialize(_stops = [], _runs = [])
-      @stops, @runs = _stops, _runs
+    def initialize(response)
+      @stops = response.to_array :nextbus2_response, :stops, :stop
+      @runs  = response.to_array :nextbus2_response, :runs, :run
     end
 
     # Returns results of NextBus query containing arrays of stops and runs.
@@ -46,10 +47,7 @@ module Ratis
       response = Request.get 'Nextbus2', { 'Stopid' => stop_id, 'Appid' => app_id }
       return [] unless response.success?
 
-      stops = response.to_array :nextbus2_response, :stops, :stop
-      runs  = response.to_array :nextbus2_response, :runs, :run
-
-      NextBus2.new stops, runs
+      NextBus2.new(response)
     end
 
     # Gets description of first stop
