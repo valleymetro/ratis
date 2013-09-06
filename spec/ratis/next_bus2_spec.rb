@@ -23,7 +23,7 @@ describe Ratis::NextBus2 do
 
     describe "Developer can find a late bus to a stop" do
       it "will give developer happiness :-)" do
-
+        pending "don't run unless needed"
         require 'pp'
         10001.upto(10039).each do |id|
           puts id
