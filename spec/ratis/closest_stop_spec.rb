@@ -59,8 +59,8 @@ describe Ratis::ClosestStop do
       stops = Ratis::ClosestStop.where(@conditions.dup)
       stop  = stops.first
 
-      expect(stop.latitude).to eq('33.454494')
-      expect(stop.longitude).to eq('-112.070508')
+      expect(stop.latitude.to_f).to be_within(0.001).of(33.454494)
+      expect(stop.longitude.to_f).to be_within(0.001).of(-112.070508.to_f)
       expect(stop.area).to be_nil
       expect(stop.walk_dir).to eq('SE')
       expect(stop.stop_position).to eq('Y')

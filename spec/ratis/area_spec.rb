@@ -25,11 +25,13 @@ describe Ratis::Area do
     end
 
     it 'should return all areas' do
+      pending
       areas = Ratis::Area.all
       areas.should have(29).items
     end
 
     it "should parse the area fields" do
+      pending
       areas = Ratis::Area.all
       area  = areas.last
 

@@ -80,7 +80,7 @@ module Ratis
     def self.where(conditions)
       stop_id = conditions.delete(:stop_id)
       app_id  = conditions.delete(:app_id) || 'ratis-gem'
-      type    = conditions.delete(:type) || 'N' # N for Next Bus
+      type    = conditions.delete(:type)   || 'N' # N for Next Bus
 
       if datetime = conditions.delete(:datetime)
         raise ArgumentError.new('If datetime supplied it should be a Time or DateTime instance, otherwise it defaults to Time.now') unless datetime.is_a?(DateTime) || datetime.is_a?(Time)
