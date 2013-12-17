@@ -32,3 +32,6 @@
 
 3.2.1
 - Timetable::Trip now contains the trip's headsign
+
+3.3.5
+- Refactored Ratis::Location to be usable in Trip Planner
