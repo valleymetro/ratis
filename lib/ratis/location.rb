@@ -2,7 +2,27 @@ module Ratis
 
   class Location
 
-    attr_accessor :name, :area, :response, :areacode, :latitude, :longitude, :landmark_id, :address, :startaddr, :endaddr, :address_string
+    attr_accessor :name, :area, :areacode, :region, :zipname, :latitude, :longitude, :address, :landmark_id,
+                  :responsecode, :startaddr, :endaddr, :startlatitude, :startlongitude, :endlatitude, :endlongitude
+
+    def initialize(params)
+      @name           = params[:name]
+      @area           = params[:area]
+      @areacode       = params[:areacode]
+      @region         = params[:region]
+      @zipname        = params[:zipname]
+      @latitude       = params[:latitude]
+      @longitude      = params[:longitude]
+      @address        = params[:address] || ''
+      @landmark_id    = params[:landmarkid] || 0
+      @responsecode   = params[:responsecode]
+      @startaddr      = params[:startaddr]
+      @endaddr        = params[:endaddr]
+      @startlatitude  = params[:startlatitude]
+      @startlongitude = params[:startlongitude]
+      @endlatitude    = params[:endlatitude]
+      @endlongitude   = params[:endlongitude]
+    end
 
     def self.where(conditions)
       location    = conditions.delete :location
@@ -17,32 +37,22 @@ module Ratis
       raise ArgumentError.new('You must provide a numeric max_answers') unless (Integer max_answers rescue false)
       Ratis.all_conditions_used? conditions
 
-      response = Request.get 'Locate', {'Appid' => app_id,
-                                        'Location' => location,
-                                        'Area' => area,
-                                        'Region' => region,
+      response = Request.get 'Locate', {'Appid'      => app_id,
+                                        'Location'   => location,
+                                        'Area'       => area,
+                                        'Region'     => region,
                                         'Maxanswers' => max_answers,
-                                        'Media' => media }
+                                        'Media'      => media }
       return [] unless response.success?
 
-      meta      = response.to_hash[:locate_response]
-      locations = response.to_array :locate_response, :location
+      response_code = response.to_hash[:locate_response][:responsecode]
+      locations     = response.to_array :locate_response, :location
 
+      # {:name=>"N 1ST AVE", :area=>"Avondale", :areacode=>"AV", :region=>"1", :zipname=>"85323 - Avondale", :latitude=>"33.436246", :longitude=>"-112.350520", :address=>"101", :landmarkid=>"0"}
       locations.map do |location_hash|
-        location                = Ratis::Location.new
-        location.name           = location_hash[:name]
-        location.area           = location_hash[:area]
-        location.response       = meta[:responsecode]
-        location.areacode       = location_hash[:areacode]
-        location.latitude       = location_hash[:latitude]
-        location.longitude      = location_hash[:longitude]
-        location.landmark_id    = location_hash[:landmarkid] || 0
-        location.address        = location_hash[:address] || ''
-        location.startaddr      = location_hash[:startaddr] || ''
-        location.endaddr        = location_hash[:endaddr] || ''
-        location.address_string = build_address_string location_hash
-        location
+        Ratis::Location.new(location_hash.merge(responsecode: response_code))
       end
+
     end
 
     def to_a
@@ -54,25 +64,21 @@ module Ratis
       Hash[keys.map { |k| [k, send(k)] }]
     end
 
-  private
+    def address_string
+      full_address
+    end
 
-    def self.build_address_string(location_hash)
-      address_string = ''
-      address        = location_hash[:address]
-      name           = location_hash[:name]
-      area           = location_hash[:area]
+    def full_address
+      temp = ""
 
-      if !address.blank?
-        address_string << "#{address} #{name} (in #{area})"
+      if address.present?
+        temp << "#{address} #{name} (in #{area})"
+      elsif startaddr.present?
+        temp << "#{startaddr} - #{endaddr} #{name} (in #{area})"
       else
-        startaddr = location_hash[:startaddr]
-        if !startaddr.blank?
-          endaddr = location_hash[:endaddr]
-          address_string << "#{startaddr} - #{endaddr} #{name} (in #{area})"
-        else
-          address_string << "#{name} (in #{area})"
-        end
+        temp << "#{name} (in #{area})"
       end
+
     end
   end
 
