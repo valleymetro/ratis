@@ -20,25 +20,11 @@ module Ratis
 
       return [] unless response.success?
 
-      stops = response.to_hash[:closeststop_response][:stops][:stop].map do |arr|
-                next if arr[:description].blank?
+      stops = response.to_hash[:closeststop_response][:stops][:stop].map do |stop|
+                next if stop[:description].blank?
 
-                stop = Ratis::Stop.new
-                stop.walk_dist     = arr[:walkdist]
-                stop.description   = arr[:description]
-                stop.stop_id       = arr[:stopid]
-                stop.atis_stop_id  = arr[:atisstopid]
-                stop.latitude      = arr[:lat]
-                stop.longitude     = arr[:long]
-                stop.walk_dir      = arr[:walkdir]
-                stop.side          = arr[:side]
-                stop.heading       = arr[:heading]
-                stop.stop_position = arr[:stopposition]
-                stop.route_dirs    = arr[:routedirs]
-                stop
-
+                Ratis::Stop.new(stop)
               end.compact
-
     end
 
   end
