@@ -1,171 +1,72 @@
---- 
-recorded_with: VCR 2.5.0
-http_interactions: 
-- request: 
+---
+http_interactions:
+- request:
     method: post
     uri: http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi
-    body: 
-      base64_string: |
-        PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48ZW52OkVu
-        dmVsb3BlIHhtbG5zOmVudj0iaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcv
-        c29hcC9lbnZlbG9wZS8iIHhtbG5zOndzZGw9IlBYX1dFQiIgeG1sbnM6eHNk
-        PSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYSIgeG1sbnM6eHNp
-        PSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSI+
-        PGVudjpCb2R5PjxQb2ludDJwb2ludCB4bWxucz0iUFhfV0VCIj48T3JpZ2lu
-        bG9uZz4tMTEyLjA5NzkwMzwvT3JpZ2lubG9uZz48Um91dGVzPjwvUm91dGVz
-        PjxPcmlnaW5sYXQ+MzMuNDQ2OTMxPC9PcmlnaW5sYXQ+PEVuZHRpbWU+MTgw
-        MDwvRW5kdGltZT48U3RhcnR0aW1lPjE3MDA8L1N0YXJ0dGltZT48Um91dGVz
-        b25seT5ZPC9Sb3V0ZXNvbmx5PjxEZXN0aW5hdGlvbmxvbmc+LTExMi4wNzcy
-        MTM8L0Rlc3RpbmF0aW9ubG9uZz48RGVzdGluYXRpb25sYXQ+MzMuNDQ3MDk4
-        PC9EZXN0aW5hdGlvbmxhdD48RGF0ZT4xMi8wOS8yMDEzPC9EYXRlPjwvUG9p
-        bnQycG9pbnQ+PC9lbnY6Qm9keT48L2VudjpFbnZlbG9wZT4=
-
-    headers: 
-      Accept: 
-      - "*/*"
-      Soapaction: 
-      - "\"PX_WEB#Point2point\""
-      Content-Length: 
-      - "575"
-      Content-Type: 
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="PX_WEB"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><Point2point
+        xmlns="PX_WEB"><Routesonly>Y</Routesonly><Originlat>33.446931</Originlat><Originlong>-112.097903</Originlong><Destinationlat>33.447098</Destinationlat><Destinationlong>-112.077213</Destinationlong><Date>01/06/2014</Date><Starttime>1700</Starttime><Endtime>1800</Endtime><Routes></Routes></Point2point></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - '"PX_WEB#Point2point"'
+      Content-Type:
       - text/xml;charset=UTF-8
-  response: 
-    status: 
+      Content-Length:
+      - '575'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
       code: 200
       message: OK
-    headers: 
-      Server: 
+    headers:
+      Date:
+      - Wed, 01 Jan 2014 19:52:00 GMT
+      Server:
       - Apache/2.2.3 (CentOS)
-      Soapserver: 
+      Soapserver:
       - SOAP::Lite/Perl/0.55
-      Content-Length: 
-      - "5298"
-      Content-Type: 
-      - text/xml; charset=utf-8
-      Connection: 
+      Content-Length:
+      - '5298'
+      Connection:
       - close
-      Date: 
-      - Fri, 06 Dec 2013 01:10:24 GMT
-    body: 
-      base64_string: |
-        PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48U09BUC1F
-        TlY6RW52ZWxvcGUgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5
-        L1hNTFNjaGVtYS1pbnN0YW5jZSIgeG1sbnM6U09BUC1FTkM9Imh0dHA6Ly9z
-        Y2hlbWFzLnhtbHNvYXAub3JnL3NvYXAvZW5jb2RpbmcvIiB4bWxuczpTT0FQ
-        LUVOVj0iaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvc29hcC9lbnZlbG9w
-        ZS8iIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMTk5OS9YTUxTY2hl
-        bWEiIFNPQVAtRU5WOmVuY29kaW5nU3R5bGU9Imh0dHA6Ly9zY2hlbWFzLnht
-        bHNvYXAub3JnL3NvYXAvZW5jb2RpbmcvIj48U09BUC1FTlY6Qm9keT48bmFt
-        ZXNwMTpQb2ludDJwb2ludFJlc3BvbnNlIHhtbG5zOm5hbWVzcDE9IlBYX1dF
-        QiI+Cgk8UmVzcG9uc2Vjb2RlPjA8L1Jlc3BvbnNlY29kZT4KCTxWZXJzaW9u
-        PjEuNjwvVmVyc2lvbj4KCTxSb3V0ZXM+CgkJPFNlcnZpY2U+CgkJCTxSb3V0
-        ZT41NjI8L1JvdXRlPgoJCQk8RGlyZWN0aW9uPk88L0RpcmVjdGlvbj4KCQkJ
-        PFNlcnZpY2V0eXBlPlc8L1NlcnZpY2V0eXBlPgoJCQk8U2lnbmFnZT41NjIg
-        R29vZHllYXIgVG8gR29vZHllYXI8L1NpZ25hZ2U+CgkJCTxSb3V0ZXR5cGU+
-        WDwvUm91dGV0eXBlPgoJCQkJCQk8U3RhdHVzdHlwZT5OPC9TdGF0dXN0eXBl
-        PgoJCTwvU2VydmljZT4KCQk8U2VydmljZT4KCQkJPFJvdXRlPkkxMEU8L1Jv
-        dXRlPgoJCQk8RGlyZWN0aW9uPk88L0RpcmVjdGlvbj4KCQkJPFNlcnZpY2V0
-        eXBlPlc8L1NlcnZpY2V0eXBlPgoJCQk8U2lnbmFnZT5JLTEwIEVBU1QgUkFQ
-        SUQgVG8gNDAgU3QvUGVjb3M8L1NpZ25hZ2U+CgkJCTxSb3V0ZXR5cGU+WDwv
-        Um91dGV0eXBlPgoJCQkJCQk8U3RhdHVzdHlwZT5OPC9TdGF0dXN0eXBlPgoJ
-        CTwvU2VydmljZT4KCQk8U2VydmljZT4KCQkJPFJvdXRlPkNTTTwvUm91dGU+
-        CgkJCTxEaXJlY3Rpb24+TzwvRGlyZWN0aW9uPgoJCQk8U2VydmljZXR5cGU+
-        VzwvU2VydmljZXR5cGU+CgkJCTxTaWduYWdlPkNTTSBSQVBJRCBUbyAyN3Ro
-        IEF2L0JzbG4gUE5SPC9TaWduYWdlPgoJCQk8Um91dGV0eXBlPlg8L1JvdXRl
-        dHlwZT4KCQkJCQkJPFN0YXR1c3R5cGU+TjwvU3RhdHVzdHlwZT4KCQk8L1Nl
-        cnZpY2U+CgkJPFNlcnZpY2U+CgkJCTxSb3V0ZT5JMTBXPC9Sb3V0ZT4KCQkJ
-        PERpcmVjdGlvbj5PPC9EaXJlY3Rpb24+CgkJCTxTZXJ2aWNldHlwZT5XPC9T
-        ZXJ2aWNldHlwZT4KCQkJPFNpZ25hZ2U+SS0xMCBXRVNUIFJBUElEIHRvIERl
-        c2VydCBTa3kgTWFsbCBWaWEgNzlBdmUvSS0xMDwvU2lnbmFnZT4KCQkJPFJv
-        dXRldHlwZT5YPC9Sb3V0ZXR5cGU+CgkJCQkJCTxTdGF0dXN0eXBlPk48L1N0
-        YXR1c3R5cGU+CgkJPC9TZXJ2aWNlPgoJCTxTZXJ2aWNlPgoJCQk8Um91dGU+
-        MzwvUm91dGU+CgkJCTxEaXJlY3Rpb24+RTwvRGlyZWN0aW9uPgoJCQk8U2Vy
-        dmljZXR5cGU+VzwvU2VydmljZXR5cGU+CgkJCTxTaWduYWdlPjMgVkFOIEJV
-        UkVOIEVhc3QgdG8gUGhvZW5peCBab288L1NpZ25hZ2U+CgkJCTxSb3V0ZXR5
-        cGU+QjwvUm91dGV0eXBlPgoJCQkJCQk8U3RhdHVzdHlwZT5EPC9TdGF0dXN0
-        eXBlPgoJCTwvU2VydmljZT4KCQk8U2VydmljZT4KCQkJPFJvdXRlPjU0MTwv
-        Um91dGU+CgkJCTxEaXJlY3Rpb24+TzwvRGlyZWN0aW9uPgoJCQk8U2Vydmlj
-        ZXR5cGU+VzwvU2VydmljZXR5cGU+CgkJCTxTaWduYWdlPjU0MSBDaGFuZGxl
-        ciBUbyBBcml6b25hL1JheSBWaWEgV2VzdCBNZXNhIFBOUjwvU2lnbmFnZT4K
-        CQkJPFJvdXRldHlwZT5YPC9Sb3V0ZXR5cGU+CgkJCQkJCTxTdGF0dXN0eXBl
-        Pk48L1N0YXR1c3R5cGU+CgkJPC9TZXJ2aWNlPgoJCTxTZXJ2aWNlPgoJCQk8
-        Um91dGU+NTMzPC9Sb3V0ZT4KCQkJPERpcmVjdGlvbj5PPC9EaXJlY3Rpb24+
-        CgkJCTxTZXJ2aWNldHlwZT5XPC9TZXJ2aWNldHlwZT4KCQkJPFNpZ25hZ2U+
-        NTMzIE1lc2EgVG8gU3VwcnN0biBTcHJnIFBOUjwvU2lnbmFnZT4KCQkJPFJv
-        dXRldHlwZT5YPC9Sb3V0ZXR5cGU+CgkJCQkJCTxTdGF0dXN0eXBlPk48L1N0
-        YXR1c3R5cGU+CgkJPC9TZXJ2aWNlPgoJCTxTZXJ2aWNlPgoJCQk8Um91dGU+
-        NTIyPC9Sb3V0ZT4KCQkJPERpcmVjdGlvbj5PPC9EaXJlY3Rpb24+CgkJCTxT
-        ZXJ2aWNldHlwZT5XPC9TZXJ2aWNldHlwZT4KCQkJPFNpZ25hZ2U+NTIyIFRl
-        bXBlIFRvIFdhcm5lci9DQyBXYXk8L1NpZ25hZ2U+CgkJCTxSb3V0ZXR5cGU+
-        WDwvUm91dGV0eXBlPgoJCQkJCQk8U3RhdHVzdHlwZT5OPC9TdGF0dXN0eXBl
-        PgoJCTwvU2VydmljZT4KCQk8U2VydmljZT4KCQkJPFJvdXRlPjUyMTwvUm91
-        dGU+CgkJCTxEaXJlY3Rpb24+TzwvRGlyZWN0aW9uPgoJCQk8U2VydmljZXR5
-        cGU+VzwvU2VydmljZXR5cGU+CgkJCTxTaWduYWdlPjUyMSBUZW1wZSBUbyBQ
-        cmljZS9CYXNlbGluZTwvU2lnbmFnZT4KCQkJPFJvdXRldHlwZT5YPC9Sb3V0
-        ZXR5cGU+CgkJCQkJCTxTdGF0dXN0eXBlPk48L1N0YXR1c3R5cGU+CgkJPC9T
-        ZXJ2aWNlPgoJCTxTZXJ2aWNlPgoJCQk8Um91dGU+NTIwPC9Sb3V0ZT4KCQkJ
-        PERpcmVjdGlvbj5PPC9EaXJlY3Rpb24+CgkJCTxTZXJ2aWNldHlwZT5XPC9T
-        ZXJ2aWNldHlwZT4KCQkJPFNpZ25hZ2U+NTIwIFRlbXBlIFRvIFByaWNlL0Jk
-        d3k8L1NpZ25hZ2U+CgkJCTxSb3V0ZXR5cGU+WDwvUm91dGV0eXBlPgoJCQkJ
-        CQk8U3RhdHVzdHlwZT5OPC9TdGF0dXN0eXBlPgoJCTwvU2VydmljZT4KCQk8
-        U2VydmljZT4KCQkJPFJvdXRlPjUxNDwvUm91dGU+CgkJCTxEaXJlY3Rpb24+
-        TzwvRGlyZWN0aW9uPgoJCQk8U2VydmljZXR5cGU+VzwvU2VydmljZXR5cGU+
-        CgkJCTxTaWduYWdlPjUxNCBTY290dHNkYWxlIFRvIEZvdW50biBIaWxsczwv
-        U2lnbmFnZT4KCQkJPFJvdXRldHlwZT5YPC9Sb3V0ZXR5cGU+CgkJCQkJCTxT
-        dGF0dXN0eXBlPk48L1N0YXR1c3R5cGU+CgkJPC9TZXJ2aWNlPgoJCTxTZXJ2
-        aWNlPgoJCQk8Um91dGU+MTwvUm91dGU+CgkJCTxEaXJlY3Rpb24+RTwvRGly
-        ZWN0aW9uPgoJCQk8U2VydmljZXR5cGU+VzwvU2VydmljZXR5cGU+CgkJCTxT
-        aWduYWdlPjEgV2FzaGluZ3RvbiB0byBTa3kgVHJhaW4vU2t5IEhhcmJvcjwv
-        U2lnbmFnZT4KCQkJPFJvdXRldHlwZT5CPC9Sb3V0ZXR5cGU+CgkJCQkJCTxT
-        dGF0dXN0eXBlPk48L1N0YXR1c3R5cGU+CgkJPC9TZXJ2aWNlPgoJCTxTZXJ2
-        aWNlPgoJCQk8Um91dGU+REFTRzwvUm91dGU+CgkJCTxEaXJlY3Rpb24+Szwv
-        RGlyZWN0aW9uPgoJCQk8U2VydmljZXR5cGU+VzwvU2VydmljZXR5cGU+CgkJ
-        CTxTaWduYWdlPkRBU0ggR3Zybm1udCBUbyBTdGF0ZSBDYXBpdGw8L1NpZ25h
-        Z2U+CgkJCTxSb3V0ZXR5cGU+QjwvUm91dGV0eXBlPgoJCQkJCQk8U3RhdHVz
-        dHlwZT5OPC9TdGF0dXN0eXBlPgoJCTwvU2VydmljZT4KCQk8U2VydmljZT4K
-        CQkJPFJvdXRlPjU0MjwvUm91dGU+CgkJCTxEaXJlY3Rpb24+TzwvRGlyZWN0
-        aW9uPgoJCQk8U2VydmljZXR5cGU+VzwvU2VydmljZXR5cGU+CgkJCTxTaWdu
-        YWdlPjU0MiBDaGFuZGxlciBUbyBDaGFuZGxlciBQTlI8L1NpZ25hZ2U+CgkJ
-        CTxSb3V0ZXR5cGU+WDwvUm91dGV0eXBlPgoJCQkJCQk8U3RhdHVzdHlwZT5O
-        PC9TdGF0dXN0eXBlPgoJCTwvU2VydmljZT4KCQk8U2VydmljZT4KCQkJPFJv
-        dXRlPjUzNTwvUm91dGU+CgkJCTxEaXJlY3Rpb24+TzwvRGlyZWN0aW9uPgoJ
-        CQk8U2VydmljZXR5cGU+VzwvU2VydmljZXR5cGU+CgkJCTxTaWduYWdlPjUz
-        NSBNZXNhIFRvIFBvd2VyIFJkIFBOUiBWaWEgR2lsYi9NY0R3bCBQTlI8L1Np
-        Z25hZ2U+CgkJCTxSb3V0ZXR5cGU+WDwvUm91dGV0eXBlPgoJCQkJCQk8U3Rh
-        dHVzdHlwZT5OPC9TdGF0dXN0eXBlPgoJCTwvU2VydmljZT4KCQk8U2Vydmlj
-        ZT4KCQkJPFJvdXRlPjUzMTwvUm91dGU+CgkJCTxEaXJlY3Rpb24+TzwvRGly
-        ZWN0aW9uPgoJCQk8U2VydmljZXR5cGU+VzwvU2VydmljZXR5cGU+CgkJCTxT
-        aWduYWdlPjUzMSBNZXNhL0dpbGJydCBUbyBEbnRuIEdpbGJlcnQgVmlhIFdl
-        c3QgTWVzYSBQTlI8L1NpZ25hZ2U+CgkJCTxSb3V0ZXR5cGU+WDwvUm91dGV0
-        eXBlPgoJCQkJCQk8U3RhdHVzdHlwZT5OPC9TdGF0dXN0eXBlPgoJCTwvU2Vy
-        dmljZT4KCQk8U2VydmljZT4KCQkJPFJvdXRlPjU2MzwvUm91dGU+CgkJCTxE
-        aXJlY3Rpb24+TzwvRGlyZWN0aW9uPgoJCQk8U2VydmljZXR5cGU+VzwvU2Vy
-        dmljZXR5cGU+CgkJCTxTaWduYWdlPjU2MyBCdWNrZXllIFRvIEJ1Y2tleWUg
-        UCZhbXA7UiBWaWEgR29vZHllYXIgUCZhbXA7UjwvU2lnbmFnZT4KCQkJPFJv
-        dXRldHlwZT5YPC9Sb3V0ZXR5cGU+CgkJCQkJCTxTdGF0dXN0eXBlPk48L1N0
-        YXR1c3R5cGU+CgkJPC9TZXJ2aWNlPgoJCTxTZXJ2aWNlPgoJCQk8Um91dGU+
-        NTcxPC9Sb3V0ZT4KCQkJPERpcmVjdGlvbj5PPC9EaXJlY3Rpb24+CgkJCTxT
-        ZXJ2aWNldHlwZT5XPC9TZXJ2aWNldHlwZT4KCQkJPFNpZ25hZ2U+NTcxIFN1
-        cnByaXNlIFRvIFN1cnByaXNlIFBOUjwvU2lnbmFnZT4KCQkJPFJvdXRldHlw
-        ZT5YPC9Sb3V0ZXR5cGU+CgkJCQkJCTxTdGF0dXN0eXBlPk48L1N0YXR1c3R5
-        cGU+CgkJPC9TZXJ2aWNlPgoJCTxTZXJ2aWNlPgoJCQk8Um91dGU+U1I1MTwv
-        Um91dGU+CgkJCTxEaXJlY3Rpb24+TzwvRGlyZWN0aW9uPgoJCQk8U2Vydmlj
-        ZXR5cGU+VzwvU2VydmljZXR5cGU+CgkJCTxTaWduYWdlPlNSLTUxIFJBUElE
-        IFRvIEJlbGwvU1ItNTEgVmlhIFNoZWEvU1ItNTE8L1NpZ25hZ2U+CgkJCTxS
-        b3V0ZXR5cGU+WDwvUm91dGV0eXBlPgoJCQkJCQk8U3RhdHVzdHlwZT5OPC9T
-        dGF0dXN0eXBlPgoJCTwvU2VydmljZT4KCQk8U2VydmljZT4KCQkJPFJvdXRl
-        PjU3MzwvUm91dGU+CgkJCTxEaXJlY3Rpb24+TzwvRGlyZWN0aW9uPgoJCQk8
-        U2VydmljZXR5cGU+VzwvU2VydmljZXR5cGU+CgkJCTxTaWduYWdlPjU3MyBO
-        IEdsZW5kYWxlIDc1L0JlYXJkc2xleSBWaWEgSS0xMDwvU2lnbmFnZT4KCQkJ
-        PFJvdXRldHlwZT5YPC9Sb3V0ZXR5cGU+CgkJCQkJCTxTdGF0dXN0eXBlPk48
-        L1N0YXR1c3R5cGU+CgkJPC9TZXJ2aWNlPgoJPC9Sb3V0ZXM+Cgk8UmVxdWVz
-        dG9yPjY4LjIyNi4xMjYuMTc8L1JlcXVlc3Rvcj4KCTxIb3N0PnMtcnB0YS1z
-        b2FwPC9Ib3N0PgoJPENvcHlyaWdodD5YTUwgc2NoZW1hIENvcHlyaWdodCAo
-        YykgMjAwMy0yMDEzIFRyYXBlemUgU29mdHdhcmUgVUxDLCBpdHMgc3Vic2lk
-        aWFyaWVzIGFuZCBhZmZpbGlhdGVzLiAgQWxsIHJpZ2h0cyByZXNlcnZlZC48
-        L0NvcHlyaWdodD4KCTxTb2FwdmVyc2lvbj4yLjYuMyAtIDExLzE0LzEzPC9T
-        b2FwdmVyc2lvbj4KPC9uYW1lc3AxOlBvaW50MnBvaW50UmVzcG9uc2U+PC9T
-        T0FQLUVOVjpCb2R5PjwvU09BUC1FTlY6RW52ZWxvcGU+
-
+      Content-Type:
+      - text/xml; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><SOAP-ENV:Envelope xmlns:xsi=\"http://www.w3.org/1999/XMLSchema-instance\"
+        xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\"
+        xmlns:xsd=\"http://www.w3.org/1999/XMLSchema\" SOAP-ENV:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"><SOAP-ENV:Body><namesp1:Point2pointResponse
+        xmlns:namesp1=\"PX_WEB\">\n\t<Responsecode>0</Responsecode>\n\t<Version>1.6</Version>\n\t<Routes>\n\t\t<Service>\n\t\t\t<Route>562</Route>\n\t\t\t<Direction>O</Direction>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Signage>562
+        Goodyear To Goodyear</Signage>\n\t\t\t<Routetype>X</Routetype>\n\t\t\t\t\t\t<Statustype>N</Statustype>\n\t\t</Service>\n\t\t<Service>\n\t\t\t<Route>I10E</Route>\n\t\t\t<Direction>O</Direction>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Signage>I-10
+        EAST RAPID To 40 St/Pecos</Signage>\n\t\t\t<Routetype>X</Routetype>\n\t\t\t\t\t\t<Statustype>N</Statustype>\n\t\t</Service>\n\t\t<Service>\n\t\t\t<Route>CSM</Route>\n\t\t\t<Direction>O</Direction>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Signage>CSM
+        RAPID To 27th Av/Bsln PNR</Signage>\n\t\t\t<Routetype>X</Routetype>\n\t\t\t\t\t\t<Statustype>N</Statustype>\n\t\t</Service>\n\t\t<Service>\n\t\t\t<Route>I10W</Route>\n\t\t\t<Direction>O</Direction>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Signage>I-10
+        WEST RAPID to Desert Sky Mall Via 79Ave/I-10</Signage>\n\t\t\t<Routetype>X</Routetype>\n\t\t\t\t\t\t<Statustype>N</Statustype>\n\t\t</Service>\n\t\t<Service>\n\t\t\t<Route>3</Route>\n\t\t\t<Direction>E</Direction>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Signage>3
+        VAN BUREN East to Phoenix Zoo</Signage>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t\t\t\t<Statustype>D</Statustype>\n\t\t</Service>\n\t\t<Service>\n\t\t\t<Route>541</Route>\n\t\t\t<Direction>O</Direction>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Signage>541
+        Chandler To Arizona/Ray Via West Mesa PNR</Signage>\n\t\t\t<Routetype>X</Routetype>\n\t\t\t\t\t\t<Statustype>N</Statustype>\n\t\t</Service>\n\t\t<Service>\n\t\t\t<Route>533</Route>\n\t\t\t<Direction>O</Direction>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Signage>533
+        Mesa To Suprstn Sprg PNR</Signage>\n\t\t\t<Routetype>X</Routetype>\n\t\t\t\t\t\t<Statustype>N</Statustype>\n\t\t</Service>\n\t\t<Service>\n\t\t\t<Route>522</Route>\n\t\t\t<Direction>O</Direction>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Signage>522
+        Tempe To Warner/CC Way</Signage>\n\t\t\t<Routetype>X</Routetype>\n\t\t\t\t\t\t<Statustype>N</Statustype>\n\t\t</Service>\n\t\t<Service>\n\t\t\t<Route>521</Route>\n\t\t\t<Direction>O</Direction>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Signage>521
+        Tempe To Price/Baseline</Signage>\n\t\t\t<Routetype>X</Routetype>\n\t\t\t\t\t\t<Statustype>N</Statustype>\n\t\t</Service>\n\t\t<Service>\n\t\t\t<Route>520</Route>\n\t\t\t<Direction>O</Direction>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Signage>520
+        Tempe To Price/Bdwy</Signage>\n\t\t\t<Routetype>X</Routetype>\n\t\t\t\t\t\t<Statustype>N</Statustype>\n\t\t</Service>\n\t\t<Service>\n\t\t\t<Route>514</Route>\n\t\t\t<Direction>O</Direction>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Signage>514
+        Scottsdale To Fountn Hills</Signage>\n\t\t\t<Routetype>X</Routetype>\n\t\t\t\t\t\t<Statustype>N</Statustype>\n\t\t</Service>\n\t\t<Service>\n\t\t\t<Route>1</Route>\n\t\t\t<Direction>E</Direction>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Signage>1
+        Washington to Sky Train/Sky Harbor</Signage>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t\t\t\t<Statustype>D</Statustype>\n\t\t</Service>\n\t\t<Service>\n\t\t\t<Route>DASG</Route>\n\t\t\t<Direction>K</Direction>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Signage>DASH
+        Gvrnmnt To State Capitl</Signage>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t\t\t\t<Statustype>D</Statustype>\n\t\t</Service>\n\t\t<Service>\n\t\t\t<Route>542</Route>\n\t\t\t<Direction>O</Direction>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Signage>542
+        Chandler To Chandler PNR</Signage>\n\t\t\t<Routetype>X</Routetype>\n\t\t\t\t\t\t<Statustype>N</Statustype>\n\t\t</Service>\n\t\t<Service>\n\t\t\t<Route>535</Route>\n\t\t\t<Direction>O</Direction>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Signage>535
+        Mesa To Power Rd PNR Via Gilb/McDwl PNR</Signage>\n\t\t\t<Routetype>X</Routetype>\n\t\t\t\t\t\t<Statustype>N</Statustype>\n\t\t</Service>\n\t\t<Service>\n\t\t\t<Route>531</Route>\n\t\t\t<Direction>O</Direction>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Signage>531
+        Mesa/Gilbrt To Dntn Gilbert Via West Mesa PNR</Signage>\n\t\t\t<Routetype>X</Routetype>\n\t\t\t\t\t\t<Statustype>N</Statustype>\n\t\t</Service>\n\t\t<Service>\n\t\t\t<Route>563</Route>\n\t\t\t<Direction>O</Direction>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Signage>563
+        Buckeye To Buckeye P&amp;R Via Goodyear P&amp;R</Signage>\n\t\t\t<Routetype>X</Routetype>\n\t\t\t\t\t\t<Statustype>N</Statustype>\n\t\t</Service>\n\t\t<Service>\n\t\t\t<Route>571</Route>\n\t\t\t<Direction>O</Direction>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Signage>571
+        Surprise To Surprise PNR</Signage>\n\t\t\t<Routetype>X</Routetype>\n\t\t\t\t\t\t<Statustype>N</Statustype>\n\t\t</Service>\n\t\t<Service>\n\t\t\t<Route>SR51</Route>\n\t\t\t<Direction>O</Direction>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Signage>SR-51
+        RAPID To Bell/SR-51 Via Shea/SR-51</Signage>\n\t\t\t<Routetype>X</Routetype>\n\t\t\t\t\t\t<Statustype>N</Statustype>\n\t\t</Service>\n\t\t<Service>\n\t\t\t<Route>573</Route>\n\t\t\t<Direction>O</Direction>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Signage>573
+        N Glendale 75/Beardsley Via I-10</Signage>\n\t\t\t<Routetype>X</Routetype>\n\t\t\t\t\t\t<Statustype>N</Statustype>\n\t\t</Service>\n\t</Routes>\n\t<Requestor>68.226.126.17</Requestor>\n\t<Host>s-rpta-soap</Host>\n\t<Copyright>XML
+        schema Copyright (c) 2003-2013 Trapeze Software ULC, its subsidiaries and
+        affiliates.  All rights reserved.</Copyright>\n\t<Soapversion>2.6.3 - 11/14/13</Soapversion>\n</namesp1:Point2pointResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
     http_version: 
-  recorded_at: Fri, 06 Dec 2013 01:10:24 GMT
+  recorded_at: Wed, 01 Jan 2014 19:52:00 GMT
+recorded_with: VCR 2.8.0

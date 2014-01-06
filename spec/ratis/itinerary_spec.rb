@@ -1,151 +1,89 @@
 require 'spec_helper'
 
-describe Ratis::Itinerary do
-
-  describe 'single itinerary, single service' do
-
-    before do
-      stub_atis_request.to_return( atis_response 'Plantrip', '1.27', '0', <<-BODY )
-      <Input>
-        <Originlat>33.452082</Originlat>
-        <Originlong>-112.074374</Originlong>
-        <Originlandmarkid>0</Originlandmarkid>
-        <Origintext>Origin</Origintext>
-        <Destinationlat>33.446347</Destinationlat>
-        <Destinationlong>-112.068689</Destinationlong>
-        <Destinationlandmarkid>0</Destinationlandmarkid>
-        <Destinationtext>Destination</Destinationtext>
-        <Date>07/26/2012</Date>
-        <Time>06:43 PM</Time>
-        <Minimize>T</Minimize>
-        <Accessible>N</Accessible>
-        <Arrdep>D</Arrdep>
-        <Walkspeed> 2.00 </Walkspeed>
-        <Maxwalk>0.4</Maxwalk>
-        <Walkorigin>0.4</Walkorigin>
-        <Walkdestination>0.4</Walkdestination>
-      </Input>
-      <Lesserttime>
-        <Time/>
-        <Arrdep/>
-      </Lesserttime>
-      <Walkable>N</Walkable>
-      <Walkadjust>0</Walkadjust>
-      <Itin>
-        <Legs>
-          <Leg>
-            <Onwalkdist>0.21</Onwalkdist>
-            <Onwalkdir>W</Onwalkdir>
-            <Onwalkhint>Y</Onwalkhint>
-            <Onstop>VAN BUREN&#x2F;1ST AVE LIGHT RAIL STATION</Onstop>
-            <Ontime>1859</Ontime>
-            <Onstopdata>
-              <Description>VAN BUREN&#x2F;1ST AVE LIGHT RAIL STATION</Description>
-              <Area>PH</Area>
-              <Lat>33.452252</Lat>
-              <Long>-112.075081</Long>
-              <Time>1859</Time>
-              <Date>07/26/12</Date>
-              <Atisstopid>10880</Atisstopid>
-              <Stopid>10012</Stopid>
-              <Stopstatustype>N</Stopstatustype>
-              <Stopseq>11</Stopseq>
-              <Stopposition>O</Stopposition>
-              <Heading>NB</Heading>
-              <Side>Far</Side>
-              <Accessible>N</Accessible>
-            </Onstopdata>
-            <Service>
-              <Route>LTRL</Route>
-              <Sign>Metro light rail To Sycamore&#x2F;Main</Sign>
-              <Altsign></Altsign>
-              <Direction>E</Direction>
-              <Operator>METRO</Operator>
-              <Servicetype>W</Servicetype>
-              <Routeid>46880</Routeid>
-              <Block>17074</Block>
-              <Trip>14</Trip>
-              <Peak>N</Peak>
-              <Routetype>L</Routetype>
-              <Statustype>N</Statustype>
-              <Adherence>0</Adherence>
-              <Polltime></Polltime>
-              <Lat>0.000000</Lat>
-              <Long>0.000000</Long>
-              <Vehicle></Vehicle>
-              <Patternorigin></Patternorigin>
-              <Patterndestination></Patterndestination>
-              <Exception>N</Exception>
-              <Statusid>0</Statusid>
-            </Service>
-            <Fare>
-              <Onfarezone>0</Onfarezone>
-              <Offfarezone>0</Offfarezone>
-              <Legregularfare>1.75</Legregularfare>
-              <Legregularfarexfer>0.00</Legregularfarexfer>
-              <Legreducedfare>0.85</Legreducedfare>
-              <Legreducedfarexfer>0.00</Legreducedfarexfer>
-            </Fare>
-            <Offstop>3RD STREET&#x2F;JEFFERSON LIGHT RAIL STATION</Offstop>
-            <Offtime>1903</Offtime>
-            <Offstopdata>
-              <Description>3RD STREET&#x2F;JEFFERSON LIGHT RAIL STATION</Description>
-              <Area>PH</Area>
-              <Lat>33.446270</Lat>
-              <Long>-112.069777</Long>
-              <Time>1903</Time>
-              <Date>07/26/12</Date>
-              <Atisstopid>10892</Atisstopid>
-              <Stopid>10014</Stopid>
-              <Stopstatustype>N</Stopstatustype>
-              <Stopseq>13</Stopseq>
-              <Stopposition>O</Stopposition>
-              <Heading>NB</Heading>
-              <Side>Far</Side>
-              <Accessible>N</Accessible>
-            </Offstopdata>
-          </Leg>
-        </Legs>
-        <Finalwalk>0.07</Finalwalk>
-        <Finalwalkdir>E</Finalwalkdir>
-        <Finalwalkhint>Y</Finalwalkhint>
-        <Transittime>4</Transittime>
-        <Regularfare>1.75</Regularfare>
-        <Reducedfare>0.85</Reducedfare>
-        <Fareinfo>1|0|1.75|0.85~W|06:59 PM|07:03 PM|LTRL| |W|E|L|12|0|1956|14|46880|METRO|10880|11|10892|13|BUSFARE|0|0|0|R~</Fareinfo>
-        <Traceinfo>1|46880|11|13</Traceinfo>
-        <Exmodified>N</Exmodified>
-        <Exmodids/>
-        <Disttransit> 0.63</Disttransit>
-        <Distauto> 0.92</Distauto>
-        <Co2transit>0.260</Co2transit>
-        <Co2auto>0.881</Co2auto>
-      </Itin>
-      BODY
-
-      @itineraries = Ratis::Itinerary.where(
-        :date => '07/26/2012', :time => '1843', :minimize => 'T',
-        :origin_lat => '33.452082', :origin_long => '-112.074374',
-        :destination_lat => '33.446347', :destination_long => '-112.068689' )
+describe Ratis::Plantrip do
+  before do
+    Ratis.reset
+    Ratis.configure do |config|
+      config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi'
+      config.namespace  = 'PX_WEB'
     end
 
+    @datetime    = Chronic.parse('next monday at 6am')
+  end
+
+  let(:empty_body){ {:plantrip_response => {:input => {}} }}
+
+  describe 'single itinerary, single service' do
     describe '#where' do
+      before do
+        @conditions = {
+          :datetime         => @datetime,
+          :minimize         => 'T',
+          :origin_lat       => '33.452082',
+          :origin_long      => '-112.074374',
+          :destination_lat  => '33.446347',
+          :destination_long => '-112.068689'}
+      end
 
       it 'only makes one request' do
-        an_atis_request.should have_been_made.times 1
+        # false just to stop further processing of response
+        Ratis::Request.should_receive(:get).once.and_call_original
+        Ratis::Plantrip.where(@conditions.dup)
       end
 
       it 'requests the correct SOAP action' do
-        an_atis_request_for('Plantrip',
-          'Date' => '07/26/2012', 'Time' => '1843', 'Minimize' => 'T',
-          'Originlat' => '33.452082', 'Originlong' => '-112.074374',
-          'Destinationlat' => '33.446347', 'Destinationlong' => '-112.068689'
-           ).should have_been_made
+        Ratis::Request.should_receive(:get) do |action, options|
+                         action.should eq('Plantrip')
+                         options["Appid"].should eq('ratis-gem')
+                         options["Date"].should eq(@datetime.strftime("%m/%d/%Y"))
+                         options["Time"].should eq(@datetime.strftime("%H%M"))
+                         options["Minimize"].should eq('T')
+                         options['Originlat'].should eq(33.452082)
+                         options['Originlong'].should eq(-112.074374)
+                         options['Destinationlat'].should eq(33.446347)
+                         options['Destinationlong'].should eq(-112.068689)
+
+                       end.and_return(double('response', :success? => false, :body => empty_body, :to_array => [])) # false only to stop further running
+
+        Ratis::Plantrip.where(@conditions.dup)
       end
 
-      it 'returns one itinerary' do
-        @itineraries.should have(1).item
-        @itineraries.first.should be_a_kind_of Ratis::Itinerary
+      it 'returns a Plantrip object' do
+        @itineraries = Ratis::Plantrip.where(@conditions.dup)
+        expect(@itineraries).to be_a(Ratis::Plantrip)
+      end
+
+      it 'creates Ratis::Itineraries for each trip itinerary' do
+        @plantrip = Ratis::Plantrip.where(@conditions.dup)
+        @plantrip.itineraries.should have(3).items
+        expect(@plantrip.itineraries.first).to be_a(Ratis::Itinerary)
+      end
+
+      it "should set all the Plantrip values to instance vars" do
+        plantrip = Ratis::Plantrip.where(@conditions.dup)
+        expect(plantrip.walkable).to eq(nil)
+        expect(plantrip.walkadjust).to eq(nil)
+
+        input = {
+          :accessible            => "N",
+          :arrdep                => "D",
+          :date                  => "01/06/2014",
+          :destinationlandmarkid => "0",
+          :destinationlat        => "33.446347",
+          :destinationlong       => "-112.068689",
+          :destinationtext       => "Destination",
+          :minimize              => "T",
+          :originlandmarkid      => "0",
+          :originlat             => "33.452082",
+          :originlong            => "-112.074374",
+          :origintext            => "Origin",
+          :time                  => "06:00 AM",
+          :walkdestination       => "0.50",
+          :walkdist              => "0.50",
+          :walkorigin            => "0.50",
+          :walkspeed             => " 2.00 "
+        }
+        HashDiff.diff(plantrip.input, input).should eql []
       end
 
     end

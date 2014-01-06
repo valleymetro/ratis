@@ -2,24 +2,29 @@
 # SimpleCov.start
 
 project_root = File.expand_path(File.dirname(__FILE__) + "/..")
-$LOAD_PATH << "#{project_root}/lib"
 
-require 'webmock/rspec'
-require 'rspec'
 require 'active_support/core_ext'
+require 'chronic'
 require 'hashdiff'
 require 'ratis'
+require 'rspec'
 require 'vcr'
-require 'chronic'
+require 'webmock/rspec'
 
-# Dir[("#{project_root}/lib/ratis/**/*.rb")].each { |f| require f }
+Dir[("#{project_root}/lib/ratis/**/*.rb")].each { |f| require f }
 Dir[("#{project_root}/spec/support/**/*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
-  # config.color_enabled = true
+  config.mock_with :rspec
   config.include RatisHelpers
   config.extend  VCR::RSpec::Macros
   config.treat_symbols_as_metadata_keys_with_true_values = true
+
+  # Run specs in random order to surface order dependencies. If you find an
+  # order dependency and want to debug it, you can fix the order by providing
+  # the seed, which is printed after each run.
+  #     --seed 1234
+  config.order = "random"
 end
 
 HTTPI.log = false
@@ -35,12 +40,12 @@ end
 
 VCR.configure do |c|
   c.hook_into :webmock
+  c.ignore_hosts 'www.valleymetro.org', 'alerts.valleymetro.org'
   c.configure_rspec_metadata!
-  c.preserve_exact_body_bytes { true }
-  c.cassette_library_dir                    = "#{project_root}/spec/support/vcr_cassettes"
+  # c.preserve_exact_body_bytes { true }
   c.ignore_localhost                        = true
+  c.cassette_library_dir                    = "spec/support/vcr_cassettes"
   c.allow_http_connections_when_no_cassette = true
-  c.default_cassette_options = {
-    :re_record_interval => 1.month
-  }
+  c.default_cassette_options                = { allow_playback_repeats: true, match_requests_on: [:method, :uri, :headers] }
+  # c.debug_logger                            = File.open(Rails.root.join('log/vcr.log'), 'w')
 end

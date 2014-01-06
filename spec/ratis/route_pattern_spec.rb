@@ -10,14 +10,15 @@ describe Ratis::RoutePattern do
   end
 
   describe '#where' do
-
+    # :route_short_name => "LTRL", :direction => "E", :date => "01/01/2014", :service_type => 'W', :routeid => "46880"
     before do
-      @today      = Chronic.parse('tomorrow at 8am') # Time.now.strftime("%m/%d/%Y")
-      @conditions = {:route_short_name => '0',
-                     :direction        => 'N',
+      @today      = Chronic.parse('today at 12pm')
+      @conditions = {:route_short_name => 'LTRL',
+                     :direction        => 'E',
                      :date             => @today,
                      :service_type     => 'W',
-                     :routeid          => '83720' }
+                     :routeid          => '46880'
+                   }
     end
 
     it 'only makes one request' do
@@ -29,11 +30,11 @@ describe Ratis::RoutePattern do
     it 'requests the correct SOAP action' do
       Ratis::Request.should_receive(:get) do |action, options|
         action.should eq('Routepattern')
-        options["Route"].should eq('0')
-        options["Direction"].should eq('N')
+        options["Route"].should eq('LTRL')
+        options["Direction"].should eq('E')
         options["Date"].should eq(@today)
         options["Servicetype"].should eq('W')
-        options["Routeid"].should eq('83720')
+        options["Routeid"].should eq('46880')
 
       end.and_return(double('response', :success? => false))
 
@@ -60,13 +61,13 @@ describe Ratis::RoutePattern do
       routepattern = Ratis::RoutePattern.all(@conditions.dup)
       stop         = routepattern.stops.first
 
-      expect(stop.desc).to eq('CENTRAL AVE & DOBBINS RD')
+      expect(stop.desc).to eq('MONTEBELLO/19TH AVE LIGHT RAIL STATION')
       expect(stop.area).to eq('Phoenix')
-      expect(stop.atisid).to eq('3317')
-      expect(stop.stopid).to eq('10050')
-      expect(stop.point).to eq("33.36369,-112.07319")
-      expect(stop.lat).to eq('33.36369')
-      expect(stop.lng).to eq('-112.07319')
+      expect(stop.atisid).to eq('10869')
+      expect(stop.stopid).to eq('10001')
+      expect(stop.point).to eq("33.52120,-112.09975")
+      expect(stop.lat).to eq('33.52120')
+      expect(stop.lng).to eq('-112.09975')
       expect(stop.boardflag).to eq('E')
       expect(stop.timepoint).to eq('Y')
     end

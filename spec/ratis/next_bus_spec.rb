@@ -15,7 +15,7 @@ describe Ratis::NextBus do
 
   describe "Developer can find a late bus to a stop" do
     it "will give developer happiness :-)" do
-
+      pending
       @conditions = {:app_id       => 'ratis-specs', # a short string that can be used to separate requests from different applications or different modules with
                      :type         => 'N',
                      :datetime     => Chronic.parse('now') }

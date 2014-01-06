@@ -1,1 +1,1 @@
-rvm use 1.8.7-p371@ratis --create
+rvm use ruby-2.0.0-p0@ratis --create
