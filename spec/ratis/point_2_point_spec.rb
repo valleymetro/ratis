@@ -10,7 +10,7 @@ describe Ratis::Point2Point do
   end
 
   describe 'Routesonly => Y' do
-    describe '#where', {:vcr => {}} do
+    describe '#where', vcr: {} do
       describe 'services from origin to destination' do
         before do
           @today      = Chronic.parse('next monday at 6am').strftime("%m/%d/%Y")
@@ -81,7 +81,7 @@ describe Ratis::Point2Point do
 
   describe 'Routesonly => N' do
 
-    describe '#where' do
+    describe '#where', vcr: {} do
 
       before do
         @today      = Time.now.strftime("%m/%d/%Y")

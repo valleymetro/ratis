@@ -9,7 +9,7 @@ describe Ratis::Pattern do
     end
   end
 
-  describe '#all' do
+  describe '#all', vcr: {} do
 
     before do
       @today      = Chronic.parse('tomorrow at 8am') # Time.now.strftime("%m/%d/%Y")

@@ -9,7 +9,7 @@ describe Ratis::Location do
     end
   end
 
-  describe '#where' do
+  describe '#where', vcr: {} do
     before do
       @conditions = {:location => '1315 W. Straford Dr.',
                      :media    => 'W' }

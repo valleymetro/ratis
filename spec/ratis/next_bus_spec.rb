@@ -42,7 +42,7 @@ describe Ratis::NextBus do
     end
   end
 
-  describe '#where', {:vcr => {:cassette_name => "Nextbus_running_LATE"}} do #
+  describe '#where', vcr: {} do #
     # TODO: Light Rails Stops can return 2 Atstop tags... how do we best handle this case
     describe 'Light Rails stops' do
       it "description" do
@@ -84,7 +84,7 @@ describe Ratis::NextBus do
         # Ratis::Errors::SoapError:
         # SOAP - no runs available
         response = Ratis::NextBus.where(@conditions.dup)
-        expect(response.services).to have(3).items
+        expect(response.services).to have(1).items
       end
 
       it 'only makes one request' do
@@ -113,14 +113,14 @@ describe Ratis::NextBus do
         expect(response).to be_a(Ratis::NextBus)
         expect(response.services).to be_a(Array)
 
-        expect(service.status).to eq('N')
-        expect(service.sign).to eq('108 Elliot/48th St West To 40th St/Pecos')
+        expect(service.status).to eq('D')
+        expect(service.sign).to eq('0 CENTRAL North to Dunlap/3rd St.')
         expect(service.routetype).to eq('B')
-        expect(service.times).to eq("07:07 AM, 03:07 PM, 03:37 PM, 04:07 PM")
-        expect(service.direction).to eq('W')
+        expect(service.times).to eq("05:49 AM, 06:09 AM, 06:29 AM, 06:49 AM")
+        expect(service.direction).to eq('N')
         expect(service.servicetype).to eq('W')
-        expect(service.route).to eq('108')
-        expect(service.operator).to eq('FTE')
+        expect(service.route).to eq('ZERO')
+        expect(service.operator).to eq('AP')
       end
 
       it "should raise error if datetime condition is not a DateTime or Time" do

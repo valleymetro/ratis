@@ -11,7 +11,7 @@ describe Ratis::Routes do
 
   let(:empty_body){ {:allroutes2_response => {:routes => []}} }
 
-  describe '#all' do
+  describe '#all', vcr: {} do
     it 'returns all routes' do
       response = Ratis::Routes.all
       expect(response).to have(104).items

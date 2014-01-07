@@ -10,7 +10,7 @@ describe Ratis::LandmarkCategory do
     end
   end
 
-  describe '.all' do
+  describe '.all', vcr: {} do
     it 'only makes one request' do
       # false just to stop further processing of response
       Ratis::Request.should_receive(:get).once.and_call_original
@@ -39,10 +39,11 @@ describe Ratis::LandmarkCategory do
     end
   end
 
-  describe '.web_categories' do
+  describe '.web_categories', vcr: {} do
     it "does something" do
       web_categories = Ratis::LandmarkCategory.web_categories
       expect(web_categories).to have(14).items
+
       [["AIRPORT", "WEBAIR"], ["COLLEGES", "WEBCOL"], ["COMMUNITY RESOURCES", "WEBCMR"], ["FAMILY ATTRACTIONS", "WEBFAM"], ["GOVT LOCAL STATE FEDERAL", "WEBGOV"], ["HOSPITALS AND CLINICS", "WEBHOS"], ["LIBRARIES", "WEBLIB"], ["LIGHT RAIL STATIONS", "WEBSTN"], ["MUSEUMS", "WEBMUS"], ["PARK AND RIDE", "WEBPR"], ["PERFORMING ARTS", "WEBPER"], ["SHOPPING MALLS", "WEBSHP"], ["SPORTS VENUES", "WEBSPT"], ["TRANSIT CENTERS", "WEBTC"]].each do |pair|
         expect(web_categories).to include(pair)
       end

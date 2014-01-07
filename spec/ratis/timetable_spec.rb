@@ -9,7 +9,7 @@ describe Ratis::Timetable do
     end
   end
 
-  describe '#where' do
+  describe '#where', vcr: {} do
 
     before do
       @today      = Time.now.strftime("%m/%d/%Y")
