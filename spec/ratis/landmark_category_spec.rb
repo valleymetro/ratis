@@ -3,43 +3,50 @@ require 'spec_helper'
 describe Ratis::LandmarkCategory do
 
   before do
-    stub_atis_request.to_return( atis_response 'Getcategories', '1.1', '0', <<-BODY )
-    <Types>
-      <Typeinfo>
-        <Type>AIRPORT</Type>
-        <Description>AIRPT</Description>
-      </Typeinfo>
-      <Typeinfo>
-        <Type>CASINO</Type>
-        <Description>CAS</Description>
-      </Typeinfo>
-      <Typeinfo>
-        <Type>CEMETARIES</Type>
-        <Description>CEM</Description>
-      </Typeinfo>
-    </Types>
-    BODY
-
-    @landmark_categories = Ratis::LandmarkCategory.all
+    Ratis.reset
+    Ratis.configure do |config|
+      config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi'
+      config.namespace  = 'PX_WEB'
+    end
   end
 
-  it 'only makes one request' do
-    an_atis_request.should have_been_made.times 1
+  describe '.all' do
+    it 'only makes one request' do
+      # false just to stop further processing of response
+      Ratis::Request.should_receive(:get).once.and_call_original
+      Ratis::LandmarkCategory.all
+    end
+
+    it 'requests the correct SOAP action with correct args' do
+      Ratis::Request.should_receive(:get) do |action, options|
+        action.should eq('Getcategories')
+
+      end.and_return(double('response', :success? => false))
+
+      Ratis::LandmarkCategory.all
+    end
+
+    it 'should return a collection of Ratis::LandmarkCategory(s)' do
+      categories = Ratis::LandmarkCategory.all
+      categories.each do |obj|
+        expect(obj).to be_a(Ratis::LandmarkCategory)
+      end
+    end
+
+    it 'should return all landmark categories' do
+      categories = Ratis::LandmarkCategory.all
+      categories.should have(76).items
+    end
   end
 
-  it 'requests the correct SOAP action' do
-    an_atis_request_for('Getcategories').should have_been_made
-  end
-
-  it 'should return all landmark categories' do
-    @landmark_categories.should have(3).items
-
-    @landmark_categories[0].type.should eql 'AIRPORT'
-    @landmark_categories[0].description.should eql 'AIRPT'
-    @landmark_categories[1].type.should eql 'CASINO'
-    @landmark_categories[1].description.should eql 'CAS'
-    @landmark_categories[2].type.should eql 'CEMETARIES'
-    @landmark_categories[2].description.should eql 'CEM'
+  describe '.web_categories' do
+    it "does something" do
+      web_categories = Ratis::LandmarkCategory.web_categories
+      expect(web_categories).to have(14).items
+      [["AIRPORT", "WEBAIR"], ["COLLEGES", "WEBCOL"], ["COMMUNITY RESOURCES", "WEBCMR"], ["FAMILY ATTRACTIONS", "WEBFAM"], ["GOVT LOCAL STATE FEDERAL", "WEBGOV"], ["HOSPITALS AND CLINICS", "WEBHOS"], ["LIBRARIES", "WEBLIB"], ["LIGHT RAIL STATIONS", "WEBSTN"], ["MUSEUMS", "WEBMUS"], ["PARK AND RIDE", "WEBPR"], ["PERFORMING ARTS", "WEBPER"], ["SHOPPING MALLS", "WEBSHP"], ["SPORTS VENUES", "WEBSPT"], ["TRANSIT CENTERS", "WEBTC"]].each do |pair|
+        expect(web_categories).to include(pair)
+      end
+    end
   end
 
 end

@@ -10,7 +10,7 @@ describe Ratis::ClosestStop do
     end
   end
 
-  describe '#where' do
+  describe '#where', vcr: {} do
     before do
       @today      = Time.now.strftime("%m/%d/%Y")
       @conditions = {:latitude      => '33.4556',
@@ -61,7 +61,7 @@ describe Ratis::ClosestStop do
 
       expect(stop.latitude.to_f).to be_within(0.001).of(33.454494)
       expect(stop.longitude.to_f).to be_within(0.001).of(-112.070508.to_f)
-      expect(stop.area).to be_nil
+      expect(stop.area).to eq('Phoenix')
       expect(stop.walk_dir).to eq('SE')
       expect(stop.stop_position).to eq('Y')
       expect(stop.description).to eq('FILLMORE ST & 3RD ST')

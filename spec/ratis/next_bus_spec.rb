@@ -42,7 +42,7 @@ describe Ratis::NextBus do
     end
   end
 
-  describe '#where', {:vcr => {:cassette_name => "Nextbus_running_LATE", :re_record_interval => 6.months}} do #
+  describe '#where', {:vcr => {:cassette_name => "Nextbus_running_LATE"}} do #
     # TODO: Light Rails Stops can return 2 Atstop tags... how do we best handle this case
     describe 'Light Rails stops' do
       it "description" do
@@ -84,7 +84,7 @@ describe Ratis::NextBus do
         # Ratis::Errors::SoapError:
         # SOAP - no runs available
         response = Ratis::NextBus.where(@conditions.dup)
-        expect(response.services).to have(1).items
+        expect(response.services).to have(3).items
       end
 
       it 'only makes one request' do
@@ -114,13 +114,13 @@ describe Ratis::NextBus do
         expect(response.services).to be_a(Array)
 
         expect(service.status).to eq('N')
-        expect(service.sign).to eq('0 CENTRAL North to Dunlap/3rd St.')
+        expect(service.sign).to eq('108 Elliot/48th St West To 40th St/Pecos')
         expect(service.routetype).to eq('B')
-        expect(service.times).to eq("05:49 AM, 06:09 AM, 06:29 AM, 06:49 AM")
-        expect(service.direction).to eq('N')
+        expect(service.times).to eq("07:07 AM, 03:07 PM, 03:37 PM, 04:07 PM")
+        expect(service.direction).to eq('W')
         expect(service.servicetype).to eq('W')
-        expect(service.route).to eq('ZERO')
-        expect(service.operator).to eq('AP')
+        expect(service.route).to eq('108')
+        expect(service.operator).to eq('FTE')
       end
 
       it "should raise error if datetime condition is not a DateTime or Time" do
@@ -130,11 +130,11 @@ describe Ratis::NextBus do
 
         lambda {
           Ratis::NextBus.where(@conditions.dup.merge(:datetime => Time.now))
-        }.should_not raise_error(ArgumentError)
+        }.should_not raise_error
 
         lambda {
-          Ratis::NextBus.where(@conditions.dup.merge(:datetime => DateTime.today))
-        }.should_not raise_error(ArgumentError)
+          Ratis::NextBus.where(@conditions.dup.merge(:datetime => Date.today.to_time))
+        }.should_not raise_error
       end
 
       it "should raise error if stop id is not provided" do
@@ -205,25 +205,25 @@ describe Ratis::NextBus do
         expect(service).to be_a(OpenStruct)
 
         expect(service.status).to eq('N')
-        expect(service.sign).to eq('0 CENTRAL North to Dunlap/3rd St.')
+        expect(service.sign).to eq('108 Elliot/48th St West To 40th St/Pecos')
         expect(service.routetype).to eq('B')
-        expect(service.times).to eq("05:49 AM, 06:09 AM, 06:29 AM, 06:49 AM")
-        expect(service.direction).to eq('N')
+        expect(service.times).to eq("07:07 AM, 03:07 PM, 03:37 PM, 04:07 PM")
+        expect(service.direction).to eq('W')
         expect(service.servicetype).to eq('W')
-        expect(service.route).to eq('ZERO')
-        expect(service.operator).to eq('AP')
+        expect(service.route).to eq('108')
+        expect(service.operator).to eq('FTE')
 
         service = response.services.last
         expect(service).to be_a(OpenStruct)
 
         expect(service.status).to eq('N')
-        expect(service.sign).to eq('0 CENTRAL North to Dunlap/3rd St.')
+        expect(service.sign).to eq('108 Elliot/48th St West To 48th St/Chandler Via Sosmn/Bsnln')
         expect(service.routetype).to eq('B')
-        expect(service.times).to eq("05:49 AM, 06:09 AM, 06:29 AM, 06:49 AM")
-        expect(service.direction).to eq('N')
+        expect(service.times).to eq("02:37 PM, 06:37 PM")
+        expect(service.direction).to eq('W')
         expect(service.servicetype).to eq('W')
-        expect(service.route).to eq('ZERO')
-        expect(service.operator).to eq('AP')
+        expect(service.route).to eq('108')
+        expect(service.operator).to eq('FTE')
       end
 
       it "should raise error if datetime condition is not a DateTime or Time" do
@@ -233,11 +233,11 @@ describe Ratis::NextBus do
 
         lambda {
           Ratis::NextBus.where(@conditions.dup.merge(:datetime => Time.now))
-        }.should_not raise_error(ArgumentError)
+        }.should_not raise_error
 
         lambda {
-          Ratis::NextBus.where(@conditions.dup.merge(:datetime => DateTime.today))
-        }.should_not raise_error(ArgumentError)
+          Ratis::NextBus.where(@conditions.dup.merge(:datetime => Date.today.to_time))
+        }.should_not raise_error
       end
 
       it "should raise error if stop id is not provided" do
@@ -261,8 +261,6 @@ describe Ratis::NextBus do
       end
     end
   end
-
-
 
 end
 

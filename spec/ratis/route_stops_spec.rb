@@ -9,12 +9,12 @@ describe Ratis::RouteStops do
     end
   end
 
-  describe '#all' do
+  describe '.all', vcr: {} do
 
     before do
       @today      = Time.now.strftime("%m/%d/%Y")
-      @conditions = {:route     => '0',
-                     :direction => 'N',
+      @conditions = {:route     => '1',
+                     :direction => 'E',
                      :order     => 'A' }
     end
 
@@ -27,8 +27,8 @@ describe Ratis::RouteStops do
     it 'requests the correct SOAP action with correct args' do
       Ratis::Request.should_receive(:get) do |action, options|
         action.should eq('Routestops')
-        options["Route"].should eq('0')
-        options["Direction"].should eq('N')
+        options["Route"].should eq('1')
+        options["Direction"].should eq('E')
         options["Order"].should eq('A')
 
       end.and_return(double('response', :success? => false))
@@ -47,15 +47,15 @@ describe Ratis::RouteStops do
       route_stops = Ratis::RouteStops.all(@conditions.dup)
       stop        = route_stops.first
 
-      expect(stop.description).to eq('CENTRAL AVE & ADAMS ST')
+      expect(stop.description).to eq('7TH ST & VAN BUREN ST')
       expect(stop.area).to eq('Phoenix')
-      expect(stop.atis_stop_id).to eq('2854')
-      expect(stop.stop_seq).to eq('24')
+      expect(stop.atis_stop_id).to eq('4390')
+      expect(stop.stop_seq).to eq('20')
       expect(stop.stop_id).to be_nil
       expect(stop.point).to be_nil
       expect(stop.alpha_seq).to be_nil
-      expect(stop.latitude).to eq('33.448994')
-      expect(stop.longitude).to eq('-112.073813')
+      expect(stop.latitude).to eq('33.450994')
+      expect(stop.longitude).to eq('-112.065249')
     end
 
     it "should raise error for missing arg route" do

@@ -11,7 +11,7 @@ require 'rspec'
 require 'vcr'
 require 'webmock/rspec'
 
-Dir[("#{project_root}/lib/ratis/**/*.rb")].each { |f| require f }
+require "#{project_root}/lib/ratis.rb"
 Dir[("#{project_root}/spec/support/**/*.rb")].each { |f| require f }
 
 RSpec.configure do |config|

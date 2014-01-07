@@ -1,0 +1,117 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="PX_WEB"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><Getcategories
+        xmlns="PX_WEB"></Getcategories></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - '"PX_WEB#Getcategories"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '307'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 06 Jan 2014 23:53:30 GMT
+      Server:
+      - Apache/2.2.3 (CentOS)
+      Soapserver:
+      - SOAP::Lite/Perl/0.55
+      Content-Length:
+      - '8529'
+      Connection:
+      - close
+      Content-Type:
+      - text/xml; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><SOAP-ENV:Envelope xmlns:xsi=\"http://www.w3.org/1999/XMLSchema-instance\"
+        xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\"
+        xmlns:xsd=\"http://www.w3.org/1999/XMLSchema\" SOAP-ENV:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"><SOAP-ENV:Body><namesp1:GetcategoriesResponse
+        xmlns:namesp1=\"PX_WEB\">\n\t<Responsecode>0</Responsecode>\n\t<Version>1.0</Version>\n\t<Types>\n\t\t<Typeinfo>\n\t\t\t<Type>AIRPT</Type>\n\t\t\t<Description>AIRPORT</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>CAS</Type>\n\t\t\t<Description>CASINO</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>CEM</Type>\n\t\t\t<Description>CEMETARIES</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>CINE</Type>\n\t\t\t<Description>CINEMAS
+        / MOVIE THEATERS</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>CITY</Type>\n\t\t\t<Description>CITY
+        / TOWN HALLS</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>WEL</Type>\n\t\t\t<Description>COMMUNITY
+        ASSISTANCE</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>COMRE</Type>\n\t\t\t<Description>COMMUNITY
+        RESOURCES</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>COURT</Type>\n\t\t\t<Description>COURT
+        HOUSE</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>MDC</Type>\n\t\t\t<Description>FAMILY
+        ATTRACTIONS</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>FX31DP</Type>\n\t\t\t<Description>FARE
+        EXPRESS 31 DAY PASS-$104.00</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>FXADP</Type>\n\t\t\t<Description>FARE
+        EXPRESS ALL DAY PASS-$6.50</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>FL15DP</Type>\n\t\t\t<Description>FARE
+        LOCAL 15 DAY PASS-$33.00</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>FL31DP</Type>\n\t\t\t<Description>FARE
+        LOCAL 31 DAY PASS-$64.00</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>FL7DP</Type>\n\t\t\t<Description>FARE
+        LOCAL 7 DAY PASS-$20.00</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>FLADP</Type>\n\t\t\t<Description>FARE
+        LOCAL ALL DAY PASS-$4.00</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>FR15DP</Type>\n\t\t\t<Description>FARE
+        REDUCED 15 DAY PASS-$16.50</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>FR31DP</Type>\n\t\t\t<Description>FARE
+        REDUCED 31 DAY PASS-$32.00</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>FR7DP</Type>\n\t\t\t<Description>FARE
+        REDUCED 7 DAY PASS-$10.00</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>FRADP</Type>\n\t\t\t<Description>FARE
+        REDUCED ALL DAY PASS-$2.00</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>GEO</Type>\n\t\t\t<Description>GEO</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>GOLF</Type>\n\t\t\t<Description>GOLF</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>GOVT</Type>\n\t\t\t<Description>GOVERNMENT
+        LOCAL STATE FEDERAL</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>HALL</Type>\n\t\t\t<Description>HALLS
+        (EXHIBITION, FUNCTION, UNION, ETC)</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>HOSP</Type>\n\t\t\t<Description>HOSPITALS
+        AND CLINICS</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>HOTEL</Type>\n\t\t\t<Description>HOTELS</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>INT</Type>\n\t\t\t<Description>INTERSECTION
+        BASED SHORT CODES</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>IX31DP</Type>\n\t\t\t<Description>IVRS
+        FARE EXPRESS 31 DAY PASS-$104.00</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>IXADP</Type>\n\t\t\t<Description>IVRS
+        FARE EXPRESS ALL DAY PASS-$6.50</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>IL15DP</Type>\n\t\t\t<Description>IVRS
+        FARE LOCAL 15 DAY PASS-$33.00</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>IL31DP</Type>\n\t\t\t<Description>IVRS
+        FARE LOCAL 31 DAY PASS-$64.00</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>IL7DP</Type>\n\t\t\t<Description>IVRS
+        FARE LOCAL 7 DAY PASS-$20.00</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>ILADP</Type>\n\t\t\t<Description>IVRS
+        FARE LOCAL ALL DAY PASS-$4.00</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>IR15DP</Type>\n\t\t\t<Description>IVRS
+        FARE REDUCED 15 DAY PASS-$16.50</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>IR31DP</Type>\n\t\t\t<Description>IVRS
+        FARE REDUCED 31 DAY PASS-$32.00</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>IR7DP</Type>\n\t\t\t<Description>IVRS
+        FARE REDUCED 7 DAY PASS-$10.00</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>IRADP</Type>\n\t\t\t<Description>IVRS
+        FARE REDUCED ALL DAY PASS-$2.00</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>JAIL</Type>\n\t\t\t<Description>JAILS</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>LIB</Type>\n\t\t\t<Description>LIBRARIES</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>LRTSTN</Type>\n\t\t\t<Description>LIGHT
+        RAIL STATIONS</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>LRT</Type>\n\t\t\t<Description>LIGHTRAIL</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>BUS</Type>\n\t\t\t<Description>MAJOR
+        BUSINESSES</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>MUS</Type>\n\t\t\t<Description>MUSEUMS</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>DELETE</Type>\n\t\t\t<Description>OBSOLETE
+        DELETE AFTER IVR CHECK</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>OFPK</Type>\n\t\t\t<Description>OFFICE
+        PARKS</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>PR</Type>\n\t\t\t<Description>PARK
+        AND RIDE</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>PARKS</Type>\n\t\t\t<Description>PARKS</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>PERF</Type>\n\t\t\t<Description>PERFORMING
+        ARTS</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>PO</Type>\n\t\t\t<Description>POST
+        OFFICES</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>PVT</Type>\n\t\t\t<Description>PRIVATE
+        BUS CARRIERS</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>HOUSE</Type>\n\t\t\t<Description>PUBLIC
+        HOUSING AUTH/MAJOR CONDO-APT CPLX</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>REC</Type>\n\t\t\t<Description>RECREATION
+        CENTERS</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>RT</Type>\n\t\t\t<Description>REGIONAL
+        TRANSIT CONNECTOR</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>REL</Type>\n\t\t\t<Description>RELIGIOUS
+        HSE OF WORSHIP: CHRCH,TMPL,SYN</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>SC</Type>\n\t\t\t<Description>SCHOOLS:
+        COLLEGES</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>SE</Type>\n\t\t\t<Description>SCHOOLS:
+        ELEMENTARY</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>SH</Type>\n\t\t\t<Description>SCHOOLS:
+        HIGH</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>SM</Type>\n\t\t\t<Description>SCHOOLS:
+        MIDDLE</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>ST</Type>\n\t\t\t<Description>SCHOOLS:
+        TRADE &amp; OTHER</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>SHOP</Type>\n\t\t\t<Description>SHOPPING
+        MALLS &amp; MAJOR DEPARTMENT STORES</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>SPORT</Type>\n\t\t\t<Description>SPORTS
+        VENUES</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>SQ</Type>\n\t\t\t<Description>SQUARES:
+        MAJOR INTERSECTION OR BUSI AREA</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>TC</Type>\n\t\t\t<Description>TRANSIT
+        CENTERS</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>WEBAIR</Type>\n\t\t\t<Description>WEB
+        AIRPORT</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>WEBCOL</Type>\n\t\t\t<Description>WEB
+        COLLEGES</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>WEBCMR</Type>\n\t\t\t<Description>WEB
+        COMMUNITY RESOURCES</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>WEBFAM</Type>\n\t\t\t<Description>WEB
+        FAMILY ATTRACTIONS</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>WEBGOV</Type>\n\t\t\t<Description>WEB
+        GOVT LOCAL STATE FEDERAL</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>WEBHOS</Type>\n\t\t\t<Description>WEB
+        HOSPITALS AND CLINICS</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>WEBLIB</Type>\n\t\t\t<Description>WEB
+        LIBRARIES</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>WEBSTN</Type>\n\t\t\t<Description>WEB
+        LIGHT RAIL STATIONS</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>WEBMUS</Type>\n\t\t\t<Description>WEB
+        MUSEUMS</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>WEBPR</Type>\n\t\t\t<Description>WEB
+        PARK AND RIDE</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>WEBPER</Type>\n\t\t\t<Description>WEB
+        PERFORMING ARTS</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>WEBSHP</Type>\n\t\t\t<Description>WEB
+        SHOPPING MALLS</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>WEBSPT</Type>\n\t\t\t<Description>WEB
+        SPORTS VENUES</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>WEBTC</Type>\n\t\t\t<Description>WEB
+        TRANSIT CENTERS</Description>\n\t\t</Typeinfo>\n\t</Types>\n\t<Appid></Appid>\n\t<Requestor>68.226.126.17</Requestor>\n\t<Host>s-rpta-soap</Host>\n\t<Copyright>XML
+        schema Copyright (c) 2003-2013 Trapeze Software ULC, its subsidiaries and
+        affiliates.  All rights reserved.</Copyright>\n\t<Soapversion>2.6.3 - 11/14/13</Soapversion>\n</namesp1:GetcategoriesResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+    http_version: 
+  recorded_at: Mon, 06 Jan 2014 23:53:31 GMT
+recorded_with: VCR 2.8.0

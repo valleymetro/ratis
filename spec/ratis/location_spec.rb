@@ -1,207 +1,99 @@
 require 'spec_helper'
 
 describe Ratis::Location do
-
-  describe 'Intersection or Stop' do
-    pending 'needs implementation'
-  end
-
-  describe 'Landmark' do
-
-    before do
-      stub_atis_request.to_return( atis_response 'Locate', '1.12', 'ok', <<-BODY )
-      <Projection>SP</Projection>
-      <Locationtype>L</Locationtype>
-      <Location>
-              <Name>CENTRAL STATION</Name>
-              <Area>Phoenix</Area>
-              <Areacode>PH</Areacode>
-              <Region>1</Region>
-              <Zipname></Zipname>
-              <Latitude>33.452082</Latitude>
-              <Longitude>-112.074374</Longitude>
-              <Landmarkid>7234</Landmarkid>
-              <Islocality>N</Islocality>
-      </Location>
-      BODY
-
-      @locations = Ratis::Location.where :location => "Central Station", :media => 'a', :max_answers => 3
-      @first_location = @locations.first
+  before do
+    Ratis.reset
+    Ratis.configure do |config|
+      config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi'
+      config.namespace  = 'PX_WEB'
     end
-
-    describe '#where' do
-
-      it 'only makes one request' do
-        an_atis_request.should have_been_made.times 1
-      end
-
-      it 'requests the correct SOAP action' do
-        an_atis_request_for('Locate', 'Location' => 'Central Station', 'Media' => 'A', 'Maxanswers' => '3').should have_been_made
-      end
-
-      it 'returns the single locations' do
-        @locations.should have(1).item
-      end
-
-      it 'parses out fields correctly' do
-        @first_location.name.should eql 'CENTRAL STATION'
-        @first_location.area.should eql 'Phoenix'
-        @first_location.response.should eql 'ok'
-        @first_location.areacode.should eql 'PH'
-        @first_location.latitude.should eql '33.452082'
-        @first_location.longitude.should eql '-112.074374'
-        @first_location.landmark_id.should eql '7234'
-        @first_location.address.should eql ''
-        @first_location.startaddr.should eql ''
-        @first_location.endaddr.should eql ''
-        @first_location.address_string.should eql 'CENTRAL STATION (in Phoenix)'
-      end
-
-    end
-
-  end
-
-  describe 'Address with house number match' do
-    pending 'needs implementation'
-  end
-
-  describe 'Address without house number match' do
-
-    before do
-      stub_atis_request.to_return( atis_response 'Locate', '1.12', 'ambig', <<-BODY )
-      <Locationtype>A</Locationtype>
-      <Projection>SP</Projection>
-      <Location>
-        <Name>W PENNSYLVANIA AVE</Name>
-        <Area>Youngtown</Area>
-        <Areacode>YG</Areacode>
-        <Region>1</Region>
-        <Zipname>85363 - Youngtown</Zipname>
-        <Latitude>33.5811205</Latitude>
-        <Longitude>-112.2989325</Longitude>
-        <Landmarkid>0</Landmarkid>
-        <Startaddr>11105</Startaddr>
-        <Endaddr>11111</Endaddr>
-        <Startlatitude>33.581130</Startlatitude>
-        <Startlongitude>-112.298791</Startlongitude>
-        <Endlatitude>33.581111</Endlatitude>
-        <Endlongitude>-112.299074</Endlongitude>
-      </Location>
-      <Location>
-        <Name>W PENNSYLVANIA AVE</Name>
-        <Area>Youngtown</Area>
-        <Areacode>YG</Areacode>
-        <Region>1</Region>
-        <Zipname>85363 - Youngtown</Zipname>
-        <Latitude>33.581082</Latitude>
-        <Longitude>-112.2991235</Longitude>
-        <Landmarkid>0</Landmarkid>
-        <Startaddr>11109</Startaddr>
-        <Endaddr>11113</Endaddr>
-        <Startlatitude>33.581111</Startlatitude>
-        <Startlongitude>-112.299074</Startlongitude>
-        <Endlatitude>33.581053</Endlatitude>
-        <Endlongitude>-112.299173</Endlongitude>
-      </Location>
-      BODY
-
-      @locations = Ratis::Location.where :location => '1600 Pennsylvania Ave', :media => 'W', :max_answers => 1000
-      @first_location = @locations.first
-    end
-
-    describe '#where' do
-
-      it 'only makes one request' do
-        an_atis_request.should have_been_made.times 1
-      end
-
-      it 'requests the correct SOAP action' do
-        an_atis_request_for('Locate', 'Location' => '1600 Pennsylvania Ave', 'Media' => 'W', 'Maxanswers' => '1000').should have_been_made
-      end
-
-      it 'returns multiple locations' do
-        @locations.should have(2).items
-      end
-
-      it 'parses out fields correctly' do
-        @first_location.name.should eql 'W PENNSYLVANIA AVE'
-        @first_location.area.should eql 'Youngtown'
-        @first_location.response.should eql 'ambig'
-        @first_location.areacode.should eql 'YG'
-        @first_location.latitude.should eql '33.5811205'
-        @first_location.longitude.should eql '-112.2989325'
-        @first_location.landmark_id.should eql '0'
-        @first_location.address.should eql ''
-        @first_location.startaddr.should eql '11105'
-        @first_location.endaddr.should eql '11111'
-        @first_location.address_string.should eql '11105 - 11111 W PENNSYLVANIA AVE (in Youngtown)'
-      end
-
-    end
-
-    describe '#to_a' do
-      it 'returns lat, lon, name and landmark_id' do
-        @first_location.to_a.should eql ['33.5811205', '-112.2989325', 'W PENNSYLVANIA AVE', '0']
-      end
-    end
-
-    describe '#to_hash' do
-      it 'returns a subset of Location params' do
-        hash = {
-          :latitude   => '33.5811205',
-          :longitude  => '-112.2989325',
-          :name       => 'W PENNSYLVANIA AVE',
-          :area       => 'Youngtown',
-          :address    => '',
-          :startaddr  => '11105',
-          :endaddr    => '11111',
-          :address_string => '11105 - 11111 W PENNSYLVANIA AVE (in Youngtown)',
-          :landmark_id => '0' }
-
-        HashDiff.diff(@first_location.to_hash, hash).should eql []
-      end
-
-    end
-
   end
 
   describe '#where' do
-
-    it 'defaults media to W' do
-      stub_atis_request.to_return( atis_response 'Locate', '1.12', 'ok', <<-BODY )
-      <Location>
-        <Name>Some place</Name>
-      </Location>
-      BODY
-
-      Ratis::Location.where :location => 'Some place', :max_answers => 1000
-      an_atis_request_for('Locate', 'Location' => 'Some place', 'Media' => 'W', 'Maxanswers' => '1000').should have_been_made
+    before do
+      @conditions = {:location => '1315 W. Straford Dr.',
+                     :media    => 'W' }
     end
 
-    it 'requires a valid media' do
-      expect do
-        Ratis::Location.where :location => 'Some place', :media => 'XYZZY'
-      end.to raise_error ArgumentError, 'You must provide media of A|W|I'
+    it 'only makes one request' do
+      # false just to stop further processing of response
+      Ratis::Request.should_receive(:get).once.and_call_original
+      Ratis::Location.where(@conditions.dup)
     end
 
-    it 'defaults max_answers to 20' do
-      stub_atis_request.to_return( atis_response 'Locate', '1.12', 'ok', <<-BODY )
-      <Location>
-        <Name>Some place</Name>
-      </Location>
-      BODY
+    it 'requests the correct SOAP action with correct args' do
+      Ratis::Request.should_receive(:get) do |action, options|
+        action.should eq('Locate')
+        options["Location"].should eq('1315 W. Straford Dr.')
+        options["Maxanswers"].should eq(20)
+        options["Media"].should eq('W')
 
-      Ratis::Location.where :location => 'Some place', :media => 'W'
-      an_atis_request_for('Locate', 'Location' => 'Some place', 'Media' => 'W', 'Maxanswers' => '20').should have_been_made
+      end.and_return(double('response', :success? => false))
+
+      Ratis::Location.where(@conditions.dup)
     end
 
-    it 'requires a numeric max_answers' do
-      expect do
-        Ratis::Location.where :location => 'Some place', :max_answers => 'not a number'
-      end.to raise_error ArgumentError, 'You must provide a numeric max_answers'
+    it 'should return a collection of Ratis::Location(s)' do
+      locations = Ratis::Location.where(@conditions.dup)
+      locations.each do |obj|
+        expect(obj).to be_a(Ratis::Location)
+      end
+    end
+
+    it 'parses out fields correctly' do
+      locations = Ratis::Location.where(@conditions.dup)
+      first_location = locations.first
+
+      expect(first_location.name).to eql 'W STRAFORD DR'
+      expect(first_location.area).to eql 'Chandler'
+      expect(first_location.responsecode).to eql 'ok'
+      expect(first_location.areacode).to eql 'CH'
+      expect(first_location.latitude).to eql '33.353202'
+      expect(first_location.longitude).to eql '-111.864902'
+      expect(first_location.landmark_id).to eql '0'
+      expect(first_location.address).to eql '1315'
+      expect(first_location.startaddr).to be_nil
+      expect(first_location.endaddr).to be_nil
+      expect(first_location.address_string).to eql '1315 W STRAFORD DR (in Chandler)'
     end
 
   end
 
-end
+  describe '#to_a' do
+    it 'returns lat, lon, name and landmark_id' do
+      pending
+      @first_location.to_a.should eql ['33.5811205', '-112.2989325', 'W PENNSYLVANIA AVE', '0']
+    end
+  end
 
+  describe '#to_hash' do
+    it 'returns a subset of Location params' do
+      pending
+      hash = {
+        :latitude   => '33.5811205',
+        :longitude  => '-112.2989325',
+        :name       => 'W PENNSYLVANIA AVE',
+        :area       => 'Youngtown',
+        :address    => '',
+        :startaddr  => '11105',
+        :endaddr    => '11111',
+        :address_string => '11105 - 11111 W PENNSYLVANIA AVE (in Youngtown)',
+        :landmark_id => '0' }
+
+      HashDiff.diff(@first_location.to_hash, hash).should eql []
+    end
+
+  end
+
+  describe '#address_string' do
+    it "does something" do
+      pending
+    end
+  end
+
+  describe '#full_address' do
+    it "does something" do
+      pending
+    end
+  end
+end

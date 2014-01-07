@@ -63,10 +63,10 @@ describe Ratis::Pattern do
       expect(routeinfo.operate).to eq('AP')
       expect(routeinfo.routetype).to eq('B')
       expect(routeinfo.headsign).to eq("0 CENTRAL North to Dunlap/3rd St.")
-      expect(routeinfo.routeid).to eq('107070')
+      expect(routeinfo.routeid).to eq('123130')
       expect(routeinfo.route).to eq('ZERO')
       expect(routeinfo.school).to be_nil
-      expect(routeinfo.effective).to eq("07/22/13")
+      expect(routeinfo.effective).to eq("10/28/13")
       expect(routeinfo.tripcount).to eq('51')
 
     end

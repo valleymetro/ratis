@@ -4,17 +4,21 @@ module Ratis
 
     attr_accessor :type, :description, :human_type, :human_description
 
+    def initialize(ti)
+      @type              = ti[:type]
+      @description       = ti[:description]
+      @human_type        = type.gsub(/web/i, "")
+      @human_description = description.gsub(/web\s*/i, "")
+    end
+
     def self.all
       response = Request.get 'Getcategories'
+
       return [] unless response.success?
 
-      response.to_array(:getcategories_response, :types, :typeinfo).map do |ti|
-        lc                   = LandmarkCategory.new
-        lc.type              = ti[:type]
-        lc.description       = ti[:description]
-        lc.human_type        = lc.type.gsub(/web/i, "")
-        lc.human_description = lc.description.gsub(/web\s*/i, "")
-        lc
+      categories = response.to_array(:getcategories_response, :types, :typeinfo)
+      categories.map do |category|
+        Ratis::LandmarkCategory.new(category)
       end
     end
 

@@ -9,7 +9,7 @@ describe Ratis::Area do
     end
   end
 
-  describe '#all' do
+  describe '#all', vcr: {} do
     it 'only makes one request' do
       # false just to stop further processing of response
       Ratis::Request.should_receive(:get).once.and_call_original

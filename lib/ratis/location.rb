@@ -35,6 +35,7 @@ module Ratis
       raise ArgumentError.new('You must provide a location') unless location
       raise ArgumentError.new('You must provide media of A|W|I') unless ['A','W','I'].include? media
       raise ArgumentError.new('You must provide a numeric max_answers') unless (Integer max_answers rescue false)
+
       Ratis.all_conditions_used? conditions
 
       response = Request.get 'Locate', {'Appid'      => app_id,

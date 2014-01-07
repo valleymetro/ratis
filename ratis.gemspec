@@ -24,11 +24,9 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'redcarpet', '~> 2.1.1'
   s.add_development_dependency 'rspec', '~> 2.14.0'
   s.add_development_dependency 'rspec-instafail'
-  # s.add_development_dependency 'ruby-debug'
+  s.add_development_dependency 'debugger'
   s.add_development_dependency 'nokogiri', '> 1.6.0'
   # s.add_development_dependency 'simplecov'
   s.add_development_dependency 'vcr'
   s.add_development_dependency 'webmock'
-  # s.add_development_dependency 'yard'
-
 end

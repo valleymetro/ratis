@@ -63,14 +63,14 @@ describe Ratis::Timetable do
       expect(timetable.direction).to eq('N')
       expect(timetable.service_type).to eq('Weekday')
       expect(timetable.operator).to eq('AP')
-      expect(timetable.effective).to eq('07/22/13')
+      expect(timetable.effective).to eq('10/28/13')
 
       stop = timetable.timepoints.first
 
       expect(stop.ratis_stop_id).to eq(0)
       expect(stop.atis_stop_id).to eq('3317')
       expect(stop.stop_id).to eq('10050')
-      expect(stop.description).to eq('CENTRAL AVE & DOBBINS RD')
+      expect(stop.description).to eq('CENTRAL AVE &amp; DOBBINS RD')
       expect(stop.area).to eq('Phoenix')
 
       trip = timetable.trips.first

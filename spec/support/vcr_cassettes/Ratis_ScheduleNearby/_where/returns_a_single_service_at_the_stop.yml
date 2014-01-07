@@ -1,0 +1,92 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="PX_WEB"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><Schedulenearby
+        xmlns="PX_WEB"><Locationlat>33.4556</Locationlat><Locationlong>-112.071807</Locationlong><Date>01/06/2014</Date><Time>1323</Time><Window>60</Window><Walkdist>0.18</Walkdist><Landmarkid>0</Landmarkid><Stopid></Stopid><Appid>na</Appid></Schedulenearby></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - '"PX_WEB#Schedulenearby"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '527'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 06 Jan 2014 23:53:22 GMT
+      Server:
+      - Apache/2.2.3 (CentOS)
+      Soapserver:
+      - SOAP::Lite/Perl/0.55
+      Content-Length:
+      - '8652'
+      Connection:
+      - close
+      Content-Type:
+      - text/xml; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><SOAP-ENV:Envelope xmlns:xsi=\"http://www.w3.org/1999/XMLSchema-instance\"
+        xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\"
+        xmlns:xsd=\"http://www.w3.org/1999/XMLSchema\" SOAP-ENV:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"><SOAP-ENV:Body><namesp1:SchedulenearbyResponse
+        xmlns:namesp1=\"PX_WEB\">\n\t<Responsecode>0</Responsecode>\n\t<Version>1.21</Version>\n\t<Input>\n\t\t<Locationlat>33.4556</Locationlat>\n\t\t<Locationlong>-112.071807</Locationlong>\n\t\t<Locationtext>Location</Locationtext>\n\t\t<Atisstopid></Atisstopid>\n\t\t<Stopid></Stopid>\n\t\t<Landmarkid>0</Landmarkid>\n\t\t<Date>01/06/2014</Date>\n\t\t<Time>01:23
+        PM</Time>\n\t\t<Route></Route>\n\t</Input>\n\t<Atstop>\n\t\t<Walkdist>0.15</Walkdist>\n\t\t<Walkdir>SE</Walkdir>\n\t\t<Description>FILLMORE
+        ST &amp; 3RD ST</Description>\n\t\t<Area>Phoenix</Area>\n\t\t<Atisstopid>5648</Atisstopid>\n\t\t<Stopid>10606</Stopid>\n\t\t<Lat>33.454538</Lat>\n\t\t<Long>-112.070507</Long>\n\t\t<Stopposition>Y</Stopposition>\n\t\t<Heading>WB</Heading>\n\t\t<Side>Far</Side>\n\t\t<Stopstatustype>N</Stopstatustype>\n\t\t<Service>\n\t\t\t<Route>7</Route>\n\t\t\t<Publicroute>7</Publicroute>\n\t\t\t<Sign>7
+        7th Street to Dobbins Via Cent Station</Sign>\n\t\t\t<Operator>AP</Operator>\n\t\t\t<Publicoperator>AP</Publicoperator>\n\t\t\t<Direction>S</Direction>\n\t\t\t<Status>N</Status>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<Times>12:38
+        PM, 01:03 PM, 01:23 PM, 01:43 PM, 02:03 PM, 02:23 PM</Times>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>12:38
+        PM</Triptime>\n\t\t\t\t<Tripid>11236-8</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Block>23</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>01:03
+        PM</Triptime>\n\t\t\t\t<Tripid>11236-8</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Block>28</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>01:23
+        PM</Triptime>\n\t\t\t\t<Tripid>11236-9</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Block>25</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>01:43
+        PM</Triptime>\n\t\t\t\t<Tripid>11236-9</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Block>27</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>02:03
+        PM</Triptime>\n\t\t\t\t<Tripid>11236-10</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Block>29</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>02:23
+        PM</Triptime>\n\t\t\t\t<Tripid>11236-10</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Block>18</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t</Service>\n\t</Atstop>\n\t<Atstop>\n\t\t<Walkdist>0.16</Walkdist>\n\t\t<Walkdir>W</Walkdir>\n\t\t<Description>CENTRAL
+        AVE &amp; FILLMORE ST</Description>\n\t\t<Area>Phoenix</Area>\n\t\t<Atisstopid>2819</Atisstopid>\n\t\t<Stopid>10077</Stopid>\n\t\t<Lat>33.454995</Lat>\n\t\t<Long>-112.073737</Long>\n\t\t<Stopposition>O</Stopposition>\n\t\t<Heading>NB</Heading>\n\t\t<Side>Far</Side>\n\t\t<Stopstatustype>N</Stopstatustype>\n\t\t<Service>\n\t\t\t<Route>10</Route>\n\t\t\t<Publicroute>10</Publicroute>\n\t\t\t<Sign>10
+        Roosvlt/Grnt to Camelback</Sign>\n\t\t\t<Operator>AP</Operator>\n\t\t\t<Publicoperator>AP</Publicoperator>\n\t\t\t<Direction>E</Direction>\n\t\t\t<Status>D</Status>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<Times>12:39
+        PM, 01:09 PM, 01:39 PM, 02:09 PM</Times>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>12:39
+        PM</Triptime>\n\t\t\t\t<Tripid>11252-7</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Block>47</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>01:09
+        PM</Triptime>\n\t\t\t\t<Tripid>11252-8</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Block>44</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>01:39
+        PM</Triptime>\n\t\t\t\t<Tripid>11252-8</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Block>46</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>02:09
+        PM</Triptime>\n\t\t\t\t<Tripid>11252-9</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Block>45</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t</Service>\n\t\t<Service>\n\t\t\t<Route>ZERO</Route>\n\t\t\t<Publicroute>ZERO</Publicroute>\n\t\t\t<Sign>0
+        CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t<Operator>AP</Operator>\n\t\t\t<Publicoperator>AP</Publicoperator>\n\t\t\t<Direction>N</Direction>\n\t\t\t<Status>D</Status>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<Times>12:36
+        PM, 12:56 PM, 01:16 PM, 01:36 PM, 01:56 PM, 02:16 PM</Times>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>12:36
+        PM</Triptime>\n\t\t\t\t<Tripid>12315-10</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Block>3</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>12:56
+        PM</Triptime>\n\t\t\t\t<Tripid>12315-11</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Block>5</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>01:16
+        PM</Triptime>\n\t\t\t\t<Tripid>12315-11</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Block>9</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>01:36
+        PM</Triptime>\n\t\t\t\t<Tripid>12315-12</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Block>2</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>01:56
+        PM</Triptime>\n\t\t\t\t<Tripid>12315-12</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Block>4</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>02:16
+        PM</Triptime>\n\t\t\t\t<Tripid>12315-13</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Block>7</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t</Service>\n\t</Atstop>\n\t<Atstop>\n\t\t<Walkdist>0.17</Walkdist>\n\t\t<Walkdir>SW</Walkdir>\n\t\t<Description>FILLMORE
+        ST &amp; CENTRAL AVE</Description>\n\t\t<Area>Phoenix</Area>\n\t\t<Atisstopid>366</Atisstopid>\n\t\t<Stopid>10496</Stopid>\n\t\t<Lat>33.454401</Lat>\n\t\t<Long>-112.073275</Long>\n\t\t<Stopposition>G</Stopposition>\n\t\t<Heading>EB</Heading>\n\t\t<Side>Far</Side>\n\t\t<Stopstatustype>N</Stopstatustype>\n\t\t<Service>\n\t\t\t<Route>7</Route>\n\t\t\t<Publicroute>7</Publicroute>\n\t\t\t<Sign>7
+        7th Street to Union Hills Via Cent Station</Sign>\n\t\t\t<Operator>AP</Operator>\n\t\t\t<Publicoperator>AP</Publicoperator>\n\t\t\t<Direction>N</Direction>\n\t\t\t<Status>N</Status>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<Times>12:27
+        PM, 12:47 PM, 01:07 PM, 01:27 PM, 01:46 PM, 02:06 PM</Times>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>12:27
+        PM</Triptime>\n\t\t\t\t<Tripid>11232-8</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Block>20</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>12:47
+        PM</Triptime>\n\t\t\t\t<Tripid>11232-8</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Block>24</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>01:07
+        PM</Triptime>\n\t\t\t\t<Tripid>11232-9</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Block>26</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>01:27
+        PM</Triptime>\n\t\t\t\t<Tripid>11232-9</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Block>30</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>01:46
+        PM</Triptime>\n\t\t\t\t<Tripid>11232-10</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Block>31</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>02:06
+        PM</Triptime>\n\t\t\t\t<Tripid>11232-10</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Block>32</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t</Service>\n\t\t<Service>\n\t\t\t<Route>8</Route>\n\t\t\t<Publicroute>8</Publicroute>\n\t\t\t<Sign>8
+        7th Ave. South To Baselne Via Cent Station</Sign>\n\t\t\t<Operator>AP</Operator>\n\t\t\t<Publicoperator>AP</Publicoperator>\n\t\t\t<Direction>S</Direction>\n\t\t\t<Status>N</Status>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<Times>12:31
+        PM, 01:01 PM, 01:31 PM, 02:01 PM</Times>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>12:31
+        PM</Triptime>\n\t\t\t\t<Tripid>11244-6</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Block>36</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>01:01
+        PM</Triptime>\n\t\t\t\t<Tripid>11244-7</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Block>38</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>01:31
+        PM</Triptime>\n\t\t\t\t<Tripid>11244-7</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Block>35</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>02:01
+        PM</Triptime>\n\t\t\t\t<Tripid>11244-8</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Block>37</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t</Service>\n\t</Atstop>\n\t<Statusinfo>|R,10,E,,|R,ZERO,N,,</Statusinfo>\n\t<Requestor>68.226.126.17</Requestor>\n\t<Host>s-rpta-soap</Host>\n\t<Copyright>XML
+        schema Copyright (c) 2003-2013 Trapeze Software ULC, its subsidiaries and
+        affiliates.  All rights reserved.</Copyright>\n\t<Soapversion>2.6.3 - 11/14/13</Soapversion>\n</namesp1:SchedulenearbyResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+    http_version: 
+  recorded_at: Mon, 06 Jan 2014 23:53:22 GMT
+recorded_with: VCR 2.8.0

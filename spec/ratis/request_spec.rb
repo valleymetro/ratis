@@ -52,7 +52,6 @@ describe Ratis::Request do
         end.once
 
         Ratis::Request.get 'Mymethod'
-        Ratis::Request.client.rspec_reset
       end
 
       it 'returns the response' do

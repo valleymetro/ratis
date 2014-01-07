@@ -14,7 +14,7 @@ describe Ratis::Routes do
   describe '#all' do
     it 'returns all routes' do
       response = Ratis::Routes.all
-      expect(response).to have(111).items
+      expect(response).to have(104).items
       expect(response.all?{|rte| rte.is_a?(Ratis::Route) }).to be_true
     end
 
@@ -37,10 +37,10 @@ describe Ratis::Routes do
 
       expect(response).to be_a(Array)
       expect(route).to be_a(Ratis::Route)
-      expect(route.short_name).to eq('0')
+      expect(route.short_name).to eq('1')
       expect(route.directions).to have(2).directions
-      expect(route.directions).to include('N')
-      expect(route.directions).to include('S')
+      expect(route.directions).to include('E')
+      expect(route.directions).to include('W')
     end
 
   end
