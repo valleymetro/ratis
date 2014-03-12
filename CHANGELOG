@@ -42,3 +42,7 @@
 - changed itinerary_spec to plantrip_spec
 - created new empty itinerary_spec as stub
 - changed walk_spec to walkstop_spec
+
+3.4 (3/11/14)
+- added location type ahead support
+- added test spec for location type ahead support

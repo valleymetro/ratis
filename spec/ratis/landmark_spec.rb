@@ -3,12 +3,26 @@ require 'spec_helper'
 describe Ratis::Landmark do
 
   before do
-    # @landmarks = Ratis::Landmark.where :type => :all
+    Ratis.reset
+    Ratis.configure do |config|
+      config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi'
+      config.namespace  = 'PX_WEB'
+    end
   end
 
-  it 'only makes one request' do
-    pending
-    an_atis_request.should have_been_made.times 1
+  describe "#where" do
+    before do
+      @conditions = {:type => 'all',
+                     :zipcode => '85224'}
+    end
+
+    it 'only makes one request' do
+      pending 'Need method turned on in ATIS'
+
+      # false just to stop further processing of response
+      Ratis::Request.should_receive(:get).once.and_call_original
+      Ratis::Landmark.where(@conditions.dup)
+    end
   end
 
   it 'requests the correct SOAP action' do

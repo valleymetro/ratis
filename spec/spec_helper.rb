@@ -1,8 +1,4 @@
-# require 'simplecov'
-# SimpleCov.start
-
-project_root = File.expand_path(File.dirname(__FILE__) + "/..")
-
+require 'simplecov'
 require 'active_support/core_ext'
 require 'chronic'
 require 'hashdiff'
@@ -10,6 +6,13 @@ require 'ratis'
 require 'rspec'
 require 'vcr'
 require 'webmock/rspec'
+require 'byebug'
+
+I18n.enforce_available_locales = false
+
+SimpleCov.start
+
+project_root = File.expand_path(File.dirname(__FILE__) + "/..")
 
 require "#{project_root}/lib/ratis.rb"
 Dir[("#{project_root}/spec/support/**/*.rb")].each { |f| require f }
@@ -17,7 +20,6 @@ Dir[("#{project_root}/spec/support/**/*.rb")].each { |f| require f }
 RSpec.configure do |config|
   config.mock_with :rspec
   config.include RatisHelpers
-  config.extend  VCR::RSpec::Macros
   config.treat_symbols_as_metadata_keys_with_true_values = true
 
   # Run specs in random order to surface order dependencies. If you find an
