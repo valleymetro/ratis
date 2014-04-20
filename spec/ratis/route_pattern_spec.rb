@@ -9,7 +9,7 @@ describe Ratis::RoutePattern do
     end
   end
 
-  describe '#where' do
+  describe '#where', vcr: {} do
     # :route_short_name => "LTRL", :direction => "E", :date => "01/01/2014", :service_type => 'W', :routeid => "46880"
     before do
       @today      = Chronic.parse('today at 12pm')

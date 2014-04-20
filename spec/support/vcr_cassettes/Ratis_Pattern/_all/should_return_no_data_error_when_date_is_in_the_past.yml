@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="PX_WEB"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><Getpatterns
+        xmlns="PX_WEB"><Route>ZERO</Route><Direction>N</Direction><Date>01/28/2013</Date><Servicetype>W</Servicetype><Longest>N</Longest></Getpatterns></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - '"PX_WEB#Getpatterns"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '417'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 500
+      message: Internal Server Error
+    headers:
+      Date:
+      - Mon, 06 Jan 2014 23:53:22 GMT
+      Server:
+      - Apache/2.2.3 (CentOS)
+      Soapserver:
+      - SOAP::Lite/Perl/0.55
+      Content-Length:
+      - '725'
+      Connection:
+      - close
+      Content-Type:
+      - text/xml; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: '<?xml version="1.0" encoding="UTF-8"?><SOAP-ENV:Envelope xmlns:namesp1="http://namespaces.soaplite.com/perl"
+        xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/1999/XMLSchema-instance"
+        xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/1999/XMLSchema"
+        SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><SOAP-ENV:Body><SOAP-ENV:Fault><faultcode
+        xsi:type="xsd:string">SOAP-ENV:1007</faultcode><faultstring xsi:type="xsd:string">error
+        #1007--Record not found or no more data</faultstring><detail><PX_WEB xsi:type="namesp1:PX_WEB"><code
+        xsi:type="xsd:int">1007</code></PX_WEB></detail></SOAP-ENV:Fault></SOAP-ENV:Body></SOAP-ENV:Envelope>'
+    http_version: 
+  recorded_at: Mon, 06 Jan 2014 23:53:23 GMT
+recorded_with: VCR 2.8.0

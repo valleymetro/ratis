@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Config do
+describe Ratis::Config do
 
   context 'with an endpoint and namespace set' do
 

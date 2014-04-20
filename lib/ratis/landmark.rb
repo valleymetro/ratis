@@ -12,12 +12,13 @@ module Ratis
       raise ArgumentError.new('You must provide a type') if type.blank?
       Ratis.all_conditions_used? conditions
 
-      response = Request.get 'Getlandmarks', {'Appid' => app_id,
-                                              'Type' => type,
+      response = Request.get 'Getlandmarks', {'Appid'   => app_id,
+                                              'Type'    => type,
                                               'Zipcode' => zipcode}
+
       return [] unless response.success?
 
-      response.to_array(:getlandmarks_response, :landmarks, :landmark).map do |landmark|
+      response.to_array(:getlandmarks_response, :landmark).map do |landmark|
         atis_landmark          = Landmark.new
         atis_landmark.type     = landmark[:type]
         atis_landmark.verbose  = landmark[:verbose]

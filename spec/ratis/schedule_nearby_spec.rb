@@ -9,7 +9,7 @@ describe Ratis::ScheduleNearby do
     end
   end
 
-  describe '#where' do
+  describe '#where', vcr: {} do
     before do
       @today      = Time.now.strftime("%m/%d/%Y")
       @conditions = {:latitude      => '33.4556',

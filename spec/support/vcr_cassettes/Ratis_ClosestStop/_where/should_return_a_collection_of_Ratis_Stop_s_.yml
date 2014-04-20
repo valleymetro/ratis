@@ -1,0 +1,70 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="PX_WEB"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><Closeststop
+        xmlns="PX_WEB"><Locationlat>33.4556</Locationlat><Locationlong>-112.071807</Locationlong><Locationtext>some
+        location text</Locationtext><Numstops>15</Numstops></Closeststop></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - '"PX_WEB#Closeststop"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '447'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 06 Jan 2014 23:53:24 GMT
+      Server:
+      - Apache/2.2.3 (CentOS)
+      Soapserver:
+      - SOAP::Lite/Perl/0.55
+      Content-Length:
+      - '8057'
+      Connection:
+      - close
+      Content-Type:
+      - text/xml; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><SOAP-ENV:Envelope xmlns:xsi=\"http://www.w3.org/1999/XMLSchema-instance\"
+        xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\"
+        xmlns:xsd=\"http://www.w3.org/1999/XMLSchema\" SOAP-ENV:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"><SOAP-ENV:Body><namesp1:CloseststopResponse
+        xmlns:namesp1=\"PX_WEB\">\n\t<Responsecode>0</Responsecode>\n\t<Version>1.11</Version>\n\t<Input>\n\t\t<Locationlat>33.4556</Locationlat>\n\t\t<Locationlon>-112.071807</Locationlon>\n\t\t<Locationtext>some
+        location text</Locationtext>\n\t\t<Numstops>15</Numstops>\n\t\t<Distance>0</Distance>\n\t\t<Accessible>N</Accessible>\n\t\t<Xmode></Xmode>\n\t</Input>\n\t<Stops>\n\t\t<Stop>\n\t\t\t<Description>FILLMORE
+        ST &amp; 3RD ST</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Stopid>10606</Stopid>\n\t\t\t<Atisstopid>5648</Atisstopid>\n\t\t\t<Lat>33.454538</Lat>\n\t\t\t<Long>-112.070507</Long>\n\t\t\t<Walkdist>0.15</Walkdist>\n\t\t\t<Walkdir>SE</Walkdir>\n\t\t\t<Stopposition>Y</Stopposition>\n\t\t\t<Heading>WB</Heading>\n\t\t\t<Side>Far</Side>\n\t\t\t<Routedirs>\n\t\t\t\t<Routedir>7-S</Routedir>\n\t\t\t</Routedirs>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>CENTRAL
+        AVE &amp; FILLMORE ST</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Stopid>10077</Stopid>\n\t\t\t<Atisstopid>2819</Atisstopid>\n\t\t\t<Lat>33.454995</Lat>\n\t\t\t<Long>-112.073737</Long>\n\t\t\t<Walkdist>0.16</Walkdist>\n\t\t\t<Walkdir>W</Walkdir>\n\t\t\t<Stopposition>O</Stopposition>\n\t\t\t<Heading>NB</Heading>\n\t\t\t<Side>Far</Side>\n\t\t\t<Routedirs>\n\t\t\t\t<Routedir>10-E</Routedir>\n\t\t\t\t<Routedir>ZERO-N</Routedir>\n\t\t\t</Routedirs>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>FILLMORE
+        ST &amp; CENTRAL AVE</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Stopid>10496</Stopid>\n\t\t\t<Atisstopid>366</Atisstopid>\n\t\t\t<Lat>33.454401</Lat>\n\t\t\t<Long>-112.073275</Long>\n\t\t\t<Walkdist>0.17</Walkdist>\n\t\t\t<Walkdir>SW</Walkdir>\n\t\t\t<Stopposition>G</Stopposition>\n\t\t\t<Heading>EB</Heading>\n\t\t\t<Side>Far</Side>\n\t\t\t<Routedirs>\n\t\t\t\t<Routedir>7-N</Routedir>\n\t\t\t\t<Routedir>8-S</Routedir>\n\t\t\t</Routedirs>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>FILLMORE
+        ST &amp; 3RD ST</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Stopid>10497</Stopid>\n\t\t\t<Atisstopid>363</Atisstopid>\n\t\t\t<Lat>33.454431</Lat>\n\t\t\t<Long>-112.069810</Long>\n\t\t\t<Walkdist>0.19</Walkdist>\n\t\t\t<Walkdir>SE</Walkdir>\n\t\t\t<Stopposition>G</Stopposition>\n\t\t\t<Heading>EB</Heading>\n\t\t\t<Side>Far</Side>\n\t\t\t<Routedirs>\n\t\t\t\t<Routedir>7-N</Routedir>\n\t\t\t</Routedirs>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>FILLMORE
+        ST &amp; CENTRAL AVE</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Stopid>10736</Stopid>\n\t\t\t<Atisstopid>1321</Atisstopid>\n\t\t\t<Lat>33.454642</Lat>\n\t\t\t<Long>-112.074207</Long>\n\t\t\t<Walkdist>0.20</Walkdist>\n\t\t\t<Walkdir>SW</Walkdir>\n\t\t\t<Stopposition>E</Stopposition>\n\t\t\t<Heading>EB</Heading>\n\t\t\t<Side>Near</Side>\n\t\t\t<Routedirs>\n\t\t\t\t<Routedir>8-S</Routedir>\n\t\t\t</Routedirs>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>CENTRAL
+        AVE &amp; MCKINLEY ST</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Stopid>10078</Stopid>\n\t\t\t<Atisstopid>2828</Atisstopid>\n\t\t\t<Lat>33.456795</Lat>\n\t\t\t<Long>-112.073722</Long>\n\t\t\t<Walkdist>0.21</Walkdist>\n\t\t\t<Walkdir>NW</Walkdir>\n\t\t\t<Stopposition>O</Stopposition>\n\t\t\t<Heading>NB</Heading>\n\t\t\t<Side>Far</Side>\n\t\t\t<Routedirs>\n\t\t\t\t<Routedir>10-E</Routedir>\n\t\t\t\t<Routedir>ZERO-N</Routedir>\n\t\t\t</Routedirs>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>3RD
+        ST &amp; GARFIELD ST</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Stopid>16883</Stopid>\n\t\t\t<Atisstopid>4043</Atisstopid>\n\t\t\t<Lat>33.457201</Lat>\n\t\t\t<Long>-112.070055</Long>\n\t\t\t<Walkdist>0.22</Walkdist>\n\t\t\t<Walkdir>NE</Walkdir>\n\t\t\t<Stopposition>U</Stopposition>\n\t\t\t<Heading>SB</Heading>\n\t\t\t<Side>Far</Side>\n\t\t\t<Routedirs>\n\t\t\t\t<Routedir>514-I</Routedir>\n\t\t\t\t<Routedir>520-I</Routedir>\n\t\t\t\t<Routedir>521-I</Routedir>\n\t\t\t\t<Routedir>522-I</Routedir>\n\t\t\t\t<Routedir>531-I</Routedir>\n\t\t\t\t<Routedir>533-I</Routedir>\n\t\t\t\t<Routedir>535-I</Routedir>\n\t\t\t\t<Routedir>541-I</Routedir>\n\t\t\t\t<Routedir>542-I</Routedir>\n\t\t\t</Routedirs>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>FILLMORE
+        ST &amp; 1ST AVE</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Stopid>10607</Stopid>\n\t\t\t<Atisstopid>6609</Atisstopid>\n\t\t\t<Lat>33.454790</Lat>\n\t\t\t<Long>-112.074726</Long>\n\t\t\t<Walkdist>0.23</Walkdist>\n\t\t\t<Walkdir>W</Walkdir>\n\t\t\t<Stopposition>W</Stopposition>\n\t\t\t<Heading>WB</Heading>\n\t\t\t<Side>Near</Side>\n\t\t\t<Routedirs>\n\t\t\t\t<Routedir>7-S</Routedir>\n\t\t\t\t<Routedir>8-N</Routedir>\n\t\t\t</Routedirs>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>3RD
+        ST -- TAYLOR ST</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Stopid>16877</Stopid>\n\t\t\t<Atisstopid>10044</Atisstopid>\n\t\t\t<Lat>33.453326</Lat>\n\t\t\t<Long>-112.070058</Long>\n\t\t\t<Walkdist>0.26</Walkdist>\n\t\t\t<Walkdir>SE</Walkdir>\n\t\t\t<Stopposition>1</Stopposition>\n\t\t\t<Heading>
+        </Heading>\n\t\t\t<Side>At</Side>\n\t\t\t<Routedirs>\n\t\t\t\t<Routedir>514-I</Routedir>\n\t\t\t\t<Routedir>520-I</Routedir>\n\t\t\t\t<Routedir>521-I</Routedir>\n\t\t\t\t<Routedir>522-I</Routedir>\n\t\t\t\t<Routedir>531-I</Routedir>\n\t\t\t\t<Routedir>533-I</Routedir>\n\t\t\t\t<Routedir>535-I</Routedir>\n\t\t\t\t<Routedir>541-I</Routedir>\n\t\t\t\t<Routedir>542-I</Routedir>\n\t\t\t\t<Routedir>I10E-I</Routedir>\n\t\t\t\t<Routedir>I17-O</Routedir>\n\t\t\t</Routedirs>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>5TH
+        ST &amp; FILLMORE ST</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Stopid>18285</Stopid>\n\t\t\t<Atisstopid>2508</Atisstopid>\n\t\t\t<Lat>33.454664</Lat>\n\t\t\t<Long>-112.067930</Long>\n\t\t\t<Walkdist>0.27</Walkdist>\n\t\t\t<Walkdir>E</Walkdir>\n\t\t\t<Stopposition>O</Stopposition>\n\t\t\t<Heading>NB</Heading>\n\t\t\t<Side>Far</Side>\n\t\t\t<Routedirs>\n\t\t\t\t<Routedir>514-O</Routedir>\n\t\t\t\t<Routedir>520-O</Routedir>\n\t\t\t\t<Routedir>521-O</Routedir>\n\t\t\t\t<Routedir>522-O</Routedir>\n\t\t\t\t<Routedir>531-O</Routedir>\n\t\t\t\t<Routedir>533-O</Routedir>\n\t\t\t\t<Routedir>535-O</Routedir>\n\t\t\t\t<Routedir>541-O</Routedir>\n\t\t\t\t<Routedir>542-O</Routedir>\n\t\t\t</Routedirs>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>FILLMORE
+        ST &amp; 5TH ST</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Stopid>10605</Stopid>\n\t\t\t<Atisstopid>5649</Atisstopid>\n\t\t\t<Lat>33.454524</Lat>\n\t\t\t<Long>-112.068507</Long>\n\t\t\t<Walkdist>0.27</Walkdist>\n\t\t\t<Walkdir>E</Walkdir>\n\t\t\t<Stopposition>Y</Stopposition>\n\t\t\t<Heading>WB</Heading>\n\t\t\t<Side>Far</Side>\n\t\t\t<Routedirs>\n\t\t\t\t<Routedir>7-S</Routedir>\n\t\t\t</Routedirs>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>1ST
+        AVE &amp; FILLMORE ST</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Stopid>10160</Stopid>\n\t\t\t<Atisstopid>3796</Atisstopid>\n\t\t\t<Lat>33.454992</Lat>\n\t\t\t<Long>-112.075208</Long>\n\t\t\t<Walkdist>0.27</Walkdist>\n\t\t\t<Walkdir>W</Walkdir>\n\t\t\t<Stopposition>S</Stopposition>\n\t\t\t<Heading>SB</Heading>\n\t\t\t<Side>Near</Side>\n\t\t\t<Routedirs>\n\t\t\t\t<Routedir>10-W</Routedir>\n\t\t\t\t<Routedir>ZERO-S</Routedir>\n\t\t\t</Routedirs>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>ROOSEVELT
+        ST &amp; 1ST ST</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Stopid>10851</Stopid>\n\t\t\t<Atisstopid>5864</Atisstopid>\n\t\t\t<Lat>33.458725</Lat>\n\t\t\t<Long>-112.072719</Long>\n\t\t\t<Walkdist>0.27</Walkdist>\n\t\t\t<Walkdir>N</Walkdir>\n\t\t\t<Stopposition>Y</Stopposition>\n\t\t\t<Heading>WB</Heading>\n\t\t\t<Side>Far</Side>\n\t\t\t<Routedirs>\n\t\t\t\t<Routedir>10-W</Routedir>\n\t\t\t</Routedirs>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>ROOSEVELT
+        ST &amp; 3RD ST</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Stopid>10850</Stopid>\n\t\t\t<Atisstopid>5873</Atisstopid>\n\t\t\t<Lat>33.458733</Lat>\n\t\t\t<Long>-112.070298</Long>\n\t\t\t<Walkdist>0.30</Walkdist>\n\t\t\t<Walkdir>N</Walkdir>\n\t\t\t<Stopposition>Y</Stopposition>\n\t\t\t<Heading>WB</Heading>\n\t\t\t<Side>Far</Side>\n\t\t\t<Routedirs>\n\t\t\t\t<Routedir>10-W</Routedir>\n\t\t\t</Routedirs>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>ROOSEVELT
+        ST &amp; 3RD ST</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Stopid>10784</Stopid>\n\t\t\t<Atisstopid>635</Atisstopid>\n\t\t\t<Lat>33.458596</Lat>\n\t\t\t<Long>-112.070195</Long>\n\t\t\t<Walkdist>0.31</Walkdist>\n\t\t\t<Walkdir>NE</Walkdir>\n\t\t\t<Stopposition>E</Stopposition>\n\t\t\t<Heading>EB</Heading>\n\t\t\t<Side>Near</Side>\n\t\t\t<Routedirs>\n\t\t\t\t<Routedir>10-E</Routedir>\n\t\t\t</Routedirs>\n\t\t</Stop>\n\t</Stops>\n\t<Requestor>68.226.126.17</Requestor>\n\t<Host>s-rpta-soap</Host>\n\t<Copyright>XML
+        schema Copyright (c) 2003-2013 Trapeze Software ULC, its subsidiaries and
+        affiliates.  All rights reserved.</Copyright>\n\t<Soapversion>2.6.3 - 11/14/13</Soapversion>\n</namesp1:CloseststopResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+    http_version: 
+  recorded_at: Mon, 06 Jan 2014 23:53:24 GMT
+recorded_with: VCR 2.8.0

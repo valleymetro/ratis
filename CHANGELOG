@@ -35,3 +35,17 @@
 
 3.3.5
 - Refactored Ratis::Location to be usable in Trip Planner
+
+3.3.7
+- all tests now use VCR
+- fixes for failing tests
+- changed itinerary_spec to plantrip_spec
+- created new empty itinerary_spec as stub
+- changed walk_spec to walkstop_spec
+
+3.4 (3/11/14)
+- added location type ahead support
+- added test spec for location type ahead support
+
+3.4.1
+- regeneration of gem to fix missing files

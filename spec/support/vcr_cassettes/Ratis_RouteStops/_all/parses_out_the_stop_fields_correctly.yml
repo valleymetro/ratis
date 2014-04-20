@@ -1,0 +1,94 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="PX_WEB"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><Routestops
+        xmlns="PX_WEB"><Route>1</Route><Direction>E</Direction><Order>A</Order></Routestops></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - '"PX_WEB#Routestops"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '357'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 06 Jan 2014 22:36:46 GMT
+      Server:
+      - Apache/2.2.3 (CentOS)
+      Soapserver:
+      - SOAP::Lite/Perl/0.55
+      Content-Length:
+      - '11623'
+      Connection:
+      - close
+      Content-Type:
+      - text/xml; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><SOAP-ENV:Envelope xmlns:xsi=\"http://www.w3.org/1999/XMLSchema-instance\"
+        xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\"
+        xmlns:xsd=\"http://www.w3.org/1999/XMLSchema\" SOAP-ENV:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"><SOAP-ENV:Body><namesp1:RoutestopsResponse
+        xmlns:namesp1=\"PX_WEB\">\t<Version>2.3</Version>\n\t\t<Route>1</Route>\n\t\t<Direction>E</Direction>\n\t\t<Routedescription>1
+        Washington to Sky Train/Sky Harbor</Routedescription>\n\t\t<Stops>\n\t\t\t<Stop>\n\t\t\t\t<Description>7TH
+        ST &amp; VAN BUREN ST</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>4390</Atisstopid>\n\t\t\t\t<Stopid>10215</Stopid>\n\t\t\t\t<Alphaseq>0</Alphaseq>\n\t\t\t\t<Stopseq>20</Stopseq>\n\t\t\t\t<Point>33.450994,-112.065249</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>7TH
+        ST &amp; WASHINGTON ST</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>5007</Atisstopid>\n\t\t\t\t<Stopid>10216</Stopid>\n\t\t\t\t<Alphaseq>1</Alphaseq>\n\t\t\t\t<Stopseq>21</Stopseq>\n\t\t\t\t<Point>33.447988,-112.065255</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>CENTRAL
+        AVE &amp; ADAMS ST</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>2854</Atisstopid>\n\t\t\t\t<Stopid>10075</Stopid>\n\t\t\t\t<Alphaseq>2</Alphaseq>\n\t\t\t\t<Stopseq>15</Stopseq>\n\t\t\t\t<Point>33.449027,-112.073698</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>CENTRAL
+        AVE &amp; JEFFERSON ST</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>3323</Atisstopid>\n\t\t\t\t<Stopid>10074</Stopid>\n\t\t\t\t<Alphaseq>3</Alphaseq>\n\t\t\t\t<Stopseq>14</Stopseq>\n\t\t\t\t<Point>33.447695,-112.073756</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>EB
+        JEFFERSON ST FS 17TH AVE</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>1459</Atisstopid>\n\t\t\t\t<Stopid>10203</Stopid>\n\t\t\t\t<Alphaseq>4</Alphaseq>\n\t\t\t\t<Stopseq>6</Stopseq>\n\t\t\t\t<Point>33.446996,-112.095514</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>EB
+        JEFFERSON ST NS 17TH AVE</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>1469</Atisstopid>\n\t\t\t\t<Stopid>10202</Stopid>\n\t\t\t\t<Alphaseq>5</Alphaseq>\n\t\t\t\t<Stopseq>5</Stopseq>\n\t\t\t\t<Point>33.446985,-112.096808</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>JEFFERSON
+        ST &amp; 11TH ST</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>456</Atisstopid>\n\t\t\t\t<Stopid>10219</Stopid>\n\t\t\t\t<Alphaseq>6</Alphaseq>\n\t\t\t\t<Stopseq>24</Stopseq>\n\t\t\t\t<Point>33.446991,-112.058308</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>JEFFERSON
+        ST &amp; 12TH AVE</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>1456</Atisstopid>\n\t\t\t\t<Stopid>18389</Stopid>\n\t\t\t\t<Alphaseq>7</Alphaseq>\n\t\t\t\t<Stopseq>9</Stopseq>\n\t\t\t\t<Point>33.446974,-112.087702</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>JEFFERSON
+        ST &amp; 12TH ST</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>457</Atisstopid>\n\t\t\t\t<Stopid>10220</Stopid>\n\t\t\t\t<Alphaseq>8</Alphaseq>\n\t\t\t\t<Stopseq>25</Stopseq>\n\t\t\t\t<Point>33.446991,-112.055806</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>JEFFERSON
+        ST &amp; 14TH AVE</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>1468</Atisstopid>\n\t\t\t\t<Stopid>10205</Stopid>\n\t\t\t\t<Alphaseq>9</Alphaseq>\n\t\t\t\t<Stopseq>8</Stopseq>\n\t\t\t\t<Point>33.446947,-112.089807</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>JEFFERSON
+        ST &amp; 14TH ST</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>458</Atisstopid>\n\t\t\t\t<Stopid>10221</Stopid>\n\t\t\t\t<Alphaseq>10</Alphaseq>\n\t\t\t\t<Stopseq>26</Stopseq>\n\t\t\t\t<Point>33.446994,-112.051510</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>JEFFERSON
+        ST &amp; 15TH AVE</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>1457</Atisstopid>\n\t\t\t\t<Stopid>10204</Stopid>\n\t\t\t\t<Alphaseq>11</Alphaseq>\n\t\t\t\t<Stopseq>7</Stopseq>\n\t\t\t\t<Point>33.446952,-112.091003</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>JEFFERSON
+        ST &amp; 16TH PL</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>459</Atisstopid>\n\t\t\t\t<Stopid>10223</Stopid>\n\t\t\t\t<Alphaseq>12</Alphaseq>\n\t\t\t\t<Stopseq>28</Stopseq>\n\t\t\t\t<Point>33.446994,-112.046705</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>JEFFERSON
+        ST &amp; 16TH ST</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>468</Atisstopid>\n\t\t\t\t<Stopid>10222</Stopid>\n\t\t\t\t<Alphaseq>13</Alphaseq>\n\t\t\t\t<Stopseq>27</Stopseq>\n\t\t\t\t<Point>33.446991,-112.048206</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>JEFFERSON
+        ST &amp; 18TH ST</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>460</Atisstopid>\n\t\t\t\t<Stopid>10224</Stopid>\n\t\t\t\t<Alphaseq>14</Alphaseq>\n\t\t\t\t<Stopseq>29</Stopseq>\n\t\t\t\t<Point>33.446991,-112.042705</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>JEFFERSON
+        ST &amp; 19TH AVE</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>1460</Atisstopid>\n\t\t\t\t<Stopid>10201</Stopid>\n\t\t\t\t<Alphaseq>15</Alphaseq>\n\t\t\t\t<Stopseq>4</Stopseq>\n\t\t\t\t<Point>33.446881,-112.099970</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>JEFFERSON
+        ST &amp; 21ST AVE</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>1461</Atisstopid>\n\t\t\t\t<Stopid>10200</Stopid>\n\t\t\t\t<Alphaseq>16</Alphaseq>\n\t\t\t\t<Stopseq>3</Stopseq>\n\t\t\t\t<Point>33.446794,-112.104007</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>JEFFERSON
+        ST &amp; 22ND ST</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>461</Atisstopid>\n\t\t\t\t<Stopid>10226</Stopid>\n\t\t\t\t<Alphaseq>17</Alphaseq>\n\t\t\t\t<Stopseq>30</Stopseq>\n\t\t\t\t<Point>33.447120,-112.034203</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>JEFFERSON
+        ST &amp; 24TH ST</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>462</Atisstopid>\n\t\t\t\t<Stopid>10227</Stopid>\n\t\t\t\t<Alphaseq>18</Alphaseq>\n\t\t\t\t<Stopseq>31</Stopseq>\n\t\t\t\t<Point>33.446994,-112.029707</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>JEFFERSON
+        ST &amp; 25TH AVE</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>1470</Atisstopid>\n\t\t\t\t<Stopid>10198</Stopid>\n\t\t\t\t<Alphaseq>19</Alphaseq>\n\t\t\t\t<Stopseq>1</Stopseq>\n\t\t\t\t<Point>33.446794,-112.113308</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>JEFFERSON
+        ST &amp; 27TH AVE</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>1462</Atisstopid>\n\t\t\t\t<Stopid>10197</Stopid>\n\t\t\t\t<Alphaseq>20</Alphaseq>\n\t\t\t\t<Stopseq>0</Stopseq>\n\t\t\t\t<Point>33.447191,-112.116808</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>JEFFERSON
+        ST &amp; 3RD AVE</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>1463</Atisstopid>\n\t\t\t\t<Stopid>10210</Stopid>\n\t\t\t\t<Alphaseq>21</Alphaseq>\n\t\t\t\t<Stopseq>13</Stopseq>\n\t\t\t\t<Point>33.447029,-112.077181</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>JEFFERSON
+        ST &amp; 5TH AVE</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>1464</Atisstopid>\n\t\t\t\t<Stopid>10209</Stopid>\n\t\t\t\t<Alphaseq>22</Alphaseq>\n\t\t\t\t<Stopseq>12</Stopseq>\n\t\t\t\t<Point>33.446985,-112.079800</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>JEFFERSON
+        ST &amp; 7TH AVE</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>1465</Atisstopid>\n\t\t\t\t<Stopid>10208</Stopid>\n\t\t\t\t<Alphaseq>23</Alphaseq>\n\t\t\t\t<Stopseq>11</Stopseq>\n\t\t\t\t<Point>33.447005,-112.082128</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>JEFFERSON
+        ST &amp; 7TH ST</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>465</Atisstopid>\n\t\t\t\t<Stopid>10217</Stopid>\n\t\t\t\t<Alphaseq>24</Alphaseq>\n\t\t\t\t<Stopseq>22</Stopseq>\n\t\t\t\t<Point>33.447142,-112.064309</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>JEFFERSON
+        ST &amp; 9TH AVE</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>1466</Atisstopid>\n\t\t\t\t<Stopid>10207</Stopid>\n\t\t\t\t<Alphaseq>25</Alphaseq>\n\t\t\t\t<Stopseq>10</Stopseq>\n\t\t\t\t<Point>33.446994,-112.084305</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>JEFFERSON
+        ST &amp; 9TH ST</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>466</Atisstopid>\n\t\t\t\t<Stopid>10218</Stopid>\n\t\t\t\t<Alphaseq>26</Alphaseq>\n\t\t\t\t<Stopseq>23</Stopseq>\n\t\t\t\t<Point>33.446994,-112.061707</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>JEFFERSON
+        ST &amp; I-17 FWY</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>1467</Atisstopid>\n\t\t\t\t<Stopid>10199</Stopid>\n\t\t\t\t<Alphaseq>27</Alphaseq>\n\t\t\t\t<Stopseq>2</Stopseq>\n\t\t\t\t<Point>33.446791,-112.107206</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>Sky
+        Train TRANSIT CENTER</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>11786</Atisstopid>\n\t\t\t\t<Stopid>18372</Stopid>\n\t\t\t\t<Alphaseq>28</Alphaseq>\n\t\t\t\t<Stopseq>40</Stopseq>\n\t\t\t\t<Point>33.447109,-111.990436</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>VAN
+        BUREN ST &amp; 1ST ST</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>899</Atisstopid>\n\t\t\t\t<Stopid>18284</Stopid>\n\t\t\t\t<Alphaseq>29</Alphaseq>\n\t\t\t\t<Stopseq>17</Stopseq>\n\t\t\t\t<Point>33.451318,-112.072245</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>VAN
+        BUREN ST &amp; 3RD ST</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>906</Atisstopid>\n\t\t\t\t<Stopid>10213</Stopid>\n\t\t\t\t<Alphaseq>30</Alphaseq>\n\t\t\t\t<Stopseq>18</Stopseq>\n\t\t\t\t<Point>33.451315,-112.069558</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>VAN
+        BUREN ST &amp; 5TH ST</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>911</Atisstopid>\n\t\t\t\t<Stopid>10214</Stopid>\n\t\t\t\t<Alphaseq>31</Alphaseq>\n\t\t\t\t<Stopseq>19</Stopseq>\n\t\t\t\t<Point>33.451293,-112.067194</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>VAN
+        BUREN ST &amp; CENTRAL AVE</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>914</Atisstopid>\n\t\t\t\t<Stopid>18199</Stopid>\n\t\t\t\t<Alphaseq>32</Alphaseq>\n\t\t\t\t<Stopseq>16</Stopseq>\n\t\t\t\t<Point>33.451323,-112.073407</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>WASHINGTON
+        ST &amp; 27TH ST</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>968</Atisstopid>\n\t\t\t\t<Stopid>10228</Stopid>\n\t\t\t\t<Alphaseq>33</Alphaseq>\n\t\t\t\t<Stopseq>32</Stopseq>\n\t\t\t\t<Point>33.447991,-112.023309</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>WASHINGTON
+        ST &amp; 28TH ST</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>969</Atisstopid>\n\t\t\t\t<Stopid>10229</Stopid>\n\t\t\t\t<Alphaseq>34</Alphaseq>\n\t\t\t\t<Stopseq>33</Stopseq>\n\t\t\t\t<Point>33.447994,-112.021007</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>WASHINGTON
+        ST &amp; 30TH ST</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>970</Atisstopid>\n\t\t\t\t<Stopid>10230</Stopid>\n\t\t\t\t<Alphaseq>35</Alphaseq>\n\t\t\t\t<Stopseq>34</Stopseq>\n\t\t\t\t<Point>33.447991,-112.016806</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>WASHINGTON
+        ST &amp; 32ND ST</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>971</Atisstopid>\n\t\t\t\t<Stopid>10231</Stopid>\n\t\t\t\t<Alphaseq>36</Alphaseq>\n\t\t\t\t<Stopseq>35</Stopseq>\n\t\t\t\t<Point>33.447991,-112.012511</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>WASHINGTON
+        ST &amp; 34TH ST</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>972</Atisstopid>\n\t\t\t\t<Stopid>10232</Stopid>\n\t\t\t\t<Alphaseq>37</Alphaseq>\n\t\t\t\t<Stopseq>36</Stopseq>\n\t\t\t\t<Point>33.447983,-112.006816</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>WASHINGTON
+        ST &amp; 36TH ST</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>980</Atisstopid>\n\t\t\t\t<Stopid>10233</Stopid>\n\t\t\t\t<Alphaseq>38</Alphaseq>\n\t\t\t\t<Stopseq>37</Stopseq>\n\t\t\t\t<Point>33.447969,-112.003210</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>WASHINGTON
+        ST &amp; 38TH ST</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>973</Atisstopid>\n\t\t\t\t<Stopid>10234</Stopid>\n\t\t\t\t<Alphaseq>39</Alphaseq>\n\t\t\t\t<Stopseq>38</Stopseq>\n\t\t\t\t<Point>33.447794,-111.998307</Point>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Description>WASHINGTON
+        ST &amp; 40TH ST</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Atisstopid>974</Atisstopid>\n\t\t\t\t<Stopid>10235</Stopid>\n\t\t\t\t<Alphaseq>40</Alphaseq>\n\t\t\t\t<Stopseq>39</Stopseq>\n\t\t\t\t<Point>33.447912,-111.994732</Point>\n\t\t\t</Stop>\n\t\t</Stops>\n\t<Mapextents>33.446791,-112.116808,33.451323,-111.990436</Mapextents>\n\t<Responsecode>0</Responsecode>\n\t<Requestor>68.226.126.17</Requestor>\n\t<Host>s-rpta-soap</Host>\n\t<Copyright>XML
+        schema Copyright (c) 2003-2013 Trapeze Software ULC, its subsidiaries and
+        affiliates.  All rights reserved.</Copyright>\n\t<Soapversion>2.6.3 - 11/14/13</Soapversion>\n</namesp1:RoutestopsResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+    http_version: 
+  recorded_at: Mon, 06 Jan 2014 22:36:46 GMT
+recorded_with: VCR 2.8.0

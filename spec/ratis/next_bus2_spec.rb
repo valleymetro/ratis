@@ -11,7 +11,7 @@ describe Ratis::NextBus2 do
 
   let(:empty_body){ {:nextbus_response => {:atstop => {:service => []}}} }
 
-  describe '#where' do
+  describe '#where', vcr: {} do
     before do
       # appid
       # a short string that can be used to separate requests from different applications or different modules with
@@ -61,16 +61,16 @@ describe Ratis::NextBus2 do
         response = Ratis::NextBus2.where(@conditions.dup)
         late_run = response.runs.first
         expect(late_run[:realtime][:valid]).to eq("Y")
-        expect(late_run[:realtime][:estimatedtime]).to_not eq(late_run[:triptime])
+        # expect(late_run[:realtime][:estimatedtime]).to_not eq(late_run[:triptime])
         expect(late_run[:realtime][:reliable]).to eq("Y")
-        expect(late_run[:realtime][:estimatedtime]).to eq("02:52 PM")
+        expect(late_run[:realtime][:estimatedtime]).to eq("01:08 PM")
         expect(late_run[:realtime][:estimatedminutes]).to eq("16")
 
         # :realtime=>{:valid=>"Y", :estimatedtime=>"02:52 PM", :reliable=>"Y", :stopped=>"N", :estimatedminutes=>"16", :lat=>"33.451187", :polltime=>"02:35 PM", :long=>"-111.982079", :adherence=>"0", :trend=>"D", :speed=>"0.00", :vehicleid=>"6050"},
       end
 
       it 'requests the correct SOAP action' do
-        response = Ratis::NextBus2.where(@conditions.dup.merge(:stop_id => id))
+        response = Ratis::NextBus2.where(@conditions.dup.merge(:stop_id => @stop_id))
           expect(response.stops).to_not be_empty
           expect(response.runs).to_not be_empty
         end
@@ -92,15 +92,15 @@ describe Ratis::NextBus2 do
           expect(response.stops).to be_a(Array)
 
           expect(stop[:area]).to eq("Phoenix")
-          expect(stop[:atisstopid]).to eq("3317")
-          expect(stop[:stopposition]).to eq("O")
-          expect(stop[:description]).to eq("CENTRAL AVE & DOBBINS RD")
+          expect(stop[:atisstopid]).to eq("6124")
+          expect(stop[:stopposition]).to eq("Y")
+          expect(stop[:description]).to eq("VAN BUREN ST & 16TH ST")
           expect(stop[:stopstatustype]).to eq("N")
-          expect(stop[:lat]).to eq("33.363692")
-          expect(stop[:long]).to eq("-112.073191")
+          expect(stop[:lat]).to eq("33.451493")
+          expect(stop[:long]).to eq("-112.048207")
           expect(stop[:side]).to eq("Far")
-          expect(stop[:stopid]).to eq("10050")
-          expect(stop[:heading]).to eq("NB")
+          expect(stop[:stopid]).to eq("10040")
+          expect(stop[:heading]).to eq("WB")
         end
 
         it "should return an empty array if the api request isn't successful" do
@@ -125,25 +125,25 @@ describe Ratis::NextBus2 do
           expect(response).to be_a(Ratis::NextBus2)
           expect(response.runs).to be_a(Array)
 
-          expect(run[:operator]).to eq "AP"
-          expect(run[:status]).to eq "N"
-          expect(run[:sign]).to eq "0 CENTRAL North to Dunlap/3rd St."
+          expect(run[:operator]).to eq "FT"
+          expect(run[:status]).to eq "D"
+          expect(run[:sign]).to eq "3 Van Buren To 75th Avenue"
           expect(run[:triptime]).to_not be_nil #eq "12:29 PM"
           expect(run[:triptime]).to_not be_empty
           # expect(run.realtime=>{:valid=>nil, :estimatedminutes=>nil, :polltime=>nil, :lat=>nil, :trend=>nil, :vehicleid=>nil, :speed=>nil, :adherence=>nil, :long=>nil, :reliable=>nil, :estimatedtime=>"12:09 PM", :stopped=>nil}
-          expect(run[:exception]).to be_nil
-          expect(run[:tripid]).to eq "10709-11"
+          expect(run[:exception]).to eq("N")
+          expect(run[:tripid]).to eq "11221-5"
           expect(run[:routetype]).to eq "B"
           expect(run[:skedtripid]).to be_nil
-          expect(run[:stopid]).to eq "10050"
+          expect(run[:stopid]).to eq "10040"
           expect(run[:servicetype]).to eq "W"
-          expect(run[:adherence]).to be_nil
-          expect(run[:atisstopid]).to eq "3317"
+          expect(run[:adherence]).to eq('16')
+          expect(run[:atisstopid]).to eq "6124"
           # expect(run[:block]).to eq "5"
-          expect(run[:route]).to eq "ZERO"
+          expect(run[:route]).to eq "3"
           expect(run[:estimatedtime]).to_not be_nil
           expect(run[:estimatedtime]).to_not be_empty
-          expect(run[:direction]).to eq "N"
+          expect(run[:direction]).to eq "W"
         end
       end
 

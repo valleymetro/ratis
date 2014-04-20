@@ -1,11 +1,5 @@
 module Ratis
 
-  ################################# EXAMPLE ############################################
-  #
-  # Ratis::RouteStops.all :route => 8, :direction => 'S', :order => 'S'
-  #
-  ######################################################################################
-
   class RouteStops
 
     def self.all(conditions)

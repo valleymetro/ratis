@@ -1,0 +1,134 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="PX_WEB"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><Point2point
+        xmlns="PX_WEB"><Routesonly>N</Routesonly><Originlat>33.446931</Originlat><Originlong>-112.097903</Originlong><Destinationlat>33.447098</Destinationlat><Destinationlong>-112.077213</Destinationlong><Date>01/06/2014</Date><Starttime>1700</Starttime><Endtime>1800</Endtime><Routes></Routes></Point2point></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - '"PX_WEB#Point2point"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '575'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 06 Jan 2014 23:53:27 GMT
+      Server:
+      - Apache/2.2.3 (CentOS)
+      Soapserver:
+      - SOAP::Lite/Perl/0.55
+      Content-Length:
+      - '16842'
+      Connection:
+      - close
+      Content-Type:
+      - text/xml; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><SOAP-ENV:Envelope xmlns:xsi=\"http://www.w3.org/1999/XMLSchema-instance\"
+        xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\"
+        xmlns:xsd=\"http://www.w3.org/1999/XMLSchema\" SOAP-ENV:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"><SOAP-ENV:Body><namesp1:Point2pointResponse
+        xmlns:namesp1=\"PX_WEB\">\n\t<Responsecode>0</Responsecode>\n\t<Version>1.6</Version>\n\t<Groups>\n\t\t<Group>\n\t\t\t<Onstop>\n\t\t\t\t<Description>JEFFERSON
+        ST &amp; 18TH AVE</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Lat>33.446900</Lat>\n\t\t\t\t<Long>-112.097897</Long>\n\t\t\t\t<Atisstopid>9469</Atisstopid>\n\t\t\t\t<Stopid></Stopid>\n\t\t\t\t<Onwalkdist>0.013</Onwalkdist>\n\t\t\t\t<Onwalkdir>S</Onwalkdir>\n\t\t\t\t<Onwalkhint>N</Onwalkhint>\n\t\t\t\t<Stopstatustype>N</Stopstatustype>\n\t\t\t</Onstop>\n\t\t\t<Offstop>\n\t\t\t\t<Description>JEFFERSON
+        ST &amp; 3RD AVE</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Lat>33.447029</Lat>\n\t\t\t\t<Long>-112.077181</Long>\n\t\t\t\t<Atisstopid>1463</Atisstopid>\n\t\t\t\t<Offstopwalk>0.014</Offstopwalk>\n\t\t\t\t<Offstopwalkdir>SE</Offstopwalkdir>\n\t\t\t\t<Offstopwalkhint>N</Offstopwalkhint>\n\t\t\t\t<Stopstatustype>N</Stopstatustype>\n\t\t\t</Offstop>\n\t\t\t<Trips>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:01
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:08 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>I10E</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>I-10
+        EAST RAPID To 40 St/Pecos</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:02
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:11 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>DASG</Route>\n\t\t\t\t\t\t<Direction>K</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>DASH
+        Gvrnmnt To State Capitl</Signage>\n\t\t\t\t\t\t<Routetype>D</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:05
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:11 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>CSM</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>CSM
+        RAPID To 27th Av/Bsln PNR</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:06
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:13 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>SR51</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>SR-51
+        RAPID To Bell/SR-51 Via Shea/SR-51</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:07
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:13 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>I10W</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>I-10
+        WEST RAPID to Desert Sky Mall Via 79Ave/I-10</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:11
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:18 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>I10E</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>I-10
+        EAST RAPID To 40 St/Pecos</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:14
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:23 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>DASG</Route>\n\t\t\t\t\t\t<Direction>K</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>DASH
+        Gvrnmnt To State Capitl</Signage>\n\t\t\t\t\t\t<Routetype>D</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:16
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:23 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>SR51</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>SR-51
+        RAPID To Bell/SR-51 Via Shea/SR-51</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:21
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:28 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>I10E</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>I-10
+        EAST RAPID To 40 St/Pecos</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:22
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:28 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>I10W</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>I-10
+        WEST RAPID to Desert Sky Mall Via 79Ave/I-10</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:26
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:35 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>DASG</Route>\n\t\t\t\t\t\t<Direction>K</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>DASH
+        Gvrnmnt To State Capitl</Signage>\n\t\t\t\t\t\t<Routetype>D</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:35
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:41 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>CSM</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>CSM
+        RAPID To 27th Av/Bsln PNR</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:36
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:43 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>SR51</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>SR-51
+        RAPID To Bell/SR-51 Via Shea/SR-51</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:38
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:47 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>DASG</Route>\n\t\t\t\t\t\t<Direction>K</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>DASH
+        Gvrnmnt To State Capitl</Signage>\n\t\t\t\t\t\t<Routetype>D</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:41
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:48 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>I10E</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>I-10
+        EAST RAPID To 40 St/Pecos</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:42
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:48 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>I10W</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>I-10
+        WEST RAPID to Desert Sky Mall Via 79Ave/I-10</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:50
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:58 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>DASG</Route>\n\t\t\t\t\t\t<Direction>K</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>DASH
+        Gvrnmnt To State Capitl</Signage>\n\t\t\t\t\t\t<Routetype>D</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t</Trips>\n\t\t</Group>\n\t\t<Group>\n\t\t\t<Onstop>\n\t\t\t\t<Description>EB
+        JEFFERSON ST NS 17TH AVE</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Lat>33.446985</Lat>\n\t\t\t\t<Long>-112.096808</Long>\n\t\t\t\t<Atisstopid>1469</Atisstopid>\n\t\t\t\t<Stopid></Stopid>\n\t\t\t\t<Onwalkdist>0.069</Onwalkdist>\n\t\t\t\t<Onwalkdir>E</Onwalkdir>\n\t\t\t\t<Onwalkhint>N</Onwalkhint>\n\t\t\t\t<Stopstatustype>N</Stopstatustype>\n\t\t\t</Onstop>\n\t\t\t<Offstop>\n\t\t\t\t<Description>JEFFERSON
+        ST &amp; 3RD AVE</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Lat>33.447029</Lat>\n\t\t\t\t<Long>-112.077181</Long>\n\t\t\t\t<Atisstopid>1463</Atisstopid>\n\t\t\t\t<Offstopwalk>0.014</Offstopwalk>\n\t\t\t\t<Offstopwalkdir>SE</Offstopwalkdir>\n\t\t\t\t<Offstopwalkhint>N</Offstopwalkhint>\n\t\t\t\t<Stopstatustype>N</Stopstatustype>\n\t\t\t</Offstop>\n\t\t\t<Trips>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:00
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:07 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>562</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>562
+        Goodyear To Goodyear</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:05
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:12 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>571</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>571
+        Surprise To Surprise PNR</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:10
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:17 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>573</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>573
+        N Glendale 75/Beardsley Via I-10</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:10
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:17 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>541</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>541
+        Chandler To Arizona/Ray Via West Mesa PNR</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:10
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:17 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>533</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>533
+        Mesa To Suprstn Sprg PNR</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:10
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:18 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>522</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>522
+        Tempe To Warner/CC Way</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:10
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:19 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>521</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>521
+        Tempe To Price/Baseline</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:10
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:18 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>520</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>520
+        Tempe To Price/Bdwy</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:10
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:17 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>514</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>514
+        Scottsdale To Fountn Hills</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:10
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:16 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>1</Route>\n\t\t\t\t\t\t<Direction>E</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>1
+        Washington to Sky Train/Sky Harbor</Signage>\n\t\t\t\t\t\t<Routetype>D</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:15
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:22 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>542</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>542
+        Chandler To Chandler PNR</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:15
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:22 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>535</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>535
+        Mesa To Power Rd PNR Via Gilb/McDwl PNR</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:15
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:22 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>531</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>531
+        Mesa/Gilbrt To Dntn Gilbert Via West Mesa PNR</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:20
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:27 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>563</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>563
+        Buckeye To Buckeye P&amp;R Via Goodyear P&amp;R</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:25
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:32 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>571</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>571
+        Surprise To Surprise PNR</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:38
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:45 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>573</Route>\n\t\t\t\t\t\t<Direction>O</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>573
+        N Glendale 75/Beardsley Via I-10</Signage>\n\t\t\t\t\t\t<Routetype>N</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:55
+        PM</Ontime>\n\t\t\t\t\t<Offtime>06:01 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>1</Route>\n\t\t\t\t\t\t<Direction>E</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>1
+        Washington to Sky Train/Sky Harbor</Signage>\n\t\t\t\t\t\t<Routetype>D</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t</Trips>\n\t\t</Group>\n\t\t<Group>\n\t\t\t<Onstop>\n\t\t\t\t<Description>VAN
+        BUREN ST &amp; 19TH AVE</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Lat>33.451241</Lat>\n\t\t\t\t<Long>-112.099512</Long>\n\t\t\t\t<Atisstopid>1821</Atisstopid>\n\t\t\t\t<Stopid></Stopid>\n\t\t\t\t<Onwalkdist>0.394</Onwalkdist>\n\t\t\t\t<Onwalkdir>N</Onwalkdir>\n\t\t\t\t<Onwalkhint>N</Onwalkhint>\n\t\t\t\t<Stopstatustype>N</Stopstatustype>\n\t\t\t</Onstop>\n\t\t\t<Offstop>\n\t\t\t\t<Description>VAN
+        BUREN ST &amp; 3RD AVE</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Lat>33.451342</Lat>\n\t\t\t\t<Long>-112.078208</Long>\n\t\t\t\t<Atisstopid>1848</Atisstopid>\n\t\t\t\t<Offstopwalk>0.357</Offstopwalk>\n\t\t\t\t<Offstopwalkdir>N</Offstopwalkdir>\n\t\t\t\t<Offstopwalkhint>N</Offstopwalkhint>\n\t\t\t\t<Stopstatustype>N</Stopstatustype>\n\t\t\t</Offstop>\n\t\t\t<Trips>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:07
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:14 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>3</Route>\n\t\t\t\t\t\t<Direction>E</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>3
+        VAN BUREN East to Phoenix Zoo</Signage>\n\t\t\t\t\t\t<Routetype>D</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:22
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:29 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>3</Route>\n\t\t\t\t\t\t<Direction>E</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>3
+        Van Buren To Washington/Priest</Signage>\n\t\t\t\t\t\t<Routetype>D</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:37
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:44 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>3</Route>\n\t\t\t\t\t\t<Direction>E</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>3
+        VAN BUREN East to Phoenix Zoo</Signage>\n\t\t\t\t\t\t<Routetype>D</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t\t<Trip>\n\t\t\t\t\t<Ontime>05:52
+        PM</Ontime>\n\t\t\t\t\t<Offtime>05:59 PM</Offtime>\n\t\t\t\t\t<Service>\n\t\t\t\t\t\t<Route>3</Route>\n\t\t\t\t\t\t<Direction>E</Direction>\n\t\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t\t<Signage>3
+        Van Buren To Washington/Priest</Signage>\n\t\t\t\t\t\t<Routetype>D</Routetype>\n\t\t\t\t\t\t<Statustype></Statustype>\n\t\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t</Service>\n\t\t\t\t</Trip>\n\t\t\t</Trips>\n\t\t</Group>\n\t</Groups>\n\t<Requestor>68.226.126.17</Requestor>\n\t<Host>s-rpta-soap</Host>\n\t<Copyright>XML
+        schema Copyright (c) 2003-2013 Trapeze Software ULC, its subsidiaries and
+        affiliates.  All rights reserved.</Copyright>\n\t<Soapversion>2.6.3 - 11/14/13</Soapversion>\n</namesp1:Point2pointResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+    http_version: 
+  recorded_at: Mon, 06 Jan 2014 23:53:28 GMT
+recorded_with: VCR 2.8.0

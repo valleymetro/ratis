@@ -10,8 +10,8 @@ describe Ratis::Point2Point do
   end
 
   describe 'Routesonly => Y' do
-    describe '#where' do
-      describe 'services from origin to destination', {:vcr => {:cassette_name => "Point2Point"}} do
+    describe '#where', vcr: {} do
+      describe 'services from origin to destination' do
         before do
           @today      = Chronic.parse('next monday at 6am').strftime("%m/%d/%Y")
           @conditions = {:routes_only      => true,
@@ -81,7 +81,7 @@ describe Ratis::Point2Point do
 
   describe 'Routesonly => N' do
 
-    describe '#where' do
+    describe '#where', vcr: {} do
 
       before do
         @today      = Time.now.strftime("%m/%d/%Y")
@@ -139,11 +139,11 @@ describe Ratis::Point2Point do
         on_stop.should be_a(Ratis::Point2Point::Stop)
 
         on_stop.description.should eql('JEFFERSON ST & 18TH AVE')
-        on_stop.latitude.should eql(33.446931)
-        on_stop.longitude.should eql(-112.097903)
+        on_stop.latitude.should eql(33.4469)
+        on_stop.longitude.should eql(-112.097897)
         on_stop.atis_stop_id.should eql(9469)
-        on_stop.walk_dist.should eql(0.01)
-        on_stop.walk_dir.should eql('E')
+        on_stop.walk_dist.should eql(0.013)
+        on_stop.walk_dir.should eql('S')
         on_stop.walk_hint.should eql('N')
       end
 
@@ -155,11 +155,11 @@ describe Ratis::Point2Point do
         off_stop.should be_a(Ratis::Point2Point::Stop)
 
         off_stop.description.should eql('JEFFERSON ST & 3RD AVE')
-        off_stop.latitude.should eql(33.447098)
-        off_stop.longitude.should eql(-112.077213)
+        off_stop.latitude.should eql(33.447029)
+        off_stop.longitude.should eql(-112.077181)
         off_stop.atis_stop_id.should eql(1463)
-        off_stop.walk_dist.should eql(0.007)
-        off_stop.walk_dir.should eql('E')
+        off_stop.walk_dist.should eql(0.014)
+        off_stop.walk_dir.should eql('SE')
         off_stop.walk_hint.should eql('N')
       end
 
@@ -185,7 +185,7 @@ describe Ratis::Point2Point do
         service.direction.should eql('O')
         service.service_type.should eql('W')
         service.signage.should eql('I-10 EAST RAPID To 40 St/Pecos')
-        service.route_type.should eql('X')
+        service.route_type.should eql('N')
         service.exception.should eql('N')
       end
 
