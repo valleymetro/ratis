@@ -109,6 +109,19 @@ describe Ratis::Timetable do
       end.to raise_error(ArgumentError, 'You must provide either date or service_type')
     end
 
+    describe 'ATIS call' do
+    it "should not throw a 500" do
+      # This test was added because while our test suite was passing 2/18/14 the real API was throwing 500s and we want to know about things like that. CI
+      @today      = Time.now.strftime("%m/%d/%Y")
+      @conditions = {:route_short_name => 'ZERO',
+                     :direction        => 'N',
+                     :service_type     => 'W',
+                     :date             => @today}
+      expect {
+        Ratis::Timetable.where(@conditions.dup)
+      }.to_not raise_exception(Ratis::Errors::SoapError)
+    end
+  end
   end
 
 end
