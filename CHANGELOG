@@ -46,3 +46,6 @@
 3.4 (3/11/14)
 - added location type ahead support
 - added test spec for location type ahead support
+
+3.4.1
+- regeneration of gem to fix missing files
