@@ -49,3 +49,6 @@
 
 3.4.1
 - regeneration of gem to fix missing files
+
+3.4.2
+- added support for ATIS ver 2.7.1's Fleetlocation api

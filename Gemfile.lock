@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ratis (3.4.0)
+    ratis (3.4.2)
       savon (< 2.0)
 
 GEM

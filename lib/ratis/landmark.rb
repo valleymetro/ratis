@@ -4,8 +4,15 @@ module Ratis
 
     attr_accessor :type, :verbose, :location, :locality
 
+    def initialize(landmark)
+      @type     = landmark[:type]
+      @verbose  = landmark[:verbose]
+      @location = landmark[:location]
+      @locality = landmark[:locality]
+    end
+
     def self.where(conditions)
-      app_id  = conditions.delete(:app_id)      || 'WEB'
+      app_id  = conditions.delete(:app_id) || 'WEB'
       type    = conditions.delete(:type).to_s.upcase
       zipcode = conditions.delete(:zipcode)
 
@@ -19,12 +26,7 @@ module Ratis
       return [] unless response.success?
 
       response.to_array(:getlandmarks_response, :landmark).map do |landmark|
-        atis_landmark          = Landmark.new
-        atis_landmark.type     = landmark[:type]
-        atis_landmark.verbose  = landmark[:verbose]
-        atis_landmark.location = landmark[:location]
-        atis_landmark.locality = landmark[:locality]
-        atis_landmark
+        Landmark.new(landmark)
       end
 
     end
