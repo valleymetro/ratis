@@ -50,31 +50,6 @@ module Ratis
       NextBus2.new(response)
     end
 
-    # Gets description of first stop
-    # @return [String] Description of first stop or nil.
-
-    def first_stop_description
-      raise 'Not yet implemented'
-      stops.first ? stops.first[:description] : nil
-    end
-
-    # Details of NextBus instance in a hash.
-    # @return     [Hash] NextBus details in a hash.
-
-    def to_hash
-      raise 'Not yet implemented'
-      { :stopname => first_stop_description,
-        :signs    => runs.map { |run| run[:sign] }.uniq,
-        :runs     => runs.map do |run|
-          { :time      => run[:estimatedtime],
-            :sign      => run[:sign],
-            :adherence => run[:adherence],
-            :route     => run[:route]
-          }
-        end
-      }
-    end
-
     # Details of NextBus instance in a hash to be transformed to xml
     # @private
 
