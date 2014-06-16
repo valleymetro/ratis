@@ -1,40 +1,16 @@
-3.1
-- The NextBus class was really using the Nextbus2 api call all along.  This was pretty confusing, so 2 seperate classes now exist; one for NextBus and NextBus2.  This means any code using NextBus prior to 3.1 will break since it was really calling the Nextbus2 api and we've updated it so the class of matching name is calling the matching api method.
-- Dev dependencies of chronic and rspec-instafail were also added to aid testing
+3.5.0
+- Updated all tests to work against ATIS 2.7.1
+- Added Ratis.config required option: Appid. Appid is now sent with all ATIS requests.
 
-3.1.1
-- spec updates, and general tidy
+3.4.2
+- added support for ATIS ver 2.7.1's Fleetlocation api
 
-3.1.2
-- NextBus#stop added
-- Contains info about the stop (:side, :stopid, :heading, :lat, :area, :servicetype, :route, :operator)
+3.4.1
+- regeneration of gem to fix missing files
 
-3.1.3
-- Turns out that in the NextBus calls the <service> tag can come back as either a single node or list of nodes.  In one case savon turns this into an array, in the other case it's just a single entity.  Rewrote NextBus.where to handle these two cases, this also means NextBus would never really represent a single service.  Created a NextBus.services method that returns all these entities in a similar manner.  Update test specs
-
-3.1.4
-- Bug Fix: NextBus trips returned can be an array or a single hash
-
-3.1.5
-- Bug Fix: NextBus where was incorrectly sending Time in 12 hour format when ATIS needs it in 24 hour format.
-
-3.1.6
-- Added field 'sign' to Ratis::Timetable::Trip, this is the headsign for a bus running a given trip
-
-3.1.7
-- Removed to_hash, instead use better named to_hash_for_xml for use with NextRide SMS service end-point
-
-3.1.8
-- Within to_hash_from_xml, pull route and sign attributes from the service instead of the realtime info (they always seem to be blank)
-
-3.2.0
-- When querying Nextbus for a Light Rail stop, in most cases you will actually get back 2 stops for a single NextRide ID.  One for each side of the stop platform.  Made changes to handle this case.  Both stops services are flattened into the #services attribute.
-
-3.2.1
-- Timetable::Trip now contains the trip's headsign
-
-3.3.5
-- Refactored Ratis::Location to be usable in Trip Planner
+3.4 (3/11/14)
+- added location type ahead support
+- added test spec for location type ahead support
 
 3.3.7
 - all tests now use VCR
@@ -43,12 +19,40 @@
 - created new empty itinerary_spec as stub
 - changed walk_spec to walkstop_spec
 
-3.4 (3/11/14)
-- added location type ahead support
-- added test spec for location type ahead support
+3.3.5
+- Refactored Ratis::Location to be usable in Trip Planner
 
-3.4.1
-- regeneration of gem to fix missing files
+3.2.1
+- Timetable::Trip now contains the trip's headsign
 
-3.4.2
-- added support for ATIS ver 2.7.1's Fleetlocation api
+3.2.0
+- When querying Nextbus for a Light Rail stop, in most cases you will actually get back 2 stops for a single NextRide ID.  One for each side of the stop platform.  Made changes to handle this case.  Both stops services are flattened into the #services attribute.
+
+3.1.8
+- Within to_hash_from_xml, pull route and sign attributes from the service instead of the realtime info (they always seem to be blank)
+
+3.1.7
+- Removed to_hash, instead use better named to_hash_for_xml for use with NextRide SMS service end-point
+
+3.1.6
+- Added field 'sign' to Ratis::Timetable::Trip, this is the headsign for a bus running a given trip
+
+3.1.5
+- Bug Fix: NextBus where was incorrectly sending Time in 12 hour format when ATIS needs it in 24 hour format.
+
+3.1.4
+- Bug Fix: NextBus trips returned can be an array or a single hash
+
+3.1.3
+- Turns out that in the NextBus calls the <service> tag can come back as either a single node or list of nodes.  In one case savon turns this into an array, in the other case it's just a single entity.  Rewrote NextBus.where to handle these two cases, this also means NextBus would never really represent a single service.  Created a NextBus.services method that returns all these entities in a similar manner.  Update test specs
+
+3.1.2
+- NextBus#stop added
+- Contains info about the stop (:side, :stopid, :heading, :lat, :area, :servicetype, :route, :operator)
+
+3.1.1
+- spec updates, and general tidy
+
+3.1
+- The NextBus class was really using the Nextbus2 api call all along.  This was pretty confusing, so 2 seperate classes now exist; one for NextBus and NextBus2.  This means any code using NextBus prior to 3.1 will break since it was really calling the Nextbus2 api and we've updated it so the class of matching name is calling the matching api method.
+- Dev dependencies of chronic and rspec-instafail were also added to aid testing
