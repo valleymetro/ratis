@@ -31,6 +31,7 @@ Gem installation
 
         require 'ratis/config'
         Ratis.configure do |config|
+          config.appid = '(YOUR APP ID)'
           config.endpoint = 'http://(YOUR ENDPOINT URL)'
           config.namespace = '(YOUR NAMESPACE)'
           config.proxy = 'http://localhost:8080'
@@ -43,21 +44,6 @@ Gem installation
 NOTE ABOUT VERSIONS
 -------------------
 The versioning strategy for Ratis gem is the major, minor, and build components are set to match the ATIS version you are running. At the time of this edit, ATIS version 2.5.2 is matched with Ratis gem version 2.5.2.x. The last component is the patch version of the gem. This is the number that increases as we add feature from a particular ATIS version.
-
-  1. Add the following configuration block.
-
-     This must happen before Ratis is `require`d (before `Rails::Initializer.run` in a Rails app).
-
-        require 'ratis/config'
-        Ratis.configure do |config|
-          config.endpoint = 'http://(YOUR ENDPOINT URL)'
-          config.namespace = '(YOUR NAMESPACE)'
-          config.proxy = 'http://localhost:8080'
-          config.timeout = 5
-        end
-
-     If Ratis is `require`d prior to this config being set you will get a `RuntimeError` informing you so.
-     If the provided `endpoint` is invalid an `ArgumentError: Invalid URL: bad URI` will be thrown, but only when a request is made.
 
 Gem usage
 -------------------

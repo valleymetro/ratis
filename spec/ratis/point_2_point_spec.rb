@@ -1,14 +1,6 @@
 require 'spec_helper'
 
 describe Ratis::Point2Point do
-  before do
-    Ratis.reset
-    Ratis.configure do |config|
-      config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi'
-      config.namespace  = 'PX_WEB'
-    end
-  end
-
   describe 'Routesonly => Y' do
     describe '#where', vcr: {} do
       describe 'services from origin to destination' do
@@ -142,7 +134,7 @@ describe Ratis::Point2Point do
         on_stop.latitude.should eql(33.4469)
         on_stop.longitude.should eql(-112.097897)
         on_stop.atis_stop_id.should eql(9469)
-        on_stop.walk_dist.should eql(0.013)
+        on_stop.walk_dist.should eql(0.0)
         on_stop.walk_dir.should eql('S')
         on_stop.walk_hint.should eql('N')
       end
@@ -154,11 +146,11 @@ describe Ratis::Point2Point do
 
         off_stop.should be_a(Ratis::Point2Point::Stop)
 
-        off_stop.description.should eql('JEFFERSON ST & 3RD AVE')
+        off_stop.description.should eql('JEFFERSON ST &amp; 18TH AVE')
         off_stop.latitude.should eql(33.447029)
         off_stop.longitude.should eql(-112.077181)
         off_stop.atis_stop_id.should eql(1463)
-        off_stop.walk_dist.should eql(0.014)
+        off_stop.walk_dist.should eql(0.0)
         off_stop.walk_dir.should eql('SE')
         off_stop.walk_hint.should eql('N')
       end

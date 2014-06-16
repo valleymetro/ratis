@@ -39,12 +39,10 @@ module Ratis
 
     def self.where(conditions)
       stop_id = conditions.delete :stop_id
-      app_id  = conditions.delete(:app_id) || 'ratis-gem'
-
       raise ArgumentError.new('You must provide a stop ID') unless stop_id
       Ratis.all_conditions_used? conditions
 
-      response = Request.get 'Nextbus2', { 'Stopid' => stop_id, 'Appid' => app_id }
+      response = Request.get 'Nextbus2', { 'Stopid' => stop_id }
       return [] unless response.success?
 
       NextBus2.new(response)

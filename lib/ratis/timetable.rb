@@ -34,7 +34,7 @@ module Ratis
       timepoints_array = []
 
       headway[:timepoints][:stop].each_with_index do |tp, i|
-        timepoints_array << Timetable::Stop.new(i, tp[:atisstopid], tp[:stopid], tp[:description], tp[:area])
+        timepoints_array << Timetable::Stop.new(i, tp[:atisstopid], tp[:stopid], CGI.unescapeHTML(tp[:description]), tp[:area])
       end rescue []
 
       timetable.timepoints = timepoints_array
@@ -49,9 +49,5 @@ module Ratis
 
       timetable
     end
-
-
-
   end
-
 end

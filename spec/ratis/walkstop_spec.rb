@@ -1,48 +1,37 @@
 require 'spec_helper'
 
 describe Ratis::Walkstop do
-  before do
-    Ratis.reset
-    Ratis.configure do |config|
-      config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi'
-      config.namespace  = 'PX_WEB'
-    end
-  end
-
-  let(:empty_body){ {:walkstop_response => {} } }
+  let(:empty_body) { { :walkstop_response => {} } }
+  let(:conditions) {
+    {
+      :start_lat  => '33.511990',
+      :start_long => '-111.880344',
+      :end_lat    => '33.512091',
+      :end_long   => '-111.880349'
+    }
+  }
 
   describe '#where', vcr: {} do
-
-    before do
-      @conditions = {:start_lat  => '33.511990',
-                     :start_long => '-111.880344',
-                     :end_lat    => '33.512091',
-                     :end_long   => '-111.880349',
-                     :app_id     => 'na' }
-    end
-
     it 'only makes one request' do
       # false just to stop further processing of response
       Ratis::Request.should_receive(:get).once.and_call_original
-      Ratis::Walkstop.where(@conditions.dup)
+      Ratis::Walkstop.where(conditions.dup)
     end
 
     it 'requests the correct SOAP action' do
       Ratis::Request.should_receive(:get) do |action, options|
         action.should eq('Walkstop')
-        options["Startlat"].should eq(@conditions[:start_lat])
-        options["Startlong"].should eq(@conditions[:start_long])
-        options["Endlat"].should eq(@conditions[:end_lat])
-        options["Endlong"].should eq(@conditions[:end_long])
-        options["Appid"].should eq(@conditions[:app_id])
-
+        options["Startlat"].should eq(conditions[:start_lat])
+        options["Startlong"].should eq(conditions[:start_long])
+        options["Endlat"].should eq(conditions[:end_lat])
+        options["Endlong"].should eq(conditions[:end_long])
       end.and_return(double('response', :success? => false))
 
-      Ratis::Walkstop.where(@conditions.dup)
+      Ratis::Walkstop.where(conditions.dup)
     end
 
     it 'should set all the walkstop values to instance vars' do
-      walkstop = Ratis::Walkstop.where(@conditions.dup)
+      walkstop = Ratis::Walkstop.where(conditions.dup)
 
       expect(walkstop).to be_a(Ratis::Walkstop)
       expect(walkstop.legs).to be_a(Array)
@@ -58,37 +47,23 @@ describe Ratis::Walkstop do
     it "should return an empty array if the api request isn't successful" do
       Ratis::Request.should_receive(:get) do |action, options|
         action.should eq('Walkstop')
-        options["Startlat"].should eq(@conditions[:start_lat])
-        options["Startlong"].should eq(@conditions[:start_long])
-        options["Endlat"].should eq(@conditions[:end_lat])
-        options["Endlong"].should eq(@conditions[:end_long])
-        options["Appid"].should eq(@conditions[:app_id])
+        options["Startlat"].should eq(conditions[:start_lat])
+        options["Startlong"].should eq(conditions[:start_long])
+        options["Endlat"].should eq(conditions[:end_lat])
+        options["Endlong"].should eq(conditions[:end_long])
 
       end.and_return(double('response', :success? => false, :body => empty_body)) # false only to stop further running
 
-      expect(Ratis::Walkstop.where(@conditions.dup).legs).to be_empty
+      expect(Ratis::Walkstop.where(conditions.dup).legs).to be_empty
     end
-
   end
 
   describe '#to_hash' do
-    before do
-      @conditions = {:start_lat  => '33.511990',
-                     :start_long => '-111.880344',
-                     :end_lat    => '33.512091',
-                     :end_long   => '-111.880349',
-                     :app_id     => 'na' }
-    end
-
     it 'returns only the correct keys' do
-      walkstop = Ratis::Walkstop.where(@conditions.dup)
+      walkstop = Ratis::Walkstop.where(conditions.dup)
       hash     = {:legs=>["Walk a short distance N on Scottsdale Community College."], :walk_distance=>"0.05", :walk_units=>"miles", :walk_time=>"2"}
       expect( HashDiff.diff(walkstop.to_hash, hash) ).to eql([])
     end
-
   end
-
-
-
 end
 

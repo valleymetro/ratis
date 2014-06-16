@@ -2,20 +2,20 @@
 http_interactions:
 - request:
     method: post
-    uri: http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi
+    uri: http://soap.valleymetro.org/cgi-bin-soap-web-271/soap.cgi
     body:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="PX_WEB"
         xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><Point2point
-        xmlns="PX_WEB"><Routesonly>N</Routesonly><Originlat>33.446931</Originlat><Originlong>-112.097903</Originlong><Destinationlat>33.447098</Destinationlat><Destinationlong>-112.077213</Destinationlong><Date>01/06/2014</Date><Starttime>1700</Starttime><Endtime>1800</Endtime><Routes>GAL</Routes></Point2point></env:Body></env:Envelope>
+        xmlns="PX_WEB"><Routesonly>N</Routesonly><Originlat>33.446931</Originlat><Originlong>-112.097903</Originlong><Destinationlat>33.447098</Destinationlat><Destinationlong>-112.077213</Destinationlong><Date>06/13/2014</Date><Starttime>1700</Starttime><Endtime>1800</Endtime><Routes>GAL</Routes><Appid>ratis-specs</Appid></Point2point></env:Body></env:Envelope>
     headers:
       Soapaction:
       - '"PX_WEB#Point2point"'
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '578'
+      - '604'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -28,7 +28,7 @@ http_interactions:
       message: Internal Server Error
     headers:
       Date:
-      - Mon, 06 Jan 2014 23:53:25 GMT
+      - Sat, 14 Jun 2014 00:42:23 GMT
       Server:
       - Apache/2.2.3 (CentOS)
       Soapserver:
@@ -49,5 +49,5 @@ http_interactions:
         not possible</faultstring><detail><PX_WEB xsi:type="namesp1:PX_WEB"><code
         xsi:type="xsd:int">20007</code></PX_WEB></detail></SOAP-ENV:Fault></SOAP-ENV:Body></SOAP-ENV:Envelope>
     http_version: 
-  recorded_at: Mon, 06 Jan 2014 23:53:26 GMT
+  recorded_at: Sat, 14 Jun 2014 00:42:24 GMT
 recorded_with: VCR 2.8.0

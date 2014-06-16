@@ -1,14 +1,6 @@
 require 'spec_helper'
 
 describe Ratis::RoutePattern do
-  before do
-    Ratis.reset
-    Ratis.configure do |config|
-      config.endpoint  = 'http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi'
-      config.namespace = 'PX_WEB'
-    end
-  end
-
   describe '#where', vcr: {} do
     # :route_short_name => "LTRL", :direction => "E", :date => "01/01/2014", :service_type => 'W', :routeid => "46880"
     before do
@@ -17,7 +9,7 @@ describe Ratis::RoutePattern do
                      :direction        => 'E',
                      :date             => @today,
                      :service_type     => 'W',
-                     :routeid          => '46880'
+                     :routeid          => '144740'
                    }
     end
 
@@ -34,7 +26,7 @@ describe Ratis::RoutePattern do
         options["Direction"].should eq('E')
         options["Date"].should eq(@today)
         options["Servicetype"].should eq('W')
-        options["Routeid"].should eq('46880')
+        options["Routeid"].should eq('144740')
 
       end.and_return(double('response', :success? => false))
 
@@ -116,9 +108,5 @@ describe Ratis::RoutePattern do
         Ratis::RoutePattern.all(conditions)
       end.to raise_error(ArgumentError, 'You must provide a routeid')
     end
-
-
   end
-
 end
-

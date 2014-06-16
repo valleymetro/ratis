@@ -1,15 +1,7 @@
 require 'spec_helper'
 
 describe Ratis::NextBus2 do
-  before do
-    Ratis.reset
-    Ratis.configure do |config|
-      config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi'
-      config.namespace  = 'PX_WEB'
-    end
-  end
-
-  let(:empty_body){ {:nextbus_response => {:atstop => {:service => []}}} }
+  let(:empty_body) { {:nextbus_response => {:atstop => {:service => []}}} }
 
   describe '#where', vcr: {} do
     before do
@@ -17,8 +9,7 @@ describe Ratis::NextBus2 do
       # a short string that can be used to separate requests from different applications or different modules with
       # Optional (highly recommended)
       @stop_id = 10040
-      @conditions = {:stop_id      => @stop_id,
-                     :app_id       => 'ratis-specs'}
+      @conditions = { :stop_id => @stop_id }
     end
 
     describe "Developer can find a late bus to a stop" do
@@ -32,10 +23,9 @@ describe Ratis::NextBus2 do
           # expect(response.runs).to_not be_empty
 
           response.runs.each do |run|
-            if run[:realtime][:valid] != 'N'
-              pp run[:realtime]
-            end
+            pp run[:realtime] if run[:realtime][:valid] != 'N'
           end
+        end
       end
     end
 
@@ -48,10 +38,9 @@ describe Ratis::NextBus2 do
 
       it 'requests the correct SOAP action with args' do
         Ratis::Request.should_receive(:get) do |action, options|
-                       action.should eq('Nextbus2')
-                       options["Stopid"].should eq(@stop_id)
-
-                     end.and_return(double('response', :success? => false, :body => empty_body)) # false only to stop further running
+          action.should eq('Nextbus2')
+          options["Stopid"].should eq(@stop_id)
+        end.and_return(double('response', :success? => false, :body => empty_body)) # false only to stop further running
 
         Ratis::NextBus2.where(@conditions.dup)
       end
@@ -71,9 +60,8 @@ describe Ratis::NextBus2 do
 
       it 'requests the correct SOAP action' do
         response = Ratis::NextBus2.where(@conditions.dup.merge(:stop_id => @stop_id))
-          expect(response.stops).to_not be_empty
-          expect(response.runs).to_not be_empty
-        end
+        expect(response.stops).to_not be_empty
+        expect(response.runs).to_not be_empty
       end
 
       it "should raise error when no stop id provided" do
@@ -81,72 +69,70 @@ describe Ratis::NextBus2 do
           Ratis::NextBus2.where(@conditions.dup.merge(:stop_id => nil))
         }.should raise_error(ArgumentError, 'You must provide a stop ID')
       end
+    end
 
-      describe 'stops' do
-        # TODO: should return Stops not hashes
-        it 'should set the stop values to instance vars' do
-          response = Ratis::NextBus2.where(@conditions.dup)
-          stop     = response.stops.first
+    describe 'stops' do
+      # TODO: should return Stops not hashes
+      it 'should set the stop values to instance vars' do
+        response = Ratis::NextBus2.where(@conditions.dup)
+        stop     = response.stops.first
 
-          expect(response).to be_a(Ratis::NextBus2)
-          expect(response.stops).to be_a(Array)
+        expect(response).to be_a(Ratis::NextBus2)
+        expect(response.stops).to be_a(Array)
 
-          expect(stop[:area]).to eq("Phoenix")
-          expect(stop[:atisstopid]).to eq("6124")
-          expect(stop[:stopposition]).to eq("Y")
-          expect(stop[:description]).to eq("VAN BUREN ST & 16TH ST")
-          expect(stop[:stopstatustype]).to eq("N")
-          expect(stop[:lat]).to eq("33.451493")
-          expect(stop[:long]).to eq("-112.048207")
-          expect(stop[:side]).to eq("Far")
-          expect(stop[:stopid]).to eq("10040")
-          expect(stop[:heading]).to eq("WB")
-        end
-
-        it "should return an empty array if the api request isn't successful" do
-          Ratis::Request.should_receive(:get) do |action, options|
-                           action.should eq('Nextbus2')
-                           options["Stopid"].should eq(@stop_id)
-
-                         end.and_return(double('response', :success? => false, :body => empty_body)) # false only to stop further running
-
-          response = Ratis::NextBus2.where(@conditions.dup)
-          expect(response).to be_a(Array)
-          expect(response).to be_empty
-        end
+        expect(stop[:area]).to eq("Phoenix")
+        expect(stop[:atisstopid]).to eq("6124")
+        expect(stop[:stopposition]).to eq("Y")
+        expect(stop[:description]).to eq("VAN BUREN ST & 16TH ST")
+        expect(stop[:stopstatustype]).to eq("N")
+        expect(stop[:lat]).to eq("33.451493")
+        expect(stop[:long]).to eq("-112.048207")
+        expect(stop[:side]).to eq("Far")
+        expect(stop[:stopid]).to eq("10040")
+        expect(stop[:heading]).to eq("WB")
       end
 
-      describe 'runs' do
-        # TODO: should return Runs not hashes
-        it "should set the run values to instance vars" do
-          response = Ratis::NextBus2.where(@conditions.dup)
-          run     = response.runs.first
+      it "should return an empty array if the api request isn't successful" do
+        Ratis::Request.should_receive(:get) do |action, options|
+          action.should eq('Nextbus2')
+          options["Stopid"].should eq(@stop_id)
+        end.and_return(double('response', :success? => false, :body => empty_body)) # false only to stop further running
 
-          expect(response).to be_a(Ratis::NextBus2)
-          expect(response.runs).to be_a(Array)
-
-          expect(run[:operator]).to eq "FT"
-          expect(run[:status]).to eq "D"
-          expect(run[:sign]).to eq "3 Van Buren To 75th Avenue"
-          expect(run[:triptime]).to_not be_nil #eq "12:29 PM"
-          expect(run[:triptime]).to_not be_empty
-          # expect(run.realtime=>{:valid=>nil, :estimatedminutes=>nil, :polltime=>nil, :lat=>nil, :trend=>nil, :vehicleid=>nil, :speed=>nil, :adherence=>nil, :long=>nil, :reliable=>nil, :estimatedtime=>"12:09 PM", :stopped=>nil}
-          expect(run[:exception]).to eq("N")
-          expect(run[:tripid]).to eq "11221-5"
-          expect(run[:routetype]).to eq "B"
-          expect(run[:skedtripid]).to be_nil
-          expect(run[:stopid]).to eq "10040"
-          expect(run[:servicetype]).to eq "W"
-          expect(run[:adherence]).to eq('16')
-          expect(run[:atisstopid]).to eq "6124"
-          # expect(run[:block]).to eq "5"
-          expect(run[:route]).to eq "3"
-          expect(run[:estimatedtime]).to_not be_nil
-          expect(run[:estimatedtime]).to_not be_empty
-          expect(run[:direction]).to eq "W"
-        end
+        response = Ratis::NextBus2.where(@conditions.dup)
+        expect(response).to be_a(Array)
+        expect(response).to be_empty
       end
+    end
 
+    describe 'runs' do
+      # TODO: should return Runs not hashes
+      it "should set the run values to instance vars" do
+        response = Ratis::NextBus2.where(@conditions.dup)
+        run     = response.runs.first
+
+        expect(response).to be_a(Ratis::NextBus2)
+        expect(response.runs).to be_a(Array)
+
+        expect(run[:operator]).to eq "FT"
+        expect(run[:status]).to eq "N"
+        expect(run[:sign]).to eq "3 VAN BUREN West to 51st Ave."
+        expect(run[:triptime]).to_not be_nil #eq "12:29 PM"
+        expect(run[:triptime]).to_not be_empty
+        # expect(run.realtime=>{:valid=>nil, :estimatedminutes=>nil, :polltime=>nil, :lat=>nil, :trend=>nil, :vehicleid=>nil, :speed=>nil, :adherence=>nil, :long=>nil, :reliable=>nil, :estimatedtime=>"12:09 PM", :stopped=>nil}
+        expect(run[:exception]).to eq("N")
+        expect(run[:tripid]).to eq "15765-9"
+        expect(run[:routetype]).to eq "B"
+        expect(run[:skedtripid]).to be_nil
+        expect(run[:stopid]).to eq "10040"
+        expect(run[:servicetype]).to eq "W"
+        expect(run[:adherence]).to eq('3')
+        expect(run[:atisstopid]).to eq "6124"
+        # expect(run[:block]).to eq "5"
+        expect(run[:route]).to eq "3"
+        expect(run[:estimatedtime]).to_not be_nil
+        expect(run[:estimatedtime]).to_not be_empty
+        expect(run[:direction]).to eq "W"
+      end
     end
   end
 

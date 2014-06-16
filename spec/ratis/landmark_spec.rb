@@ -1,52 +1,39 @@
 require 'spec_helper'
 
 describe Ratis::Landmark do
-
-  before do
-    Ratis.reset
-    Ratis.configure do |config|
-      config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi'
-      config.namespace  = 'PX_WEB'
-    end
-  end
-
   describe "#where" do
-    before do
-      @conditions = {:type => '*',
-                     :zipcode => '85224'}
-    end
+    let(:conditions) { { :type => '*', :zipcode => '85224' } }
 
     it 'only makes one request', vcr: {} do
       # false just to stop further processing of response
       Ratis::Request.should_receive(:get).once.and_call_original
-      Ratis::Landmark.where(@conditions.dup)
+      Ratis::Landmark.where(conditions.dup)
     end
 
     it 'requests the correct SOAP action' do
       Ratis::Request.should_receive(:get) do |action, options|
         action.should eq('Getlandmarks')
-        options["Type"].should eq(@conditions[:type])
-        options["Zipcode"].should eq(@conditions[:zipcode])
-
+        options["Type"].should eq(conditions[:type])
+        options["Zipcode"].should eq(conditions[:zipcode])
       end.and_return(double('response', :success? => false))
 
-      Ratis::Landmark.where(@conditions.dup)
+      Ratis::Landmark.where(conditions.dup)
     end
 
     it "should return a collection of Ratis::Landmark(s)", vcr: {} do
-      stops = Ratis::Landmark.where(@conditions.dup)
+      stops = Ratis::Landmark.where(conditions.dup)
       stops.each do |obj|
         expect(obj).to be_a(Ratis::Landmark)
       end
     end
 
     it 'returns multiple landmarks', vcr: {} do
-      stops = Ratis::Landmark.where(@conditions.dup)
-      stops.should have(1514).items
+      stops = Ratis::Landmark.where(conditions.dup)
+      stops.should have(1034).items
     end
 
     it 'parses out the landmark fields correctly', vcr: {} do
-      landmarks = Ratis::Landmark.where(@conditions.dup)
+      landmarks = Ratis::Landmark.where(conditions.dup)
       landmark  = landmarks.first
 
       expect(landmark.type).to eq('LRT')
@@ -56,11 +43,11 @@ describe Ratis::Landmark do
     end
 
     it "should raise error for missing arg type" do
-      conditions = @conditions.dup
-      conditions.delete(:type)
+      conds = conditions.dup
+      conds.delete(:type)
 
       expect do
-        Ratis::Landmark.where(conditions)
+        Ratis::Landmark.where(conds)
       end.to raise_error(ArgumentError, 'You must provide a type')
     end
   end

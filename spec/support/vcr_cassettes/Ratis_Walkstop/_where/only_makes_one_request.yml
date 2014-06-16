@@ -2,20 +2,20 @@
 http_interactions:
 - request:
     method: post
-    uri: http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi
+    uri: http://soap.valleymetro.org/cgi-bin-soap-web-271/soap.cgi
     body:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="PX_WEB"
         xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><Walkstop
-        xmlns="PX_WEB"><Startlat>33.511990</Startlat><Startlong>-111.880344</Startlong><Endlat>33.512091</Endlat><Endlong>-111.880349</Endlong><Appid>na</Appid></Walkstop></env:Body></env:Envelope>
+        xmlns="PX_WEB"><Startlat>33.511990</Startlat><Startlong>-111.880344</Startlong><Endlat>33.512091</Endlat><Endlong>-111.880349</Endlong><Appid>ratis-specs</Appid></Walkstop></env:Body></env:Envelope>
     headers:
       Soapaction:
       - '"PX_WEB#Walkstop"'
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '434'
+      - '443'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -28,13 +28,13 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 06 Jan 2014 23:53:19 GMT
+      - Sat, 14 Jun 2014 00:49:16 GMT
       Server:
       - Apache/2.2.3 (CentOS)
       Soapserver:
       - SOAP::Lite/Perl/0.55
       Content-Length:
-      - '1343'
+      - '1372'
       Connection:
       - close
       Content-Type:
@@ -45,9 +45,9 @@ http_interactions:
         xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\"
         xmlns:xsd=\"http://www.w3.org/1999/XMLSchema\" SOAP-ENV:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"><SOAP-ENV:Body><namesp1:WalkstopResponse
         xmlns:namesp1=\"PX_WEB\">\n\t<Responsecode>0</Responsecode>\n\t<Version>1.3</Version>\n\t<Starttext>Origin</Starttext>\n\t<Endtext>Destination</Endtext>\n\t<Walkinfo>\n\t\t<Walkdistance>0.05</Walkdistance>\n\t\t<Walkunits>miles</Walkunits>\n\t\t<Walktime>2</Walktime>\n\t</Walkinfo>\n\t<Exit/>\n\t<Walk>\n\t\t<Leg>Walk
-        a short distance N on Scottsdale Community College.</Leg>\n\t</Walk>\n\t<Enter/>\n\t<Walkpoints>\n\t\t<Walkpoint>33.511990,-111.880344</Walkpoint>\n\t\t<Walkpoint>33.511987,-111.880344</Walkpoint>\n\t\t<Walkpoint>33.512089,-111.880352</Walkpoint>\n\t\t<Walkpoint>33.512091,-111.880349</Walkpoint>\n\t</Walkpoints>\n\t<Mapextents>33.511987,-111.880352,33.512089,-111.880344</Mapextents>\n\t<Requestor>68.226.126.17</Requestor>\n\t<Host>s-rpta-soap</Host>\n\t<Copyright>XML
-        schema Copyright (c) 2003-2013 Trapeze Software ULC, its subsidiaries and
-        affiliates.  All rights reserved.</Copyright>\n\t<Soapversion>2.6.3 - 11/14/13</Soapversion>\n</namesp1:WalkstopResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+        a short distance N on Scottsdale Community College.</Leg>\n\t</Walk>\n\t<Enter/>\n\t<Walkpoints>\n\t\t<Walkpoint>33.511990,-111.880344</Walkpoint>\n\t\t<Walkpoint>33.511987,-111.880344</Walkpoint>\n\t\t<Walkpoint>33.512089,-111.880352</Walkpoint>\n\t\t<Walkpoint>33.512091,-111.880349</Walkpoint>\n\t</Walkpoints>\n\t<Mapextents>33.511987,-111.880352,33.512089,-111.880344</Mapextents>\n\t<Appid>ratis-specs</Appid>\n\t<Requestor>72.222.151.25</Requestor>\n\t<Host>s-rpta-soap</Host>\n\t<Copyright>XML
+        schema Copyright (c) 2003-2014 Trapeze Software ULC, its subsidiaries and
+        affiliates.  All rights reserved.</Copyright>\n\t<Soapversion>2.7.1a - 05/14/14</Soapversion>\n</namesp1:WalkstopResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
     http_version: 
-  recorded_at: Mon, 06 Jan 2014 23:53:19 GMT
+  recorded_at: Sat, 14 Jun 2014 00:49:16 GMT
 recorded_with: VCR 2.8.0

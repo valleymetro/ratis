@@ -1,14 +1,6 @@
 require 'spec_helper'
 
 describe Ratis::ScheduleNearby do
-  before do
-    Ratis.reset
-    Ratis.configure do |config|
-      config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi'
-      config.namespace  = 'PX_WEB'
-    end
-  end
-
   describe '#where', vcr: {} do
     before do
       @today      = Time.now.strftime("%m/%d/%Y")
@@ -19,8 +11,7 @@ describe Ratis::ScheduleNearby do
                      :window        => '60',
                      :walk_distance => '0.18',
                      :landmark_id   => '0',
-                     :stop_id       => nil,
-                     :app_id        => 'na' }
+                     :stop_id       => nil }
     end
 
     it 'only makes one request' do
@@ -47,7 +38,6 @@ describe Ratis::ScheduleNearby do
         options["Walkdist"].should eq(@conditions[:walk_distance])
         options["Landmarkid"].should eq(@conditions[:landmark_id])
         options["Stopid"].should eq('')
-        options["Appid"].should eq(@conditions[:app_id])
 
       end.and_return(double('response', :success? => false))
 

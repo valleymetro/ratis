@@ -17,7 +17,6 @@ module Ratis
     end
 
     def self.where(conditions)
-      app_id                  = conditions.delete(:app_id)                || 'ratis-gem'
       minimize                = conditions.delete(:minimize).try(:upcase) || 'T'
       arrdep                  = conditions.delete(:arrdep).try(:upcase)   || "D"
       maxanswers              = conditions.delete(:maxanswers)            || '3'
@@ -49,8 +48,7 @@ module Ratis
 
       Ratis.all_conditions_used? conditions
 
-      response = Request.get 'Plantrip', {'Appid'                 => app_id,
-                                          'Date'                  => datetime.strftime("%m/%d/%Y"),
+      response = Request.get 'Plantrip', {'Date'                  => datetime.strftime("%m/%d/%Y"),
                                           'Time'                  => datetime.strftime("%H%M"),
                                           'Minimize'              => minimize,
                                           'Arrdep'                => arrdep,

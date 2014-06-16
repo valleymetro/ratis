@@ -2,20 +2,20 @@
 http_interactions:
 - request:
     method: post
-    uri: http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi
+    uri: http://soap.valleymetro.org/cgi-bin-soap-web-271/soap.cgi
     body:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="PX_WEB"
         xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><Getareas
-        xmlns="PX_WEB"></Getareas></env:Body></env:Envelope>
+        xmlns="PX_WEB"><Appid>ratis-specs</Appid></Getareas></env:Body></env:Envelope>
     headers:
       Soapaction:
       - '"PX_WEB#Getareas"'
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '297'
+      - '323'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -28,13 +28,13 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 06 Jan 2014 23:53:20 GMT
+      - Sat, 14 Jun 2014 00:38:45 GMT
       Server:
       - Apache/2.2.3 (CentOS)
       Soapserver:
       - SOAP::Lite/Perl/0.55
       Content-Length:
-      - '787'
+      - '3111'
       Connection:
       - close
       Content-Type:
@@ -44,9 +44,19 @@ http_interactions:
       string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><SOAP-ENV:Envelope xmlns:xsi=\"http://www.w3.org/1999/XMLSchema-instance\"
         xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\"
         xmlns:xsd=\"http://www.w3.org/1999/XMLSchema\" SOAP-ENV:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"><SOAP-ENV:Body><namesp1:GetareasResponse
-        xmlns:namesp1=\"PX_WEB\">\n\t<Responsecode>0</Responsecode>\n\t<Version>1.0</Version>\n\t<Appid></Appid>\n\t<Requestor>68.226.126.17</Requestor>\n\t<Host>s-rpta-soap</Host>\n\t<Copyright>XML
-        schema Copyright (c) 2003-2013 Trapeze Software ULC, its subsidiaries and
-        affiliates.  All rights reserved.</Copyright>\n\t<Soapversion>2.6.3 - 11/14/13</Soapversion>\n</namesp1:GetareasResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+        xmlns:namesp1=\"PX_WEB\">\n\t<Responsecode>0</Responsecode>\n\t<Version>1.0</Version>\n\t<Areainfo>\n\t\t<Description>Apache
+        Junction</Description>\n\t\t<Area>AJ</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>Avondale</Description>\n\t\t<Area>AV</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>Buckeye</Description>\n\t\t<Area>BU</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>Carefree</Description>\n\t\t<Area>CA</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>Cave
+        Creek</Description>\n\t\t<Area>CC</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>Chandler</Description>\n\t\t<Area>CH</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>El
+        Mirage</Description>\n\t\t<Area>EM</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>Fountain
+        Hills</Description>\n\t\t<Area>FH</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>Gila
+        Bend</Description>\n\t\t<Area>GA</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>Gila
+        Bend/Buckeye</Description>\n\t\t<Area>GB</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>Gilbert</Description>\n\t\t<Area>GI</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>Glendale</Description>\n\t\t<Area>GL</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>Goodyear</Description>\n\t\t<Area>GO</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>Goodyear</Description>\n\t\t<Area>GY</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>Guadalupe</Description>\n\t\t<Area>GU</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>Litchfield
+        Park</Description>\n\t\t<Area>LP</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>Maricopa
+        County</Description>\n\t\t<Area>CO</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>Mesa</Description>\n\t\t<Area>ME</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>Paradise
+        Valley</Description>\n\t\t<Area>PV</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>Peoria</Description>\n\t\t<Area>PE</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>Phoenix</Description>\n\t\t<Area>PH</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>Queen
+        Creek</Description>\n\t\t<Area>QC</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>Scottsdale</Description>\n\t\t<Area>SC</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>Surprise</Description>\n\t\t<Area>SU</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>Tempe</Description>\n\t\t<Area>TE</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>Tolleson</Description>\n\t\t<Area>TO</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>Wickenburg</Description>\n\t\t<Area>WI</Area>\n\t</Areainfo>\n\t<Areainfo>\n\t\t<Description>Youngtown</Description>\n\t\t<Area>YG</Area>\n\t</Areainfo>\n\t<Appid>ratis-specs</Appid>\n\t<Requestor>72.222.151.25</Requestor>\n\t<Host>s-rpta-soap</Host>\n\t<Copyright>XML
+        schema Copyright (c) 2003-2014 Trapeze Software ULC, its subsidiaries and
+        affiliates.  All rights reserved.</Copyright>\n\t<Soapversion>2.7.1a - 05/14/14</Soapversion>\n</namesp1:GetareasResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
     http_version: 
-  recorded_at: Mon, 06 Jan 2014 23:53:20 GMT
+  recorded_at: Sat, 14 Jun 2014 00:38:45 GMT
 recorded_with: VCR 2.8.0

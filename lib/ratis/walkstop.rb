@@ -26,7 +26,6 @@ module Ratis
       start_long = conditions.delete :start_long
       end_lat    = conditions.delete :end_lat
       end_long   = conditions.delete :end_long
-      app_id     = conditions.delete(:app_id) || 'ratis-gem'
 
       raise ArgumentError.new('You must provide a start_lat') unless start_lat
       raise ArgumentError.new('You must provide a start_long') unless start_long
@@ -39,8 +38,7 @@ module Ratis
                              'Startlat'  => start_lat,
                              'Startlong' => start_long,
                              'Endlat'    => end_lat,
-                             'Endlong'   => end_long,
-                             'Appid'     => app_id
+                             'Endlong'   => end_long
 
       Walkstop.new(response)
     end

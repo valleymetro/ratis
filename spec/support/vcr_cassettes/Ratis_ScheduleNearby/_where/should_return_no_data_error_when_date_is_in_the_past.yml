@@ -2,20 +2,20 @@
 http_interactions:
 - request:
     method: post
-    uri: http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi
+    uri: http://soap.valleymetro.org/cgi-bin-soap-web-271/soap.cgi
     body:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="PX_WEB"
         xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><Schedulenearby
-        xmlns="PX_WEB"><Locationlat>33.4556</Locationlat><Locationlong>-112.071807</Locationlong><Date>01/28/2012</Date><Time>1323</Time><Window>60</Window><Walkdist>0.18</Walkdist><Landmarkid>0</Landmarkid><Stopid></Stopid><Appid>na</Appid></Schedulenearby></env:Body></env:Envelope>
+        xmlns="PX_WEB"><Locationlat>33.4556</Locationlat><Locationlong>-112.071807</Locationlong><Date>01/28/2012</Date><Time>1323</Time><Window>60</Window><Walkdist>0.18</Walkdist><Landmarkid>0</Landmarkid><Stopid></Stopid><Appid>ratis-specs</Appid></Schedulenearby></env:Body></env:Envelope>
     headers:
       Soapaction:
       - '"PX_WEB#Schedulenearby"'
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '527'
+      - '536'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -28,7 +28,7 @@ http_interactions:
       message: Internal Server Error
     headers:
       Date:
-      - Mon, 06 Jan 2014 23:53:21 GMT
+      - Sat, 14 Jun 2014 00:48:26 GMT
       Server:
       - Apache/2.2.3 (CentOS)
       Soapserver:
@@ -49,5 +49,5 @@ http_interactions:
         service at origin at the date/time specified</faultstring><detail><PX_WEB
         xsi:type="namesp1:PX_WEB"><code xsi:type="xsd:int">20005</code></PX_WEB></detail></SOAP-ENV:Fault></SOAP-ENV:Body></SOAP-ENV:Envelope>
     http_version: 
-  recorded_at: Mon, 06 Jan 2014 23:53:22 GMT
+  recorded_at: Sat, 14 Jun 2014 00:48:26 GMT
 recorded_with: VCR 2.8.0

@@ -2,20 +2,20 @@
 http_interactions:
 - request:
     method: post
-    uri: http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi
+    uri: http://soap.valleymetro.org/cgi-bin-soap-web-271/soap.cgi
     body:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="PX_WEB"
         xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><Getpatterns
-        xmlns="PX_WEB"><Route>ZERO</Route><Direction>N</Direction><Date>08:00:00</Date><Servicetype>W</Servicetype><Longest>N</Longest></Getpatterns></env:Body></env:Envelope>
+        xmlns="PX_WEB"><Route>ZERO</Route><Direction>N</Direction><Date>08:00:00</Date><Servicetype>W</Servicetype><Longest>N</Longest><Appid>ratis-specs</Appid></Getpatterns></env:Body></env:Envelope>
     headers:
       Soapaction:
       - '"PX_WEB#Getpatterns"'
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '415'
+      - '441'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -28,13 +28,13 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 06 Jan 2014 23:53:23 GMT
+      - Sat, 14 Jun 2014 00:41:35 GMT
       Server:
       - Apache/2.2.3 (CentOS)
       Soapserver:
       - SOAP::Lite/Perl/0.55
       Content-Length:
-      - '1907'
+      - '1936'
       Connection:
       - close
       Content-Type:
@@ -45,12 +45,12 @@ http_interactions:
         xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\"
         xmlns:xsd=\"http://www.w3.org/1999/XMLSchema\" SOAP-ENV:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"><SOAP-ENV:Body><namesp1:GetpatternsResponse
         xmlns:namesp1=\"PX_WEB\">\n\t<Responsecode>0</Responsecode>\n\t<Version>1.2</Version>\n\t<Routes>\n\t\t<Routeinfo>\n\t\t\t<Route>ZERO</Route>\n\t\t\t<Signage>0
-        CENTRAL North to Dunlap/3rd St.</Signage>\n\t\t\t<Operator>AP</Operator>\n\t\t\t<Effective>10/28/13</Effective>\n\t\t\t<Routeid>123130</Routeid>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<School></School>\n\t\t\t<Tripcount>51</Tripcount>\n\t\t</Routeinfo>\n\t\t<Routeinfo>\n\t\t\t<Route>ZERO</Route>\n\t\t\t<Signage>0
-        Central North To Central Station</Signage>\n\t\t\t<Operator>AP</Operator>\n\t\t\t<Effective>10/28/13</Effective>\n\t\t\t<Routeid>123140</Routeid>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<School></School>\n\t\t\t<Tripcount>25</Tripcount>\n\t\t</Routeinfo>\n\t\t<Routeinfo>\n\t\t\t<Route>ZERO</Route>\n\t\t\t<Signage>0
-        CENTRAL North to Dunlap/3rd St.</Signage>\n\t\t\t<Operator>AP</Operator>\n\t\t\t<Effective>10/28/13</Effective>\n\t\t\t<Routeid>123150</Routeid>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<School></School>\n\t\t\t<Tripcount>51</Tripcount>\n\t\t</Routeinfo>\n\t\t<Routeinfo>\n\t\t\t<Route>ZERO</Route>\n\t\t\t<Signage>0
-        Central North To Central Station</Signage>\n\t\t\t<Operator>AP</Operator>\n\t\t\t<Effective>10/28/13</Effective>\n\t\t\t<Routeid>123160</Routeid>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<School></School>\n\t\t\t<Tripcount>25</Tripcount>\n\t\t</Routeinfo>\n\t</Routes>\n\t<Requestor>68.226.126.17</Requestor>\n\t<Host>s-rpta-soap</Host>\n\t<Copyright>XML
-        schema Copyright (c) 2003-2013 Trapeze Software ULC, its subsidiaries and
-        affiliates.  All rights reserved.</Copyright>\n\t<Soapversion>2.6.3 - 11/14/13</Soapversion>\n</namesp1:GetpatternsResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+        CENTRAL North to Dunlap/3rd St.</Signage>\n\t\t\t<Operator>AP</Operator>\n\t\t\t<Effective>04/28/14</Effective>\n\t\t\t<Routeid>168930</Routeid>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<School></School>\n\t\t\t<Tripcount>51</Tripcount>\n\t\t</Routeinfo>\n\t\t<Routeinfo>\n\t\t\t<Route>ZERO</Route>\n\t\t\t<Signage>0
+        Central North To Central Station</Signage>\n\t\t\t<Operator>AP</Operator>\n\t\t\t<Effective>04/28/14</Effective>\n\t\t\t<Routeid>168940</Routeid>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<School></School>\n\t\t\t<Tripcount>25</Tripcount>\n\t\t</Routeinfo>\n\t\t<Routeinfo>\n\t\t\t<Route>ZERO</Route>\n\t\t\t<Signage>0
+        CENTRAL North to Dunlap/3rd St.</Signage>\n\t\t\t<Operator>AP</Operator>\n\t\t\t<Effective>04/28/14</Effective>\n\t\t\t<Routeid>168950</Routeid>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<School></School>\n\t\t\t<Tripcount>51</Tripcount>\n\t\t</Routeinfo>\n\t\t<Routeinfo>\n\t\t\t<Route>ZERO</Route>\n\t\t\t<Signage>0
+        Central North To Central Station</Signage>\n\t\t\t<Operator>AP</Operator>\n\t\t\t<Effective>04/28/14</Effective>\n\t\t\t<Routeid>168960</Routeid>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<School></School>\n\t\t\t<Tripcount>25</Tripcount>\n\t\t</Routeinfo>\n\t</Routes>\n\t<Appid>ratis-specs</Appid>\n\t<Requestor>72.222.151.25</Requestor>\n\t<Host>s-rpta-soap</Host>\n\t<Copyright>XML
+        schema Copyright (c) 2003-2014 Trapeze Software ULC, its subsidiaries and
+        affiliates.  All rights reserved.</Copyright>\n\t<Soapversion>2.7.1a - 05/14/14</Soapversion>\n</namesp1:GetpatternsResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
     http_version: 
-  recorded_at: Mon, 06 Jan 2014 23:53:23 GMT
+  recorded_at: Sat, 14 Jun 2014 00:41:35 GMT
 recorded_with: VCR 2.8.0

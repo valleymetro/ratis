@@ -1,0 +1,125 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://soap.valleymetro.org/cgi-bin-soap-web-271/soap.cgi
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="PX_WEB"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><Nextbus2
+        xmlns="PX_WEB"><Stopid>10040</Stopid><Appid>ratis-specs</Appid></Nextbus2></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - '"PX_WEB#Nextbus2"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '345'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 14 Jun 2014 00:40:39 GMT
+      Server:
+      - Apache/2.2.3 (CentOS)
+      Soapserver:
+      - SOAP::Lite/Perl/0.55
+      Content-Length:
+      - '12909'
+      Connection:
+      - close
+      Content-Type:
+      - text/xml; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><SOAP-ENV:Envelope xmlns:xsi=\"http://www.w3.org/1999/XMLSchema-instance\"
+        xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\"
+        xmlns:xsd=\"http://www.w3.org/1999/XMLSchema\" SOAP-ENV:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"><SOAP-ENV:Body><namesp1:Nextbus2Response
+        xmlns:namesp1=\"PX_WEB\">\n\t<Responsecode>0</Responsecode>\n\t<Version>1.6</Version>\n\t<Input>\n\t\t<Stopid>10040</Stopid>\n\t\t<Atisstopid>0</Atisstopid>\n\t\t<Landmarkid>0</Landmarkid>\n\t\t<Route></Route>\n\t\t<Runs>999</Runs>\n\t\t<Xmode>BCXTFRSLK123</Xmode>\n\t\t<Date>06/13/14</Date>\n\t\t<Time>05:40
+        PM</Time>\n\t</Input>\n\t<Stop>\n\t\t<Description>VAN BUREN ST &amp; 16TH
+        ST</Description>\n\t\t<Area>Phoenix</Area>\n\t\t<Atisstopid>6124</Atisstopid>\n\t\t<Stopid>10040</Stopid>\n\t\t<Lat>33.451493</Lat>\n\t\t<Long>-112.048207</Long>\n\t\t<Stopposition>Y</Stopposition>\n\t\t<Heading>WB</Heading>\n\t\t<Side>Far</Side>\n\t\t<Stopstatustype>N</Stopstatustype>\n\t</Stop>\n\t<Stops>\n\t\t<Stop>\n\t\t\t<Description>VAN
+        BUREN ST &amp; 16TH ST</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Atisstopid>6124</Atisstopid>\n\t\t\t<Stopid>10040</Stopid>\n\t\t\t<Lat>33.451493</Lat>\n\t\t\t<Long>-112.048207</Long>\n\t\t\t<Stopposition>Y</Stopposition>\n\t\t\t<Heading>WB</Heading>\n\t\t\t<Side>Far</Side>\n\t\t\t<Stopstatustype>N</Stopstatustype>\n\t\t</Stop>\n\t</Stops>\n\t<Runs>\n\t\t<Run>\n\t\t\t<Route>3</Route>\n\t\t\t<Publicroute>3</Publicroute>\n\t\t\t<Sign>3
+        VAN BUREN West to 51st Ave.</Sign>\n\t\t\t<Operator>FT</Operator>\n\t\t\t<Publicoperator>FT</Publicoperator>\n\t\t\t<Direction>W</Direction>\n\t\t\t<Status>N</Status>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<Triptime>05:51
+        PM</Triptime>\n\t\t\t<Tripid>15765-9</Tripid>\n\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t<Adherence>3</Adherence>\n\t\t\t<Estimatedtime>05:48
+        PM</Estimatedtime>\n\t\t\t<Realtime>\n\t\t\t\t<Valid>Y</Valid>\n\t\t\t\t<Adherence>3</Adherence>\n\t\t\t\t<Estimatedtime>05:48
+        PM</Estimatedtime>\n\t\t\t\t<Estimatedminutes>8</Estimatedminutes>\n\t\t\t\t<Polltime>05:39
+        PM</Polltime>\n\t\t\t\t<Trend>S</Trend>\n\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t<Reliable>Y</Reliable>\n\t\t\t\t<Stopped>N</Stopped>\n\t\t\t\t<Vehicleid>6563</Vehicleid>\n\t\t\t\t<Lat>33.451351</Lat>\n\t\t\t\t<Long>-112.014870</Long>\n\t\t\t</Realtime>\n\t\t\t<Block>2003</Block>\n\t\t\t<Exception>N</Exception>\n\t\t\t<Atisstopid>6124</Atisstopid>\n\t\t\t<Stopid>10040</Stopid>\n\t\t</Run>\n\t\t<Run>\n\t\t\t<Route>3</Route>\n\t\t\t<Publicroute>3</Publicroute>\n\t\t\t<Sign>3
+        VAN BUREN West to Avondale</Sign>\n\t\t\t<Operator>FT</Operator>\n\t\t\t<Publicoperator>FT</Publicoperator>\n\t\t\t<Direction>W</Direction>\n\t\t\t<Status>N</Status>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<Triptime>06:06
+        PM</Triptime>\n\t\t\t<Tripid>15763-5</Tripid>\n\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t<Adherence>0</Adherence>\n\t\t\t<Estimatedtime>06:06
+        PM</Estimatedtime>\n\t\t\t<Realtime>\n\t\t\t\t<Valid>Y</Valid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>06:06
+        PM</Estimatedtime>\n\t\t\t\t<Estimatedminutes>26</Estimatedminutes>\n\t\t\t\t<Polltime>05:35
+        PM</Polltime>\n\t\t\t\t<Trend>S</Trend>\n\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t<Reliable>Y</Reliable>\n\t\t\t\t<Stopped>N</Stopped>\n\t\t\t\t<Vehicleid>6506</Vehicleid>\n\t\t\t\t<Lat>33.442966</Lat>\n\t\t\t\t<Long>-111.955788</Long>\n\t\t\t</Realtime>\n\t\t\t<Block>2017</Block>\n\t\t\t<Exception>N</Exception>\n\t\t\t<Atisstopid>6124</Atisstopid>\n\t\t\t<Stopid>10040</Stopid>\n\t\t</Run>\n\t\t<Run>\n\t\t\t<Route>3</Route>\n\t\t\t<Publicroute>3</Publicroute>\n\t\t\t<Sign>3
+        VAN BUREN West to 51st Ave.</Sign>\n\t\t\t<Operator>FT</Operator>\n\t\t\t<Publicoperator>FT</Publicoperator>\n\t\t\t<Direction>W</Direction>\n\t\t\t<Status>N</Status>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<Triptime>06:21
+        PM</Triptime>\n\t\t\t<Tripid>15765-10</Tripid>\n\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t<Adherence>0</Adherence>\n\t\t\t<Estimatedtime>06:21
+        PM</Estimatedtime>\n\t\t\t<Realtime>\n\t\t\t\t<Valid>N</Valid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>06:21
+        PM</Estimatedtime>\n\t\t\t\t<Estimatedminutes> </Estimatedminutes>\n\t\t\t\t<Polltime></Polltime>\n\t\t\t\t<Trend>
+        </Trend>\n\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t<Reliable>N</Reliable>\n\t\t\t\t<Stopped>
+        </Stopped>\n\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t<Long>0.000000</Long>\n\t\t\t</Realtime>\n\t\t\t<Block>2009</Block>\n\t\t\t<Exception>N</Exception>\n\t\t\t<Atisstopid>6124</Atisstopid>\n\t\t\t<Stopid>10040</Stopid>\n\t\t</Run>\n\t\t<Run>\n\t\t\t<Route>3</Route>\n\t\t\t<Publicroute>3</Publicroute>\n\t\t\t<Sign>3
+        VAN BUREN West to Avondale</Sign>\n\t\t\t<Operator>FT</Operator>\n\t\t\t<Publicoperator>FT</Publicoperator>\n\t\t\t<Direction>W</Direction>\n\t\t\t<Status>N</Status>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<Triptime>06:36
+        PM</Triptime>\n\t\t\t<Tripid>15761-6</Tripid>\n\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t<Adherence>0</Adherence>\n\t\t\t<Estimatedtime>06:36
+        PM</Estimatedtime>\n\t\t\t<Realtime>\n\t\t\t\t<Valid>N</Valid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>06:36
+        PM</Estimatedtime>\n\t\t\t\t<Estimatedminutes> </Estimatedminutes>\n\t\t\t\t<Polltime></Polltime>\n\t\t\t\t<Trend>
+        </Trend>\n\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t<Reliable>N</Reliable>\n\t\t\t\t<Stopped>
+        </Stopped>\n\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t<Long>0.000000</Long>\n\t\t\t</Realtime>\n\t\t\t<Block>2008</Block>\n\t\t\t<Exception>N</Exception>\n\t\t\t<Atisstopid>6124</Atisstopid>\n\t\t\t<Stopid>10040</Stopid>\n\t\t</Run>\n\t\t<Run>\n\t\t\t<Route>3</Route>\n\t\t\t<Publicroute>3</Publicroute>\n\t\t\t<Sign>3
+        VAN BUREN West to 51st Ave.</Sign>\n\t\t\t<Operator>FT</Operator>\n\t\t\t<Publicoperator>FT</Publicoperator>\n\t\t\t<Direction>W</Direction>\n\t\t\t<Status>N</Status>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<Triptime>06:51
+        PM</Triptime>\n\t\t\t<Tripid>15765-10</Tripid>\n\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t<Adherence>0</Adherence>\n\t\t\t<Estimatedtime>06:51
+        PM</Estimatedtime>\n\t\t\t<Realtime>\n\t\t\t\t<Valid>N</Valid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>06:51
+        PM</Estimatedtime>\n\t\t\t\t<Estimatedminutes> </Estimatedminutes>\n\t\t\t\t<Polltime></Polltime>\n\t\t\t\t<Trend>
+        </Trend>\n\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t<Reliable>N</Reliable>\n\t\t\t\t<Stopped>
+        </Stopped>\n\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t<Long>0.000000</Long>\n\t\t\t</Realtime>\n\t\t\t<Block>2005</Block>\n\t\t\t<Exception>N</Exception>\n\t\t\t<Atisstopid>6124</Atisstopid>\n\t\t\t<Stopid>10040</Stopid>\n\t\t</Run>\n\t\t<Run>\n\t\t\t<Route>3</Route>\n\t\t\t<Publicroute>3</Publicroute>\n\t\t\t<Sign>3
+        VAN BUREN West to Avondale</Sign>\n\t\t\t<Operator>FT</Operator>\n\t\t\t<Publicoperator>FT</Publicoperator>\n\t\t\t<Direction>W</Direction>\n\t\t\t<Status>N</Status>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<Triptime>07:08
+        PM</Triptime>\n\t\t\t<Tripid>15763-5</Tripid>\n\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t<Adherence>0</Adherence>\n\t\t\t<Estimatedtime>07:08
+        PM</Estimatedtime>\n\t\t\t<Realtime>\n\t\t\t\t<Valid>N</Valid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>07:08
+        PM</Estimatedtime>\n\t\t\t\t<Estimatedminutes> </Estimatedminutes>\n\t\t\t\t<Polltime></Polltime>\n\t\t\t\t<Trend>
+        </Trend>\n\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t<Reliable>N</Reliable>\n\t\t\t\t<Stopped>
+        </Stopped>\n\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t<Long>0.000000</Long>\n\t\t\t</Realtime>\n\t\t\t<Block>2012</Block>\n\t\t\t<Exception>N</Exception>\n\t\t\t<Atisstopid>6124</Atisstopid>\n\t\t\t<Stopid>10040</Stopid>\n\t\t</Run>\n\t\t<Run>\n\t\t\t<Route>3</Route>\n\t\t\t<Publicroute>3</Publicroute>\n\t\t\t<Sign>3
+        VAN BUREN West to 51st Ave.</Sign>\n\t\t\t<Operator>FT</Operator>\n\t\t\t<Publicoperator>FT</Publicoperator>\n\t\t\t<Direction>W</Direction>\n\t\t\t<Status>N</Status>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<Triptime>07:23
+        PM</Triptime>\n\t\t\t<Tripid>15765-11</Tripid>\n\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t<Adherence>0</Adherence>\n\t\t\t<Estimatedtime>07:23
+        PM</Estimatedtime>\n\t\t\t<Realtime>\n\t\t\t\t<Valid>N</Valid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>07:23
+        PM</Estimatedtime>\n\t\t\t\t<Estimatedminutes> </Estimatedminutes>\n\t\t\t\t<Polltime></Polltime>\n\t\t\t\t<Trend>
+        </Trend>\n\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t<Reliable>N</Reliable>\n\t\t\t\t<Stopped>
+        </Stopped>\n\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t<Long>0.000000</Long>\n\t\t\t</Realtime>\n\t\t\t<Block>2013</Block>\n\t\t\t<Exception>N</Exception>\n\t\t\t<Atisstopid>6124</Atisstopid>\n\t\t\t<Stopid>10040</Stopid>\n\t\t</Run>\n\t\t<Run>\n\t\t\t<Route>3</Route>\n\t\t\t<Publicroute>3</Publicroute>\n\t\t\t<Sign>3
+        VAN BUREN West to Avondale</Sign>\n\t\t\t<Operator>FT</Operator>\n\t\t\t<Publicoperator>FT</Publicoperator>\n\t\t\t<Direction>W</Direction>\n\t\t\t<Status>N</Status>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<Triptime>07:53
+        PM</Triptime>\n\t\t\t<Tripid>15761-7</Tripid>\n\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t<Adherence>0</Adherence>\n\t\t\t<Estimatedtime>07:53
+        PM</Estimatedtime>\n\t\t\t<Realtime>\n\t\t\t\t<Valid>N</Valid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>07:53
+        PM</Estimatedtime>\n\t\t\t\t<Estimatedminutes> </Estimatedminutes>\n\t\t\t\t<Polltime></Polltime>\n\t\t\t\t<Trend>
+        </Trend>\n\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t<Reliable>N</Reliable>\n\t\t\t\t<Stopped>
+        </Stopped>\n\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t<Long>0.000000</Long>\n\t\t\t</Realtime>\n\t\t\t<Block>2015</Block>\n\t\t\t<Exception>N</Exception>\n\t\t\t<Atisstopid>6124</Atisstopid>\n\t\t\t<Stopid>10040</Stopid>\n\t\t</Run>\n\t\t<Run>\n\t\t\t<Route>3</Route>\n\t\t\t<Publicroute>3</Publicroute>\n\t\t\t<Sign>3
+        VAN BUREN West to 51st Ave.</Sign>\n\t\t\t<Operator>FT</Operator>\n\t\t\t<Publicoperator>FT</Publicoperator>\n\t\t\t<Direction>W</Direction>\n\t\t\t<Status>N</Status>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<Triptime>08:23
+        PM</Triptime>\n\t\t\t<Tripid>15756-0</Tripid>\n\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t<Adherence>0</Adherence>\n\t\t\t<Estimatedtime>08:23
+        PM</Estimatedtime>\n\t\t\t<Realtime>\n\t\t\t\t<Valid>N</Valid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>08:23
+        PM</Estimatedtime>\n\t\t\t\t<Estimatedminutes> </Estimatedminutes>\n\t\t\t\t<Polltime></Polltime>\n\t\t\t\t<Trend>
+        </Trend>\n\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t<Reliable>N</Reliable>\n\t\t\t\t<Stopped>
+        </Stopped>\n\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t<Long>0.000000</Long>\n\t\t\t</Realtime>\n\t\t\t<Block>2006</Block>\n\t\t\t<Exception>N</Exception>\n\t\t\t<Atisstopid>6124</Atisstopid>\n\t\t\t<Stopid>10040</Stopid>\n\t\t</Run>\n\t\t<Run>\n\t\t\t<Route>3</Route>\n\t\t\t<Publicroute>3</Publicroute>\n\t\t\t<Sign>3
+        Van Buren To 75th Avenue</Sign>\n\t\t\t<Operator>FT</Operator>\n\t\t\t<Publicoperator>FT</Publicoperator>\n\t\t\t<Direction>W</Direction>\n\t\t\t<Status>N</Status>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<Triptime>08:53
+        PM</Triptime>\n\t\t\t<Tripid>15757-0</Tripid>\n\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t<Adherence>0</Adherence>\n\t\t\t<Estimatedtime>08:53
+        PM</Estimatedtime>\n\t\t\t<Realtime>\n\t\t\t\t<Valid>N</Valid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>08:53
+        PM</Estimatedtime>\n\t\t\t\t<Estimatedminutes> </Estimatedminutes>\n\t\t\t\t<Polltime></Polltime>\n\t\t\t\t<Trend>
+        </Trend>\n\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t<Reliable>N</Reliable>\n\t\t\t\t<Stopped>
+        </Stopped>\n\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t<Long>0.000000</Long>\n\t\t\t</Realtime>\n\t\t\t<Block>2009</Block>\n\t\t\t<Exception>N</Exception>\n\t\t\t<Atisstopid>6124</Atisstopid>\n\t\t\t<Stopid>10040</Stopid>\n\t\t</Run>\n\t\t<Run>\n\t\t\t<Route>3</Route>\n\t\t\t<Publicroute>3</Publicroute>\n\t\t\t<Sign>3
+        VAN BUREN West to 51st Ave.</Sign>\n\t\t\t<Operator>FT</Operator>\n\t\t\t<Publicoperator>FT</Publicoperator>\n\t\t\t<Direction>W</Direction>\n\t\t\t<Status>N</Status>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<Triptime>09:23
+        PM</Triptime>\n\t\t\t<Tripid>15758-0</Tripid>\n\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t<Adherence>0</Adherence>\n\t\t\t<Estimatedtime>09:23
+        PM</Estimatedtime>\n\t\t\t<Realtime>\n\t\t\t\t<Valid>N</Valid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>09:23
+        PM</Estimatedtime>\n\t\t\t\t<Estimatedminutes> </Estimatedminutes>\n\t\t\t\t<Polltime></Polltime>\n\t\t\t\t<Trend>
+        </Trend>\n\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t<Reliable>N</Reliable>\n\t\t\t\t<Stopped>
+        </Stopped>\n\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t<Long>0.000000</Long>\n\t\t\t</Realtime>\n\t\t\t<Block>2014</Block>\n\t\t\t<Exception>N</Exception>\n\t\t\t<Atisstopid>6124</Atisstopid>\n\t\t\t<Stopid>10040</Stopid>\n\t\t</Run>\n\t\t<Run>\n\t\t\t<Route>3</Route>\n\t\t\t<Publicroute>3</Publicroute>\n\t\t\t<Sign>3
+        Van Buren To 75th Avenue</Sign>\n\t\t\t<Operator>FT</Operator>\n\t\t\t<Publicoperator>FT</Publicoperator>\n\t\t\t<Direction>W</Direction>\n\t\t\t<Status>N</Status>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<Triptime>09:53
+        PM</Triptime>\n\t\t\t<Tripid>15757-0</Tripid>\n\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t<Adherence>0</Adherence>\n\t\t\t<Estimatedtime>09:53
+        PM</Estimatedtime>\n\t\t\t<Realtime>\n\t\t\t\t<Valid>N</Valid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>09:53
+        PM</Estimatedtime>\n\t\t\t\t<Estimatedminutes> </Estimatedminutes>\n\t\t\t\t<Polltime></Polltime>\n\t\t\t\t<Trend>
+        </Trend>\n\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t<Reliable>N</Reliable>\n\t\t\t\t<Stopped>
+        </Stopped>\n\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t<Long>0.000000</Long>\n\t\t\t</Realtime>\n\t\t\t<Block>2013</Block>\n\t\t\t<Exception>N</Exception>\n\t\t\t<Atisstopid>6124</Atisstopid>\n\t\t\t<Stopid>10040</Stopid>\n\t\t</Run>\n\t</Runs>\n\t<Statusinfo></Statusinfo>\n\t<Appid>ratis-specs</Appid>\n\t<Requestor>72.222.151.25</Requestor>\n\t<Host>s-rpta-soap</Host>\n\t<Copyright>XML
+        schema Copyright (c) 2003-2014 Trapeze Software ULC, its subsidiaries and
+        affiliates.  All rights reserved.</Copyright>\n\t<Soapversion>2.7.1a - 05/14/14</Soapversion>\n</namesp1:Nextbus2Response></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+    http_version: 
+  recorded_at: Sat, 14 Jun 2014 00:40:39 GMT
+recorded_with: VCR 2.8.0

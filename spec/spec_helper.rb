@@ -35,7 +35,8 @@ Savon.configure do |config|
 end
 
 Ratis.configure do |config|
-  config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi'
+  config.appid      = 'ratis-specs'
+  config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-271/soap.cgi'
   config.namespace  = 'PX_WEB'
   config.timeout    = 5
 end
@@ -48,6 +49,6 @@ VCR.configure do |c|
   c.ignore_localhost                        = true
   c.cassette_library_dir                    = "spec/support/vcr_cassettes"
   c.allow_http_connections_when_no_cassette = true
-  c.default_cassette_options                = { allow_playback_repeats: true, match_requests_on: [:method, :uri, :headers] }
+  c.default_cassette_options                = { record: :new_episodes, allow_playback_repeats: true, match_requests_on: [:method, :uri, :headers] }
   # c.debug_logger                            = File.open(Rails.root.join('log/vcr.log'), 'w')
 end

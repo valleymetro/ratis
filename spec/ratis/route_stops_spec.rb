@@ -1,16 +1,7 @@
 require 'spec_helper'
 
 describe Ratis::RouteStops do
-  before do
-    Ratis.reset
-    Ratis.configure do |config|
-      config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi'
-      config.namespace  = 'PX_WEB'
-    end
-  end
-
-  describe '.all', vcr: {} do
-
+  describe '#all', vcr: {} do
     before do
       @today      = Time.now.strftime("%m/%d/%Y")
       @conditions = {:route     => '1',

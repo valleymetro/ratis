@@ -5,7 +5,7 @@ module Ratis
     attr_accessor :area, :description
 
     def self.all
-      response = Request.get('Getareas')
+      response = Request.get 'Getareas'
 
       return [] unless response.success?
 

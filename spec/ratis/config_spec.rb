@@ -1,44 +1,35 @@
 require 'spec_helper'
 
 describe Ratis::Config do
-
-  context 'with an endpoint and namespace set' do
-
-    describe '#valid?' do
-
-      it 'is valid' do
-        Ratis.config.valid?.should be_true
-      end
-
-    end
-
+  it 'is valid' do
+    expect(Ratis.config).to be_valid
   end
 
-  context 'without an endpoint or namespace set' do
-
-    before do
-      # Override Ratis.configure made in spec_helper.rb
-      # Ratis.config = Ratis::Config.new
+  context 'nil endpoint' do
+    it 'is not valid' do
+      expect(Ratis.config).to receive(:endpoint).at_least(:once).and_return(nil)
+      expect(Ratis.config).to_not be_valid
     end
-
-    describe '#valid?' do
-
-      it 'is not valid' do
-        pending('Need way in specs to set new config after one is set.')
-        Ratis.config.valid?.should be_false
-      end
-
-    end
-
-    after do
-      # Reset Ratis.configure made in spec_helper.rb
-      Ratis.configure do |config|
-        config.endpoint = 'http://example.com/soap.cgi'
-        config.namespace = 'TEST_NS'
-      end
-    end
-
   end
 
+  context 'empty endpoint' do
+    it 'is not valid' do
+      expect(Ratis.config).to receive(:endpoint).at_least(:once).and_return('')
+      expect(Ratis.config).to_not be_valid
+    end
+  end
+
+  context 'nil namespace' do
+    it 'is not valid' do
+      expect(Ratis.config).to receive(:namespace).at_least(:once).and_return(nil)
+      expect(Ratis.config).to_not be_valid
+    end
+  end
+
+  context 'empty namespace' do
+    it 'is not valid' do
+      expect(Ratis.config).to receive(:namespace).at_least(:once).and_return('')
+      expect(Ratis.config).to_not be_valid
+    end
+  end
 end
-

@@ -1,15 +1,6 @@
 require 'spec_helper'
 
 describe Ratis::ClosestStop do
-
-  before do
-    Ratis.reset
-    Ratis.configure do |config|
-      config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi'
-      config.namespace  = 'PX_WEB'
-    end
-  end
-
   describe '#where', vcr: {} do
     before do
       @today      = Time.now.strftime("%m/%d/%Y")
@@ -32,7 +23,6 @@ describe Ratis::ClosestStop do
         options["Locationlong"].should eq(@conditions[:longitude])
         options["Locationtext"].should eq(@conditions[:location_text])
         options["Numstops"].should eq(@conditions[:num_stops])
-
       end.and_return(double('response', :success? => false))
 
       Ratis::ClosestStop.where(@conditions.dup)
@@ -92,8 +82,4 @@ describe Ratis::ClosestStop do
       end.to raise_error(ArgumentError, 'You must provide a longitude')
     end
   end
-
-
-
 end
-

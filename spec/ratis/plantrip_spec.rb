@@ -2,12 +2,6 @@ require 'spec_helper'
 
 describe Ratis::Plantrip do
   before do
-    Ratis.reset
-    Ratis.configure do |config|
-      config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi'
-      config.namespace  = 'PX_WEB'
-    end
-
     @datetime    = Chronic.parse('next monday at 6am')
   end
 
@@ -33,7 +27,6 @@ describe Ratis::Plantrip do
     it 'requests the correct SOAP action' do
       Ratis::Request.should_receive(:get) do |action, options|
                        action.should eq('Plantrip')
-                       options["Appid"].should eq('ratis-gem')
                        options["Date"].should eq(@datetime.strftime("%m/%d/%Y"))
                        options["Time"].should eq(@datetime.strftime("%H%M"))
                        options["Minimize"].should eq('T')
@@ -64,23 +57,31 @@ describe Ratis::Plantrip do
       expect(plantrip.walkadjust).to eq(nil)
 
       input = {
-        :accessible            => "N",
-        :arrdep                => "D",
-        :date                  => "01/13/2014",
-        :destinationlandmarkid => "0",
-        :destinationlat        => "33.446347",
-        :destinationlong       => "-112.068689",
-        :destinationtext       => "Destination",
-        :minimize              => "T",
-        :originlandmarkid      => "0",
         :originlat             => "33.452082",
         :originlong            => "-112.074374",
+        :originlandmarkid      => "0",
         :origintext            => "Origin",
+        :destinationlat        => "33.446347",
+        :destinationlong       => "-112.068689",
+        :destinationlandmarkid => "0",
+        :destinationtext       => "Destination",
+        :date                  => "06/16/2014",
         :time                  => "06:00 AM",
-        :walkdestination       => "0.50",
+        :minimize              => "T",
+        :accessible            => "N",
+        :arrdep                => "D",
+        :maxtransfers          => "-1",
+        :maxanswers            => "3",
+        :lessttime             => "N",
+        :maxinitialwait        => "-1",
+        :maxtriptime           => "-1",
+        :walkspeed             => " 2.00 ",
         :walkdist              => "0.50",
         :walkorigin            => "0.50",
-        :walkspeed             => " 2.00 "
+        :walkdestination       => "0.50",
+        :walkincrease          => "N",
+        :allows2s              => "N",
+        :xmode                 => "BCFKLRSTX"
       }
 
       HashDiff.diff(plantrip.input, input).should eql []

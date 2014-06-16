@@ -4,14 +4,11 @@ module Ratis
 
     def self.where(conditions={})
       search_text = conditions.delete(:search)
-      app_id      = conditions.delete(:app_id) || 'WEB'
-
       raise ArgumentError.new('You must provide some search text') unless search_text
 
       Ratis.all_conditions_used? conditions
 
-      response = Request.get 'Locationtypeahead', {'Appid' => app_id,
-                                                   'Search' => search_text.downcase}
+      response = Request.get 'Locationtypeahead', { 'Search' => search_text.downcase }
 
       return "" unless response.success?
 

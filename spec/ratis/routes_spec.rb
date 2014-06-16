@@ -1,20 +1,12 @@
 require 'spec_helper'
 
 describe Ratis::Routes do
-  before do
-    Ratis.reset
-    Ratis.configure do |config|
-      config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi'
-      config.namespace  = 'PX_WEB'
-    end
-  end
-
   let(:empty_body){ {:allroutes2_response => {:routes => []}} }
 
   describe '#all', vcr: {} do
     it 'returns all routes' do
       response = Ratis::Routes.all
-      expect(response).to have(104).items
+      expect(response).to have(103).items
       expect(response.all?{|rte| rte.is_a?(Ratis::Route) }).to be_true
     end
 

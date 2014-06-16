@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi
+    uri: http://soap.valleymetro.org/cgi-bin-soap-web-271/soap.cgi
     body:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -67,6 +67,6 @@ http_interactions:
         N Glendale 75/Beardsley Via I-10</Signage>\n\t\t\t<Routetype>X</Routetype>\n\t\t\t\t\t\t<Statustype>N</Statustype>\n\t\t</Service>\n\t</Routes>\n\t<Requestor>68.226.126.17</Requestor>\n\t<Host>s-rpta-soap</Host>\n\t<Copyright>XML
         schema Copyright (c) 2003-2013 Trapeze Software ULC, its subsidiaries and
         affiliates.  All rights reserved.</Copyright>\n\t<Soapversion>2.6.3 - 11/14/13</Soapversion>\n</namesp1:Point2pointResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
-    http_version: 
+    http_version:
   recorded_at: Wed, 01 Jan 2014 19:52:00 GMT
 recorded_with: VCR 2.8.0

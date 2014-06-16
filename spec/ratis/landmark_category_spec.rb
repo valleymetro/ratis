@@ -1,16 +1,7 @@
 require 'spec_helper'
 
 describe Ratis::LandmarkCategory do
-
-  before do
-    Ratis.reset
-    Ratis.configure do |config|
-      config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi'
-      config.namespace  = 'PX_WEB'
-    end
-  end
-
-  describe '.all', vcr: {} do
+  describe '#all', vcr: {} do
     it 'only makes one request' do
       # false just to stop further processing of response
       Ratis::Request.should_receive(:get).once.and_call_original
@@ -49,6 +40,4 @@ describe Ratis::LandmarkCategory do
       end
     end
   end
-
 end
-

@@ -2,20 +2,20 @@
 http_interactions:
 - request:
     method: post
-    uri: http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi
+    uri: http://soap.valleymetro.org/cgi-bin-soap-web-271/soap.cgi
     body:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="PX_WEB"
         xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><Locationtypeahead
-        xmlns="PX_WEB"><Appid>WEB</Appid><Search>1315 w straford dr</Search></Locationtypeahead></env:Body></env:Envelope>
+        xmlns="PX_WEB"><Search>1315 w straford dr</Search><Appid>ratis-specs</Appid></Locationtypeahead></env:Body></env:Envelope>
     headers:
       Soapaction:
       - '"PX_WEB#Locationtypeahead"'
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '368'
+      - '376'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -28,13 +28,13 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 11 Mar 2014 23:50:51 GMT
+      - Sat, 14 Jun 2014 00:40:32 GMT
       Server:
       - Apache/2.2.3 (CentOS)
       Soapserver:
       - SOAP::Lite/Perl/0.55
       Content-Length:
-      - '1115'
+      - '986'
       Connection:
       - close
       Content-Type:
@@ -45,10 +45,10 @@ http_interactions:
         xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\"
         xmlns:xsd=\"http://www.w3.org/1999/XMLSchema\" SOAP-ENV:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"><SOAP-ENV:Body><namesp1:LocationtypeaheadResponse
         xmlns:namesp1=\"PX_WEB\">\n\t<Responsecode>0</Responsecode>\n\t<Version>1.0</Version>\n\t<Items>\n\t\t<Item>\n\t\t\t<Name>1315
-        W STRAFORD DR</Name>\n\t\t\t<Area>Chandler</Area>\n\t\t\t<Areacode>CH</Areacode>\n\t\t\t<Postcode>85224</Postcode>\n\t\t\t<Type>N</Type>\n\t\t</Item>\n\t\t<Item>\n\t\t\t<Name>1315
-        W STRAFORD DR</Name>\n\t\t\t<Area>Chandler</Area>\n\t\t\t<Areacode>CH</Areacode>\n\t\t\t<Postcode>85225</Postcode>\n\t\t\t<Type>N</Type>\n\t\t</Item>\n\t</Items>\n\t<Requestor>68.226.126.17</Requestor>\n\t<Host>s-rpta-soap</Host>\n\t<Copyright>XML
-        schema Copyright (c) 2003-2013 Trapeze Software ULC, its subsidiaries and
-        affiliates.  All rights reserved.</Copyright>\n\t<Soapversion>2.6.3 - 11/14/13</Soapversion>\n</namesp1:LocationtypeaheadResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+        W STRAFORD DR</Name>\n\t\t\t<Area>Chandler</Area>\n\t\t\t<Areacode>CH</Areacode>\n\t\t\t<Postcode>
+        </Postcode>\n\t\t\t<Type>N</Type>\n\t\t</Item>\n\t</Items>\n\t<Appid>ratis-specs</Appid>\n\t<Requestor>72.222.151.25</Requestor>\n\t<Host>s-rpta-soap</Host>\n\t<Copyright>XML
+        schema Copyright (c) 2003-2014 Trapeze Software ULC, its subsidiaries and
+        affiliates.  All rights reserved.</Copyright>\n\t<Soapversion>2.7.1a - 05/14/14</Soapversion>\n</namesp1:LocationtypeaheadResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
     http_version: 
-  recorded_at: Tue, 11 Mar 2014 23:50:52 GMT
+  recorded_at: Sat, 14 Jun 2014 00:40:32 GMT
 recorded_with: VCR 2.8.0

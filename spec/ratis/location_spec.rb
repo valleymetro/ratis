@@ -1,24 +1,13 @@
 require 'spec_helper'
 
 describe Ratis::Location do
-  before do
-    Ratis.reset
-    Ratis.configure do |config|
-      config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi'
-      config.namespace  = 'PX_WEB'
-    end
-  end
-
   describe '#where', vcr: {} do
-    before do
-      @conditions = {:location => '1315 W. Straford Dr.',
-                     :media    => 'W' }
-    end
+    let(:conditions) { { :location => '1315 W. Straford Dr.', :media => 'W' } }
 
     it 'only makes one request' do
       # false just to stop further processing of response
       Ratis::Request.should_receive(:get).once.and_call_original
-      Ratis::Location.where(@conditions.dup)
+      Ratis::Location.where(conditions.dup)
     end
 
     it 'requests the correct SOAP action with correct args' do
@@ -30,18 +19,18 @@ describe Ratis::Location do
 
       end.and_return(double('response', :success? => false))
 
-      Ratis::Location.where(@conditions.dup)
+      Ratis::Location.where(conditions.dup)
     end
 
     it 'should return a collection of Ratis::Location(s)' do
-      locations = Ratis::Location.where(@conditions.dup)
+      locations = Ratis::Location.where(conditions.dup)
       locations.each do |obj|
         expect(obj).to be_a(Ratis::Location)
       end
     end
 
     it 'parses out fields correctly' do
-      locations = Ratis::Location.where(@conditions.dup)
+      locations = Ratis::Location.where(conditions.dup)
       first_location = locations.first
 
       expect(first_location.name).to eql 'W STRAFORD DR'

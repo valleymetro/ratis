@@ -2,20 +2,20 @@
 http_interactions:
 - request:
     method: post
-    uri: http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi
+    uri: http://soap.valleymetro.org/cgi-bin-soap-web-271/soap.cgi
     body:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="PX_WEB"
         xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><Getcategories
-        xmlns="PX_WEB"></Getcategories></env:Body></env:Envelope>
+        xmlns="PX_WEB"><Appid>ratis-specs</Appid></Getcategories></env:Body></env:Envelope>
     headers:
       Soapaction:
       - '"PX_WEB#Getcategories"'
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '307'
+      - '333'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -28,13 +28,13 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 06 Jan 2014 23:53:30 GMT
+      - Sat, 14 Jun 2014 00:40:02 GMT
       Server:
       - Apache/2.2.3 (CentOS)
       Soapserver:
       - SOAP::Lite/Perl/0.55
       Content-Length:
-      - '8529'
+      - '8541'
       Connection:
       - close
       Content-Type:
@@ -109,9 +109,9 @@ http_interactions:
         PERFORMING ARTS</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>WEBSHP</Type>\n\t\t\t<Description>WEB
         SHOPPING MALLS</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>WEBSPT</Type>\n\t\t\t<Description>WEB
         SPORTS VENUES</Description>\n\t\t</Typeinfo>\n\t\t<Typeinfo>\n\t\t\t<Type>WEBTC</Type>\n\t\t\t<Description>WEB
-        TRANSIT CENTERS</Description>\n\t\t</Typeinfo>\n\t</Types>\n\t<Appid></Appid>\n\t<Requestor>68.226.126.17</Requestor>\n\t<Host>s-rpta-soap</Host>\n\t<Copyright>XML
-        schema Copyright (c) 2003-2013 Trapeze Software ULC, its subsidiaries and
-        affiliates.  All rights reserved.</Copyright>\n\t<Soapversion>2.6.3 - 11/14/13</Soapversion>\n</namesp1:GetcategoriesResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+        TRANSIT CENTERS</Description>\n\t\t</Typeinfo>\n\t</Types>\n\t<Appid>ratis-specs</Appid>\n\t<Requestor>72.222.151.25</Requestor>\n\t<Host>s-rpta-soap</Host>\n\t<Copyright>XML
+        schema Copyright (c) 2003-2014 Trapeze Software ULC, its subsidiaries and
+        affiliates.  All rights reserved.</Copyright>\n\t<Soapversion>2.7.1a - 05/14/14</Soapversion>\n</namesp1:GetcategoriesResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
     http_version: 
-  recorded_at: Mon, 06 Jan 2014 23:53:30 GMT
+  recorded_at: Sat, 14 Jun 2014 00:40:02 GMT
 recorded_with: VCR 2.8.0

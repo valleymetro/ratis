@@ -13,7 +13,6 @@ module Ratis
       walk_distance = conditions.delete(:walk_distance)
       landmark_id   = conditions.delete(:landmark_id)
       stop_id       = conditions.delete(:stop_id) || ''
-      app_id        = conditions.delete(:app_id) || 'ratis-gem'
 
       raise ArgumentError.new('You must provide latitude') unless latitude
       raise ArgumentError.new('You must provide longitude') unless longitude
@@ -33,8 +32,7 @@ module Ratis
                              'Window'       => window,
                              'Walkdist'     => walk_distance,
                              'Landmarkid'   => landmark_id,
-                             'Stopid'       => stop_id,
-                             'Appid'        => app_id
+                             'Stopid'       => stop_id
                             }
 
       return [] unless response.success?

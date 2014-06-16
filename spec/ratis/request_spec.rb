@@ -1,14 +1,6 @@
 require 'spec_helper'
 
 describe Ratis::Request do
-  before do
-    Ratis.reset
-    Ratis.configure do |config|
-      config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi'
-      config.namespace  = 'PX_WEB'
-    end
-  end
-
   context 'new Requests get config from Ratis.configure block' do
     it 'gets config from initializing' do
       pending
@@ -19,11 +11,8 @@ describe Ratis::Request do
 
   context 'configured incorrectly' do
     context 'without Ratis.configure being called' do
-      before do
-        Ratis.reset
-      end
-
       it 'raises an exception when initialized before configuring' do
+        expect(Ratis.config).to receive(:valid?).at_least(:once) { false }
         expect do
           Ratis::Request.get 'SomeAction'
         end.to raise_error Ratis::Errors::ConfigError, 'It appears that Ratis.configure has not been called or properly setup'
@@ -34,14 +23,6 @@ end
 
 describe Ratis::Request do
   describe '#get' do
-    before do
-      Ratis.reset
-      Ratis.configure do |config|
-        config.endpoint   = 'http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi'
-        config.namespace  = 'PX_WEB'
-      end
-    end
-
     describe 'with no parameters' do
       it 'only makes one request with the correct SOAP action' do
 

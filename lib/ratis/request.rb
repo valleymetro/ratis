@@ -6,8 +6,8 @@ module Ratis
 
     def initialize(config = nil)
       config = Ratis.config if config.nil?
-      raise Errors::ConfigError('It appears that Ratis.configure has not been called') unless config.valid?
-      
+      raise Errors::ConfigError('It appears that Ratis.configure has not been called or properly setup') unless config.valid?
+
       self.class.client do
         wsdl.endpoint     = Ratis.config.endpoint
         wsdl.namespace    = Ratis.config.namespace
@@ -21,6 +21,9 @@ module Ratis
     def self.get(action, params = {})
       begin
         raise Errors::ConfigError, 'It appears that Ratis.configure has not been called or properly setup' unless Ratis.config.valid?
+
+        # Merge in the Appid as set in the configuration.
+        params.merge!({ 'Appid' => Ratis.config.appid })
 
         # ClassMethods from Savon::Model
         # Necessary since calling Ratis.configure doesn't allow changing of values set during Savon initialization

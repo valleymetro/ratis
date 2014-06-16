@@ -28,7 +28,6 @@ module Ratis
       location    = conditions.delete :location
       media       = (conditions.delete(:media)      || 'W').to_s.upcase
       max_answers = conditions.delete(:max_answers) || 20
-      app_id      = conditions.delete(:app_id)      || 'WEB'
       area        = conditions.delete(:area)
       region      = conditions.delete(:region)
 
@@ -38,8 +37,7 @@ module Ratis
 
       Ratis.all_conditions_used? conditions
 
-      response = Request.get 'Locate', {'Appid'      => app_id,
-                                        'Location'   => location,
+      response = Request.get 'Locate', {'Location'   => location,
                                         'Area'       => area,
                                         'Region'     => region,
                                         'Maxanswers' => max_answers,

@@ -12,16 +12,13 @@ module Ratis
     end
 
     def self.where(conditions)
-      app_id  = conditions.delete(:app_id) || 'WEB'
       type    = conditions.delete(:type).to_s.upcase
       zipcode = conditions.delete(:zipcode)
 
       raise ArgumentError.new('You must provide a type') if type.blank?
       Ratis.all_conditions_used? conditions
 
-      response = Request.get 'Getlandmarks', {'Appid'   => app_id,
-                                              'Type'    => type,
-                                              'Zipcode' => zipcode}
+      response = Request.get 'Getlandmarks', { 'Type' => type, 'Zipcode' => zipcode }
 
       return [] unless response.success?
 

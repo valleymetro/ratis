@@ -24,19 +24,14 @@ module Ratis
 
   class FleetLocation
 
-    def self.current(conditions)
-      app_id  = conditions.delete(:app_id) || 'WEB'
-
-      response = Request.get 'Fleetlocation', {'Appid' => app_id}
+    def self.current
+      response = Request.get 'Fleetlocation'
 
       return [] unless response.success?
 
       response.to_array(:fleetlocation_response, :vehicles, :vehicle).map do |vehicle|
         Vehicle.new(vehicle)
       end
-
     end
-
   end
-
 end

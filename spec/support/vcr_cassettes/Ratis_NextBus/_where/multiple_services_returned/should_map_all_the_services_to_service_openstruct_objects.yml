@@ -2,12 +2,12 @@
 http_interactions:
 - request:
     method: post
-    uri: http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi
+    uri: http://soap.valleymetro.org/cgi-bin-soap-web-271/soap.cgi
     body:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="PX_WEB"
-        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><Nextbus xmlns="PX_WEB"><Stopid>15894</Stopid><Appid>ratis-specs</Appid><Date>01/13/2014</Date><Time>1500</Time><Type>N</Type></Nextbus></env:Body></env:Envelope>
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><Nextbus xmlns="PX_WEB"><Stopid>15894</Stopid><Date>06/16/2014</Date><Time>1500</Time><Type>N</Type><Appid>ratis-specs</Appid></Nextbus></env:Body></env:Envelope>
     headers:
       Soapaction:
       - '"PX_WEB#Nextbus"'
@@ -27,13 +27,13 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 06 Jan 2014 23:53:37 GMT
+      - Sat, 14 Jun 2014 00:41:29 GMT
       Server:
       - Apache/2.2.3 (CentOS)
       Soapserver:
       - SOAP::Lite/Perl/0.55
       Content-Length:
-      - '8829'
+      - '8874'
       Connection:
       - close
       Content-Type:
@@ -43,67 +43,68 @@ http_interactions:
       string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><SOAP-ENV:Envelope xmlns:xsi=\"http://www.w3.org/1999/XMLSchema-instance\"
         xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\"
         xmlns:xsd=\"http://www.w3.org/1999/XMLSchema\" SOAP-ENV:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"><SOAP-ENV:Body><namesp1:NextbusResponse
-        xmlns:namesp1=\"PX_WEB\">\n\t<Responsecode>0</Responsecode>\n\t<Version>1.26</Version>\n\t<Input>\n\t\t<Locationlat></Locationlat>\n\t\t<Locationlong></Locationlong>\n\t\t<Locationtext></Locationtext>\n\t\t<Atisstopid>0</Atisstopid>\n\t\t<Stopid>15894</Stopid>\n\t\t<Landmarkid></Landmarkid>\n\t\t<Date>01/13/2014</Date>\n\t\t<Time>03:00
+        xmlns:namesp1=\"PX_WEB\">\n\t<Responsecode>0</Responsecode>\n\t<Version>1.26</Version>\n\t<Input>\n\t\t<Locationlat>0</Locationlat>\n\t\t<Locationlong>0</Locationlong>\n\t\t<Locationtext>postedid
+        15894</Locationtext>\n\t\t<Atisstopid>0</Atisstopid>\n\t\t<Stopid>15894</Stopid>\n\t\t<Landmarkid></Landmarkid>\n\t\t<Date>06/16/2014</Date>\n\t\t<Time>03:00
         PM</Time>\n\t\t<Route></Route>\n\t</Input>\n\t<Atstop>\n\t\t<Walkdist>0.00</Walkdist>\n\t\t<Description>ELLIOT
         RD &amp; CENTRAL DR</Description>\n\t\t<Area>Chandler</Area>\n\t\t<Atisstopid>6567</Atisstopid>\n\t\t<Stopid>15894</Stopid>\n\t\t<Lat>33.349730</Lat>\n\t\t<Long>-111.865807</Long>\n\t\t<Stopposition>Y</Stopposition>\n\t\t<Heading>WB</Heading>\n\t\t<Side>Far</Side>\n\t\t<Stopstatustype>N</Stopstatustype>\n\t\t<Service>\n\t\t\t<Route>108</Route>\n\t\t\t<Publicroute>108</Publicroute>\n\t\t\t<Sign>108
         Elliot/48th St West To 40th St/Pecos</Sign>\n\t\t\t<Operator>FTE</Operator>\n\t\t\t<Publicoperator>FTE</Publicoperator>\n\t\t\t<Direction>W</Direction>\n\t\t\t<Status>N</Status>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<Times>07:07
         AM, 03:07 PM, 03:37 PM, 04:07 PM</Times>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>07:07
-        AM</Triptime>\n\t\t\t\t<Tripid>11912-1</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>07:07
+        AM</Triptime>\n\t\t\t\t<Tripid>16502-1</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>07:07
         AM</Estimatedtime>\n\t\t\t\t<Realtime>\n\t\t\t\t\t<Valid>N</Valid>\n\t\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t\t<Estimatedtime>07:07
         AM</Estimatedtime>\n\t\t\t\t\t<Estimatedminutes> </Estimatedminutes>\n\t\t\t\t\t<Polltime></Polltime>\n\t\t\t\t\t<Trend>
         </Trend>\n\t\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t\t<Reliable>N</Reliable>\n\t\t\t\t\t<Stopped>
-        </Stopped>\n\t\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t\t<Long>0.000000</Long>\n\t\t\t\t</Realtime>\n\t\t\t\t<Block>5610</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>03:07
-        PM</Triptime>\n\t\t\t\t<Tripid>11912-2</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>03:07
+        </Stopped>\n\t\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t\t<Long>0.000000</Long>\n\t\t\t\t</Realtime>\n\t\t\t\t<Block>5048</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>03:07
+        PM</Triptime>\n\t\t\t\t<Tripid>16502-2</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>03:07
         PM</Estimatedtime>\n\t\t\t\t<Realtime>\n\t\t\t\t\t<Valid>N</Valid>\n\t\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t\t<Estimatedtime>03:07
         PM</Estimatedtime>\n\t\t\t\t\t<Estimatedminutes> </Estimatedminutes>\n\t\t\t\t\t<Polltime></Polltime>\n\t\t\t\t\t<Trend>
         </Trend>\n\t\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t\t<Reliable>N</Reliable>\n\t\t\t\t\t<Stopped>
-        </Stopped>\n\t\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t\t<Long>0.000000</Long>\n\t\t\t\t</Realtime>\n\t\t\t\t<Block>5605</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>03:37
-        PM</Triptime>\n\t\t\t\t<Tripid>11912-2</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>03:37
+        </Stopped>\n\t\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t\t<Long>0.000000</Long>\n\t\t\t\t</Realtime>\n\t\t\t\t<Block>5044</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>03:37
+        PM</Triptime>\n\t\t\t\t<Tripid>16502-2</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>03:37
         PM</Estimatedtime>\n\t\t\t\t<Realtime>\n\t\t\t\t\t<Valid>N</Valid>\n\t\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t\t<Estimatedtime>03:37
         PM</Estimatedtime>\n\t\t\t\t\t<Estimatedminutes> </Estimatedminutes>\n\t\t\t\t\t<Polltime></Polltime>\n\t\t\t\t\t<Trend>
         </Trend>\n\t\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t\t<Reliable>N</Reliable>\n\t\t\t\t\t<Stopped>
-        </Stopped>\n\t\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t\t<Long>0.000000</Long>\n\t\t\t\t</Realtime>\n\t\t\t\t<Block>5606</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>04:07
-        PM</Triptime>\n\t\t\t\t<Tripid>11912-3</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>04:07
+        </Stopped>\n\t\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t\t<Long>0.000000</Long>\n\t\t\t\t</Realtime>\n\t\t\t\t<Block>5072</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>04:07
+        PM</Triptime>\n\t\t\t\t<Tripid>16502-3</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>04:07
         PM</Estimatedtime>\n\t\t\t\t<Realtime>\n\t\t\t\t\t<Valid>N</Valid>\n\t\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t\t<Estimatedtime>04:07
         PM</Estimatedtime>\n\t\t\t\t\t<Estimatedminutes> </Estimatedminutes>\n\t\t\t\t\t<Polltime></Polltime>\n\t\t\t\t\t<Trend>
         </Trend>\n\t\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t\t<Reliable>N</Reliable>\n\t\t\t\t\t<Stopped>
-        </Stopped>\n\t\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t\t<Long>0.000000</Long>\n\t\t\t\t</Realtime>\n\t\t\t\t<Block>5609</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t</Service>\n\t\t<Service>\n\t\t\t<Route>108</Route>\n\t\t\t<Publicroute>108</Publicroute>\n\t\t\t<Sign>108
+        </Stopped>\n\t\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t\t<Long>0.000000</Long>\n\t\t\t\t</Realtime>\n\t\t\t\t<Block>5047</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t</Service>\n\t\t<Service>\n\t\t\t<Route>108</Route>\n\t\t\t<Publicroute>108</Publicroute>\n\t\t\t<Sign>108
         Elliot/48th St West To 48th St/Chandler</Sign>\n\t\t\t<Operator>FTE</Operator>\n\t\t\t<Publicoperator>FTE</Publicoperator>\n\t\t\t<Direction>W</Direction>\n\t\t\t<Status>N</Status>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<Times>02:07
         PM, 07:07 PM, 07:37 PM, 08:07 PM</Times>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>02:07
-        PM</Triptime>\n\t\t\t\t<Tripid>11913-6</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>02:07
+        PM</Triptime>\n\t\t\t\t<Tripid>16503-6</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>02:07
         PM</Estimatedtime>\n\t\t\t\t<Realtime>\n\t\t\t\t\t<Valid>N</Valid>\n\t\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t\t<Estimatedtime>02:07
         PM</Estimatedtime>\n\t\t\t\t\t<Estimatedminutes> </Estimatedminutes>\n\t\t\t\t\t<Polltime></Polltime>\n\t\t\t\t\t<Trend>
         </Trend>\n\t\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t\t<Reliable>N</Reliable>\n\t\t\t\t\t<Stopped>
-        </Stopped>\n\t\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t\t<Long>0.000000</Long>\n\t\t\t\t</Realtime>\n\t\t\t\t<Block>5600</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>07:07
-        PM</Triptime>\n\t\t\t\t<Tripid>11913-6</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>07:07
+        </Stopped>\n\t\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t\t<Long>0.000000</Long>\n\t\t\t\t</Realtime>\n\t\t\t\t<Block>4174</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>07:07
+        PM</Triptime>\n\t\t\t\t<Tripid>16503-6</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>07:07
         PM</Estimatedtime>\n\t\t\t\t<Realtime>\n\t\t\t\t\t<Valid>N</Valid>\n\t\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t\t<Estimatedtime>07:07
         PM</Estimatedtime>\n\t\t\t\t\t<Estimatedminutes> </Estimatedminutes>\n\t\t\t\t\t<Polltime></Polltime>\n\t\t\t\t\t<Trend>
         </Trend>\n\t\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t\t<Reliable>N</Reliable>\n\t\t\t\t\t<Stopped>
-        </Stopped>\n\t\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t\t<Long>0.000000</Long>\n\t\t\t\t</Realtime>\n\t\t\t\t<Block>5606</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>07:37
-        PM</Triptime>\n\t\t\t\t<Tripid>11913-7</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>07:37
+        </Stopped>\n\t\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t\t<Long>0.000000</Long>\n\t\t\t\t</Realtime>\n\t\t\t\t<Block>5072</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>07:37
+        PM</Triptime>\n\t\t\t\t<Tripid>16503-7</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>07:37
         PM</Estimatedtime>\n\t\t\t\t<Realtime>\n\t\t\t\t\t<Valid>N</Valid>\n\t\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t\t<Estimatedtime>07:37
         PM</Estimatedtime>\n\t\t\t\t\t<Estimatedminutes> </Estimatedminutes>\n\t\t\t\t\t<Polltime></Polltime>\n\t\t\t\t\t<Trend>
         </Trend>\n\t\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t\t<Reliable>N</Reliable>\n\t\t\t\t\t<Stopped>
-        </Stopped>\n\t\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t\t<Long>0.000000</Long>\n\t\t\t\t</Realtime>\n\t\t\t\t<Block>5609</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>08:07
-        PM</Triptime>\n\t\t\t\t<Tripid>11913-7</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>08:07
+        </Stopped>\n\t\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t\t<Long>0.000000</Long>\n\t\t\t\t</Realtime>\n\t\t\t\t<Block>5047</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>08:07
+        PM</Triptime>\n\t\t\t\t<Tripid>16503-7</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>08:07
         PM</Estimatedtime>\n\t\t\t\t<Realtime>\n\t\t\t\t\t<Valid>N</Valid>\n\t\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t\t<Estimatedtime>08:07
         PM</Estimatedtime>\n\t\t\t\t\t<Estimatedminutes> </Estimatedminutes>\n\t\t\t\t\t<Polltime></Polltime>\n\t\t\t\t\t<Trend>
         </Trend>\n\t\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t\t<Reliable>N</Reliable>\n\t\t\t\t\t<Stopped>
-        </Stopped>\n\t\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t\t<Long>0.000000</Long>\n\t\t\t\t</Realtime>\n\t\t\t\t<Block>5610</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t</Service>\n\t\t<Service>\n\t\t\t<Route>108</Route>\n\t\t\t<Publicroute>108</Publicroute>\n\t\t\t<Sign>108
+        </Stopped>\n\t\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t\t<Long>0.000000</Long>\n\t\t\t\t</Realtime>\n\t\t\t\t<Block>5048</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t</Service>\n\t\t<Service>\n\t\t\t<Route>108</Route>\n\t\t\t<Publicroute>108</Publicroute>\n\t\t\t<Sign>108
         Elliot/48th St West To 48th St/Chandler Via Sosmn/Bsnln</Sign>\n\t\t\t<Operator>FTE</Operator>\n\t\t\t<Publicoperator>FTE</Publicoperator>\n\t\t\t<Direction>W</Direction>\n\t\t\t<Status>N</Status>\n\t\t\t<Servicetype>W</Servicetype>\n\t\t\t<Routetype>B</Routetype>\n\t\t\t<Times>02:37
-        PM, 06:37 PM</Times>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>02:37 PM</Triptime>\n\t\t\t\t<Tripid>11915-0</Tripid>\n\t\t\t\t<Skedtripid>
+        PM, 06:37 PM</Times>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>02:37 PM</Triptime>\n\t\t\t\t<Tripid>16505-0</Tripid>\n\t\t\t\t<Skedtripid>
         </Skedtripid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>02:37
         PM</Estimatedtime>\n\t\t\t\t<Realtime>\n\t\t\t\t\t<Valid>N</Valid>\n\t\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t\t<Estimatedtime>02:37
         PM</Estimatedtime>\n\t\t\t\t\t<Estimatedminutes> </Estimatedminutes>\n\t\t\t\t\t<Polltime></Polltime>\n\t\t\t\t\t<Trend>
         </Trend>\n\t\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t\t<Reliable>N</Reliable>\n\t\t\t\t\t<Stopped>
-        </Stopped>\n\t\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t\t<Long>0.000000</Long>\n\t\t\t\t</Realtime>\n\t\t\t\t<Block>5607</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>06:37
-        PM</Triptime>\n\t\t\t\t<Tripid>11915-1</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>06:37
+        </Stopped>\n\t\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t\t<Long>0.000000</Long>\n\t\t\t\t</Realtime>\n\t\t\t\t<Block>5045</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t\t<Tripinfo>\n\t\t\t\t<Triptime>06:37
+        PM</Triptime>\n\t\t\t\t<Tripid>16505-1</Tripid>\n\t\t\t\t<Skedtripid> </Skedtripid>\n\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t<Estimatedtime>06:37
         PM</Estimatedtime>\n\t\t\t\t<Realtime>\n\t\t\t\t\t<Valid>N</Valid>\n\t\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t\t<Estimatedtime>06:37
         PM</Estimatedtime>\n\t\t\t\t\t<Estimatedminutes> </Estimatedminutes>\n\t\t\t\t\t<Polltime></Polltime>\n\t\t\t\t\t<Trend>
         </Trend>\n\t\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t\t<Reliable>N</Reliable>\n\t\t\t\t\t<Stopped>
-        </Stopped>\n\t\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t\t<Long>0.000000</Long>\n\t\t\t\t</Realtime>\n\t\t\t\t<Block>5605</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t</Service>\n\t</Atstop>\n\t<Statusinfo></Statusinfo>\n\t<Requestor>68.226.126.17</Requestor>\n\t<Host>s-rpta-soap</Host>\n\t<Copyright>XML
-        schema Copyright (c) 2003-2013 Trapeze Software ULC, its subsidiaries and
-        affiliates.  All rights reserved.</Copyright>\n\t<Soapversion>2.6.3 - 11/14/13</Soapversion>\n</namesp1:NextbusResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+        </Stopped>\n\t\t\t\t\t<Vehicleid></Vehicleid>\n\t\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t\t<Long>0.000000</Long>\n\t\t\t\t</Realtime>\n\t\t\t\t<Block>5044</Block>\n\t\t\t\t<Exception>N</Exception>\n\t\t\t</Tripinfo>\n\t\t</Service>\n\t</Atstop>\n\t<Statusinfo></Statusinfo>\n\t<Appid>ratis-specs</Appid>\n\t<Requestor>72.222.151.25</Requestor>\n\t<Host>s-rpta-soap</Host>\n\t<Copyright>XML
+        schema Copyright (c) 2003-2014 Trapeze Software ULC, its subsidiaries and
+        affiliates.  All rights reserved.</Copyright>\n\t<Soapversion>2.7.1a - 05/14/14</Soapversion>\n</namesp1:NextbusResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
     http_version: 
-  recorded_at: Mon, 06 Jan 2014 23:53:37 GMT
+  recorded_at: Sat, 14 Jun 2014 00:41:29 GMT
 recorded_with: VCR 2.8.0

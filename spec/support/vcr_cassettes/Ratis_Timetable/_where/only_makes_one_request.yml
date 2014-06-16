@@ -2,20 +2,20 @@
 http_interactions:
 - request:
     method: post
-    uri: http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi
+    uri: http://soap.valleymetro.org/cgi-bin-soap-web-271/soap.cgi
     body:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="PX_WEB"
         xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><Timetable
-        xmlns="PX_WEB"><Route>ZERO</Route><Direction>N</Direction><Date>01/06/2014</Date></Timetable></env:Body></env:Envelope>
+        xmlns="PX_WEB"><Route>ZERO</Route><Direction>N</Direction><Date>06/17/14</Date><Appid>ratis-specs</Appid></Timetable></env:Body></env:Envelope>
     headers:
       Soapaction:
       - '"PX_WEB#Timetable"'
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '365'
+      - '389'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -28,13 +28,13 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 06 Jan 2014 23:53:32 GMT
+      - Mon, 16 Jun 2014 18:13:06 GMT
       Server:
       - Apache/2.2.3 (CentOS)
       Soapserver:
       - SOAP::Lite/Perl/0.55
       Content-Length:
-      - '70385'
+      - '70639'
       Connection:
       - close
       Content-Type:
@@ -44,9 +44,9 @@ http_interactions:
       string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><SOAP-ENV:Envelope xmlns:xsi=\"http://www.w3.org/1999/XMLSchema-instance\"
         xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\"
         xmlns:xsd=\"http://www.w3.org/1999/XMLSchema\" SOAP-ENV:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"><SOAP-ENV:Body><namesp1:TimetableResponse
-        xmlns:namesp1=\"PX_WEB\">\n\t<Responsecode>0</Responsecode>\n\t<Version>1.3</Version>\n\t<Headway>\n\t\t<Route>ZERO</Route>\n\t\t<Direction>N</Direction>\n\t\t<Servicetype>Weekday</Servicetype>\n\t<Signage>0
+        xmlns:namesp1=\"PX_WEB\">\n\t<Responsecode>0</Responsecode>\n\t<Version>1.3</Version>\n\n\t<Headway>\n\t\t<Route>ZERO</Route>\n\t\t<Direction>N</Direction>\n\t\t<Servicetype>Weekday</Servicetype>\n\t<Signage>0
         CENTRAL North to Dunlap/3rd St.</Signage>\n\t\t<Routedescription>0 CENTRAL
-        North to Dunlap/3rd St.</Routedescription>\n\t\t<Operator>AP</Operator>\n\t\t<Effective>10/28/13</Effective>\n\t\t<Timepoints>\n\t\t\t<Stop>\n\t\t\t\t<Atisstopid>3317</Atisstopid>\n\t\t\t\t<Stopid>10050</Stopid>\n\t<Description>CENTRAL
+        North to Dunlap/3rd St.</Routedescription>\n\t\t<Operator>AP</Operator>\n\t\t<Effective>04/28/14</Effective>\n\t\t<Timepoints>\n\t\t\t<Stop>\n\t\t\t\t<Atisstopid>3317</Atisstopid>\n\t\t\t\t<Stopid>10050</Stopid>\n\t<Description>CENTRAL
         AVE &amp;amp; DOBBINS RD</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Lat>33.363681</Lat>\n\t\t\t\t<Long>-112.073119</Long>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Atisstopid>3314</Atisstopid>\n\t\t\t\t<Stopid>10054</Stopid>\n\t<Description>CENTRAL
         AVE &amp;amp; BASELINE RD</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Lat>33.378722</Lat>\n\t\t\t\t<Long>-112.073089</Long>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Atisstopid>3315</Atisstopid>\n\t\t\t\t<Stopid>10062</Stopid>\n\t<Description>CENTRAL
         AVE &amp;amp; BROADWAY RD</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Lat>33.407284</Lat>\n\t\t\t\t<Long>-112.073292</Long>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Atisstopid>1872</Atisstopid>\n\t\t\t\t<Stopid>10076</Stopid>\n\t<Description>CENTRAL
@@ -54,669 +54,669 @@ http_interactions:
         AVE &amp;amp; THOMAS RD</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Lat>33.480499</Lat>\n\t\t\t\t<Long>-112.073496</Long>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Atisstopid>2812</Atisstopid>\n\t\t\t\t<Stopid>10100</Stopid>\n\t<Description>CENTRAL
         AVE &amp;amp; CAMELBACK RD</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Lat>33.509792</Lat>\n\t\t\t\t<Long>-112.073659</Long>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Atisstopid>2820</Atisstopid>\n\t\t\t\t<Stopid>10109</Stopid>\n\t<Description>CENTRAL
         AVE &amp;amp; GLENDALE AVE</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Lat>33.538719</Lat>\n\t\t\t\t<Long>-112.073614</Long>\n\t\t\t</Stop>\n\t\t\t<Stop>\n\t\t\t\t<Atisstopid>999</Atisstopid>\n\t\t\t\t<Stopid>10119</Stopid>\n\t<Description>SUNNYSLOPE
-        TRANSIT CENTER  &amp;amp; -- DUNLAP AVE &amp;amp; TOWNLEY AVE</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Lat>33.567157</Lat>\n\t\t\t\t<Long>-112.069168</Long>\n\t\t\t</Stop>\n\t\t</Timepoints>\n\t\t<Times>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-0</Tripid>\n\t\t\t\t<Block>2</Block>\n\t<Sign>0
+        TRANSIT CENTER  &amp;amp; -- DUNLAP AVE &amp;amp; TOWNLEY AVE</Description>\n\t\t\t\t<Area>Phoenix</Area>\n\t\t\t\t<Lat>33.567157</Lat>\n\t\t\t\t<Long>-112.069168</Long>\n\t\t\t</Stop>\n\t\t</Timepoints>\n\t\t<Times>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-0</Tripid>\n\t\t\t\t<Block>190</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>05:10
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>05:10
         AM</Time>\n\t\t\t\t<Time>05:14 AM</Time>\n\t\t\t\t<Time>05:22 AM</Time>\n\t\t\t\t<Time>05:35
         AM</Time>\n\t\t\t\t<Time>05:43 AM</Time>\n\t\t\t\t<Time>05:51 AM</Time>\n\t\t\t\t<Time>05:59
-        AM</Time>\n\t\t\t\t<Time>06:10 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-0</Tripid>\n\t\t\t\t<Block>2</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>06:10 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-0</Tripid>\n\t\t\t\t<Block>190</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>05:10
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>05:10
         AM</Time>\n\t\t\t\t<Time>05:14 AM</Time>\n\t\t\t\t<Time>05:22 AM</Time>\n\t\t\t\t<Time>05:35
         AM</Time>\n\t\t\t\t<Time>05:43 AM</Time>\n\t\t\t\t<Time>05:51 AM</Time>\n\t\t\t\t<Time>05:59
-        AM</Time>\n\t\t\t\t<Time>06:10 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-1</Tripid>\n\t\t\t\t<Block>4</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>06:10 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-1</Tripid>\n\t\t\t\t<Block>192</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>05:30
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>05:30
         AM</Time>\n\t\t\t\t<Time>05:34 AM</Time>\n\t\t\t\t<Time>05:42 AM</Time>\n\t\t\t\t<Time>05:55
         AM</Time>\n\t\t\t\t<Time>06:03 AM</Time>\n\t\t\t\t<Time>06:13 AM</Time>\n\t\t\t\t<Time>06:22
-        AM</Time>\n\t\t\t\t<Time>06:33 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-1</Tripid>\n\t\t\t\t<Block>4</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>06:33 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-1</Tripid>\n\t\t\t\t<Block>192</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>05:30
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>05:30
         AM</Time>\n\t\t\t\t<Time>05:34 AM</Time>\n\t\t\t\t<Time>05:42 AM</Time>\n\t\t\t\t<Time>05:55
         AM</Time>\n\t\t\t\t<Time>06:03 AM</Time>\n\t\t\t\t<Time>06:13 AM</Time>\n\t\t\t\t<Time>06:22
-        AM</Time>\n\t\t\t\t<Time>06:33 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-2</Tripid>\n\t\t\t\t<Block>7</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>06:33 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-2</Tripid>\n\t\t\t\t<Block>194</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>05:49
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>05:49
         AM</Time>\n\t\t\t\t<Time>05:53 AM</Time>\n\t\t\t\t<Time>06:01 AM</Time>\n\t\t\t\t<Time>06:15
         AM</Time>\n\t\t\t\t<Time>06:24 AM</Time>\n\t\t\t\t<Time>06:34 AM</Time>\n\t\t\t\t<Time>06:43
-        AM</Time>\n\t\t\t\t<Time>06:54 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-2</Tripid>\n\t\t\t\t<Block>7</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>06:54 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-2</Tripid>\n\t\t\t\t<Block>194</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>05:49
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>05:49
         AM</Time>\n\t\t\t\t<Time>05:53 AM</Time>\n\t\t\t\t<Time>06:01 AM</Time>\n\t\t\t\t<Time>06:15
         AM</Time>\n\t\t\t\t<Time>06:24 AM</Time>\n\t\t\t\t<Time>06:34 AM</Time>\n\t\t\t\t<Time>06:43
-        AM</Time>\n\t\t\t\t<Time>06:54 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12314-0</Tripid>\n\t\t\t\t<Block>8</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>06:54 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16894-0</Tripid>\n\t\t\t\t<Block>196</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12314-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>06:03
-        AM</Time>\n\t\t\t\t<Time>06:11 AM</Time>\n\t\t\t\t<Time>06:25 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12316-0</Tripid>\n\t\t\t\t<Block>10</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16894-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>06:03
+        AM</Time>\n\t\t\t\t<Time>06:11 AM</Time>\n\t\t\t\t<Time>06:25 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16896-0</Tripid>\n\t\t\t\t<Block>196</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12316-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>06:03
-        AM</Time>\n\t\t\t\t<Time>06:11 AM</Time>\n\t\t\t\t<Time>06:25 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-3</Tripid>\n\t\t\t\t<Block>10</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16896-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>06:03
+        AM</Time>\n\t\t\t\t<Time>06:11 AM</Time>\n\t\t\t\t<Time>06:25 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-3</Tripid>\n\t\t\t\t<Block>198</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>06:09
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>06:09
         AM</Time>\n\t\t\t\t<Time>06:13 AM</Time>\n\t\t\t\t<Time>06:21 AM</Time>\n\t\t\t\t<Time>06:35
         AM</Time>\n\t\t\t\t<Time>06:44 AM</Time>\n\t\t\t\t<Time>06:54 AM</Time>\n\t\t\t\t<Time>07:03
-        AM</Time>\n\t\t\t\t<Time>07:14 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-3</Tripid>\n\t\t\t\t<Block>8</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>07:14 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-3</Tripid>\n\t\t\t\t<Block>198</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>06:09
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>06:09
         AM</Time>\n\t\t\t\t<Time>06:13 AM</Time>\n\t\t\t\t<Time>06:21 AM</Time>\n\t\t\t\t<Time>06:35
         AM</Time>\n\t\t\t\t<Time>06:44 AM</Time>\n\t\t\t\t<Time>06:54 AM</Time>\n\t\t\t\t<Time>07:03
-        AM</Time>\n\t\t\t\t<Time>07:14 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12314-1</Tripid>\n\t\t\t\t<Block>11</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>07:14 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16894-1</Tripid>\n\t\t\t\t<Block>199</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12314-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>06:23
-        AM</Time>\n\t\t\t\t<Time>06:31 AM</Time>\n\t\t\t\t<Time>06:45 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12316-1</Tripid>\n\t\t\t\t<Block>12</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16894-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>06:23
+        AM</Time>\n\t\t\t\t<Time>06:31 AM</Time>\n\t\t\t\t<Time>06:45 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16896-1</Tripid>\n\t\t\t\t<Block>199</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12316-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>06:23
-        AM</Time>\n\t\t\t\t<Time>06:31 AM</Time>\n\t\t\t\t<Time>06:45 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-4</Tripid>\n\t\t\t\t<Block>1</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16896-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>06:23
+        AM</Time>\n\t\t\t\t<Time>06:31 AM</Time>\n\t\t\t\t<Time>06:45 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-4</Tripid>\n\t\t\t\t<Block>189</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>06:29
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>06:29
         AM</Time>\n\t\t\t\t<Time>06:33 AM</Time>\n\t\t\t\t<Time>06:41 AM</Time>\n\t\t\t\t<Time>06:55
         AM</Time>\n\t\t\t\t<Time>07:04 AM</Time>\n\t\t\t\t<Time>07:14 AM</Time>\n\t\t\t\t<Time>07:23
-        AM</Time>\n\t\t\t\t<Time>07:34 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-4</Tripid>\n\t\t\t\t<Block>1</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>07:34 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-4</Tripid>\n\t\t\t\t<Block>189</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>06:29
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>06:29
         AM</Time>\n\t\t\t\t<Time>06:33 AM</Time>\n\t\t\t\t<Time>06:41 AM</Time>\n\t\t\t\t<Time>06:55
         AM</Time>\n\t\t\t\t<Time>07:04 AM</Time>\n\t\t\t\t<Time>07:14 AM</Time>\n\t\t\t\t<Time>07:23
-        AM</Time>\n\t\t\t\t<Time>07:34 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12314-2</Tripid>\n\t\t\t\t<Block>9</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>07:34 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16894-2</Tripid>\n\t\t\t\t<Block>197</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12314-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>06:43
-        AM</Time>\n\t\t\t\t<Time>06:51 AM</Time>\n\t\t\t\t<Time>07:05 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12316-2</Tripid>\n\t\t\t\t<Block>11</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16894-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>06:43
+        AM</Time>\n\t\t\t\t<Time>06:51 AM</Time>\n\t\t\t\t<Time>07:05 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16896-2</Tripid>\n\t\t\t\t<Block>197</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12316-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>06:43
-        AM</Time>\n\t\t\t\t<Time>06:51 AM</Time>\n\t\t\t\t<Time>07:05 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-5</Tripid>\n\t\t\t\t<Block>3</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16896-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>06:43
+        AM</Time>\n\t\t\t\t<Time>06:51 AM</Time>\n\t\t\t\t<Time>07:05 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-5</Tripid>\n\t\t\t\t<Block>191</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>06:49
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>06:49
         AM</Time>\n\t\t\t\t<Time>06:53 AM</Time>\n\t\t\t\t<Time>07:01 AM</Time>\n\t\t\t\t<Time>07:15
         AM</Time>\n\t\t\t\t<Time>07:24 AM</Time>\n\t\t\t\t<Time>07:34 AM</Time>\n\t\t\t\t<Time>07:43
-        AM</Time>\n\t\t\t\t<Time>07:54 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-5</Tripid>\n\t\t\t\t<Block>3</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>07:54 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-5</Tripid>\n\t\t\t\t<Block>191</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>06:49
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>06:49
         AM</Time>\n\t\t\t\t<Time>06:53 AM</Time>\n\t\t\t\t<Time>07:01 AM</Time>\n\t\t\t\t<Time>07:15
         AM</Time>\n\t\t\t\t<Time>07:24 AM</Time>\n\t\t\t\t<Time>07:34 AM</Time>\n\t\t\t\t<Time>07:43
-        AM</Time>\n\t\t\t\t<Time>07:54 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12314-3</Tripid>\n\t\t\t\t<Block>8</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>07:54 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16894-3</Tripid>\n\t\t\t\t<Block>196</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12314-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>07:03
-        AM</Time>\n\t\t\t\t<Time>07:11 AM</Time>\n\t\t\t\t<Time>07:25 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12316-3</Tripid>\n\t\t\t\t<Block>10</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16894-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>07:03
+        AM</Time>\n\t\t\t\t<Time>07:11 AM</Time>\n\t\t\t\t<Time>07:25 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16896-3</Tripid>\n\t\t\t\t<Block>196</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12316-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>07:03
-        AM</Time>\n\t\t\t\t<Time>07:11 AM</Time>\n\t\t\t\t<Time>07:25 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-6</Tripid>\n\t\t\t\t<Block>5</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16896-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>07:03
+        AM</Time>\n\t\t\t\t<Time>07:11 AM</Time>\n\t\t\t\t<Time>07:25 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-6</Tripid>\n\t\t\t\t<Block>193</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>07:09
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>07:09
         AM</Time>\n\t\t\t\t<Time>07:13 AM</Time>\n\t\t\t\t<Time>07:21 AM</Time>\n\t\t\t\t<Time>07:35
         AM</Time>\n\t\t\t\t<Time>07:44 AM</Time>\n\t\t\t\t<Time>07:54 AM</Time>\n\t\t\t\t<Time>08:03
-        AM</Time>\n\t\t\t\t<Time>08:14 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-6</Tripid>\n\t\t\t\t<Block>5</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>08:14 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-6</Tripid>\n\t\t\t\t<Block>193</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>07:09
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>07:09
         AM</Time>\n\t\t\t\t<Time>07:13 AM</Time>\n\t\t\t\t<Time>07:21 AM</Time>\n\t\t\t\t<Time>07:35
         AM</Time>\n\t\t\t\t<Time>07:44 AM</Time>\n\t\t\t\t<Time>07:54 AM</Time>\n\t\t\t\t<Time>08:03
-        AM</Time>\n\t\t\t\t<Time>08:14 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12314-4</Tripid>\n\t\t\t\t<Block>11</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>08:14 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16894-4</Tripid>\n\t\t\t\t<Block>199</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12314-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>07:23
-        AM</Time>\n\t\t\t\t<Time>07:31 AM</Time>\n\t\t\t\t<Time>07:45 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12316-4</Tripid>\n\t\t\t\t<Block>12</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16894-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>07:23
+        AM</Time>\n\t\t\t\t<Time>07:31 AM</Time>\n\t\t\t\t<Time>07:45 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16896-4</Tripid>\n\t\t\t\t<Block>199</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12316-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>07:23
-        AM</Time>\n\t\t\t\t<Time>07:31 AM</Time>\n\t\t\t\t<Time>07:45 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-7</Tripid>\n\t\t\t\t<Block>6</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16896-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>07:23
+        AM</Time>\n\t\t\t\t<Time>07:31 AM</Time>\n\t\t\t\t<Time>07:45 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-7</Tripid>\n\t\t\t\t<Block>195</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>07:29
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>07:29
         AM</Time>\n\t\t\t\t<Time>07:33 AM</Time>\n\t\t\t\t<Time>07:41 AM</Time>\n\t\t\t\t<Time>07:55
         AM</Time>\n\t\t\t\t<Time>08:04 AM</Time>\n\t\t\t\t<Time>08:14 AM</Time>\n\t\t\t\t<Time>08:23
-        AM</Time>\n\t\t\t\t<Time>08:34 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-7</Tripid>\n\t\t\t\t<Block>6</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>08:34 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-7</Tripid>\n\t\t\t\t<Block>195</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>07:29
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>07:29
         AM</Time>\n\t\t\t\t<Time>07:33 AM</Time>\n\t\t\t\t<Time>07:41 AM</Time>\n\t\t\t\t<Time>07:55
         AM</Time>\n\t\t\t\t<Time>08:04 AM</Time>\n\t\t\t\t<Time>08:14 AM</Time>\n\t\t\t\t<Time>08:23
-        AM</Time>\n\t\t\t\t<Time>08:34 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12314-5</Tripid>\n\t\t\t\t<Block>9</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>08:34 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16894-5</Tripid>\n\t\t\t\t<Block>197</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12314-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>07:43
-        AM</Time>\n\t\t\t\t<Time>07:51 AM</Time>\n\t\t\t\t<Time>08:05 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12316-5</Tripid>\n\t\t\t\t<Block>11</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16894-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>07:43
+        AM</Time>\n\t\t\t\t<Time>07:51 AM</Time>\n\t\t\t\t<Time>08:05 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16896-5</Tripid>\n\t\t\t\t<Block>197</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12316-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>07:43
-        AM</Time>\n\t\t\t\t<Time>07:51 AM</Time>\n\t\t\t\t<Time>08:05 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-8</Tripid>\n\t\t\t\t<Block>2</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16896-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>07:43
+        AM</Time>\n\t\t\t\t<Time>07:51 AM</Time>\n\t\t\t\t<Time>08:05 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-8</Tripid>\n\t\t\t\t<Block>190</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>07:49
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>07:49
         AM</Time>\n\t\t\t\t<Time>07:53 AM</Time>\n\t\t\t\t<Time>08:01 AM</Time>\n\t\t\t\t<Time>08:15
         AM</Time>\n\t\t\t\t<Time>08:24 AM</Time>\n\t\t\t\t<Time>08:34 AM</Time>\n\t\t\t\t<Time>08:43
-        AM</Time>\n\t\t\t\t<Time>08:54 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-8</Tripid>\n\t\t\t\t<Block>2</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>08:54 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-8</Tripid>\n\t\t\t\t<Block>190</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>07:49
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>07:49
         AM</Time>\n\t\t\t\t<Time>07:53 AM</Time>\n\t\t\t\t<Time>08:01 AM</Time>\n\t\t\t\t<Time>08:15
         AM</Time>\n\t\t\t\t<Time>08:24 AM</Time>\n\t\t\t\t<Time>08:34 AM</Time>\n\t\t\t\t<Time>08:43
-        AM</Time>\n\t\t\t\t<Time>08:54 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12314-6</Tripid>\n\t\t\t\t<Block>8</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>08:54 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16894-6</Tripid>\n\t\t\t\t<Block>196</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12314-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>08:03
-        AM</Time>\n\t\t\t\t<Time>08:11 AM</Time>\n\t\t\t\t<Time>08:25 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12316-6</Tripid>\n\t\t\t\t<Block>10</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16894-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>08:03
+        AM</Time>\n\t\t\t\t<Time>08:11 AM</Time>\n\t\t\t\t<Time>08:25 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16896-6</Tripid>\n\t\t\t\t<Block>196</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12316-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>08:03
-        AM</Time>\n\t\t\t\t<Time>08:11 AM</Time>\n\t\t\t\t<Time>08:25 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-9</Tripid>\n\t\t\t\t<Block>4</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16896-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>08:03
+        AM</Time>\n\t\t\t\t<Time>08:11 AM</Time>\n\t\t\t\t<Time>08:25 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-9</Tripid>\n\t\t\t\t<Block>192</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>08:09
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>08:09
         AM</Time>\n\t\t\t\t<Time>08:13 AM</Time>\n\t\t\t\t<Time>08:21 AM</Time>\n\t\t\t\t<Time>08:35
         AM</Time>\n\t\t\t\t<Time>08:44 AM</Time>\n\t\t\t\t<Time>08:54 AM</Time>\n\t\t\t\t<Time>09:03
-        AM</Time>\n\t\t\t\t<Time>09:14 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-9</Tripid>\n\t\t\t\t<Block>4</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>09:14 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-9</Tripid>\n\t\t\t\t<Block>192</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>08:09
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>08:09
         AM</Time>\n\t\t\t\t<Time>08:13 AM</Time>\n\t\t\t\t<Time>08:21 AM</Time>\n\t\t\t\t<Time>08:35
         AM</Time>\n\t\t\t\t<Time>08:44 AM</Time>\n\t\t\t\t<Time>08:54 AM</Time>\n\t\t\t\t<Time>09:03
-        AM</Time>\n\t\t\t\t<Time>09:14 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12314-7</Tripid>\n\t\t\t\t<Block>11</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>09:14 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16894-7</Tripid>\n\t\t\t\t<Block>199</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12314-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>08:23
-        AM</Time>\n\t\t\t\t<Time>08:31 AM</Time>\n\t\t\t\t<Time>08:45 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12316-7</Tripid>\n\t\t\t\t<Block>12</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16894-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>08:23
+        AM</Time>\n\t\t\t\t<Time>08:31 AM</Time>\n\t\t\t\t<Time>08:45 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16896-7</Tripid>\n\t\t\t\t<Block>199</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12316-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>08:23
-        AM</Time>\n\t\t\t\t<Time>08:31 AM</Time>\n\t\t\t\t<Time>08:45 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-10</Tripid>\n\t\t\t\t<Block>7</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16896-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>08:23
+        AM</Time>\n\t\t\t\t<Time>08:31 AM</Time>\n\t\t\t\t<Time>08:45 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-10</Tripid>\n\t\t\t\t<Block>194</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>08:29
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>08:29
         AM</Time>\n\t\t\t\t<Time>08:33 AM</Time>\n\t\t\t\t<Time>08:41 AM</Time>\n\t\t\t\t<Time>08:55
         AM</Time>\n\t\t\t\t<Time>09:04 AM</Time>\n\t\t\t\t<Time>09:14 AM</Time>\n\t\t\t\t<Time>09:23
-        AM</Time>\n\t\t\t\t<Time>09:34 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-10</Tripid>\n\t\t\t\t<Block>7</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>09:34 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-10</Tripid>\n\t\t\t\t<Block>194</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>08:29
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>08:29
         AM</Time>\n\t\t\t\t<Time>08:33 AM</Time>\n\t\t\t\t<Time>08:41 AM</Time>\n\t\t\t\t<Time>08:55
         AM</Time>\n\t\t\t\t<Time>09:04 AM</Time>\n\t\t\t\t<Time>09:14 AM</Time>\n\t\t\t\t<Time>09:23
-        AM</Time>\n\t\t\t\t<Time>09:34 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12314-8</Tripid>\n\t\t\t\t<Block>9</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>09:34 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16894-8</Tripid>\n\t\t\t\t<Block>197</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12314-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>08:43
-        AM</Time>\n\t\t\t\t<Time>08:51 AM</Time>\n\t\t\t\t<Time>09:05 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12316-8</Tripid>\n\t\t\t\t<Block>11</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16894-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>08:43
+        AM</Time>\n\t\t\t\t<Time>08:51 AM</Time>\n\t\t\t\t<Time>09:05 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16896-8</Tripid>\n\t\t\t\t<Block>197</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12316-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>08:43
-        AM</Time>\n\t\t\t\t<Time>08:51 AM</Time>\n\t\t\t\t<Time>09:05 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-11</Tripid>\n\t\t\t\t<Block>10</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16896-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>08:43
+        AM</Time>\n\t\t\t\t<Time>08:51 AM</Time>\n\t\t\t\t<Time>09:05 AM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-11</Tripid>\n\t\t\t\t<Block>198</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>08:49
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>08:49
         AM</Time>\n\t\t\t\t<Time>08:53 AM</Time>\n\t\t\t\t<Time>09:01 AM</Time>\n\t\t\t\t<Time>09:15
         AM</Time>\n\t\t\t\t<Time>09:24 AM</Time>\n\t\t\t\t<Time>09:34 AM</Time>\n\t\t\t\t<Time>09:43
-        AM</Time>\n\t\t\t\t<Time>09:54 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-11</Tripid>\n\t\t\t\t<Block>8</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>09:54 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-11</Tripid>\n\t\t\t\t<Block>198</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>08:49
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>08:49
         AM</Time>\n\t\t\t\t<Time>08:53 AM</Time>\n\t\t\t\t<Time>09:01 AM</Time>\n\t\t\t\t<Time>09:15
         AM</Time>\n\t\t\t\t<Time>09:24 AM</Time>\n\t\t\t\t<Time>09:34 AM</Time>\n\t\t\t\t<Time>09:43
-        AM</Time>\n\t\t\t\t<Time>09:54 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-12</Tripid>\n\t\t\t\t<Block>1</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>09:54 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-12</Tripid>\n\t\t\t\t<Block>189</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>09:09
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>09:09
         AM</Time>\n\t\t\t\t<Time>09:13 AM</Time>\n\t\t\t\t<Time>09:21 AM</Time>\n\t\t\t\t<Time>09:35
         AM</Time>\n\t\t\t\t<Time>09:44 AM</Time>\n\t\t\t\t<Time>09:54 AM</Time>\n\t\t\t\t<Time>10:03
-        AM</Time>\n\t\t\t\t<Time>10:14 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-12</Tripid>\n\t\t\t\t<Block>1</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>10:14 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-12</Tripid>\n\t\t\t\t<Block>189</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>09:09
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>09:09
         AM</Time>\n\t\t\t\t<Time>09:13 AM</Time>\n\t\t\t\t<Time>09:21 AM</Time>\n\t\t\t\t<Time>09:35
         AM</Time>\n\t\t\t\t<Time>09:44 AM</Time>\n\t\t\t\t<Time>09:54 AM</Time>\n\t\t\t\t<Time>10:03
-        AM</Time>\n\t\t\t\t<Time>10:14 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-13</Tripid>\n\t\t\t\t<Block>3</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>10:14 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-13</Tripid>\n\t\t\t\t<Block>191</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>09:29
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>09:29
         AM</Time>\n\t\t\t\t<Time>09:33 AM</Time>\n\t\t\t\t<Time>09:41 AM</Time>\n\t\t\t\t<Time>09:55
         AM</Time>\n\t\t\t\t<Time>10:04 AM</Time>\n\t\t\t\t<Time>10:14 AM</Time>\n\t\t\t\t<Time>10:23
-        AM</Time>\n\t\t\t\t<Time>10:34 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-13</Tripid>\n\t\t\t\t<Block>3</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>10:34 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-13</Tripid>\n\t\t\t\t<Block>191</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>09:29
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>09:29
         AM</Time>\n\t\t\t\t<Time>09:33 AM</Time>\n\t\t\t\t<Time>09:41 AM</Time>\n\t\t\t\t<Time>09:55
         AM</Time>\n\t\t\t\t<Time>10:04 AM</Time>\n\t\t\t\t<Time>10:14 AM</Time>\n\t\t\t\t<Time>10:23
-        AM</Time>\n\t\t\t\t<Time>10:34 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-14</Tripid>\n\t\t\t\t<Block>5</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>10:34 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-14</Tripid>\n\t\t\t\t<Block>193</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>09:49
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>09:49
         AM</Time>\n\t\t\t\t<Time>09:53 AM</Time>\n\t\t\t\t<Time>10:01 AM</Time>\n\t\t\t\t<Time>10:15
         AM</Time>\n\t\t\t\t<Time>10:24 AM</Time>\n\t\t\t\t<Time>10:34 AM</Time>\n\t\t\t\t<Time>10:43
-        AM</Time>\n\t\t\t\t<Time>10:54 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-14</Tripid>\n\t\t\t\t<Block>5</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>10:54 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-14</Tripid>\n\t\t\t\t<Block>193</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>09:49
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>09:49
         AM</Time>\n\t\t\t\t<Time>09:53 AM</Time>\n\t\t\t\t<Time>10:01 AM</Time>\n\t\t\t\t<Time>10:15
         AM</Time>\n\t\t\t\t<Time>10:24 AM</Time>\n\t\t\t\t<Time>10:34 AM</Time>\n\t\t\t\t<Time>10:43
-        AM</Time>\n\t\t\t\t<Time>10:54 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-15</Tripid>\n\t\t\t\t<Block>6</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>10:54 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-15</Tripid>\n\t\t\t\t<Block>195</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>10:09
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>10:09
         AM</Time>\n\t\t\t\t<Time>10:13 AM</Time>\n\t\t\t\t<Time>10:21 AM</Time>\n\t\t\t\t<Time>10:35
         AM</Time>\n\t\t\t\t<Time>10:44 AM</Time>\n\t\t\t\t<Time>10:54 AM</Time>\n\t\t\t\t<Time>11:03
-        AM</Time>\n\t\t\t\t<Time>11:14 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-15</Tripid>\n\t\t\t\t<Block>6</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>11:14 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-15</Tripid>\n\t\t\t\t<Block>195</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>10:09
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>10:09
         AM</Time>\n\t\t\t\t<Time>10:13 AM</Time>\n\t\t\t\t<Time>10:21 AM</Time>\n\t\t\t\t<Time>10:35
         AM</Time>\n\t\t\t\t<Time>10:44 AM</Time>\n\t\t\t\t<Time>10:54 AM</Time>\n\t\t\t\t<Time>11:03
-        AM</Time>\n\t\t\t\t<Time>11:14 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-16</Tripid>\n\t\t\t\t<Block>2</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>11:14 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-16</Tripid>\n\t\t\t\t<Block>190</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>10:29
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>10:29
         AM</Time>\n\t\t\t\t<Time>10:33 AM</Time>\n\t\t\t\t<Time>10:41 AM</Time>\n\t\t\t\t<Time>10:55
         AM</Time>\n\t\t\t\t<Time>11:04 AM</Time>\n\t\t\t\t<Time>11:14 AM</Time>\n\t\t\t\t<Time>11:23
-        AM</Time>\n\t\t\t\t<Time>11:34 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-16</Tripid>\n\t\t\t\t<Block>2</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>11:34 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-16</Tripid>\n\t\t\t\t<Block>190</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>10:29
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>10:29
         AM</Time>\n\t\t\t\t<Time>10:33 AM</Time>\n\t\t\t\t<Time>10:41 AM</Time>\n\t\t\t\t<Time>10:55
         AM</Time>\n\t\t\t\t<Time>11:04 AM</Time>\n\t\t\t\t<Time>11:14 AM</Time>\n\t\t\t\t<Time>11:23
-        AM</Time>\n\t\t\t\t<Time>11:34 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-17</Tripid>\n\t\t\t\t<Block>4</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>11:34 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-17</Tripid>\n\t\t\t\t<Block>192</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>10:49
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>10:49
         AM</Time>\n\t\t\t\t<Time>10:53 AM</Time>\n\t\t\t\t<Time>11:01 AM</Time>\n\t\t\t\t<Time>11:15
         AM</Time>\n\t\t\t\t<Time>11:24 AM</Time>\n\t\t\t\t<Time>11:34 AM</Time>\n\t\t\t\t<Time>11:43
-        AM</Time>\n\t\t\t\t<Time>11:54 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-17</Tripid>\n\t\t\t\t<Block>4</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>11:54 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-17</Tripid>\n\t\t\t\t<Block>192</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>10:49
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>10:49
         AM</Time>\n\t\t\t\t<Time>10:53 AM</Time>\n\t\t\t\t<Time>11:01 AM</Time>\n\t\t\t\t<Time>11:15
         AM</Time>\n\t\t\t\t<Time>11:24 AM</Time>\n\t\t\t\t<Time>11:34 AM</Time>\n\t\t\t\t<Time>11:43
-        AM</Time>\n\t\t\t\t<Time>11:54 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-18</Tripid>\n\t\t\t\t<Block>7</Block>\n\t<Sign>0
+        AM</Time>\n\t\t\t\t<Time>11:54 AM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-18</Tripid>\n\t\t\t\t<Block>194</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>11:09
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>11:09
         AM</Time>\n\t\t\t\t<Time>11:13 AM</Time>\n\t\t\t\t<Time>11:21 AM</Time>\n\t\t\t\t<Time>11:35
         AM</Time>\n\t\t\t\t<Time>11:44 AM</Time>\n\t\t\t\t<Time>11:54 AM</Time>\n\t\t\t\t<Time>12:03
-        PM</Time>\n\t\t\t\t<Time>12:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-18</Tripid>\n\t\t\t\t<Block>7</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>12:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-18</Tripid>\n\t\t\t\t<Block>194</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>11:09
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>11:09
         AM</Time>\n\t\t\t\t<Time>11:13 AM</Time>\n\t\t\t\t<Time>11:21 AM</Time>\n\t\t\t\t<Time>11:35
         AM</Time>\n\t\t\t\t<Time>11:44 AM</Time>\n\t\t\t\t<Time>11:54 AM</Time>\n\t\t\t\t<Time>12:03
-        PM</Time>\n\t\t\t\t<Time>12:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-19</Tripid>\n\t\t\t\t<Block>10</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>12:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-19</Tripid>\n\t\t\t\t<Block>198</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>11:29
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>11:29
         AM</Time>\n\t\t\t\t<Time>11:33 AM</Time>\n\t\t\t\t<Time>11:41 AM</Time>\n\t\t\t\t<Time>11:55
         AM</Time>\n\t\t\t\t<Time>12:04 PM</Time>\n\t\t\t\t<Time>12:14 PM</Time>\n\t\t\t\t<Time>12:23
-        PM</Time>\n\t\t\t\t<Time>12:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-19</Tripid>\n\t\t\t\t<Block>8</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>12:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-19</Tripid>\n\t\t\t\t<Block>198</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>11:29
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>11:29
         AM</Time>\n\t\t\t\t<Time>11:33 AM</Time>\n\t\t\t\t<Time>11:41 AM</Time>\n\t\t\t\t<Time>11:55
         AM</Time>\n\t\t\t\t<Time>12:04 PM</Time>\n\t\t\t\t<Time>12:14 PM</Time>\n\t\t\t\t<Time>12:23
-        PM</Time>\n\t\t\t\t<Time>12:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-20</Tripid>\n\t\t\t\t<Block>1</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>12:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-20</Tripid>\n\t\t\t\t<Block>189</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>11:49
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>11:49
         AM</Time>\n\t\t\t\t<Time>11:53 AM</Time>\n\t\t\t\t<Time>12:01 PM</Time>\n\t\t\t\t<Time>12:15
         PM</Time>\n\t\t\t\t<Time>12:24 PM</Time>\n\t\t\t\t<Time>12:34 PM</Time>\n\t\t\t\t<Time>12:43
-        PM</Time>\n\t\t\t\t<Time>12:54 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-20</Tripid>\n\t\t\t\t<Block>1</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>12:54 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-20</Tripid>\n\t\t\t\t<Block>189</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>11:49
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>11:49
         AM</Time>\n\t\t\t\t<Time>11:53 AM</Time>\n\t\t\t\t<Time>12:01 PM</Time>\n\t\t\t\t<Time>12:15
         PM</Time>\n\t\t\t\t<Time>12:24 PM</Time>\n\t\t\t\t<Time>12:34 PM</Time>\n\t\t\t\t<Time>12:43
-        PM</Time>\n\t\t\t\t<Time>12:54 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-21</Tripid>\n\t\t\t\t<Block>3</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>12:54 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-21</Tripid>\n\t\t\t\t<Block>191</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>12:09
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>12:09
         PM</Time>\n\t\t\t\t<Time>12:13 PM</Time>\n\t\t\t\t<Time>12:21 PM</Time>\n\t\t\t\t<Time>12:35
         PM</Time>\n\t\t\t\t<Time>12:44 PM</Time>\n\t\t\t\t<Time>12:54 PM</Time>\n\t\t\t\t<Time>01:03
-        PM</Time>\n\t\t\t\t<Time>01:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-21</Tripid>\n\t\t\t\t<Block>3</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>01:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-21</Tripid>\n\t\t\t\t<Block>191</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>12:09
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>12:09
         PM</Time>\n\t\t\t\t<Time>12:13 PM</Time>\n\t\t\t\t<Time>12:21 PM</Time>\n\t\t\t\t<Time>12:35
         PM</Time>\n\t\t\t\t<Time>12:44 PM</Time>\n\t\t\t\t<Time>12:54 PM</Time>\n\t\t\t\t<Time>01:03
-        PM</Time>\n\t\t\t\t<Time>01:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-22</Tripid>\n\t\t\t\t<Block>5</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>01:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-22</Tripid>\n\t\t\t\t<Block>193</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>12:29
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>12:29
         PM</Time>\n\t\t\t\t<Time>12:33 PM</Time>\n\t\t\t\t<Time>12:41 PM</Time>\n\t\t\t\t<Time>12:55
         PM</Time>\n\t\t\t\t<Time>01:04 PM</Time>\n\t\t\t\t<Time>01:14 PM</Time>\n\t\t\t\t<Time>01:23
-        PM</Time>\n\t\t\t\t<Time>01:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-22</Tripid>\n\t\t\t\t<Block>5</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>01:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-22</Tripid>\n\t\t\t\t<Block>193</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>12:29
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>12:29
         PM</Time>\n\t\t\t\t<Time>12:33 PM</Time>\n\t\t\t\t<Time>12:41 PM</Time>\n\t\t\t\t<Time>12:55
         PM</Time>\n\t\t\t\t<Time>01:04 PM</Time>\n\t\t\t\t<Time>01:14 PM</Time>\n\t\t\t\t<Time>01:23
-        PM</Time>\n\t\t\t\t<Time>01:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-23</Tripid>\n\t\t\t\t<Block>12</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>01:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-23</Tripid>\n\t\t\t\t<Block>195</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>12:49
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>12:49
         PM</Time>\n\t\t\t\t<Time>12:53 PM</Time>\n\t\t\t\t<Time>01:01 PM</Time>\n\t\t\t\t<Time>01:15
         PM</Time>\n\t\t\t\t<Time>01:24 PM</Time>\n\t\t\t\t<Time>01:34 PM</Time>\n\t\t\t\t<Time>01:43
-        PM</Time>\n\t\t\t\t<Time>01:54 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-23</Tripid>\n\t\t\t\t<Block>9</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>01:54 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-23</Tripid>\n\t\t\t\t<Block>195</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>12:49
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>12:49
         PM</Time>\n\t\t\t\t<Time>12:53 PM</Time>\n\t\t\t\t<Time>01:01 PM</Time>\n\t\t\t\t<Time>01:15
         PM</Time>\n\t\t\t\t<Time>01:24 PM</Time>\n\t\t\t\t<Time>01:34 PM</Time>\n\t\t\t\t<Time>01:43
-        PM</Time>\n\t\t\t\t<Time>01:54 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12314-9</Tripid>\n\t\t\t\t<Block>13</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>01:54 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16894-9</Tripid>\n\t\t\t\t<Block>200</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12314-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>01:03
-        PM</Time>\n\t\t\t\t<Time>01:11 PM</Time>\n\t\t\t\t<Time>01:25 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12316-9</Tripid>\n\t\t\t\t<Block>13</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16894-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>01:03
+        PM</Time>\n\t\t\t\t<Time>01:11 PM</Time>\n\t\t\t\t<Time>01:25 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16896-9</Tripid>\n\t\t\t\t<Block>200</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12316-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>01:03
-        PM</Time>\n\t\t\t\t<Time>01:11 PM</Time>\n\t\t\t\t<Time>01:25 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-24</Tripid>\n\t\t\t\t<Block>2</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16896-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>01:03
+        PM</Time>\n\t\t\t\t<Time>01:11 PM</Time>\n\t\t\t\t<Time>01:25 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-24</Tripid>\n\t\t\t\t<Block>190</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>01:09
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>01:09
         PM</Time>\n\t\t\t\t<Time>01:13 PM</Time>\n\t\t\t\t<Time>01:21 PM</Time>\n\t\t\t\t<Time>01:35
         PM</Time>\n\t\t\t\t<Time>01:44 PM</Time>\n\t\t\t\t<Time>01:54 PM</Time>\n\t\t\t\t<Time>02:03
-        PM</Time>\n\t\t\t\t<Time>02:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-24</Tripid>\n\t\t\t\t<Block>2</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>02:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-24</Tripid>\n\t\t\t\t<Block>190</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>01:09
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>01:09
         PM</Time>\n\t\t\t\t<Time>01:13 PM</Time>\n\t\t\t\t<Time>01:21 PM</Time>\n\t\t\t\t<Time>01:35
         PM</Time>\n\t\t\t\t<Time>01:44 PM</Time>\n\t\t\t\t<Time>01:54 PM</Time>\n\t\t\t\t<Time>02:03
-        PM</Time>\n\t\t\t\t<Time>02:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12314-10</Tripid>\n\t\t\t\t<Block>14</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>02:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16894-10</Tripid>\n\t\t\t\t<Block>201</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12314-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>01:23
-        PM</Time>\n\t\t\t\t<Time>01:31 PM</Time>\n\t\t\t\t<Time>01:45 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12316-10</Tripid>\n\t\t\t\t<Block>14</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16894-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>01:23
+        PM</Time>\n\t\t\t\t<Time>01:31 PM</Time>\n\t\t\t\t<Time>01:45 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16896-10</Tripid>\n\t\t\t\t<Block>201</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12316-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>01:23
-        PM</Time>\n\t\t\t\t<Time>01:31 PM</Time>\n\t\t\t\t<Time>01:45 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-25</Tripid>\n\t\t\t\t<Block>4</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16896-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>01:23
+        PM</Time>\n\t\t\t\t<Time>01:31 PM</Time>\n\t\t\t\t<Time>01:45 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-25</Tripid>\n\t\t\t\t<Block>192</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>01:29
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>01:29
         PM</Time>\n\t\t\t\t<Time>01:33 PM</Time>\n\t\t\t\t<Time>01:41 PM</Time>\n\t\t\t\t<Time>01:55
         PM</Time>\n\t\t\t\t<Time>02:04 PM</Time>\n\t\t\t\t<Time>02:14 PM</Time>\n\t\t\t\t<Time>02:23
-        PM</Time>\n\t\t\t\t<Time>02:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-25</Tripid>\n\t\t\t\t<Block>4</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>02:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-25</Tripid>\n\t\t\t\t<Block>192</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>01:29
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>01:29
         PM</Time>\n\t\t\t\t<Time>01:33 PM</Time>\n\t\t\t\t<Time>01:41 PM</Time>\n\t\t\t\t<Time>01:55
         PM</Time>\n\t\t\t\t<Time>02:04 PM</Time>\n\t\t\t\t<Time>02:14 PM</Time>\n\t\t\t\t<Time>02:23
-        PM</Time>\n\t\t\t\t<Time>02:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12314-11</Tripid>\n\t\t\t\t<Block>15</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>02:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16894-11</Tripid>\n\t\t\t\t<Block>202</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12314-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>01:43
-        PM</Time>\n\t\t\t\t<Time>01:51 PM</Time>\n\t\t\t\t<Time>02:05 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12316-11</Tripid>\n\t\t\t\t<Block>15</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16894-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>01:43
+        PM</Time>\n\t\t\t\t<Time>01:51 PM</Time>\n\t\t\t\t<Time>02:05 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16896-11</Tripid>\n\t\t\t\t<Block>202</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12316-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>01:43
-        PM</Time>\n\t\t\t\t<Time>01:51 PM</Time>\n\t\t\t\t<Time>02:05 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-26</Tripid>\n\t\t\t\t<Block>7</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16896-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>01:43
+        PM</Time>\n\t\t\t\t<Time>01:51 PM</Time>\n\t\t\t\t<Time>02:05 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-26</Tripid>\n\t\t\t\t<Block>194</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>01:49
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>01:49
         PM</Time>\n\t\t\t\t<Time>01:53 PM</Time>\n\t\t\t\t<Time>02:01 PM</Time>\n\t\t\t\t<Time>02:15
         PM</Time>\n\t\t\t\t<Time>02:24 PM</Time>\n\t\t\t\t<Time>02:34 PM</Time>\n\t\t\t\t<Time>02:43
-        PM</Time>\n\t\t\t\t<Time>02:54 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-26</Tripid>\n\t\t\t\t<Block>7</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>02:54 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-26</Tripid>\n\t\t\t\t<Block>194</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>01:49
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>01:49
         PM</Time>\n\t\t\t\t<Time>01:53 PM</Time>\n\t\t\t\t<Time>02:01 PM</Time>\n\t\t\t\t<Time>02:15
         PM</Time>\n\t\t\t\t<Time>02:24 PM</Time>\n\t\t\t\t<Time>02:34 PM</Time>\n\t\t\t\t<Time>02:43
-        PM</Time>\n\t\t\t\t<Time>02:54 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12314-12</Tripid>\n\t\t\t\t<Block>13</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>02:54 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16894-12</Tripid>\n\t\t\t\t<Block>200</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12314-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>02:03
-        PM</Time>\n\t\t\t\t<Time>02:11 PM</Time>\n\t\t\t\t<Time>02:25 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12316-12</Tripid>\n\t\t\t\t<Block>13</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16894-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>02:03
+        PM</Time>\n\t\t\t\t<Time>02:11 PM</Time>\n\t\t\t\t<Time>02:25 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16896-12</Tripid>\n\t\t\t\t<Block>200</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12316-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>02:03
-        PM</Time>\n\t\t\t\t<Time>02:11 PM</Time>\n\t\t\t\t<Time>02:25 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-27</Tripid>\n\t\t\t\t<Block>10</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16896-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>02:03
+        PM</Time>\n\t\t\t\t<Time>02:11 PM</Time>\n\t\t\t\t<Time>02:25 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-27</Tripid>\n\t\t\t\t<Block>198</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>02:09
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>02:09
         PM</Time>\n\t\t\t\t<Time>02:13 PM</Time>\n\t\t\t\t<Time>02:21 PM</Time>\n\t\t\t\t<Time>02:35
         PM</Time>\n\t\t\t\t<Time>02:44 PM</Time>\n\t\t\t\t<Time>02:54 PM</Time>\n\t\t\t\t<Time>03:03
-        PM</Time>\n\t\t\t\t<Time>03:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-27</Tripid>\n\t\t\t\t<Block>8</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>03:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-27</Tripid>\n\t\t\t\t<Block>198</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>02:09
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>02:09
         PM</Time>\n\t\t\t\t<Time>02:13 PM</Time>\n\t\t\t\t<Time>02:21 PM</Time>\n\t\t\t\t<Time>02:35
         PM</Time>\n\t\t\t\t<Time>02:44 PM</Time>\n\t\t\t\t<Time>02:54 PM</Time>\n\t\t\t\t<Time>03:03
-        PM</Time>\n\t\t\t\t<Time>03:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12314-13</Tripid>\n\t\t\t\t<Block>14</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>03:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16894-13</Tripid>\n\t\t\t\t<Block>201</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12314-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>02:23
-        PM</Time>\n\t\t\t\t<Time>02:31 PM</Time>\n\t\t\t\t<Time>02:45 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12316-13</Tripid>\n\t\t\t\t<Block>14</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16894-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>02:23
+        PM</Time>\n\t\t\t\t<Time>02:31 PM</Time>\n\t\t\t\t<Time>02:45 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16896-13</Tripid>\n\t\t\t\t<Block>201</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12316-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>02:23
-        PM</Time>\n\t\t\t\t<Time>02:31 PM</Time>\n\t\t\t\t<Time>02:45 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-28</Tripid>\n\t\t\t\t<Block>1</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16896-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>02:23
+        PM</Time>\n\t\t\t\t<Time>02:31 PM</Time>\n\t\t\t\t<Time>02:45 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-28</Tripid>\n\t\t\t\t<Block>189</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>02:29
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>02:29
         PM</Time>\n\t\t\t\t<Time>02:33 PM</Time>\n\t\t\t\t<Time>02:41 PM</Time>\n\t\t\t\t<Time>02:55
         PM</Time>\n\t\t\t\t<Time>03:04 PM</Time>\n\t\t\t\t<Time>03:14 PM</Time>\n\t\t\t\t<Time>03:23
-        PM</Time>\n\t\t\t\t<Time>03:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-28</Tripid>\n\t\t\t\t<Block>1</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>03:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-28</Tripid>\n\t\t\t\t<Block>189</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>02:29
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>02:29
         PM</Time>\n\t\t\t\t<Time>02:33 PM</Time>\n\t\t\t\t<Time>02:41 PM</Time>\n\t\t\t\t<Time>02:55
         PM</Time>\n\t\t\t\t<Time>03:04 PM</Time>\n\t\t\t\t<Time>03:14 PM</Time>\n\t\t\t\t<Time>03:23
-        PM</Time>\n\t\t\t\t<Time>03:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12314-14</Tripid>\n\t\t\t\t<Block>15</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>03:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16894-14</Tripid>\n\t\t\t\t<Block>202</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12314-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>02:43
-        PM</Time>\n\t\t\t\t<Time>02:51 PM</Time>\n\t\t\t\t<Time>03:05 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12316-14</Tripid>\n\t\t\t\t<Block>15</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16894-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>02:43
+        PM</Time>\n\t\t\t\t<Time>02:51 PM</Time>\n\t\t\t\t<Time>03:05 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16896-14</Tripid>\n\t\t\t\t<Block>202</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12316-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>02:43
-        PM</Time>\n\t\t\t\t<Time>02:51 PM</Time>\n\t\t\t\t<Time>03:05 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-29</Tripid>\n\t\t\t\t<Block>3</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16896-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>02:43
+        PM</Time>\n\t\t\t\t<Time>02:51 PM</Time>\n\t\t\t\t<Time>03:05 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-29</Tripid>\n\t\t\t\t<Block>191</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>02:49
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>02:49
         PM</Time>\n\t\t\t\t<Time>02:53 PM</Time>\n\t\t\t\t<Time>03:01 PM</Time>\n\t\t\t\t<Time>03:15
         PM</Time>\n\t\t\t\t<Time>03:24 PM</Time>\n\t\t\t\t<Time>03:34 PM</Time>\n\t\t\t\t<Time>03:43
-        PM</Time>\n\t\t\t\t<Time>03:54 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-29</Tripid>\n\t\t\t\t<Block>3</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>03:54 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-29</Tripid>\n\t\t\t\t<Block>191</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>02:49
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>02:49
         PM</Time>\n\t\t\t\t<Time>02:53 PM</Time>\n\t\t\t\t<Time>03:01 PM</Time>\n\t\t\t\t<Time>03:15
         PM</Time>\n\t\t\t\t<Time>03:24 PM</Time>\n\t\t\t\t<Time>03:34 PM</Time>\n\t\t\t\t<Time>03:43
-        PM</Time>\n\t\t\t\t<Time>03:54 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12314-15</Tripid>\n\t\t\t\t<Block>13</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>03:54 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16894-15</Tripid>\n\t\t\t\t<Block>200</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12314-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>03:03
-        PM</Time>\n\t\t\t\t<Time>03:11 PM</Time>\n\t\t\t\t<Time>03:25 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12316-15</Tripid>\n\t\t\t\t<Block>13</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16894-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>03:03
+        PM</Time>\n\t\t\t\t<Time>03:11 PM</Time>\n\t\t\t\t<Time>03:25 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16896-15</Tripid>\n\t\t\t\t<Block>200</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12316-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>03:03
-        PM</Time>\n\t\t\t\t<Time>03:11 PM</Time>\n\t\t\t\t<Time>03:25 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-30</Tripid>\n\t\t\t\t<Block>5</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16896-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>03:03
+        PM</Time>\n\t\t\t\t<Time>03:11 PM</Time>\n\t\t\t\t<Time>03:25 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-30</Tripid>\n\t\t\t\t<Block>193</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>03:09
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>03:09
         PM</Time>\n\t\t\t\t<Time>03:13 PM</Time>\n\t\t\t\t<Time>03:21 PM</Time>\n\t\t\t\t<Time>03:35
         PM</Time>\n\t\t\t\t<Time>03:44 PM</Time>\n\t\t\t\t<Time>03:54 PM</Time>\n\t\t\t\t<Time>04:03
-        PM</Time>\n\t\t\t\t<Time>04:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-30</Tripid>\n\t\t\t\t<Block>5</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>04:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-30</Tripid>\n\t\t\t\t<Block>193</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>03:09
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>03:09
         PM</Time>\n\t\t\t\t<Time>03:13 PM</Time>\n\t\t\t\t<Time>03:21 PM</Time>\n\t\t\t\t<Time>03:35
         PM</Time>\n\t\t\t\t<Time>03:44 PM</Time>\n\t\t\t\t<Time>03:54 PM</Time>\n\t\t\t\t<Time>04:03
-        PM</Time>\n\t\t\t\t<Time>04:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12314-16</Tripid>\n\t\t\t\t<Block>14</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>04:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16894-16</Tripid>\n\t\t\t\t<Block>201</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12314-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>03:23
-        PM</Time>\n\t\t\t\t<Time>03:31 PM</Time>\n\t\t\t\t<Time>03:45 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12316-16</Tripid>\n\t\t\t\t<Block>14</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16894-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>03:23
+        PM</Time>\n\t\t\t\t<Time>03:31 PM</Time>\n\t\t\t\t<Time>03:45 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16896-16</Tripid>\n\t\t\t\t<Block>201</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12316-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>03:23
-        PM</Time>\n\t\t\t\t<Time>03:31 PM</Time>\n\t\t\t\t<Time>03:45 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-31</Tripid>\n\t\t\t\t<Block>12</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16896-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>03:23
+        PM</Time>\n\t\t\t\t<Time>03:31 PM</Time>\n\t\t\t\t<Time>03:45 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-31</Tripid>\n\t\t\t\t<Block>195</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>03:29
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>03:29
         PM</Time>\n\t\t\t\t<Time>03:33 PM</Time>\n\t\t\t\t<Time>03:41 PM</Time>\n\t\t\t\t<Time>03:55
         PM</Time>\n\t\t\t\t<Time>04:04 PM</Time>\n\t\t\t\t<Time>04:14 PM</Time>\n\t\t\t\t<Time>04:23
-        PM</Time>\n\t\t\t\t<Time>04:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-31</Tripid>\n\t\t\t\t<Block>9</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>04:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-31</Tripid>\n\t\t\t\t<Block>195</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>03:29
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>03:29
         PM</Time>\n\t\t\t\t<Time>03:33 PM</Time>\n\t\t\t\t<Time>03:41 PM</Time>\n\t\t\t\t<Time>03:55
         PM</Time>\n\t\t\t\t<Time>04:04 PM</Time>\n\t\t\t\t<Time>04:14 PM</Time>\n\t\t\t\t<Time>04:23
-        PM</Time>\n\t\t\t\t<Time>04:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12314-17</Tripid>\n\t\t\t\t<Block>15</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>04:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16894-17</Tripid>\n\t\t\t\t<Block>202</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12314-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>03:43
-        PM</Time>\n\t\t\t\t<Time>03:51 PM</Time>\n\t\t\t\t<Time>04:05 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12316-17</Tripid>\n\t\t\t\t<Block>15</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16894-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>03:43
+        PM</Time>\n\t\t\t\t<Time>03:51 PM</Time>\n\t\t\t\t<Time>04:05 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16896-17</Tripid>\n\t\t\t\t<Block>202</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12316-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>03:43
-        PM</Time>\n\t\t\t\t<Time>03:51 PM</Time>\n\t\t\t\t<Time>04:05 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-32</Tripid>\n\t\t\t\t<Block>2</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16896-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>03:43
+        PM</Time>\n\t\t\t\t<Time>03:51 PM</Time>\n\t\t\t\t<Time>04:05 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-32</Tripid>\n\t\t\t\t<Block>190</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>03:49
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>03:49
         PM</Time>\n\t\t\t\t<Time>03:53 PM</Time>\n\t\t\t\t<Time>04:01 PM</Time>\n\t\t\t\t<Time>04:15
         PM</Time>\n\t\t\t\t<Time>04:24 PM</Time>\n\t\t\t\t<Time>04:34 PM</Time>\n\t\t\t\t<Time>04:43
-        PM</Time>\n\t\t\t\t<Time>04:54 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-32</Tripid>\n\t\t\t\t<Block>2</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>04:54 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-32</Tripid>\n\t\t\t\t<Block>190</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>03:49
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>03:49
         PM</Time>\n\t\t\t\t<Time>03:53 PM</Time>\n\t\t\t\t<Time>04:01 PM</Time>\n\t\t\t\t<Time>04:15
         PM</Time>\n\t\t\t\t<Time>04:24 PM</Time>\n\t\t\t\t<Time>04:34 PM</Time>\n\t\t\t\t<Time>04:43
-        PM</Time>\n\t\t\t\t<Time>04:54 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12314-18</Tripid>\n\t\t\t\t<Block>13</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>04:54 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16894-18</Tripid>\n\t\t\t\t<Block>200</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12314-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>04:03
-        PM</Time>\n\t\t\t\t<Time>04:11 PM</Time>\n\t\t\t\t<Time>04:25 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12316-18</Tripid>\n\t\t\t\t<Block>13</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16894-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>04:03
+        PM</Time>\n\t\t\t\t<Time>04:11 PM</Time>\n\t\t\t\t<Time>04:25 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16896-18</Tripid>\n\t\t\t\t<Block>200</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12316-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>04:03
-        PM</Time>\n\t\t\t\t<Time>04:11 PM</Time>\n\t\t\t\t<Time>04:25 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-33</Tripid>\n\t\t\t\t<Block>4</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16896-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>04:03
+        PM</Time>\n\t\t\t\t<Time>04:11 PM</Time>\n\t\t\t\t<Time>04:25 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-33</Tripid>\n\t\t\t\t<Block>192</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>04:09
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>04:09
         PM</Time>\n\t\t\t\t<Time>04:13 PM</Time>\n\t\t\t\t<Time>04:21 PM</Time>\n\t\t\t\t<Time>04:35
         PM</Time>\n\t\t\t\t<Time>04:44 PM</Time>\n\t\t\t\t<Time>04:54 PM</Time>\n\t\t\t\t<Time>05:03
-        PM</Time>\n\t\t\t\t<Time>05:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-33</Tripid>\n\t\t\t\t<Block>4</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>05:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-33</Tripid>\n\t\t\t\t<Block>192</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>04:09
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>04:09
         PM</Time>\n\t\t\t\t<Time>04:13 PM</Time>\n\t\t\t\t<Time>04:21 PM</Time>\n\t\t\t\t<Time>04:35
         PM</Time>\n\t\t\t\t<Time>04:44 PM</Time>\n\t\t\t\t<Time>04:54 PM</Time>\n\t\t\t\t<Time>05:03
-        PM</Time>\n\t\t\t\t<Time>05:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12314-19</Tripid>\n\t\t\t\t<Block>14</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>05:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16894-19</Tripid>\n\t\t\t\t<Block>201</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12314-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>04:23
-        PM</Time>\n\t\t\t\t<Time>04:31 PM</Time>\n\t\t\t\t<Time>04:45 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12316-19</Tripid>\n\t\t\t\t<Block>14</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16894-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>04:23
+        PM</Time>\n\t\t\t\t<Time>04:31 PM</Time>\n\t\t\t\t<Time>04:45 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16896-19</Tripid>\n\t\t\t\t<Block>201</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12316-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>04:23
-        PM</Time>\n\t\t\t\t<Time>04:31 PM</Time>\n\t\t\t\t<Time>04:45 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-34</Tripid>\n\t\t\t\t<Block>7</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16896-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>04:23
+        PM</Time>\n\t\t\t\t<Time>04:31 PM</Time>\n\t\t\t\t<Time>04:45 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-34</Tripid>\n\t\t\t\t<Block>194</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>04:29
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>04:29
         PM</Time>\n\t\t\t\t<Time>04:33 PM</Time>\n\t\t\t\t<Time>04:41 PM</Time>\n\t\t\t\t<Time>04:55
         PM</Time>\n\t\t\t\t<Time>05:04 PM</Time>\n\t\t\t\t<Time>05:14 PM</Time>\n\t\t\t\t<Time>05:23
-        PM</Time>\n\t\t\t\t<Time>05:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-34</Tripid>\n\t\t\t\t<Block>7</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>05:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-34</Tripid>\n\t\t\t\t<Block>194</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>04:29
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>04:29
         PM</Time>\n\t\t\t\t<Time>04:33 PM</Time>\n\t\t\t\t<Time>04:41 PM</Time>\n\t\t\t\t<Time>04:55
         PM</Time>\n\t\t\t\t<Time>05:04 PM</Time>\n\t\t\t\t<Time>05:14 PM</Time>\n\t\t\t\t<Time>05:23
-        PM</Time>\n\t\t\t\t<Time>05:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12314-20</Tripid>\n\t\t\t\t<Block>15</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>05:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16894-20</Tripid>\n\t\t\t\t<Block>202</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12314-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>04:43
-        PM</Time>\n\t\t\t\t<Time>04:51 PM</Time>\n\t\t\t\t<Time>05:05 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12316-20</Tripid>\n\t\t\t\t<Block>15</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16894-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>04:43
+        PM</Time>\n\t\t\t\t<Time>04:51 PM</Time>\n\t\t\t\t<Time>05:05 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16896-20</Tripid>\n\t\t\t\t<Block>202</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12316-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>04:43
-        PM</Time>\n\t\t\t\t<Time>04:51 PM</Time>\n\t\t\t\t<Time>05:05 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-35</Tripid>\n\t\t\t\t<Block>10</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16896-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>04:43
+        PM</Time>\n\t\t\t\t<Time>04:51 PM</Time>\n\t\t\t\t<Time>05:05 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-35</Tripid>\n\t\t\t\t<Block>198</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>04:49
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>04:49
         PM</Time>\n\t\t\t\t<Time>04:53 PM</Time>\n\t\t\t\t<Time>05:01 PM</Time>\n\t\t\t\t<Time>05:15
         PM</Time>\n\t\t\t\t<Time>05:24 PM</Time>\n\t\t\t\t<Time>05:34 PM</Time>\n\t\t\t\t<Time>05:43
-        PM</Time>\n\t\t\t\t<Time>05:54 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-35</Tripid>\n\t\t\t\t<Block>8</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>05:54 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-35</Tripid>\n\t\t\t\t<Block>198</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>04:49
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>04:49
         PM</Time>\n\t\t\t\t<Time>04:53 PM</Time>\n\t\t\t\t<Time>05:01 PM</Time>\n\t\t\t\t<Time>05:15
         PM</Time>\n\t\t\t\t<Time>05:24 PM</Time>\n\t\t\t\t<Time>05:34 PM</Time>\n\t\t\t\t<Time>05:43
-        PM</Time>\n\t\t\t\t<Time>05:54 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12314-21</Tripid>\n\t\t\t\t<Block>13</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>05:54 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16894-21</Tripid>\n\t\t\t\t<Block>200</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12314-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>05:03
-        PM</Time>\n\t\t\t\t<Time>05:11 PM</Time>\n\t\t\t\t<Time>05:25 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12316-21</Tripid>\n\t\t\t\t<Block>13</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16894-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>05:03
+        PM</Time>\n\t\t\t\t<Time>05:11 PM</Time>\n\t\t\t\t<Time>05:25 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16896-21</Tripid>\n\t\t\t\t<Block>200</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12316-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>05:03
-        PM</Time>\n\t\t\t\t<Time>05:11 PM</Time>\n\t\t\t\t<Time>05:25 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-36</Tripid>\n\t\t\t\t<Block>1</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16896-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>05:03
+        PM</Time>\n\t\t\t\t<Time>05:11 PM</Time>\n\t\t\t\t<Time>05:25 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-36</Tripid>\n\t\t\t\t<Block>189</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>05:09
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>05:09
         PM</Time>\n\t\t\t\t<Time>05:13 PM</Time>\n\t\t\t\t<Time>05:21 PM</Time>\n\t\t\t\t<Time>05:35
         PM</Time>\n\t\t\t\t<Time>05:44 PM</Time>\n\t\t\t\t<Time>05:54 PM</Time>\n\t\t\t\t<Time>06:03
-        PM</Time>\n\t\t\t\t<Time>06:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-36</Tripid>\n\t\t\t\t<Block>1</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>06:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-36</Tripid>\n\t\t\t\t<Block>189</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>05:09
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>05:09
         PM</Time>\n\t\t\t\t<Time>05:13 PM</Time>\n\t\t\t\t<Time>05:21 PM</Time>\n\t\t\t\t<Time>05:35
         PM</Time>\n\t\t\t\t<Time>05:44 PM</Time>\n\t\t\t\t<Time>05:54 PM</Time>\n\t\t\t\t<Time>06:03
-        PM</Time>\n\t\t\t\t<Time>06:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12314-22</Tripid>\n\t\t\t\t<Block>14</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>06:14 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16894-22</Tripid>\n\t\t\t\t<Block>201</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12314-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>05:23
-        PM</Time>\n\t\t\t\t<Time>05:31 PM</Time>\n\t\t\t\t<Time>05:45 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12316-22</Tripid>\n\t\t\t\t<Block>14</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16894-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>05:23
+        PM</Time>\n\t\t\t\t<Time>05:31 PM</Time>\n\t\t\t\t<Time>05:45 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16896-22</Tripid>\n\t\t\t\t<Block>201</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12316-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>05:23
-        PM</Time>\n\t\t\t\t<Time>05:31 PM</Time>\n\t\t\t\t<Time>05:45 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-37</Tripid>\n\t\t\t\t<Block>3</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16896-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>05:23
+        PM</Time>\n\t\t\t\t<Time>05:31 PM</Time>\n\t\t\t\t<Time>05:45 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-37</Tripid>\n\t\t\t\t<Block>191</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>05:29
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>05:29
         PM</Time>\n\t\t\t\t<Time>05:33 PM</Time>\n\t\t\t\t<Time>05:41 PM</Time>\n\t\t\t\t<Time>05:55
         PM</Time>\n\t\t\t\t<Time>06:04 PM</Time>\n\t\t\t\t<Time>06:14 PM</Time>\n\t\t\t\t<Time>06:23
-        PM</Time>\n\t\t\t\t<Time>06:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-37</Tripid>\n\t\t\t\t<Block>3</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>06:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-37</Tripid>\n\t\t\t\t<Block>191</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>05:29
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>05:29
         PM</Time>\n\t\t\t\t<Time>05:33 PM</Time>\n\t\t\t\t<Time>05:41 PM</Time>\n\t\t\t\t<Time>05:55
         PM</Time>\n\t\t\t\t<Time>06:04 PM</Time>\n\t\t\t\t<Time>06:14 PM</Time>\n\t\t\t\t<Time>06:23
-        PM</Time>\n\t\t\t\t<Time>06:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12314-23</Tripid>\n\t\t\t\t<Block>15</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>06:34 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16894-23</Tripid>\n\t\t\t\t<Block>202</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12314-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>05:43
-        PM</Time>\n\t\t\t\t<Time>05:51 PM</Time>\n\t\t\t\t<Time>06:05 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12316-23</Tripid>\n\t\t\t\t<Block>15</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16894-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>05:43
+        PM</Time>\n\t\t\t\t<Time>05:51 PM</Time>\n\t\t\t\t<Time>06:05 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16896-23</Tripid>\n\t\t\t\t<Block>202</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12316-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>05:43
-        PM</Time>\n\t\t\t\t<Time>05:51 PM</Time>\n\t\t\t\t<Time>06:05 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-38</Tripid>\n\t\t\t\t<Block>5</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16896-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>05:43
+        PM</Time>\n\t\t\t\t<Time>05:51 PM</Time>\n\t\t\t\t<Time>06:05 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-38</Tripid>\n\t\t\t\t<Block>193</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>05:49
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>05:49
         PM</Time>\n\t\t\t\t<Time>05:53 PM</Time>\n\t\t\t\t<Time>06:01 PM</Time>\n\t\t\t\t<Time>06:15
         PM</Time>\n\t\t\t\t<Time>06:24 PM</Time>\n\t\t\t\t<Time>06:33 PM</Time>\n\t\t\t\t<Time>06:41
-        PM</Time>\n\t\t\t\t<Time>06:51 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-38</Tripid>\n\t\t\t\t<Block>5</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>06:51 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-38</Tripid>\n\t\t\t\t<Block>193</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>05:49
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>05:49
         PM</Time>\n\t\t\t\t<Time>05:53 PM</Time>\n\t\t\t\t<Time>06:01 PM</Time>\n\t\t\t\t<Time>06:15
         PM</Time>\n\t\t\t\t<Time>06:24 PM</Time>\n\t\t\t\t<Time>06:33 PM</Time>\n\t\t\t\t<Time>06:41
-        PM</Time>\n\t\t\t\t<Time>06:51 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12314-24</Tripid>\n\t\t\t\t<Block>13</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>06:51 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16894-24</Tripid>\n\t\t\t\t<Block>200</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12314-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>06:03
-        PM</Time>\n\t\t\t\t<Time>06:11 PM</Time>\n\t\t\t\t<Time>06:25 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12316-24</Tripid>\n\t\t\t\t<Block>13</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16894-F</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>06:03
+        PM</Time>\n\t\t\t\t<Time>06:11 PM</Time>\n\t\t\t\t<Time>06:25 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16896-24</Tripid>\n\t\t\t\t<Block>200</Block>\n\t<Sign>0
         Central North To Central Station</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12316-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>06:03
-        PM</Time>\n\t\t\t\t<Time>06:11 PM</Time>\n\t\t\t\t<Time>06:25 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-39</Tripid>\n\t\t\t\t<Block>12</Block>\n\t<Sign>0
+        </Tripfare>\n\t\t\t\t<Commentcode>16896-MTWH</Commentcode>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>06:03
+        PM</Time>\n\t\t\t\t<Time>06:11 PM</Time>\n\t\t\t\t<Time>06:25 PM</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t\t<Time>--</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-39</Tripid>\n\t\t\t\t<Block>195</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>06:09
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>06:09
         PM</Time>\n\t\t\t\t<Time>06:13 PM</Time>\n\t\t\t\t<Time>06:21 PM</Time>\n\t\t\t\t<Time>06:35
         PM</Time>\n\t\t\t\t<Time>06:43 PM</Time>\n\t\t\t\t<Time>06:51 PM</Time>\n\t\t\t\t<Time>06:59
-        PM</Time>\n\t\t\t\t<Time>07:09 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-39</Tripid>\n\t\t\t\t<Block>9</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>07:09 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-39</Tripid>\n\t\t\t\t<Block>195</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>06:09
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>06:09
         PM</Time>\n\t\t\t\t<Time>06:13 PM</Time>\n\t\t\t\t<Time>06:21 PM</Time>\n\t\t\t\t<Time>06:35
         PM</Time>\n\t\t\t\t<Time>06:43 PM</Time>\n\t\t\t\t<Time>06:51 PM</Time>\n\t\t\t\t<Time>06:59
-        PM</Time>\n\t\t\t\t<Time>07:09 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-40</Tripid>\n\t\t\t\t<Block>2</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>07:09 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-40</Tripid>\n\t\t\t\t<Block>190</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>06:30
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>06:30
         PM</Time>\n\t\t\t\t<Time>06:34 PM</Time>\n\t\t\t\t<Time>06:42 PM</Time>\n\t\t\t\t<Time>06:55
         PM</Time>\n\t\t\t\t<Time>07:03 PM</Time>\n\t\t\t\t<Time>07:11 PM</Time>\n\t\t\t\t<Time>07:19
-        PM</Time>\n\t\t\t\t<Time>07:29 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-40</Tripid>\n\t\t\t\t<Block>2</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>07:29 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-40</Tripid>\n\t\t\t\t<Block>190</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>06:30
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>06:30
         PM</Time>\n\t\t\t\t<Time>06:34 PM</Time>\n\t\t\t\t<Time>06:42 PM</Time>\n\t\t\t\t<Time>06:55
         PM</Time>\n\t\t\t\t<Time>07:03 PM</Time>\n\t\t\t\t<Time>07:11 PM</Time>\n\t\t\t\t<Time>07:19
-        PM</Time>\n\t\t\t\t<Time>07:29 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-41</Tripid>\n\t\t\t\t<Block>4</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>07:29 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-41</Tripid>\n\t\t\t\t<Block>192</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>06:50
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>06:50
         PM</Time>\n\t\t\t\t<Time>06:54 PM</Time>\n\t\t\t\t<Time>07:02 PM</Time>\n\t\t\t\t<Time>07:15
         PM</Time>\n\t\t\t\t<Time>07:23 PM</Time>\n\t\t\t\t<Time>07:31 PM</Time>\n\t\t\t\t<Time>07:39
-        PM</Time>\n\t\t\t\t<Time>07:49 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-41</Tripid>\n\t\t\t\t<Block>4</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>07:49 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-41</Tripid>\n\t\t\t\t<Block>192</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>06:50
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>06:50
         PM</Time>\n\t\t\t\t<Time>06:54 PM</Time>\n\t\t\t\t<Time>07:02 PM</Time>\n\t\t\t\t<Time>07:15
         PM</Time>\n\t\t\t\t<Time>07:23 PM</Time>\n\t\t\t\t<Time>07:31 PM</Time>\n\t\t\t\t<Time>07:39
-        PM</Time>\n\t\t\t\t<Time>07:49 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-42</Tripid>\n\t\t\t\t<Block>7</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>07:49 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-42</Tripid>\n\t\t\t\t<Block>194</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>07:10
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>07:10
         PM</Time>\n\t\t\t\t<Time>07:14 PM</Time>\n\t\t\t\t<Time>07:22 PM</Time>\n\t\t\t\t<Time>07:35
         PM</Time>\n\t\t\t\t<Time>07:43 PM</Time>\n\t\t\t\t<Time>07:51 PM</Time>\n\t\t\t\t<Time>07:59
-        PM</Time>\n\t\t\t\t<Time>08:09 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-42</Tripid>\n\t\t\t\t<Block>7</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>08:09 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-42</Tripid>\n\t\t\t\t<Block>194</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>07:10
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>07:10
         PM</Time>\n\t\t\t\t<Time>07:14 PM</Time>\n\t\t\t\t<Time>07:22 PM</Time>\n\t\t\t\t<Time>07:35
         PM</Time>\n\t\t\t\t<Time>07:43 PM</Time>\n\t\t\t\t<Time>07:51 PM</Time>\n\t\t\t\t<Time>07:59
-        PM</Time>\n\t\t\t\t<Time>08:09 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-43</Tripid>\n\t\t\t\t<Block>10</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>08:09 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-43</Tripid>\n\t\t\t\t<Block>198</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>07:30
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>07:30
         PM</Time>\n\t\t\t\t<Time>07:34 PM</Time>\n\t\t\t\t<Time>07:42 PM</Time>\n\t\t\t\t<Time>07:55
         PM</Time>\n\t\t\t\t<Time>08:03 PM</Time>\n\t\t\t\t<Time>08:11 PM</Time>\n\t\t\t\t<Time>08:19
-        PM</Time>\n\t\t\t\t<Time>08:29 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-43</Tripid>\n\t\t\t\t<Block>8</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>08:29 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-43</Tripid>\n\t\t\t\t<Block>198</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>07:30
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>07:30
         PM</Time>\n\t\t\t\t<Time>07:34 PM</Time>\n\t\t\t\t<Time>07:42 PM</Time>\n\t\t\t\t<Time>07:55
         PM</Time>\n\t\t\t\t<Time>08:03 PM</Time>\n\t\t\t\t<Time>08:11 PM</Time>\n\t\t\t\t<Time>08:19
-        PM</Time>\n\t\t\t\t<Time>08:29 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-44</Tripid>\n\t\t\t\t<Block>1</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>08:29 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-44</Tripid>\n\t\t\t\t<Block>189</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>07:50
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>07:50
         PM</Time>\n\t\t\t\t<Time>07:54 PM</Time>\n\t\t\t\t<Time>08:02 PM</Time>\n\t\t\t\t<Time>08:15
         PM</Time>\n\t\t\t\t<Time>08:23 PM</Time>\n\t\t\t\t<Time>08:31 PM</Time>\n\t\t\t\t<Time>08:39
-        PM</Time>\n\t\t\t\t<Time>08:49 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-44</Tripid>\n\t\t\t\t<Block>1</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>08:49 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-44</Tripid>\n\t\t\t\t<Block>189</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>07:50
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>07:50
         PM</Time>\n\t\t\t\t<Time>07:54 PM</Time>\n\t\t\t\t<Time>08:02 PM</Time>\n\t\t\t\t<Time>08:15
         PM</Time>\n\t\t\t\t<Time>08:23 PM</Time>\n\t\t\t\t<Time>08:31 PM</Time>\n\t\t\t\t<Time>08:39
-        PM</Time>\n\t\t\t\t<Time>08:49 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-45</Tripid>\n\t\t\t\t<Block>3</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>08:49 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-45</Tripid>\n\t\t\t\t<Block>191</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>08:10
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>08:10
         PM</Time>\n\t\t\t\t<Time>08:14 PM</Time>\n\t\t\t\t<Time>08:22 PM</Time>\n\t\t\t\t<Time>08:35
         PM</Time>\n\t\t\t\t<Time>08:43 PM</Time>\n\t\t\t\t<Time>08:51 PM</Time>\n\t\t\t\t<Time>08:59
-        PM</Time>\n\t\t\t\t<Time>09:09 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-45</Tripid>\n\t\t\t\t<Block>3</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>09:09 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-45</Tripid>\n\t\t\t\t<Block>191</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>08:10
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>08:10
         PM</Time>\n\t\t\t\t<Time>08:14 PM</Time>\n\t\t\t\t<Time>08:22 PM</Time>\n\t\t\t\t<Time>08:35
         PM</Time>\n\t\t\t\t<Time>08:43 PM</Time>\n\t\t\t\t<Time>08:51 PM</Time>\n\t\t\t\t<Time>08:59
-        PM</Time>\n\t\t\t\t<Time>09:09 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-46</Tripid>\n\t\t\t\t<Block>5</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>09:09 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-46</Tripid>\n\t\t\t\t<Block>193</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>08:30
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>08:30
         PM</Time>\n\t\t\t\t<Time>08:34 PM</Time>\n\t\t\t\t<Time>08:42 PM</Time>\n\t\t\t\t<Time>08:55
         PM</Time>\n\t\t\t\t<Time>09:03 PM</Time>\n\t\t\t\t<Time>09:11 PM</Time>\n\t\t\t\t<Time>09:19
-        PM</Time>\n\t\t\t\t<Time>09:29 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-46</Tripid>\n\t\t\t\t<Block>5</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>09:29 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-46</Tripid>\n\t\t\t\t<Block>193</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>08:30
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>08:30
         PM</Time>\n\t\t\t\t<Time>08:34 PM</Time>\n\t\t\t\t<Time>08:42 PM</Time>\n\t\t\t\t<Time>08:55
         PM</Time>\n\t\t\t\t<Time>09:03 PM</Time>\n\t\t\t\t<Time>09:11 PM</Time>\n\t\t\t\t<Time>09:19
-        PM</Time>\n\t\t\t\t<Time>09:29 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-47</Tripid>\n\t\t\t\t<Block>12</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>09:29 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-47</Tripid>\n\t\t\t\t<Block>195</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>08:50
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>08:50
         PM</Time>\n\t\t\t\t<Time>08:54 PM</Time>\n\t\t\t\t<Time>09:02 PM</Time>\n\t\t\t\t<Time>09:15
         PM</Time>\n\t\t\t\t<Time>09:23 PM</Time>\n\t\t\t\t<Time>09:31 PM</Time>\n\t\t\t\t<Time>09:39
-        PM</Time>\n\t\t\t\t<Time>09:49 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-47</Tripid>\n\t\t\t\t<Block>9</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>09:49 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-47</Tripid>\n\t\t\t\t<Block>195</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>08:50
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>08:50
         PM</Time>\n\t\t\t\t<Time>08:54 PM</Time>\n\t\t\t\t<Time>09:02 PM</Time>\n\t\t\t\t<Time>09:15
         PM</Time>\n\t\t\t\t<Time>09:23 PM</Time>\n\t\t\t\t<Time>09:31 PM</Time>\n\t\t\t\t<Time>09:39
-        PM</Time>\n\t\t\t\t<Time>09:49 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-48</Tripid>\n\t\t\t\t<Block>2</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>09:49 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-48</Tripid>\n\t\t\t\t<Block>190</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>09:10
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>09:10
         PM</Time>\n\t\t\t\t<Time>09:14 PM</Time>\n\t\t\t\t<Time>09:22 PM</Time>\n\t\t\t\t<Time>09:35
         PM</Time>\n\t\t\t\t<Time>09:43 PM</Time>\n\t\t\t\t<Time>09:51 PM</Time>\n\t\t\t\t<Time>09:59
-        PM</Time>\n\t\t\t\t<Time>10:09 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-48</Tripid>\n\t\t\t\t<Block>2</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>10:09 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-48</Tripid>\n\t\t\t\t<Block>190</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>09:10
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>09:10
         PM</Time>\n\t\t\t\t<Time>09:14 PM</Time>\n\t\t\t\t<Time>09:22 PM</Time>\n\t\t\t\t<Time>09:35
         PM</Time>\n\t\t\t\t<Time>09:43 PM</Time>\n\t\t\t\t<Time>09:51 PM</Time>\n\t\t\t\t<Time>09:59
-        PM</Time>\n\t\t\t\t<Time>10:09 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-49</Tripid>\n\t\t\t\t<Block>4</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>10:09 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-49</Tripid>\n\t\t\t\t<Block>192</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>09:30
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>09:30
         PM</Time>\n\t\t\t\t<Time>09:34 PM</Time>\n\t\t\t\t<Time>09:42 PM</Time>\n\t\t\t\t<Time>09:55
         PM</Time>\n\t\t\t\t<Time>10:03 PM</Time>\n\t\t\t\t<Time>10:11 PM</Time>\n\t\t\t\t<Time>10:19
-        PM</Time>\n\t\t\t\t<Time>10:29 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-49</Tripid>\n\t\t\t\t<Block>4</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>10:29 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-49</Tripid>\n\t\t\t\t<Block>192</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>09:30
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>09:30
         PM</Time>\n\t\t\t\t<Time>09:34 PM</Time>\n\t\t\t\t<Time>09:42 PM</Time>\n\t\t\t\t<Time>09:55
         PM</Time>\n\t\t\t\t<Time>10:03 PM</Time>\n\t\t\t\t<Time>10:11 PM</Time>\n\t\t\t\t<Time>10:19
-        PM</Time>\n\t\t\t\t<Time>10:29 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>12313-50</Tripid>\n\t\t\t\t<Block>7</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>10:29 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>F</Comment>\n\t\t\t\t<Tripid>16893-50</Tripid>\n\t\t\t\t<Block>194</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12313-F</Commentcode>\n\t\t\t\t<Time>09:50
+        </Tripfare>\n\t\t\t\t<Commentcode>16893-F</Commentcode>\n\t\t\t\t<Time>09:50
         PM</Time>\n\t\t\t\t<Time>09:54 PM</Time>\n\t\t\t\t<Time>10:02 PM</Time>\n\t\t\t\t<Time>10:15
         PM</Time>\n\t\t\t\t<Time>10:23 PM</Time>\n\t\t\t\t<Time>10:31 PM</Time>\n\t\t\t\t<Time>10:39
-        PM</Time>\n\t\t\t\t<Time>10:49 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>12315-50</Tripid>\n\t\t\t\t<Block>7</Block>\n\t<Sign>0
+        PM</Time>\n\t\t\t\t<Time>10:49 PM</Time>\n\t\t\t</Trip>\n\t\t\t<Trip>\n\t\t\t\t<Comment>MTWH</Comment>\n\t\t\t\t<Tripid>16895-50</Tripid>\n\t\t\t\t<Block>194</Block>\n\t<Sign>0
         CENTRAL North to Dunlap/3rd St.</Sign>\n\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t<Tripfare>
-        </Tripfare>\n\t\t\t\t<Commentcode>12315-MTWH</Commentcode>\n\t\t\t\t<Time>09:50
+        </Tripfare>\n\t\t\t\t<Commentcode>16895-MTWH</Commentcode>\n\t\t\t\t<Time>09:50
         PM</Time>\n\t\t\t\t<Time>09:54 PM</Time>\n\t\t\t\t<Time>10:02 PM</Time>\n\t\t\t\t<Time>10:15
         PM</Time>\n\t\t\t\t<Time>10:23 PM</Time>\n\t\t\t\t<Time>10:31 PM</Time>\n\t\t\t\t<Time>10:39
-        PM</Time>\n\t\t\t\t<Time>10:49 PM</Time>\n\t\t\t</Trip>\n\t\t</Times>\n\t\t<Comments>\n\t\t</Comments>\n\t</Headway>\n\t<Requestor>68.226.126.17</Requestor>\n\t<Host>s-rpta-soap</Host>\n\t<Copyright>XML
-        schema Copyright (c) 2003-2013 Trapeze Software ULC, its subsidiaries and
-        affiliates.  All rights reserved.</Copyright>\n\t<Soapversion>2.6.3 - 11/14/13</Soapversion>\n</namesp1:TimetableResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+        PM</Time>\n\t\t\t\t<Time>10:49 PM</Time>\n\t\t\t</Trip>\n\t\t</Times>\n\t</Headway>\n\t<Appid>ratis-specs</Appid>\n\t<Requestor>98.174.226.185</Requestor>\n\t<Host>s-rpta-soap</Host>\n\t<Copyright>XML
+        schema Copyright (c) 2003-2014 Trapeze Software ULC, its subsidiaries and
+        affiliates.  All rights reserved.</Copyright>\n\t<Soapversion>2.7.1a - 05/14/14</Soapversion>\n</namesp1:TimetableResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
     http_version: 
-  recorded_at: Mon, 06 Jan 2014 23:53:32 GMT
+  recorded_at: Mon, 16 Jun 2014 18:13:06 GMT
 recorded_with: VCR 2.8.0

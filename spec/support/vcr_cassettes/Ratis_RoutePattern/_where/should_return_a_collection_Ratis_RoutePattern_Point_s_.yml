@@ -2,20 +2,70 @@
 http_interactions:
 - request:
     method: post
-    uri: http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi
+    uri: http://soap.valleymetro.org/cgi-bin-soap-web-271/soap.cgi
     body:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="PX_WEB"
         xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><Routepattern
-        xmlns="PX_WEB"><Route>LTRL</Route><Direction>E</Direction><Date>12:00:00</Date><Servicetype>W</Servicetype><Routeid>46880</Routeid></Routepattern></env:Body></env:Envelope>
+        xmlns="PX_WEB"><Route>LTRL</Route><Direction>E</Direction><Date>12:00:00</Date><Servicetype>W</Servicetype><Routeid>46880</Routeid><Appid>ratis-specs</Appid></Routepattern></env:Body></env:Envelope>
     headers:
       Soapaction:
       - '"PX_WEB#Routepattern"'
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '421'
+      - '447'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 500
+      message: Internal Server Error
+    headers:
+      Date:
+      - Sat, 14 Jun 2014 00:44:11 GMT
+      Server:
+      - Apache/2.2.3 (CentOS)
+      Soapserver:
+      - SOAP::Lite/Perl/0.55
+      Content-Length:
+      - '725'
+      Connection:
+      - close
+      Content-Type:
+      - text/xml; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: '<?xml version="1.0" encoding="UTF-8"?><SOAP-ENV:Envelope xmlns:namesp1="http://namespaces.soaplite.com/perl"
+        xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/1999/XMLSchema-instance"
+        xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/1999/XMLSchema"
+        SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><SOAP-ENV:Body><SOAP-ENV:Fault><faultcode
+        xsi:type="xsd:string">SOAP-ENV:1007</faultcode><faultstring xsi:type="xsd:string">error
+        #1007--Record not found or no more data</faultstring><detail><PX_WEB xsi:type="namesp1:PX_WEB"><code
+        xsi:type="xsd:int">1007</code></PX_WEB></detail></SOAP-ENV:Fault></SOAP-ENV:Body></SOAP-ENV:Envelope>'
+    http_version: 
+  recorded_at: Sat, 14 Jun 2014 00:44:12 GMT
+- request:
+    method: post
+    uri: http://soap.valleymetro.org/cgi-bin-soap-web-271/soap.cgi
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="PX_WEB"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><Routepattern
+        xmlns="PX_WEB"><Route>LTRL</Route><Direction>E</Direction><Date>12:00:00</Date><Servicetype>W</Servicetype><Routeid>144740</Routeid><Appid>ratis-specs</Appid></Routepattern></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - '"PX_WEB#Routepattern"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '448'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -28,13 +78,13 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 06 Jan 2014 23:53:40 GMT
+      - Sat, 14 Jun 2014 01:00:23 GMT
       Server:
       - Apache/2.2.3 (CentOS)
       Soapserver:
       - SOAP::Lite/Perl/0.55
       Content-Length:
-      - '16171'
+      - '18880'
       Connection:
       - close
       Content-Type:
@@ -48,30 +98,37 @@ http_interactions:
         AVE LIGHT RAIL STATION</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.521203</Lat>\n\t\t\t<Long>-112.099746</Long>\n\t\t\t<Point>33.52120,-112.09975</Point>\n\t\t\t<Atisstopid>10869</Atisstopid>\n\t\t\t<Stopid>10001</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>19TH
         AVE/CAMELBACK RD LIGHT RAIL STATION</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.509505</Lat>\n\t\t\t<Long>-112.099361</Long>\n\t\t\t<Point>33.50950,-112.09936</Point>\n\t\t\t<Atisstopid>10870</Atisstopid>\n\t\t\t<Stopid>10002</Stopid>\n\t\t\t<Timepoint>G</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>7TH
         AVE/CAMELBACK RD LIGHT RAIL STATION</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.509288</Lat>\n\t\t\t<Long>-112.083949</Long>\n\t\t\t<Point>33.50929,-112.08395</Point>\n\t\t\t<Atisstopid>10871</Atisstopid>\n\t\t\t<Stopid>10003</Stopid>\n\t\t\t<Timepoint>G</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>CENTRAL
-        AVE/CAMELBACK LIGHT RAIL STATION</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.508872</Lat>\n\t\t\t<Long>-112.075829</Long>\n\t\t\t<Point>33.50887,-112.07583</Point>\n\t\t\t<Atisstopid>10872</Atisstopid>\n\t\t\t<Stopid>10004</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>CAMPBELL/CENTRAL
+        AVE/CAMELBACK LIGHT RAIL STATION</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.508872</Lat>\n\t\t\t<Long>-112.075829</Long>\n\t\t\t<Point>33.50887,-112.07583</Point>\n\t\t\t<Atisstopid>10872</Atisstopid>\n\t\t\t<Stopid>10004</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>A</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>CENTRAL
+        AVE/CAMELBACK LIGHT RAIL STATION</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.508872</Lat>\n\t\t\t<Long>-112.075829</Long>\n\t\t\t<Point>33.50887,-112.07583</Point>\n\t\t\t<Atisstopid>10872</Atisstopid>\n\t\t\t<Stopid>10004</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>B</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>CAMPBELL/CENTRAL
         AVE LIGHT RAIL STATION</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.501903</Lat>\n\t\t\t<Long>-112.073848</Long>\n\t\t\t<Point>33.50190,-112.07385</Point>\n\t\t\t<Atisstopid>10873</Atisstopid>\n\t\t\t<Stopid>10005</Stopid>\n\t\t\t<Timepoint>G</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>INDIAN
         SCHOOL/CENTRAL LIGHT RAIL STATION</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.496236</Lat>\n\t\t\t<Long>-112.073829</Long>\n\t\t\t<Point>33.49624,-112.07383</Point>\n\t\t\t<Atisstopid>10874</Atisstopid>\n\t\t\t<Stopid>10006</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>OSBORN
         RD/CENTRAL AVE LIGHT RAIL STATION</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.487388</Lat>\n\t\t\t<Long>-112.073895</Long>\n\t\t\t<Point>33.48739,-112.07389</Point>\n\t\t\t<Atisstopid>10875</Atisstopid>\n\t\t\t<Stopid>10007</Stopid>\n\t\t\t<Timepoint>G</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>THOMAS
         RD/CENTRAL AVE LIGHT RAIL STATION</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.481737</Lat>\n\t\t\t<Long>-112.073831</Long>\n\t\t\t<Point>33.48174,-112.07383</Point>\n\t\t\t<Atisstopid>10876</Atisstopid>\n\t\t\t<Stopid>10008</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>ENCANTO/CENTRAL
-        AVE LIGHT RAIL STATION</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.474736</Lat>\n\t\t\t<Long>-112.073831</Long>\n\t\t\t<Point>33.47474,-112.07383</Point>\n\t\t\t<Atisstopid>10877</Atisstopid>\n\t\t\t<Stopid>10009</Stopid>\n\t\t\t<Timepoint>G</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>MCDOWELL/CENTRAL
-        AVE LIGHT RAIL STATION</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.465353</Lat>\n\t\t\t<Long>-112.073878</Long>\n\t\t\t<Point>33.46535,-112.07388</Point>\n\t\t\t<Atisstopid>10878</Atisstopid>\n\t\t\t<Stopid>10010</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>ROOSEVELT/CENTRAL
-        AVE LIGHT RAIL STATION</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.459821</Lat>\n\t\t\t<Long>-112.073847</Long>\n\t\t\t<Point>33.45982,-112.07385</Point>\n\t\t\t<Atisstopid>10879</Atisstopid>\n\t\t\t<Stopid>10011</Stopid>\n\t\t\t<Timepoint>G</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>VAN
+        AVE LIGHT RAIL STATION</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.474736</Lat>\n\t\t\t<Long>-112.073831</Long>\n\t\t\t<Point>33.47474,-112.07383</Point>\n\t\t\t<Atisstopid>10877</Atisstopid>\n\t\t\t<Stopid>10009</Stopid>\n\t\t\t<Timepoint>G</Timepoint>\n\t\t\t<Boardflag>A</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>ENCANTO/CENTRAL
+        AVE LIGHT RAIL STATION</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.474736</Lat>\n\t\t\t<Long>-112.073831</Long>\n\t\t\t<Point>33.47474,-112.07383</Point>\n\t\t\t<Atisstopid>10877</Atisstopid>\n\t\t\t<Stopid>10009</Stopid>\n\t\t\t<Timepoint>G</Timepoint>\n\t\t\t<Boardflag>B</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>MCDOWELL/CENTRAL
+        AVE LIGHT RAIL STATION</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.465353</Lat>\n\t\t\t<Long>-112.073878</Long>\n\t\t\t<Point>33.46535,-112.07388</Point>\n\t\t\t<Atisstopid>10878</Atisstopid>\n\t\t\t<Stopid>10010</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>A</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>MCDOWELL/CENTRAL
+        AVE LIGHT RAIL STATION</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.465353</Lat>\n\t\t\t<Long>-112.073878</Long>\n\t\t\t<Point>33.46535,-112.07388</Point>\n\t\t\t<Atisstopid>10878</Atisstopid>\n\t\t\t<Stopid>10010</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>B</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>ROOSEVELT/CENTRAL
+        AVE LIGHT RAIL STATION</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.459821</Lat>\n\t\t\t<Long>-112.073847</Long>\n\t\t\t<Point>33.45982,-112.07385</Point>\n\t\t\t<Atisstopid>10879</Atisstopid>\n\t\t\t<Stopid>10011</Stopid>\n\t\t\t<Timepoint>G</Timepoint>\n\t\t\t<Boardflag>A</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>ROOSEVELT/CENTRAL
+        AVE LIGHT RAIL STATION</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.459821</Lat>\n\t\t\t<Long>-112.073847</Long>\n\t\t\t<Point>33.45982,-112.07385</Point>\n\t\t\t<Atisstopid>10879</Atisstopid>\n\t\t\t<Stopid>10011</Stopid>\n\t\t\t<Timepoint>G</Timepoint>\n\t\t\t<Boardflag>B</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>VAN
         BUREN/1ST AVE LIGHT RAIL STATION</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.452252</Lat>\n\t\t\t<Long>-112.075081</Long>\n\t\t\t<Point>33.45225,-112.07508</Point>\n\t\t\t<Atisstopid>10880</Atisstopid>\n\t\t\t<Stopid>10012</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>JEFFERSON
         STREET/1ST AVE LIGHT RAIL STN</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.448188</Lat>\n\t\t\t<Long>-112.075198</Long>\n\t\t\t<Point>33.44819,-112.07520</Point>\n\t\t\t<Atisstopid>10891</Atisstopid>\n\t\t\t<Stopid>10013</Stopid>\n\t\t\t<Timepoint>G</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>3RD
-        STREET/JEFFERSON LIGHT RAIL STATION</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.446270</Lat>\n\t\t\t<Long>-112.069777</Long>\n\t\t\t<Point>33.44627,-112.06978</Point>\n\t\t\t<Atisstopid>10892</Atisstopid>\n\t\t\t<Stopid>10014</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>12TH
+        STREET/JEFFERSON LIGHT RAIL STATION</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.446270</Lat>\n\t\t\t<Long>-112.069777</Long>\n\t\t\t<Point>33.44627,-112.06978</Point>\n\t\t\t<Atisstopid>10892</Atisstopid>\n\t\t\t<Stopid>10014</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>A</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>3RD
+        STREET/JEFFERSON LIGHT RAIL STATION</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.446270</Lat>\n\t\t\t<Long>-112.069777</Long>\n\t\t\t<Point>33.44627,-112.06978</Point>\n\t\t\t<Atisstopid>10892</Atisstopid>\n\t\t\t<Stopid>10014</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>B</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>12TH
         STREET/JEFFERSON LIGHT RAIL STATION</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.447237</Lat>\n\t\t\t<Long>-112.056297</Long>\n\t\t\t<Point>33.44724,-112.05630</Point>\n\t\t\t<Atisstopid>10893</Atisstopid>\n\t\t\t<Stopid>10015</Stopid>\n\t\t\t<Timepoint>G</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>24TH
         STREET/JEFFERSON LIGHT RAIL STATION</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.447221</Lat>\n\t\t\t<Long>-112.029994</Long>\n\t\t\t<Point>33.44722,-112.02999</Point>\n\t\t\t<Atisstopid>10881</Atisstopid>\n\t\t\t<Stopid>10016</Stopid>\n\t\t\t<Timepoint>G</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>38TH
         STREET/WASHINGTON LIGHT RAIL STN</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.448106</Lat>\n\t\t\t<Long>-112.000498</Long>\n\t\t\t<Point>33.44811,-112.00050</Point>\n\t\t\t<Atisstopid>10882</Atisstopid>\n\t\t\t<Stopid>10017</Stopid>\n\t\t\t<Timepoint>G</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>44TH
-        STREET/WASHINGTON LIGHT RAIL STN</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.448120</Lat>\n\t\t\t<Long>-111.988580</Long>\n\t\t\t<Point>33.44812,-111.98858</Point>\n\t\t\t<Atisstopid>10883</Atisstopid>\n\t\t\t<Stopid>10018</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>PRIEST
-        DR/WASHINGTON LIGHT RAIL STATION</Description>\n\t\t\t<Area>Tempe</Area>\n\t\t\t<Lat>33.442420</Lat>\n\t\t\t<Long>-111.956463</Long>\n\t\t\t<Point>33.44242,-111.95646</Point>\n\t\t\t<Atisstopid>10884</Atisstopid>\n\t\t\t<Stopid>10019</Stopid>\n\t\t\t<Timepoint>G</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>CENTER
+        STREET/WASHINGTON LIGHT RAIL STN</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.448120</Lat>\n\t\t\t<Long>-111.988580</Long>\n\t\t\t<Point>33.44812,-111.98858</Point>\n\t\t\t<Atisstopid>10883</Atisstopid>\n\t\t\t<Stopid>10018</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>A</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>44TH
+        STREET/WASHINGTON LIGHT RAIL STN</Description>\n\t\t\t<Area>Phoenix</Area>\n\t\t\t<Lat>33.448120</Lat>\n\t\t\t<Long>-111.988580</Long>\n\t\t\t<Point>33.44812,-111.98858</Point>\n\t\t\t<Atisstopid>10883</Atisstopid>\n\t\t\t<Stopid>10018</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>B</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>PRIEST
+        DR/WASHINGTON LIGHT RAIL STATION</Description>\n\t\t\t<Area>Tempe</Area>\n\t\t\t<Lat>33.442420</Lat>\n\t\t\t<Long>-111.956463</Long>\n\t\t\t<Point>33.44242,-111.95646</Point>\n\t\t\t<Atisstopid>10884</Atisstopid>\n\t\t\t<Stopid>10019</Stopid>\n\t\t\t<Timepoint>G</Timepoint>\n\t\t\t<Boardflag>A</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>PRIEST
+        DR/WASHINGTON LIGHT RAIL STATION</Description>\n\t\t\t<Area>Tempe</Area>\n\t\t\t<Lat>33.442420</Lat>\n\t\t\t<Long>-111.956463</Long>\n\t\t\t<Point>33.44242,-111.95646</Point>\n\t\t\t<Atisstopid>10884</Atisstopid>\n\t\t\t<Stopid>10019</Stopid>\n\t\t\t<Timepoint>G</Timepoint>\n\t\t\t<Boardflag>B</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>CENTER
         PKWY/WASHINGTON LIGHT RAIL STN</Description>\n\t\t\t<Area>Tempe</Area>\n\t\t\t<Lat>33.438386</Lat>\n\t\t\t<Long>-111.947165</Long>\n\t\t\t<Point>33.43839,-111.94716</Point>\n\t\t\t<Atisstopid>10885</Atisstopid>\n\t\t\t<Stopid>10020</Stopid>\n\t\t\t<Timepoint>G</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>MILL
-        AVE/THIRD STREET LIGHT RAIL STATION</Description>\n\t\t\t<Area>Tempe</Area>\n\t\t\t<Lat>33.427538</Lat>\n\t\t\t<Long>-111.941194</Long>\n\t\t\t<Point>33.42754,-111.94119</Point>\n\t\t\t<Atisstopid>10894</Atisstopid>\n\t\t\t<Stopid>10021</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>A</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>MILL
-        AVE/THIRD STREET LIGHT RAIL STATION</Description>\n\t\t\t<Area>Tempe</Area>\n\t\t\t<Lat>33.427538</Lat>\n\t\t\t<Long>-111.941194</Long>\n\t\t\t<Point>33.42754,-111.94119</Point>\n\t\t\t<Atisstopid>10894</Atisstopid>\n\t\t\t<Stopid>10021</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>B</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>VETERANS
+        AVE/THIRD STREET LIGHT RAIL STATION</Description>\n\t\t\t<Area>Tempe</Area>\n\t\t\t<Lat>33.427538</Lat>\n\t\t\t<Long>-111.941194</Long>\n\t\t\t<Point>33.42754,-111.94119</Point>\n\t\t\t<Atisstopid>10894</Atisstopid>\n\t\t\t<Stopid>10021</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>VETERANS
         WAY/COLLEGE LIGHT RAIL STATION</Description>\n\t\t\t<Area>Tempe</Area>\n\t\t\t<Lat>33.426222</Lat>\n\t\t\t<Long>-111.936477</Long>\n\t\t\t<Point>33.42622,-111.93648</Point>\n\t\t\t<Atisstopid>10895</Atisstopid>\n\t\t\t<Stopid>10022</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>A</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>VETERANS
         WAY/COLLEGE LIGHT RAIL STATION</Description>\n\t\t\t<Area>Tempe</Area>\n\t\t\t<Lat>33.426222</Lat>\n\t\t\t<Long>-111.936477</Long>\n\t\t\t<Point>33.42622,-111.93648</Point>\n\t\t\t<Atisstopid>10895</Atisstopid>\n\t\t\t<Stopid>10022</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>B</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>UNIVERSITY
         DR/RURAL LIGHT RAIL STATION</Description>\n\t\t\t<Area>Tempe</Area>\n\t\t\t<Lat>33.421090</Lat>\n\t\t\t<Long>-111.927296</Long>\n\t\t\t<Point>33.42109,-111.92730</Point>\n\t\t\t<Atisstopid>10896</Atisstopid>\n\t\t\t<Stopid>10023</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>DORSEY
         LN/APACHE BLVD LIGHT RAIL STATION</Description>\n\t\t\t<Area>Tempe</Area>\n\t\t\t<Lat>33.414721</Lat>\n\t\t\t<Long>-111.917512</Long>\n\t\t\t<Point>33.41472,-111.91751</Point>\n\t\t\t<Atisstopid>10886</Atisstopid>\n\t\t\t<Stopid>10024</Stopid>\n\t\t\t<Timepoint>G</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>MCCLINTOCK
-        DR/APACHE LIGHT RAIL STATION</Description>\n\t\t\t<Area>Tempe</Area>\n\t\t\t<Lat>33.414688</Lat>\n\t\t\t<Long>-111.908882</Long>\n\t\t\t<Point>33.41469,-111.90888</Point>\n\t\t\t<Atisstopid>10887</Atisstopid>\n\t\t\t<Stopid>10025</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>SMITH-MARTIN/APACHE
+        DR/APACHE LIGHT RAIL STATION</Description>\n\t\t\t<Area>Tempe</Area>\n\t\t\t<Lat>33.414688</Lat>\n\t\t\t<Long>-111.908882</Long>\n\t\t\t<Point>33.41469,-111.90888</Point>\n\t\t\t<Atisstopid>10887</Atisstopid>\n\t\t\t<Stopid>10025</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>A</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>MCCLINTOCK
+        DR/APACHE LIGHT RAIL STATION</Description>\n\t\t\t<Area>Tempe</Area>\n\t\t\t<Lat>33.414688</Lat>\n\t\t\t<Long>-111.908882</Long>\n\t\t\t<Point>33.41469,-111.90888</Point>\n\t\t\t<Atisstopid>10887</Atisstopid>\n\t\t\t<Stopid>10025</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>B</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>SMITH-MARTIN/APACHE
         LIGHT RAIL STATION</Description>\n\t\t\t<Area>Tempe</Area>\n\t\t\t<Lat>33.414738</Lat>\n\t\t\t<Long>-111.901498</Long>\n\t\t\t<Point>33.41474,-111.90150</Point>\n\t\t\t<Atisstopid>10888</Atisstopid>\n\t\t\t<Stopid>10026</Stopid>\n\t\t\t<Timepoint>G</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>PRICE-101
         FWY/APACHE LIGHT RAIL STATION</Description>\n\t\t\t<Area>Tempe</Area>\n\t\t\t<Lat>33.414754</Lat>\n\t\t\t<Long>-111.888747</Long>\n\t\t\t<Point>33.41475,-111.88875</Point>\n\t\t\t<Atisstopid>10889</Atisstopid>\n\t\t\t<Stopid>10027</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t\t<Stop>\n\t\t\t<Description>SYCAMORE/MAIN
         STREET LIGHT RAIL STATION</Description>\n\t\t\t<Area>Mesa</Area>\n\t\t\t<Lat>33.414787</Lat>\n\t\t\t<Long>-111.871629</Long>\n\t\t\t<Point>33.41479,-111.87163</Point>\n\t\t\t<Atisstopid>10890</Atisstopid>\n\t\t\t<Stopid>10028</Stopid>\n\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t<Boardflag>E</Boardflag>\n\t\t</Stop>\n\t</Stops>\n\t<Points>\n\t\t\t<Point>33.521203,
@@ -83,19 +140,24 @@ http_interactions:
         -112.099819</Point>\n\t\t\t<Point>33.513248, -112.099829</Point>\n\t\t\t<Point>33.509768,
         -112.099872</Point>\n\t\t\t<Point>33.509625, -112.099875</Point>\n\t\t\t<Point>33.509614,
         -112.099451</Point>\n\t\t\t<Point>33.509611, -112.099359</Point>\n\t\t\t<Point>33.509505,
-        -112.099361</Point>\n\t\t\t<Point>33.509601, -112.099360</Point>\n\t\t\t<Point>33.509365,
-        -112.083944</Point>\n\t\t\t<Point>33.509288, -112.083949</Point>\n\t\t\t<Point>33.509365,
-        -112.083944</Point>\n\t\t\t<Point>33.508872, -112.075829</Point>\n\t\t\t<Point>33.501903,
-        -112.073785</Point>\n\t\t\t<Point>33.501903, -112.073848</Point>\n\t\t\t<Point>33.501903,
-        -112.073785</Point>\n\t\t\t<Point>33.496236, -112.073809</Point>\n\t\t\t<Point>33.496236,
-        -112.073829</Point>\n\t\t\t<Point>33.496236, -112.073809</Point>\n\t\t\t<Point>33.487388,
-        -112.073803</Point>\n\t\t\t<Point>33.487388, -112.073895</Point>\n\t\t\t<Point>33.487388,
-        -112.073803</Point>\n\t\t\t<Point>33.481737, -112.073798</Point>\n\t\t\t<Point>33.481737,
-        -112.073831</Point>\n\t\t\t<Point>33.481737, -112.073798</Point>\n\t\t\t<Point>33.474736,
-        -112.073825</Point>\n\t\t\t<Point>33.474736, -112.073831</Point>\n\t\t\t<Point>33.474736,
-        -112.073825</Point>\n\t\t\t<Point>33.465353, -112.073835</Point>\n\t\t\t<Point>33.465353,
-        -112.073878</Point>\n\t\t\t<Point>33.465353, -112.073835</Point>\n\t\t\t<Point>33.459821,
-        -112.073860</Point>\n\t\t\t<Point>33.459821, -112.073847</Point>\n\t\t\t<Point>33.459936,
+        -112.099361</Point>\n\t\t\t<Point>33.509688, -112.099299</Point>\n\t\t\t<Point>33.509203,
+        -112.084016</Point>\n\t\t\t<Point>33.509288, -112.083949</Point>\n\t\t\t<Point>33.509203,
+        -112.084016</Point>\n\t\t\t<Point>33.509181, -112.075836</Point>\n\t\t\t<Point>33.508872,
+        -112.075829</Point>\n\t\t\t<Point>33.509181, -112.075836</Point>\n\t\t\t<Point>33.508872,
+        -112.075829</Point>\n\t\t\t<Point>33.509181, -112.075836</Point>\n\t\t\t<Point>33.501906,
+        -112.073917</Point>\n\t\t\t<Point>33.501903, -112.073848</Point>\n\t\t\t<Point>33.501906,
+        -112.073917</Point>\n\t\t\t<Point>33.496236, -112.073941</Point>\n\t\t\t<Point>33.496236,
+        -112.073829</Point>\n\t\t\t<Point>33.496236, -112.073941</Point>\n\t\t\t<Point>33.487385,
+        -112.073649</Point>\n\t\t\t<Point>33.487388, -112.073895</Point>\n\t\t\t<Point>33.487385,
+        -112.073649</Point>\n\t\t\t<Point>33.481907, -112.073900</Point>\n\t\t\t<Point>33.481737,
+        -112.073831</Point>\n\t\t\t<Point>33.481907, -112.073900</Point>\n\t\t\t<Point>33.474725,
+        -112.073933</Point>\n\t\t\t<Point>33.474736, -112.073831</Point>\n\t\t\t<Point>33.474725,
+        -112.073933</Point>\n\t\t\t<Point>33.474736, -112.073831</Point>\n\t\t\t<Point>33.474725,
+        -112.073933</Point>\n\t\t\t<Point>33.465353, -112.073957</Point>\n\t\t\t<Point>33.465353,
+        -112.073878</Point>\n\t\t\t<Point>33.465353, -112.073957</Point>\n\t\t\t<Point>33.465353,
+        -112.073878</Point>\n\t\t\t<Point>33.465353, -112.073957</Point>\n\t\t\t<Point>33.459961,
+        -112.073726</Point>\n\t\t\t<Point>33.459821, -112.073847</Point>\n\t\t\t<Point>33.459961,
+        -112.073726</Point>\n\t\t\t<Point>33.459821, -112.073847</Point>\n\t\t\t<Point>33.459936,
         -112.073881</Point>\n\t\t\t<Point>33.459843, -112.073912</Point>\n\t\t\t<Point>33.459684,
         -112.073958</Point>\n\t\t\t<Point>33.459591, -112.073993</Point>\n\t\t\t<Point>33.459478,
         -112.074031</Point>\n\t\t\t<Point>33.459371, -112.074076</Point>\n\t\t\t<Point>33.459259,
@@ -107,46 +169,47 @@ http_interactions:
         -112.075116</Point>\n\t\t\t<Point>33.456420, -112.075118</Point>\n\t\t\t<Point>33.454718,
         -112.075108</Point>\n\t\t\t<Point>33.454502, -112.075109</Point>\n\t\t\t<Point>33.453263,
         -112.075110</Point>\n\t\t\t<Point>33.452249, -112.075117</Point>\n\t\t\t<Point>33.452252,
-        -112.075081</Point>\n\t\t\t<Point>33.452252, -112.075136</Point>\n\t\t\t<Point>33.448232,
-        -112.075198</Point>\n\t\t\t<Point>33.448188, -112.075198</Point>\n\t\t\t<Point>33.448232,
-        -112.075198</Point>\n\t\t\t<Point>33.446377, -112.069775</Point>\n\t\t\t<Point>33.446270,
-        -112.069777</Point>\n\t\t\t<Point>33.446377, -112.069775</Point>\n\t\t\t<Point>33.447144,
-        -112.056295</Point>\n\t\t\t<Point>33.447237, -112.056297</Point>\n\t\t\t<Point>33.447144,
-        -112.056295</Point>\n\t\t\t<Point>33.447235, -112.029997</Point>\n\t\t\t<Point>33.447221,
-        -112.029994</Point>\n\t\t\t<Point>33.447235, -112.029997</Point>\n\t\t\t<Point>33.448147,
-        -112.000497</Point>\n\t\t\t<Point>33.448106, -112.000498</Point>\n\t\t\t<Point>33.448147,
-        -112.000497</Point>\n\t\t\t<Point>33.448120, -111.988580</Point>\n\t\t\t<Point>33.442420,
-        -111.956463</Point>\n\t\t\t<Point>33.442423, -111.956460</Point>\n\t\t\t<Point>33.438400,
-        -111.947148</Point>\n\t\t\t<Point>33.438386, -111.947165</Point>\n\t\t\t<Point>33.438400,
-        -111.947148</Point>\n\t\t\t<Point>33.427423, -111.941197</Point>\n\t\t\t<Point>33.427538,
-        -111.941194</Point>\n\t\t\t<Point>33.427423, -111.941197</Point>\n\t\t\t<Point>33.427538,
-        -111.941194</Point>\n\t\t\t<Point>33.427423, -111.941197</Point>\n\t\t\t<Point>33.426222,
-        -111.936477</Point>\n\t\t\t<Point>33.421202, -111.927412</Point>\n\t\t\t<Point>33.421090,
-        -111.927296</Point>\n\t\t\t<Point>33.421202, -111.927412</Point>\n\t\t\t<Point>33.414787,
-        -111.917514</Point>\n\t\t\t<Point>33.414721, -111.917512</Point>\n\t\t\t<Point>33.414787,
-        -111.917514</Point>\n\t\t\t<Point>33.414806, -111.908883</Point>\n\t\t\t<Point>33.414688,
-        -111.908882</Point>\n\t\t\t<Point>33.414806, -111.908883</Point>\n\t\t\t<Point>33.414738,
-        -111.901537</Point>\n\t\t\t<Point>33.414738, -111.901498</Point>\n\t\t\t<Point>33.414738,
-        -111.901537</Point>\n\t\t\t<Point>33.414790, -111.888746</Point>\n\t\t\t<Point>33.414754,
-        -111.888747</Point>\n\t\t\t<Point>33.414801, -111.888706</Point>\n\t\t\t<Point>33.414801,
-        -111.887800</Point>\n\t\t\t<Point>33.414804, -111.886402</Point>\n\t\t\t<Point>33.414804,
-        -111.886251</Point>\n\t\t\t<Point>33.414809, -111.885253</Point>\n\t\t\t<Point>33.414809,
-        -111.884839</Point>\n\t\t\t<Point>33.414809, -111.884553</Point>\n\t\t\t<Point>33.414809,
-        -111.884379</Point>\n\t\t\t<Point>33.414812, -111.883936</Point>\n\t\t\t<Point>33.414815,
-        -111.883145</Point>\n\t\t\t<Point>33.414817, -111.883040</Point>\n\t\t\t<Point>33.414817,
-        -111.882695</Point>\n\t\t\t<Point>33.414823, -111.882107</Point>\n\t\t\t<Point>33.414826,
-        -111.881556</Point>\n\t\t\t<Point>33.414831, -111.880475</Point>\n\t\t\t<Point>33.414831,
-        -111.880351</Point>\n\t\t\t<Point>33.414842, -111.879123</Point>\n\t\t\t<Point>33.414839,
-        -111.878916</Point>\n\t\t\t<Point>33.414839, -111.878679</Point>\n\t\t\t<Point>33.414836,
-        -111.878374</Point>\n\t\t\t<Point>33.414836, -111.878220</Point>\n\t\t\t<Point>33.414842,
-        -111.877747</Point>\n\t\t\t<Point>33.414847, -111.877097</Point>\n\t\t\t<Point>33.414847,
-        -111.876998</Point>\n\t\t\t<Point>33.414847, -111.876756</Point>\n\t\t\t<Point>33.414847,
-        -111.876243</Point>\n\t\t\t<Point>33.414847, -111.875964</Point>\n\t\t\t<Point>33.414845,
-        -111.875748</Point>\n\t\t\t<Point>33.414858, -111.874474</Point>\n\t\t\t<Point>33.414858,
-        -111.873735</Point>\n\t\t\t<Point>33.414853, -111.871867</Point>\n\t\t\t<Point>33.414853,
-        -111.871631</Point>\n\t\t\t<Point>33.414787, -111.871629</Point>\n\t</Points>\n\t<Mapextents>33.414688,-112.099875,33.521203,-111.871629</Mapextents>\n\t<Requestor>68.226.126.17</Requestor>\n\t<Host>s-rpta-soap</Host>\n\t<Copyright>XML
-        schema Copyright (c) 2003-2013 Trapeze Software ULC, its subsidiaries and
-        affiliates.  All rights reserved.</Copyright>\n\t<Soapversion>2.6.3 - 11/14/13</Soapversion>\n</namesp1:RoutepatternResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+        -112.075081</Point>\n\t\t\t<Point>33.448232, -112.075198</Point>\n\t\t\t<Point>33.448188,
+        -112.075198</Point>\n\t\t\t<Point>33.448232, -112.075198</Point>\n\t\t\t<Point>33.446377,
+        -112.069775</Point>\n\t\t\t<Point>33.446270, -112.069777</Point>\n\t\t\t<Point>33.446377,
+        -112.069775</Point>\n\t\t\t<Point>33.446270, -112.069777</Point>\n\t\t\t<Point>33.446377,
+        -112.069775</Point>\n\t\t\t<Point>33.447270, -112.056296</Point>\n\t\t\t<Point>33.447237,
+        -112.056297</Point>\n\t\t\t<Point>33.447270, -112.056296</Point>\n\t\t\t<Point>33.447098,
+        -112.029997</Point>\n\t\t\t<Point>33.447221, -112.029994</Point>\n\t\t\t<Point>33.447098,
+        -112.029997</Point>\n\t\t\t<Point>33.448002, -112.000494</Point>\n\t\t\t<Point>33.448106,
+        -112.000498</Point>\n\t\t\t<Point>33.448002, -112.000494</Point>\n\t\t\t<Point>33.448120,
+        -111.988580</Point>\n\t\t\t<Point>33.442420, -111.956463</Point>\n\t\t\t<Point>33.442420,
+        -111.956453</Point>\n\t\t\t<Point>33.442420, -111.956463</Point>\n\t\t\t<Point>33.442420,
+        -111.956453</Point>\n\t\t\t<Point>33.439165, -111.948498</Point>\n\t\t\t<Point>33.438386,
+        -111.947165</Point>\n\t\t\t<Point>33.439165, -111.948498</Point>\n\t\t\t<Point>33.427395,
+        -111.941197</Point>\n\t\t\t<Point>33.427538, -111.941194</Point>\n\t\t\t<Point>33.427395,
+        -111.941197</Point>\n\t\t\t<Point>33.426222, -111.936477</Point>\n\t\t\t<Point>33.421090,
+        -111.927296</Point>\n\t\t\t<Point>33.414787, -111.917514</Point>\n\t\t\t<Point>33.414721,
+        -111.917512</Point>\n\t\t\t<Point>33.414787, -111.917514</Point>\n\t\t\t<Point>33.414806,
+        -111.908883</Point>\n\t\t\t<Point>33.414688, -111.908882</Point>\n\t\t\t<Point>33.414806,
+        -111.908883</Point>\n\t\t\t<Point>33.414688, -111.908882</Point>\n\t\t\t<Point>33.414806,
+        -111.908883</Point>\n\t\t\t<Point>33.414738, -111.901505</Point>\n\t\t\t<Point>33.414738,
+        -111.901498</Point>\n\t\t\t<Point>33.414738, -111.901505</Point>\n\t\t\t<Point>33.414735,
+        -111.890392</Point>\n\t\t\t<Point>33.414754, -111.888747</Point>\n\t\t\t<Point>33.414801,
+        -111.888706</Point>\n\t\t\t<Point>33.414801, -111.887800</Point>\n\t\t\t<Point>33.414804,
+        -111.886402</Point>\n\t\t\t<Point>33.414804, -111.886251</Point>\n\t\t\t<Point>33.414809,
+        -111.885253</Point>\n\t\t\t<Point>33.414809, -111.884839</Point>\n\t\t\t<Point>33.414809,
+        -111.884553</Point>\n\t\t\t<Point>33.414809, -111.884379</Point>\n\t\t\t<Point>33.414812,
+        -111.883936</Point>\n\t\t\t<Point>33.414815, -111.883145</Point>\n\t\t\t<Point>33.414817,
+        -111.883040</Point>\n\t\t\t<Point>33.414817, -111.882695</Point>\n\t\t\t<Point>33.414823,
+        -111.882107</Point>\n\t\t\t<Point>33.414826, -111.881556</Point>\n\t\t\t<Point>33.414831,
+        -111.880475</Point>\n\t\t\t<Point>33.414831, -111.880351</Point>\n\t\t\t<Point>33.414842,
+        -111.879123</Point>\n\t\t\t<Point>33.414839, -111.878916</Point>\n\t\t\t<Point>33.414839,
+        -111.878679</Point>\n\t\t\t<Point>33.414836, -111.878374</Point>\n\t\t\t<Point>33.414836,
+        -111.878220</Point>\n\t\t\t<Point>33.414842, -111.877747</Point>\n\t\t\t<Point>33.414847,
+        -111.877097</Point>\n\t\t\t<Point>33.414847, -111.876998</Point>\n\t\t\t<Point>33.414847,
+        -111.876756</Point>\n\t\t\t<Point>33.414847, -111.876243</Point>\n\t\t\t<Point>33.414847,
+        -111.875964</Point>\n\t\t\t<Point>33.414845, -111.875748</Point>\n\t\t\t<Point>33.414858,
+        -111.874474</Point>\n\t\t\t<Point>33.414858, -111.873735</Point>\n\t\t\t<Point>33.414853,
+        -111.871867</Point>\n\t\t\t<Point>33.414853, -111.871631</Point>\n\t\t\t<Point>33.414787,
+        -111.871629</Point>\n\t</Points>\n\t<Mapextents>33.414688,-112.099875,33.521203,-111.871629</Mapextents>\n\t<Appid>ratis-specs</Appid>\n\t<Requestor>72.222.151.25</Requestor>\n\t<Host>s-rpta-soap</Host>\n\t<Copyright>XML
+        schema Copyright (c) 2003-2014 Trapeze Software ULC, its subsidiaries and
+        affiliates.  All rights reserved.</Copyright>\n\t<Soapversion>2.7.1a - 05/14/14</Soapversion>\n</namesp1:RoutepatternResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
     http_version: 
-  recorded_at: Mon, 06 Jan 2014 23:53:40 GMT
+  recorded_at: Sat, 14 Jun 2014 01:00:23 GMT
 recorded_with: VCR 2.8.0
