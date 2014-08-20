@@ -52,8 +52,8 @@ describe Ratis::NextBus2 do
         expect(late_run[:realtime][:valid]).to eq("Y")
         # expect(late_run[:realtime][:estimatedtime]).to_not eq(late_run[:triptime])
         expect(late_run[:realtime][:reliable]).to eq("Y")
-        expect(late_run[:realtime][:estimatedtime]).to eq("01:08 PM")
-        expect(late_run[:realtime][:estimatedminutes]).to eq("16")
+        expect(late_run[:realtime][:estimatedtime]).to eq("12:06 PM")
+        expect(late_run[:realtime][:estimatedminutes]).to eq("8")
 
         # :realtime=>{:valid=>"Y", :estimatedtime=>"02:52 PM", :reliable=>"Y", :stopped=>"N", :estimatedminutes=>"16", :lat=>"33.451187", :polltime=>"02:35 PM", :long=>"-111.982079", :adherence=>"0", :trend=>"D", :speed=>"0.00", :vehicleid=>"6050"},
       end
