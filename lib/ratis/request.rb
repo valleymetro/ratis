@@ -39,7 +39,7 @@ module Ratis
 
         response
       rescue Errno::ECONNREFUSED => e
-        raise Errno::ECONNREFUSED.new 'Refused request to ATIS SOAP server'
+        raise Errors::NetworkError.new 'Refused request to ATIS SOAP server', e
       rescue Savon::SOAP::Fault => e
         raise Errors::SoapError.new e
       rescue Timeout::Error => e

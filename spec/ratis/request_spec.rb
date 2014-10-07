@@ -61,12 +61,12 @@ describe Ratis::Request do
 
     describe 'unsuccessful requests' do
       describe 'connection refused' do
-        it 're-raises an ECONNREFUSED' do
+        it 'wraps the underlying error in a NetworkError ' do
           Ratis::Request.client.should_receive(:request){ raise(Errno::ECONNREFUSED ) }
 
           expect do
             Ratis::Request.get 'Mymethod'
-          end.to raise_error Errno::ECONNREFUSED
+          end.to raise_error Ratis::Errors::NetworkError
         end
       end
 
