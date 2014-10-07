@@ -82,7 +82,7 @@ describe Ratis::Request do
           end
         end
 
-        it 'raises an AtisError' do
+        it 'raises an SoapError' do
           expect do
             Ratis::Request.get 'Mymethod'
           end.to raise_error(Ratis::Errors::SoapError)
