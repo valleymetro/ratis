@@ -17,6 +17,8 @@ module Ratis
         endpoint(Ratis.config.endpoint)
         namespace(Ratis.config.namespace)
 
+        client.http.read_timeout = Ratis.config.timeout
+
         response = client.request action, :soap_action => "#{Ratis.config.namespace}##{action}", :xmlns => Ratis.config.namespace do
           soap.body = params unless params.blank?
         end
