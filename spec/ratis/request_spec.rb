@@ -66,19 +66,23 @@ describe Ratis::Request do
 
           expect do
             Ratis::Request.get 'Mymethod'
-          end.to raise_error Ratis::Errors::NetworkError
+          end.to raise_error do |error|
+            error.should be_a(Ratis::Errors::NetworkError)
+            error.nested.should be_a(Errno::ECONNREFUSED)
+            error.message.should eql('Refused request to ATIS SOAP server')
+          end
         end
       end
 
       describe 'with errorneous parameters' do
         it 'parses out fault code and strings' do
-          begin
+          expect do
             Ratis::Request.get 'Closeststop', {'Locationlat' => '1', 'Locationlong' => '1'}
-
-          rescue Ratis::Errors::SoapError => e
-            e.fault_code.should eql 15016
-            e.fault_string.should eql 'SOAP - invalid Locationtext'
-            e.verbose_fault_string.should eql 'Either the origin or destination could not be recognized by the server'
+          end.to raise_error do |error|
+            error.should be_a(Ratis::Errors::SoapError)
+            error.fault_code.should eql 15016
+            error.fault_string.should eql 'SOAP - invalid Locationtext'
+            error.verbose_fault_string.should eql 'Either the origin or destination could not be recognized by the server'
           end
         end
 
