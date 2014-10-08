@@ -1,11 +1,38 @@
 require 'spec_helper'
 
 describe Ratis::Request do
-  context 'new Requests get config from Ratis.configure block' do
-    it 'gets config from initializing' do
-      pending
-      Ratis::Request.client.wsdl.endpoint.should eql('http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi')
-      Ratis::Request.client.wsdl.namespace.should eql('PX_WEB')
+  context 'configured correctly' do
+    it 'delegates to Savon client' do
+      Ratis.configure do |config|
+        config.appid = 'myappid'
+        config.endpoint = 'myendpoint'
+        config.namespace = 'mynamespace'
+        config.timeout = 666
+      end
+
+      Ratis::Request.client.should_receive(:request) do |action, options|
+        options[:soap_action].should eq("mynamespace#SomeAction")
+        Ratis::Request.client.http.read_timeout.should eql 666
+
+      end.once
+
+      Ratis::Request.get 'SomeAction'
+
+      # change the configuration
+      Ratis.configure do |config|
+        config.appid = 'anotherappid'
+        config.endpoint = 'anotherendpoint'
+        config.namespace = 'anothernamespace'
+        config.timeout = 321
+      end
+
+      Ratis::Request.client.should_receive(:request) do |action, options|
+        options[:soap_action].should eq("anothernamespace#SomeAction")
+        Ratis::Request.client.http.read_timeout.should eql 321
+
+      end.once
+
+      Ratis::Request.get 'SomeAction'
     end
   end
 
