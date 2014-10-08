@@ -89,6 +89,20 @@ describe Ratis::Request do
         end
       end
 
+      describe 'a timeout occurs' do
+        it 'wraps the underlying error in a NetworkError ' do
+          Ratis::Request.client.should_receive(:request){ raise(Timeout::Error) }
+
+          expect do
+            Ratis::Request.get 'Mymethod'
+          end.to raise_error do |error|
+            error.should be_a(Ratis::Errors::NetworkError)
+            error.nested.should be_a(Timeout::Error)
+            error.message.should eql("Request to ATIS SOAP server timed out after #{ Ratis.config.timeout }s")
+          end
+        end
+      end
+
     end
   end
 end

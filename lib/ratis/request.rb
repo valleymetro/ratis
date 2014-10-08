@@ -31,7 +31,8 @@ module Ratis
       rescue Savon::SOAP::Fault => e
         raise Errors::SoapError.new e
       rescue Timeout::Error => e
-        raise "TIMEOUT!"
+        msg =  "Request to ATIS SOAP server timed out after #{ Ratis.config.timeout }s"
+        raise Errors::NetworkError.new msg, e
       end
     end
 
