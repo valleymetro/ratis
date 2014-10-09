@@ -1,3 +1,6 @@
+3.6.0
+- Fix config block to properly set a working Timeout period
+
 3.5.0
 - Updated all tests to work against ATIS 2.7.1
 - Added Ratis.config required option: Appid. Appid is now sent with all ATIS requests.
