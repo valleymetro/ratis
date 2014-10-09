@@ -1,7 +1,13 @@
 require 'spec_helper'
 
 describe Ratis::Request do
+
   context 'configured correctly' do
+
+    around(:each) do |example|
+      rollback_ratis_config(&example)
+    end
+
     it 'delegates to Savon client' do
       Ratis.configure do |config|
         config.appid = 'myappid'

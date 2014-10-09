@@ -52,3 +52,9 @@ VCR.configure do |c|
   c.default_cassette_options                = { record: :new_episodes, allow_playback_repeats: true, match_requests_on: [:method, :uri, :headers] }
   # c.debug_logger                            = File.open(Rails.root.join('log/vcr.log'), 'w')
 end
+
+def rollback_ratis_config
+  original_config = Ratis.instance_variable_get(:@config).dup
+  yield
+  Ratis.instance_variable_set :@config, original_config
+end
