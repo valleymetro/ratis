@@ -1,11 +1,44 @@
 require 'spec_helper'
 
 describe Ratis::Request do
-  context 'new Requests get config from Ratis.configure block' do
-    it 'gets config from initializing' do
-      pending
-      Ratis::Request.client.wsdl.endpoint.should eql('http://soap.valleymetro.org/cgi-bin-soap-web-262/soap.cgi')
-      Ratis::Request.client.wsdl.namespace.should eql('PX_WEB')
+
+  context 'configured correctly' do
+
+    around(:each) do |example|
+      rollback_ratis_config(&example)
+    end
+
+    it 'delegates to Savon client' do
+      Ratis.configure do |config|
+        config.appid = 'myappid'
+        config.endpoint = 'myendpoint'
+        config.namespace = 'mynamespace'
+        config.timeout = 666
+      end
+
+      Ratis::Request.client.should_receive(:request) do |action, options|
+        options[:soap_action].should eq("mynamespace#SomeAction")
+        Ratis::Request.client.http.read_timeout.should eql 666
+
+      end.once
+
+      Ratis::Request.get 'SomeAction'
+
+      # change the configuration
+      Ratis.configure do |config|
+        config.appid = 'anotherappid'
+        config.endpoint = 'anotherendpoint'
+        config.namespace = 'anothernamespace'
+        config.timeout = 321
+      end
+
+      Ratis::Request.client.should_receive(:request) do |action, options|
+        options[:soap_action].should eq("anothernamespace#SomeAction")
+        Ratis::Request.client.http.read_timeout.should eql 321
+
+      end.once
+
+      Ratis::Request.get 'SomeAction'
     end
   end
 
@@ -61,31 +94,49 @@ describe Ratis::Request do
 
     describe 'unsuccessful requests' do
       describe 'connection refused' do
-        it 're-raises an ECONNREFUSED' do
+        it 'wraps the underlying error in a NetworkError ' do
           Ratis::Request.client.should_receive(:request){ raise(Errno::ECONNREFUSED ) }
 
           expect do
             Ratis::Request.get 'Mymethod'
-          end.to raise_error Errno::ECONNREFUSED
+          end.to raise_error do |error|
+            error.should be_a(Ratis::Errors::NetworkError)
+            error.nested.should be_a(Errno::ECONNREFUSED)
+            error.message.should eql('Refused request to ATIS SOAP server')
+          end
         end
       end
 
       describe 'with errorneous parameters' do
         it 'parses out fault code and strings' do
-          begin
+          expect do
             Ratis::Request.get 'Closeststop', {'Locationlat' => '1', 'Locationlong' => '1'}
-
-          rescue Ratis::Errors::SoapError => e
-            e.fault_code.should eql 15016
-            e.fault_string.should eql 'SOAP - invalid Locationtext'
-            e.verbose_fault_string.should eql 'Either the origin or destination could not be recognized by the server'
+          end.to raise_error do |error|
+            error.should be_a(Ratis::Errors::SoapError)
+            error.fault_code.should eql 15016
+            error.fault_string.should eql 'SOAP - invalid Locationtext'
+            error.verbose_fault_string.should eql 'Either the origin or destination could not be recognized by the server'
           end
         end
 
-        it 'raises an AtisError' do
+        it 'raises an SoapError' do
           expect do
             Ratis::Request.get 'Mymethod'
           end.to raise_error(Ratis::Errors::SoapError)
+        end
+      end
+
+      describe 'a timeout occurs' do
+        it 'wraps the underlying error in a NetworkError ' do
+          Ratis::Request.client.should_receive(:request){ raise(Timeout::Error) }
+
+          expect do
+            Ratis::Request.get 'Mymethod'
+          end.to raise_error do |error|
+            error.should be_a(Ratis::Errors::NetworkError)
+            error.nested.should be_a(Timeout::Error)
+            error.message.should eql("Request to ATIS SOAP server timed out after #{ Ratis.config.timeout }s")
+          end
         end
       end
 
