@@ -1,6 +1,6 @@
-module Ratis
+module Ratis::Errors
 
-  class Error < StandardError
+  class SoapError < StandardError
 
     attr_accessor :fault_code, :fault_string
 
@@ -60,11 +60,11 @@ module Ratis
     end
   end
 
-  module Errors
+  class ConfigError < StandardError
+  end
 
-    class ConfigError < StandardError; end
-    class SoapError   < Error; end
-
+  class NetworkError < StandardError
+    include Nesty::NestedError
   end
 
 end

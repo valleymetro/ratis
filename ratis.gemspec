@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.rdoc_options     = ['--charset=UTF-8 --main=README.md']
   s.extra_rdoc_files = ['README.md']
 
+  s.add_dependency 'nesty', '~> 1.0.2'
   s.add_dependency 'savon', '< 2.0'
 
   s.add_development_dependency 'activesupport',   '< 4.0'
