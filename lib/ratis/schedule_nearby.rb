@@ -47,10 +47,10 @@ module Ratis
       # TODO: where is this nightmare-ish hash being used?
       # need to refactor this into something more OO
       atstops = response.to_array :schedulenearby_response, :atstop
-      atstops.map do |atstop|
+      atstops.each do |atstop|
         atstop[:services] = atstop.to_array :service
 
-        atstop[:services].map do |service|
+        atstop[:services].each do |service|
           service[:tripinfos] = service.to_array :tripinfo
         end
       end
