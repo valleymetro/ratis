@@ -5,6 +5,16 @@ module Ratis
     attr_accessor :atstops
 
     def self.where(conditions)
+      keys = conditions.keys
+
+      if keys.include? :latitude
+        raise ArgumentError.new('You must provide longitude') unless keys.include?(:longitude)
+      elsif keys.include? :longitude
+        raise ArgumentError.new('You must provide latitude') unless keys.include?(:latitude)
+      else
+        raise ArgumentError.new('You must provide stop_id') unless keys.include?(:stop_id)
+      end
+
       latitude      = conditions.delete(:latitude)
       longitude     = conditions.delete(:longitude)
       date          = conditions.delete(:date)
@@ -14,13 +24,10 @@ module Ratis
       landmark_id   = conditions.delete(:landmark_id)
       stop_id       = conditions.delete(:stop_id) || ''
 
-      raise ArgumentError.new('You must provide latitude') unless latitude
-      raise ArgumentError.new('You must provide longitude') unless longitude
       raise ArgumentError.new('You must provide date') unless date
       raise ArgumentError.new('You must provide time') unless time
       raise ArgumentError.new('You must provide window') unless window
       raise ArgumentError.new('You must provide walk_distance') unless walk_distance
-      raise ArgumentError.new('You must provide landmark_id') unless landmark_id
 
       Ratis.all_conditions_used? conditions
 
