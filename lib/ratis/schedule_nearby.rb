@@ -56,7 +56,7 @@ module Ratis
       end
 
       schedule_nearby = ScheduleNearby.new
-      schedule_nearby.atstops = atstops
+      schedule_nearby.atstops = atstops.collect { |stop| Hashie::Mash.new stop }
 
       schedule_nearby
     end

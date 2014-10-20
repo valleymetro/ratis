@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = ['README.md']
 
   s.add_dependency 'savon', '< 2.0'
+  s.add_dependency 'hashie', '~> 3.3.1'
 
   s.add_development_dependency 'activesupport',   '< 4.0'
   s.add_development_dependency 'bundler',         '~> 1.5'
