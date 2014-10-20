@@ -1,3 +1,4 @@
+require 'hashie'
 require 'nesty'
 require 'ostruct'
 require 'savon'
