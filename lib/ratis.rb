@@ -1,6 +1,7 @@
-require 'savon'
-require 'ostruct'
 require 'hashie'
+require 'nesty'
+require 'ostruct'
+require 'savon'
 
 require 'ratis/closest_stop'
 require 'ratis/config'
