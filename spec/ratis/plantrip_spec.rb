@@ -87,6 +87,13 @@ describe Ratis::Plantrip do
       HashDiff.diff(plantrip.input, input).should eql []
     end
 
+    it 'passes a Tid through' do
+      tid = 'here is my Tid'
+      conditions_with_tid = @conditions.merge({ tid: tid })
+      @itineraries = Ratis::Plantrip.where conditions_with_tid
+      expect(@itineraries.tid).to eql(tid)
+    end
+
   end
 
 end

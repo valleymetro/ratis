@@ -2,7 +2,7 @@ module Ratis
 
   class Plantrip
 
-    attr_accessor :success, :itineraries, :walkable, :walkadjust, :input
+    attr_accessor :success, :itineraries, :walkable, :walkadjust, :input, :tid
 
     def initialize(response)
       @success     = response.success?
@@ -12,8 +12,10 @@ module Ratis
       @input       = response.body[:plantrip_response][:input]
 
       @itineraries = response.to_array(:plantrip_response, :itin).map do |itinerary|
-                                    Itinerary.new(itinerary)
-                                  end
+        Itinerary.new(itinerary)
+      end
+
+      @tid = response.body[:plantrip_response][:tid]
     end
 
     def self.where(conditions)
@@ -30,6 +32,7 @@ module Ratis
       destination_long        = conditions.delete(:destination_long).to_f
       destination_text        = conditions.delete(:destination_text)
       destination_landmark_id = conditions.delete(:destination_landmark_id)
+      tid                     = conditions.delete(:tid)
 
       if datetime = conditions.delete(:datetime)
         raise ArgumentError.new('If datetime supplied it should be a Time or DateTime instance, otherwise it defaults to Time.now') unless datetime.is_a?(DateTime) || datetime.is_a?(Time)
@@ -48,22 +51,25 @@ module Ratis
 
       Ratis.all_conditions_used? conditions
 
-      response = Request.get 'Plantrip', {'Date'                  => datetime.strftime("%m/%d/%Y"),
-                                          'Time'                  => datetime.strftime("%H%M"),
-                                          'Minimize'              => minimize,
-                                          'Arrdep'                => arrdep,
-                                          'Maxanswers'            => maxanswers,
-                                          'Walkdist'              => walkdist,
-                                          'Xmode'                 => xmode,
-                                          'Originlat'             => origin_lat,
-                                          'Originlong'            => origin_long,
-                                          'Origintext'            => origin_text,
-                                          'Originlandmarkid'      => origin_landmark_id,
-                                          'Destinationlat'        => destination_lat,
-                                          'Destinationlong'       => destination_long,
-                                          'Destinationtext'       => destination_text,
-                                          'Destinationlandmarkid' => destination_landmark_id}
+      params = {'Date'                  => datetime.strftime("%m/%d/%Y"),
+                'Time'                  => datetime.strftime("%H%M"),
+                'Minimize'              => minimize,
+                'Arrdep'                => arrdep,
+                'Maxanswers'            => maxanswers,
+                'Walkdist'              => walkdist,
+                'Xmode'                 => xmode,
+                'Originlat'             => origin_lat,
+                'Originlong'            => origin_long,
+                'Origintext'            => origin_text,
+                'Originlandmarkid'      => origin_landmark_id,
+                'Destinationlat'        => destination_lat,
+                'Destinationlong'       => destination_long,
+                'Destinationtext'       => destination_text,
+                'Destinationlandmarkid' => destination_landmark_id}
 
+      params['Tid'] = tid unless tid.nil?
+
+      response = Request.get 'Plantrip', params
       Plantrip.new(response)
     end
 
