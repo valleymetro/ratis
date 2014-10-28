@@ -1,0 +1,105 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://soap.valleymetro.org/cgi-bin-soap-web-271/soap.cgi
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="PX_WEB"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><Itintrace
+        xmlns="PX_WEB"><Tid>Here is my Tid</Tid><Traceinfo><traceInfo>1|183500|14|15</traceInfo></Traceinfo><Appid>ratis-specs</Appid></Itintrace></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - '"PX_WEB#Itintrace"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '410'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 500
+      message: Internal Server Error
+    headers:
+      Date:
+      - Tue, 28 Oct 2014 19:32:17 GMT
+      Server:
+      - Apache/2.2.3 (CentOS)
+      Soapserver:
+      - SOAP::Lite/Perl/0.55
+      Content-Length:
+      - '703'
+      Connection:
+      - close
+      Content-Type:
+      - text/xml; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><SOAP-ENV:Envelope xmlns:namesp1="http://namespaces.soaplite.com/perl"
+        xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/1999/XMLSchema-instance"
+        xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/1999/XMLSchema"
+        SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><SOAP-ENV:Body><SOAP-ENV:Fault><faultcode
+        xsi:type="xsd:string">SOAP-ENV:15006</faultcode><faultstring xsi:type="xsd:string">SOAP
+        - empty response</faultstring><detail><PX_WEB xsi:type="namesp1:PX_WEB"><code
+        xsi:type="xsd:int">15006</code></PX_WEB></detail></SOAP-ENV:Fault></SOAP-ENV:Body></SOAP-ENV:Envelope>
+    http_version: 
+  recorded_at: Tue, 28 Oct 2014 19:32:17 GMT
+- request:
+    method: post
+    uri: http://soap.valleymetro.org/cgi-bin-soap-web-271/soap.cgi
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="PX_WEB"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><Itintrace
+        xmlns="PX_WEB"><Tid>Here is my Tid</Tid><Traceinfo>1|183500|14|15</Traceinfo><Appid>ratis-specs</Appid></Itintrace></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - '"PX_WEB#Itintrace"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '387'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 28 Oct 2014 19:38:35 GMT
+      Server:
+      - Apache/2.2.3 (CentOS)
+      Soapserver:
+      - SOAP::Lite/Perl/0.55
+      Content-Length:
+      - '2191'
+      Connection:
+      - close
+      Content-Type:
+      - text/xml; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><SOAP-ENV:Envelope xmlns:xsi=\"http://www.w3.org/1999/XMLSchema-instance\"
+        xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\"
+        xmlns:xsd=\"http://www.w3.org/1999/XMLSchema\" SOAP-ENV:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"><SOAP-ENV:Body><namesp1:ItintraceResponse
+        xmlns:namesp1=\"PX_WEB\">\n\t<Responsecode>0</Responsecode>\n\t<Version>1.3</Version>\n\t<Legs>\n\t\t<Leg>\n\t\t\t<Route>541</Route>\n\t\t\t<Sign>541
+        Chandler EXP To State Capitol Via West Mesa PNR</Sign>\n\t\t\t<Operator>FTE</Operator>\n\t\t\t<Hexcolor>0000FF</Hexcolor>\n\t\t\t<Color>255</Color>\n\t\t\t<Points>\n\t\t\t\t<Point>33.451444,-112.073661</Point>\n\t\t\t\t<Point>33.451386,-112.073659</Point>\n\t\t\t\t<Point>33.451386,-112.073849</Point>\n\t\t\t\t<Point>33.451389,-112.074532</Point>\n\t\t\t\t<Point>33.451392,-112.075143</Point>\n\t\t\t\t<Point>33.450353,-112.075134</Point>\n\t\t\t\t<Point>33.449846,-112.075130</Point>\n\t\t\t\t<Point>33.449306,-112.075128</Point>\n\t\t\t\t<Point>33.448232,-112.075122</Point>\n\t\t\t\t<Point>33.448232,-112.075280</Point>\n\t\t\t\t<Point>33.448298,-112.075282</Point>\n\t\t\t</Points>\n\t\t\t<Distance>0.3</Distance>\n\t\t\t<Stops>\n\t\t\t\t<Stop>\n\t\t\t\t\t<Atisstopid>6148</Atisstopid>\n\t\t\t\t\t<Stopid>6134</Stopid>\n\t\t\t\t<Description>VAN
+        BUREN ST &amp;amp; CENTRAL AVE</Description>\n\t\t\t\t\t<Timepoint>Y</Timepoint>\n\t\t\t\t\t<Boardflag>E</Boardflag>\n\t\t\t\t\t<Point>33.451444,-112.073661</Point>\n\t\t\t\t</Stop>\n\t\t\t\t<Stop>\n\t\t\t\t\t<Atisstopid>7180</Atisstopid>\n\t\t\t\t\t<Stopid>7166</Stopid>\n\t\t\t\t<Description>WASHINGTON
+        ST &amp;amp; 1ST AVE</Description>\n\t\t\t\t\t<Timepoint>N</Timepoint>\n\t\t\t\t\t<Boardflag>E</Boardflag>\n\t\t\t\t\t<Point>33.448298,-112.075282</Point>\n\t\t\t\t</Stop>\n\t\t\t</Stops>\n\t\t</Leg>\n\t</Legs>\n\t<Mapextents>33.448232,-112.075282,33.451444,-112.073659</Mapextents>\n\t<Distance>0.32</Distance>\n\t<Co2transit>0.209</Co2transit>\n\t<Co2auto>0.309</Co2auto>\n\t<Appid>ratis-specs</Appid>\n\t<Requestor>72.201.191.31</Requestor>\n\t<Host>s-rpta-soap</Host>\n\t<Copyright>XML
+        schema Copyright (c) 2003-2014 Trapeze Software ULC, its subsidiaries and
+        affiliates.  All rights reserved.</Copyright>\n\t<Soapversion>2.7.2a - 09/25/14</Soapversion>\n</namesp1:ItintraceResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+    http_version: 
+  recorded_at: Tue, 28 Oct 2014 19:38:35 GMT
+recorded_with: VCR 2.8.0
