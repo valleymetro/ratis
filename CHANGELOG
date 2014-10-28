@@ -1,6 +1,6 @@
-3.6.1
-- Bug fix: Don't require lat/long for ScheduleNearby when stop ID is given
-- Wrap ScheduleNearby atstops has in a Hashie
+3.6.2
+- Added support for Itintrace api
+- Plantrip now support setting a Tid, to use with Itintrace
 
 3.6.0
 - Fix config block to properly set a working Timeout period
