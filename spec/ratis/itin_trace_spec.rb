@@ -19,6 +19,17 @@ describe Ratis::ItinTrace do
       end
     end
 
+    it 'wraps legs in a Hashie::Mash' do
+      itin_trace.legs.each do |leg|
+        leg.points.each do |point|
+          expect(point).to be_a(Array)
+          expect(point.size).to eql(2)
+          expect(point.first).to be_a(Float)
+          expect(point.last).to be_a(Float)
+        end
+      end
+    end
+
     it 'pairs up map extents lat/lngs' do
       expect(itin_trace.map_extents).to eql([[33.448232, -112.075282], [33.451444, -112.073659]])
     end
