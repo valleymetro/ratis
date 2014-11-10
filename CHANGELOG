@@ -1,3 +1,6 @@
+3.6.3
+- Wrap parts of Plantrip response with Hashie, coerce values appropriately
+
 3.6.2
 - Added support for Itintrace api
 - Plantrip now support setting a Tid, to use with Itintrace
