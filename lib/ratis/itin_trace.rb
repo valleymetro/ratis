@@ -10,8 +10,15 @@ module Ratis
       @legs        = response.body.to_array(:itintrace_response, :legs, :leg).map { |l| Hashie::Mash.new l }
 
       @legs.each do |leg|
+        leg.distance = leg.distance.to_f
+
         leg.points = leg.to_array(:points, :point).collect do |point|
           point.split(',').map(&:to_f)
+        end
+
+        leg.stops = leg.to_array(:stops, :stop).collect do |stop|
+          stop.point = stop.point.split(',').map(&:to_f)
+          stop
         end
       end
     end

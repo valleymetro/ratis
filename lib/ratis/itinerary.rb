@@ -12,7 +12,7 @@ module Ratis
       @regular_fare   = response[:regularfare].to_f
       @transit_time   = response[:transittime].to_i
       @trace_info     = response[:traceinfo]
-      @legs           = response.to_array :legs, :leg
+      @legs           = response.to_array(:legs, :leg).map { |l| Hashie::Mash.new l }
     end
 
   end

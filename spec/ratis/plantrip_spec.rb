@@ -56,7 +56,7 @@ describe Ratis::Plantrip do
       expect(plantrip.walkable).to eq(nil)
       expect(plantrip.walkadjust).to eq(nil)
 
-      input = {
+      input = Ratis::Plantrip::Input.new({
         :originlat             => "33.452082",
         :originlong            => "-112.074374",
         :originlandmarkid      => "0",
@@ -82,7 +82,7 @@ describe Ratis::Plantrip do
         :walkincrease          => "N",
         :allows2s              => "N",
         :xmode                 => "BCFKLRSTX"
-      }
+      })
 
       HashDiff.diff(plantrip.input, input).should eql []
     end

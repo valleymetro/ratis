@@ -2,6 +2,15 @@ module Ratis
 
   class Plantrip
 
+    class Input < Hashie::Mash
+     include Hashie::Extensions::Coercion
+
+     coerce_key :originlat, Float
+     coerce_key :originlong, Float
+     coerce_key :destinationlat, Float
+     coerce_key :destinationlong, Float
+    end
+
     attr_accessor :success, :itineraries, :walkable, :walkadjust, :input, :tid
 
     def initialize(response)
@@ -9,7 +18,7 @@ module Ratis
 
       @walkable    = response.body[:walkable]
       @walkadjust  = response.body[:walkadjust]
-      @input       = response.body[:plantrip_response][:input]
+      @input       = Input.new response.body[:plantrip_response][:input]
 
       @itineraries = response.to_array(:plantrip_response, :itin).map do |itinerary|
         Itinerary.new(itinerary)
