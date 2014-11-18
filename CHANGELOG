@@ -1,3 +1,7 @@
+3.6.4
+- Expose all attributes for a Plantrip itinerary's legs
+- Fix overly strict dependencies, per 'gem build' warnings
+
 3.6.3
 - Wrap parts of Plantrip response with Hashie, coerce values appropriately
 

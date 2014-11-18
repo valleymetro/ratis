@@ -1,9 +1,9 @@
 PATH
   remote: .
   specs:
-    ratis (3.6.2)
-      hashie (~> 3.3.1)
-      nesty (~> 1.0.2)
+    ratis (3.6.4)
+      hashie (~> 3.3, >= 3.3.1)
+      nesty (~> 1.0, >= 1.0.2)
       savon (< 2.0)
 
 GEM
