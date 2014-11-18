@@ -1,0 +1,107 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://soap.valleymetro.org/cgi-bin-soap-web-271/soap.cgi
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="PX_WEB"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><Plantrip
+        xmlns="PX_WEB"><Date>11/24/2014</Date><Time>0600</Time><Minimize>T</Minimize><Arrdep>D</Arrdep><Maxanswers>3</Maxanswers><Walkdist>0.50</Walkdist><Xmode>BCFKLRSTX</Xmode><Originlat>33.452082</Originlat><Originlong>-112.074374</Originlong><Origintext
+        xsi:nil="true"/><Originlandmarkid xsi:nil="true"/><Destinationlat>33.454055</Destinationlat><Destinationlong>-111.953385</Destinationlong><Destinationtext
+        xsi:nil="true"/><Destinationlandmarkid xsi:nil="true"/><Appid>ratis-specs</Appid></Plantrip></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - '"PX_WEB#Plantrip"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '768'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 18 Nov 2014 16:55:17 GMT
+      Server:
+      - Apache/2.2.3 (CentOS)
+      Soapserver:
+      - SOAP::Lite/Perl/0.55
+      Content-Length:
+      - '16492'
+      Connection:
+      - close
+      Content-Type:
+      - text/xml; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><SOAP-ENV:Envelope xmlns:xsi=\"http://www.w3.org/1999/XMLSchema-instance\"
+        xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\"
+        xmlns:xsd=\"http://www.w3.org/1999/XMLSchema\" SOAP-ENV:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"><SOAP-ENV:Body><namesp1:PlantripResponse
+        xmlns:namesp1=\"PX_WEB\">\n\t<Responsecode>0</Responsecode>\n\t<Version>1.31</Version>\n\t<Tid></Tid>\n\t<Input>\n\t\t<Originlat>33.452082</Originlat>\n\t\t<Originlong>-112.074374</Originlong>\n\t\t<Originlandmarkid>0</Originlandmarkid>\n\t\t<Origintext>Origin</Origintext>\n\t\t<Destinationlat>33.454055</Destinationlat>\n\t\t<Destinationlong>-111.953385</Destinationlong>\n\t\t<Destinationlandmarkid>0</Destinationlandmarkid>\n\t\t<Destinationtext>Destination</Destinationtext>\n\t\t<Date>11/24/2014</Date>\n\t\t<Time>06:00
+        AM</Time>\n\t\t<Minimize>T</Minimize>\n\t\t<Accessible>N</Accessible>\n\t\t<Arrdep>D</Arrdep>\n\t\t<Maxtransfers>-1</Maxtransfers>\n\t\t<Maxanswers>3</Maxanswers>\n\t\t<Lessttime>N</Lessttime>\n\t\t<Maxinitialwait>-1</Maxinitialwait>\n\t\t<Maxtriptime>-1</Maxtriptime>\n\t\t<Walkspeed>
+        2.00 </Walkspeed>\n\t\t<Walkdist>0.50</Walkdist>\n\t\t<Walkorigin>0.50</Walkorigin>\n\t\t<Walkdestination>0.50</Walkdestination>\n\t\t<Walkincrease>N</Walkincrease>\n\t\t<Allows2s>N</Allows2s>\n\t\t<Xmode>BCFKLRSTX</Xmode>\n\t</Input>\n\t<Lesserttime>\n\t\t<Time/>\n\t\t<Arrdep/>\n\t</Lesserttime>\n\t<Walkable>N</Walkable>\n\t<Walkadjust>0</Walkadjust>\n\t<Operoverride>N</Operoverride>\n\t<Itin>\n\t\t<Legs>\n\t\t\t<Leg>\n\t\t\t\t<Onwalkdist>0.11</Onwalkdist>\n\t\t\t\t<Onwalkdir>SE</Onwalkdir>\n\t\t\t\t<Onwalkhint>Y</Onwalkhint>\n\t\t\t\t<Onstop>VAN
+        BUREN ST &amp; CENTRAL AVE</Onstop>\n\t\t\t\t<Ontime>0610</Ontime>\n\t\t\t\t<Onstopdata>\n\t\t\t\t\t<Description>VAN
+        BUREN ST &amp; CENTRAL AVE</Description>\n\t\t\t\t\t<Area>PH</Area>\n\t\t\t\t\t<Lat>33.451323</Lat>\n\t\t\t\t\t<Long>-112.073407</Long>\n\t\t\t\t\t<Time>0610</Time>\n\t\t\t\t\t<Date>11/24/14</Date>\n\t\t\t\t\t<Atisstopid>914</Atisstopid>\n\t\t\t\t\t<Stopid>18199</Stopid>\n\t\t\t\t\t<Stopstatustype>N</Stopstatustype>\n\t\t\t\t\t<Stopseq>63</Stopseq>\n\t\t\t\t\t<Stopposition>G</Stopposition>\n\t\t\t\t\t<Heading>EB</Heading>\n\t\t\t\t\t<Side>Far</Side>\n\t\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t</Onstopdata>\n\t\t\t\t<Service>\n\t\t\t\t\t<Route>3</Route>\n\t\t\t\t\t<Publicroute>3</Publicroute>\n\t\t\t\t\t<Sign>3
+        Van Buren East To Phoenix Zoo</Sign>\n\t\t\t\t\t<Altsign></Altsign>\n\t\t\t\t\t<Direction>E</Direction>\n\t\t\t\t\t<Operator>FirstTrans</Operator>\n\t\t\t\t\t<Realoperator>FT</Realoperator>\n\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t<Routeid>174160</Routeid>\n\t\t\t\t\t<Block>2003</Block>\n\t\t\t\t\t<Trip>0</Trip>\n\t\t\t\t\t<Peak>N</Peak>\n\t\t\t\t\t<Routetype>B</Routetype>\n\t\t\t\t\t<Statustype>N</Statustype>\n\t\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t\t<Polltime></Polltime>\n\t\t\t\t\t<Realtime>\n\t\t\t\t\t\t<Valid>N</Valid>\n\t\t\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t\t\t<Polltime></Polltime>\n\t\t\t\t\t\t<Trend>
+        </Trend>\n\t\t\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t\t\t<Stopped> </Stopped>\n\t\t\t\t\t\t<Reliable>
+        </Reliable>\n\t\t\t\t\t\t<Vehicle></Vehicle>\n\t\t\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t\t\t<Long>0.000000</Long>\n\t\t\t\t\t</Realtime>\n\t\t\t\t\t<Patternorigin></Patternorigin>\n\t\t\t\t\t<Patterndestination></Patterndestination>\n\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t<Statusid>0</Statusid>\n\t\t\t\t\t<Skedtripid>
+        </Skedtripid>\n\t\t\t\t</Service>\n\t\t\t\t<Fare>\n\t\t\t\t\t<Onfarezone>0</Onfarezone>\n\t\t\t\t\t<Offfarezone>0</Offfarezone>\n\t\t\t\t\t<Legregularfare>2.00</Legregularfare>\n\t\t\t\t\t<Legregularfarexfer>0.00</Legregularfarexfer>\n\t\t\t\t\t<Legreducedfare>1.00</Legreducedfare>\n\t\t\t\t\t<Legreducedfarexfer>0.00</Legreducedfarexfer>\n\t\t\t\t</Fare>\n\t\t\t\t<Offstop>THE
+        PHOENIX ZOO  -- GALVIN PKWY &amp; GALVIN PKWY</Offstop>\n\t\t\t\t<Offtime>0644</Offtime>\n\t\t\t\t<Offstopdata>\n\t\t\t\t\t<Description>THE
+        PHOENIX ZOO  -- GALVIN PKWY &amp; GALVIN PKWY</Description>\n\t\t\t\t\t<Area>PH</Area>\n\t\t\t\t\t<Lat>33.452247</Lat>\n\t\t\t\t\t<Long>-111.948788</Long>\n\t\t\t\t\t<Time>0644</Time>\n\t\t\t\t\t<Date>11/24/14</Date>\n\t\t\t\t\t<Atisstopid>3581</Atisstopid>\n\t\t\t\t\t<Stopid>10245</Stopid>\n\t\t\t\t\t<Stopstatustype>N</Stopstatustype>\n\t\t\t\t\t<Stopseq>94</Stopseq>\n\t\t\t\t\t<Stopposition>M</Stopposition>\n\t\t\t\t\t<Heading>NB</Heading>\n\t\t\t\t\t<Side>Mid</Side>\n\t\t\t\t\t<Accessible>N</Accessible>\n\t\t\t\t</Offstopdata>\n\t\t\t</Leg>\n\t\t</Legs>\n\t\t<Finalwalk>0.40</Finalwalk>\n\t\t<Finalwalkdir>NW</Finalwalkdir>\n\t\t<Finalwalkhint>Y</Finalwalkhint>\n\t\t<Transittime>34</Transittime>\n\t\t<Totalwalk>0.51</Totalwalk>\n\t\t<Regularfare>2.00</Regularfare>\n\t\t<Reducedfare>1.00</Reducedfare>\n\t\t<Fareinfo>1|0|2.00|1.00~W|06:10
+        AM|06:44 AM|3| |W|E|B|7|0|868|0|174160|FirstTrans|914|63|3581|94|BUSFARE|0|0|0|B~</Fareinfo>\n\t\t<Traceinfo>1|174160|63|94</Traceinfo>\n\t\t<Statusinfo></Statusinfo>\n\t\t<Exmodified>N</Exmodified>\n\t\t<Exmodids/>\n\t\t<Disttransit>
+        7.93</Disttransit>\n\t\t<Distauto> 8.44</Distauto>\n\t\t<Co2transit>5.154</Co2transit>\n\t\t<Co2auto>8.098</Co2auto>\n\t</Itin>\n\t<Itin>\n\t\t<Legs>\n\t\t\t<Leg>\n\t\t\t\t<Onwalkdist>0.11</Onwalkdist>\n\t\t\t\t<Onwalkdir>SE</Onwalkdir>\n\t\t\t\t<Onwalkhint>Y</Onwalkhint>\n\t\t\t\t<Onstop>VAN
+        BUREN ST &amp; CENTRAL AVE</Onstop>\n\t\t\t\t<Ontime>0610</Ontime>\n\t\t\t\t<Onstopdata>\n\t\t\t\t\t<Description>VAN
+        BUREN ST &amp; CENTRAL AVE</Description>\n\t\t\t\t\t<Area>PH</Area>\n\t\t\t\t\t<Lat>33.451323</Lat>\n\t\t\t\t\t<Long>-112.073407</Long>\n\t\t\t\t\t<Time>0610</Time>\n\t\t\t\t\t<Date>11/24/14</Date>\n\t\t\t\t\t<Atisstopid>914</Atisstopid>\n\t\t\t\t\t<Stopid>18199</Stopid>\n\t\t\t\t\t<Stopstatustype>N</Stopstatustype>\n\t\t\t\t\t<Stopseq>63</Stopseq>\n\t\t\t\t\t<Stopposition>G</Stopposition>\n\t\t\t\t\t<Heading>EB</Heading>\n\t\t\t\t\t<Side>Far</Side>\n\t\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t</Onstopdata>\n\t\t\t\t<Service>\n\t\t\t\t\t<Route>3</Route>\n\t\t\t\t\t<Publicroute>3</Publicroute>\n\t\t\t\t\t<Sign>3
+        Van Buren East To Phoenix Zoo</Sign>\n\t\t\t\t\t<Altsign></Altsign>\n\t\t\t\t\t<Direction>E</Direction>\n\t\t\t\t\t<Operator>FirstTrans</Operator>\n\t\t\t\t\t<Realoperator>FT</Realoperator>\n\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t<Routeid>174160</Routeid>\n\t\t\t\t\t<Block>2003</Block>\n\t\t\t\t\t<Trip>0</Trip>\n\t\t\t\t\t<Peak>N</Peak>\n\t\t\t\t\t<Routetype>B</Routetype>\n\t\t\t\t\t<Statustype>N</Statustype>\n\t\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t\t<Polltime></Polltime>\n\t\t\t\t\t<Realtime>\n\t\t\t\t\t\t<Valid>N</Valid>\n\t\t\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t\t\t<Polltime></Polltime>\n\t\t\t\t\t\t<Trend>
+        </Trend>\n\t\t\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t\t\t<Stopped> </Stopped>\n\t\t\t\t\t\t<Reliable>
+        </Reliable>\n\t\t\t\t\t\t<Vehicle></Vehicle>\n\t\t\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t\t\t<Long>0.000000</Long>\n\t\t\t\t\t</Realtime>\n\t\t\t\t\t<Patternorigin></Patternorigin>\n\t\t\t\t\t<Patterndestination></Patterndestination>\n\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t<Statusid>0</Statusid>\n\t\t\t\t\t<Skedtripid>
+        </Skedtripid>\n\t\t\t\t</Service>\n\t\t\t\t<Fare>\n\t\t\t\t\t<Onfarezone>0</Onfarezone>\n\t\t\t\t\t<Offfarezone>0</Offfarezone>\n\t\t\t\t\t<Legregularfare>2.00</Legregularfare>\n\t\t\t\t\t<Legregularfarexfer>0.00</Legregularfarexfer>\n\t\t\t\t\t<Legreducedfare>1.00</Legreducedfare>\n\t\t\t\t\t<Legreducedfarexfer>0.00</Legreducedfarexfer>\n\t\t\t\t</Fare>\n\t\t\t\t<Offstop>THE
+        PHOENIX ZOO  -- GALVIN PKWY &amp; GALVIN PKWY</Offstop>\n\t\t\t\t<Offtime>0644</Offtime>\n\t\t\t\t<Offstopdata>\n\t\t\t\t\t<Description>THE
+        PHOENIX ZOO  -- GALVIN PKWY &amp; GALVIN PKWY</Description>\n\t\t\t\t\t<Area>PH</Area>\n\t\t\t\t\t<Lat>33.452247</Lat>\n\t\t\t\t\t<Long>-111.948788</Long>\n\t\t\t\t\t<Time>0644</Time>\n\t\t\t\t\t<Date>11/24/14</Date>\n\t\t\t\t\t<Atisstopid>3581</Atisstopid>\n\t\t\t\t\t<Stopid>10245</Stopid>\n\t\t\t\t\t<Stopstatustype>N</Stopstatustype>\n\t\t\t\t\t<Stopseq>94</Stopseq>\n\t\t\t\t\t<Stopposition>M</Stopposition>\n\t\t\t\t\t<Heading>NB</Heading>\n\t\t\t\t\t<Side>Mid</Side>\n\t\t\t\t\t<Accessible>N</Accessible>\n\t\t\t\t</Offstopdata>\n\t\t\t</Leg>\n\t\t\t<Leg>\n\t\t\t\t<Onwalkdist>0</Onwalkdist>\n\t\t\t\t<Onwalkdir>
+        </Onwalkdir>\n\t\t\t\t<Onwalkhint>N</Onwalkhint>\n\t\t\t\t<Onstop>THE PHOENIX
+        ZOO  -- GALVIN PKWY &amp; GALVIN PKWY</Onstop>\n\t\t\t\t<Ontime>0654</Ontime>\n\t\t\t\t<Onstopdata>\n\t\t\t\t\t<Description>THE
+        PHOENIX ZOO  -- GALVIN PKWY &amp; GALVIN PKWY</Description>\n\t\t\t\t\t<Area>PH</Area>\n\t\t\t\t\t<Lat>33.452247</Lat>\n\t\t\t\t\t<Long>-111.948788</Long>\n\t\t\t\t\t<Time>0654</Time>\n\t\t\t\t\t<Date>11/24/14</Date>\n\t\t\t\t\t<Atisstopid>3581</Atisstopid>\n\t\t\t\t\t<Stopid>10245</Stopid>\n\t\t\t\t\t<Stopstatustype>N</Stopstatustype>\n\t\t\t\t\t<Stopseq>8</Stopseq>\n\t\t\t\t\t<Stopposition>M</Stopposition>\n\t\t\t\t\t<Heading>NB</Heading>\n\t\t\t\t\t<Side>Mid</Side>\n\t\t\t\t\t<Accessible>N</Accessible>\n\t\t\t\t</Onstopdata>\n\t\t\t\t<Service>\n\t\t\t\t\t<Route>56</Route>\n\t\t\t\t\t<Publicroute>56</Publicroute>\n\t\t\t\t\t<Sign>56
+        Priest South To Ray/48th St</Sign>\n\t\t\t\t\t<Altsign></Altsign>\n\t\t\t\t\t<Direction>S</Direction>\n\t\t\t\t\t<Operator>EV
+        FT</Operator>\n\t\t\t\t\t<Realoperator>FTE</Realoperator>\n\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t<Routeid>178111</Routeid>\n\t\t\t\t\t<Block>4035</Block>\n\t\t\t\t\t<Trip>0</Trip>\n\t\t\t\t\t<Peak>N</Peak>\n\t\t\t\t\t<Routetype>B</Routetype>\n\t\t\t\t\t<Statustype>N</Statustype>\n\t\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t\t<Polltime></Polltime>\n\t\t\t\t\t<Realtime>\n\t\t\t\t\t\t<Valid>N</Valid>\n\t\t\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t\t\t<Polltime></Polltime>\n\t\t\t\t\t\t<Trend>
+        </Trend>\n\t\t\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t\t\t<Stopped> </Stopped>\n\t\t\t\t\t\t<Reliable>
+        </Reliable>\n\t\t\t\t\t\t<Vehicle></Vehicle>\n\t\t\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t\t\t<Long>0.000000</Long>\n\t\t\t\t\t</Realtime>\n\t\t\t\t\t<Patternorigin></Patternorigin>\n\t\t\t\t\t<Patterndestination></Patterndestination>\n\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t<Statusid>0</Statusid>\n\t\t\t\t\t<Skedtripid>
+        </Skedtripid>\n\t\t\t\t</Service>\n\t\t\t\t<Fare>\n\t\t\t\t\t<Onfarezone>0</Onfarezone>\n\t\t\t\t\t<Offfarezone>0</Offfarezone>\n\t\t\t\t\t<Legregularfare>2.00</Legregularfare>\n\t\t\t\t\t<Legregularfarexfer>0.00</Legregularfarexfer>\n\t\t\t\t\t<Legreducedfare>1.00</Legreducedfare>\n\t\t\t\t\t<Legreducedfarexfer>0.00</Legreducedfarexfer>\n\t\t\t\t</Fare>\n\t\t\t\t<Offstop>SB
+        GALVIN PKWY FS VAN BUREN ST</Offstop>\n\t\t\t\t<Offtime>0656</Offtime>\n\t\t\t\t<Offstopdata>\n\t\t\t\t\t<Description>SB
+        GALVIN PKWY FS VAN BUREN ST</Description>\n\t\t\t\t\t<Area>PH</Area>\n\t\t\t\t\t<Lat>33.450441</Lat>\n\t\t\t\t\t<Long>-111.956084</Long>\n\t\t\t\t\t<Time>0656</Time>\n\t\t\t\t\t<Date>11/24/14</Date>\n\t\t\t\t\t<Atisstopid>12061</Atisstopid>\n\t\t\t\t\t<Stopid>18455</Stopid>\n\t\t\t\t\t<Stopstatustype>N</Stopstatustype>\n\t\t\t\t\t<Stopseq>9</Stopseq>\n\t\t\t\t\t<Stopposition>U</Stopposition>\n\t\t\t\t\t<Heading>SB</Heading>\n\t\t\t\t\t<Side>Far</Side>\n\t\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t</Offstopdata>\n\t\t\t</Leg>\n\t\t</Legs>\n\t\t<Finalwalk>0.32</Finalwalk>\n\t\t<Finalwalkdir>NE</Finalwalkdir>\n\t\t<Finalwalkhint>Y</Finalwalkhint>\n\t\t<Transittime>46</Transittime>\n\t\t<Totalwalk>0.42</Totalwalk>\n\t\t<Regularfare>4.00</Regularfare>\n\t\t<Reducedfare>2.00</Reducedfare>\n\t\t<Fareinfo>2|0|4.00|2.00~W|06:10
+        AM|06:44 AM|3| |W|E|B|7|0|868|0|174160|FirstTrans|914|63|3581|94|BUSFARE|0|0|0|B~T|06:54
+        AM|06:56 AM|56| |W|S|B|4|0|1516|0|178111|EV FT|3581|8|12061|9|BUSFARE|0|0|0|B~</Fareinfo>\n\t\t<Traceinfo>2|174160|63|94|178111|8|9</Traceinfo>\n\t\t<Statusinfo></Statusinfo>\n\t\t<Exmodified>N</Exmodified>\n\t\t<Exmodids/>\n\t\t<Disttransit>
+        8.60</Disttransit>\n\t\t<Distauto> 9.02</Distauto>\n\t\t<Co2transit>5.589</Co2transit>\n\t\t<Co2auto>8.661</Co2auto>\n\t</Itin>\n\t<Itin>\n\t\t<Legs>\n\t\t\t<Leg>\n\t\t\t\t<Onwalkdist>0.21</Onwalkdist>\n\t\t\t\t<Onwalkdir>W</Onwalkdir>\n\t\t\t\t<Onwalkhint>Y</Onwalkhint>\n\t\t\t\t<Onstop>VAN
+        BUREN/1ST AVE LIGHT RAIL STATION</Onstop>\n\t\t\t\t<Ontime>0622</Ontime>\n\t\t\t\t<Onstopdata>\n\t\t\t\t\t<Description>VAN
+        BUREN/1ST AVE LIGHT RAIL STATION</Description>\n\t\t\t\t\t<Area>PH</Area>\n\t\t\t\t\t<Lat>33.452252</Lat>\n\t\t\t\t\t<Long>-112.075081</Long>\n\t\t\t\t\t<Time>0622</Time>\n\t\t\t\t\t<Date>11/24/14</Date>\n\t\t\t\t\t<Atisstopid>10880</Atisstopid>\n\t\t\t\t\t<Stopid>10012</Stopid>\n\t\t\t\t\t<Stopstatustype>N</Stopstatustype>\n\t\t\t\t\t<Stopseq>15</Stopseq>\n\t\t\t\t\t<Stopposition>O</Stopposition>\n\t\t\t\t\t<Heading>NB</Heading>\n\t\t\t\t\t<Side>Far</Side>\n\t\t\t\t\t<Accessible>N</Accessible>\n\t\t\t\t</Onstopdata>\n\t\t\t\t<Service>\n\t\t\t\t\t<Route>LTRL</Route>\n\t\t\t\t\t<Publicroute>LTRL</Publicroute>\n\t\t\t\t\t<Sign>Valley
+        Metro Rail To Sycamore/Main</Sign>\n\t\t\t\t\t<Altsign></Altsign>\n\t\t\t\t\t<Direction>E</Direction>\n\t\t\t\t\t<Operator>METRO</Operator>\n\t\t\t\t\t<Realoperator>LRT</Realoperator>\n\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t<Routeid>144832</Routeid>\n\t\t\t\t\t<Block>17012</Block>\n\t\t\t\t\t<Trip>0</Trip>\n\t\t\t\t\t<Peak>N</Peak>\n\t\t\t\t\t<Routetype>L</Routetype>\n\t\t\t\t\t<Statustype>N</Statustype>\n\t\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t\t<Polltime></Polltime>\n\t\t\t\t\t<Realtime>\n\t\t\t\t\t\t<Valid>N</Valid>\n\t\t\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t\t\t<Polltime></Polltime>\n\t\t\t\t\t\t<Trend>
+        </Trend>\n\t\t\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t\t\t<Stopped> </Stopped>\n\t\t\t\t\t\t<Reliable>
+        </Reliable>\n\t\t\t\t\t\t<Vehicle></Vehicle>\n\t\t\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t\t\t<Long>0.000000</Long>\n\t\t\t\t\t</Realtime>\n\t\t\t\t\t<Patternorigin></Patternorigin>\n\t\t\t\t\t<Patterndestination></Patterndestination>\n\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t<Statusid>0</Statusid>\n\t\t\t\t\t<Skedtripid>6097431</Skedtripid>\n\t\t\t\t</Service>\n\t\t\t\t<Fare>\n\t\t\t\t\t<Onfarezone>0</Onfarezone>\n\t\t\t\t\t<Offfarezone>0</Offfarezone>\n\t\t\t\t\t<Legregularfare>2.00</Legregularfare>\n\t\t\t\t\t<Legregularfarexfer>0.00</Legregularfarexfer>\n\t\t\t\t\t<Legreducedfare>1.00</Legreducedfare>\n\t\t\t\t\t<Legreducedfarexfer>0.00</Legreducedfarexfer>\n\t\t\t\t</Fare>\n\t\t\t\t<Offstop>PRIEST
+        DR/WASHINGTON LIGHT RAIL STATION</Offstop>\n\t\t\t\t<Offtime>0642</Offtime>\n\t\t\t\t<Offstopdata>\n\t\t\t\t\t<Description>PRIEST
+        DR/WASHINGTON LIGHT RAIL STATION</Description>\n\t\t\t\t\t<Area>TE</Area>\n\t\t\t\t\t<Lat>33.442420</Lat>\n\t\t\t\t\t<Long>-111.956463</Long>\n\t\t\t\t\t<Time>0642</Time>\n\t\t\t\t\t<Date>11/24/14</Date>\n\t\t\t\t\t<Atisstopid>10884</Atisstopid>\n\t\t\t\t\t<Stopid>10019</Stopid>\n\t\t\t\t\t<Stopstatustype>N</Stopstatustype>\n\t\t\t\t\t<Stopseq>24</Stopseq>\n\t\t\t\t\t<Stopposition>O</Stopposition>\n\t\t\t\t\t<Heading>NB</Heading>\n\t\t\t\t\t<Side>Far</Side>\n\t\t\t\t\t<Accessible>N</Accessible>\n\t\t\t\t</Offstopdata>\n\t\t\t</Leg>\n\t\t\t<Leg>\n\t\t\t\t<Onwalkdist>0</Onwalkdist>\n\t\t\t\t<Onwalkdir>
+        </Onwalkdir>\n\t\t\t\t<Onwalkhint>N</Onwalkhint>\n\t\t\t\t<Onstop>PRIEST DR
+        &amp; WASHINGTON ST</Onstop>\n\t\t\t\t<Ontime>0654</Ontime>\n\t\t\t\t<Onstopdata>\n\t\t\t\t\t<Description>PRIEST
+        DR &amp; WASHINGTON ST</Description>\n\t\t\t\t\t<Area>TE</Area>\n\t\t\t\t\t<Lat>33.442924</Lat>\n\t\t\t\t\t<Long>-111.955917</Long>\n\t\t\t\t\t<Time>0654</Time>\n\t\t\t\t\t<Date>11/24/14</Date>\n\t\t\t\t\t<Atisstopid>3047</Atisstopid>\n\t\t\t\t\t<Stopid>10242</Stopid>\n\t\t\t\t\t<Stopstatustype>N</Stopstatustype>\n\t\t\t\t\t<Stopseq>36</Stopseq>\n\t\t\t\t\t<Stopposition>O</Stopposition>\n\t\t\t\t\t<Heading>NB</Heading>\n\t\t\t\t\t<Side>Far</Side>\n\t\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t</Onstopdata>\n\t\t\t\t<Service>\n\t\t\t\t\t<Route>56</Route>\n\t\t\t\t\t<Publicroute>56</Publicroute>\n\t\t\t\t\t<Sign>56
+        Priest North To Scottsdle/McDwll Via Dsrt Btncl Grdn</Sign>\n\t\t\t\t\t<Altsign></Altsign>\n\t\t\t\t\t<Direction>N</Direction>\n\t\t\t\t\t<Operator>EV
+        FT</Operator>\n\t\t\t\t\t<Realoperator>FTE</Realoperator>\n\t\t\t\t\t<Servicetype>W</Servicetype>\n\t\t\t\t\t<Routeid>177970</Routeid>\n\t\t\t\t\t<Block>4029</Block>\n\t\t\t\t\t<Trip>1</Trip>\n\t\t\t\t\t<Peak>N</Peak>\n\t\t\t\t\t<Routetype>B</Routetype>\n\t\t\t\t\t<Statustype>N</Statustype>\n\t\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t\t<Polltime></Polltime>\n\t\t\t\t\t<Realtime>\n\t\t\t\t\t\t<Valid>N</Valid>\n\t\t\t\t\t\t<Adherence>0</Adherence>\n\t\t\t\t\t\t<Polltime></Polltime>\n\t\t\t\t\t\t<Trend>
+        </Trend>\n\t\t\t\t\t\t<Speed>0.00</Speed>\n\t\t\t\t\t\t<Stopped> </Stopped>\n\t\t\t\t\t\t<Reliable>
+        </Reliable>\n\t\t\t\t\t\t<Vehicle></Vehicle>\n\t\t\t\t\t\t<Lat>0.000000</Lat>\n\t\t\t\t\t\t<Long>0.000000</Long>\n\t\t\t\t\t</Realtime>\n\t\t\t\t\t<Patternorigin></Patternorigin>\n\t\t\t\t\t<Patterndestination></Patterndestination>\n\t\t\t\t\t<Exception>N</Exception>\n\t\t\t\t\t<Statusid>0</Statusid>\n\t\t\t\t\t<Skedtripid>
+        </Skedtripid>\n\t\t\t\t</Service>\n\t\t\t\t<Fare>\n\t\t\t\t\t<Onfarezone>0</Onfarezone>\n\t\t\t\t\t<Offfarezone>0</Offfarezone>\n\t\t\t\t\t<Legregularfare>2.00</Legregularfare>\n\t\t\t\t\t<Legregularfarexfer>0.00</Legregularfarexfer>\n\t\t\t\t\t<Legreducedfare>1.00</Legreducedfare>\n\t\t\t\t\t<Legreducedfarexfer>0.00</Legreducedfarexfer>\n\t\t\t\t</Fare>\n\t\t\t\t<Offstop>NB
+        N GALVIN PKWY NS E VAN BUREN ST</Offstop>\n\t\t\t\t<Offtime>0657</Offtime>\n\t\t\t\t<Offstopdata>\n\t\t\t\t\t<Description>NB
+        N GALVIN PKWY NS E VAN BUREN ST</Description>\n\t\t\t\t\t<Area>PH</Area>\n\t\t\t\t\t<Lat>33.450367</Lat>\n\t\t\t\t\t<Long>-111.955724</Long>\n\t\t\t\t\t<Time>0657</Time>\n\t\t\t\t\t<Date>11/24/14</Date>\n\t\t\t\t\t<Atisstopid>12060</Atisstopid>\n\t\t\t\t\t<Stopid>18456</Stopid>\n\t\t\t\t\t<Stopstatustype>N</Stopstatustype>\n\t\t\t\t\t<Stopseq>37</Stopseq>\n\t\t\t\t\t<Stopposition>N</Stopposition>\n\t\t\t\t\t<Heading>NB</Heading>\n\t\t\t\t\t<Side>Near</Side>\n\t\t\t\t\t<Accessible>Y</Accessible>\n\t\t\t\t</Offstopdata>\n\t\t\t</Leg>\n\t\t</Legs>\n\t\t<Finalwalk>0.32</Finalwalk>\n\t\t<Finalwalkdir>NE</Finalwalkdir>\n\t\t<Finalwalkhint>Y</Finalwalkhint>\n\t\t<Transittime>35</Transittime>\n\t\t<Totalwalk>0.54</Totalwalk>\n\t\t<Regularfare>4.00</Regularfare>\n\t\t<Reducedfare>2.00</Reducedfare>\n\t\t<Fareinfo>2|0|4.00|2.00~W|06:22
+        AM|06:42 AM|LTRL| |W|E|L|10|0|2757|0|144832|METRO|10880|15|10884|24|BUSFARE|0|0|0|R~T|06:54
+        AM|06:57 AM|56| |W|N|B|4|0|1509|1|177970|EV FT|3047|36|12060|37|BUSFARE|0|0|0|B~</Fareinfo>\n\t\t<Traceinfo>2|144832|15|24|177970|36|37</Traceinfo>\n\t\t<Statusinfo></Statusinfo>\n\t\t<Exmodified>N</Exmodified>\n\t\t<Exmodids/>\n\t\t<Disttransit>
+        7.84</Disttransit>\n\t\t<Distauto> 8.42</Distauto>\n\t\t<Co2transit>3.350</Co2transit>\n\t\t<Co2auto>8.087</Co2auto>\n\t</Itin>\n\t<Appid>ratis-specs</Appid>\n\t<Requestor>98.174.226.185</Requestor>\n\t<Host>s-rpta-soap</Host>\n\t<Copyright>XML
+        schema Copyright (c) 2003-2014 Trapeze Software ULC, its subsidiaries and
+        affiliates.  All rights reserved.</Copyright>\n\t<Soapversion>2.7.2a - 09/25/14</Soapversion>\n</namesp1:PlantripResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+    http_version: 
+  recorded_at: Tue, 18 Nov 2014 16:55:18 GMT
+recorded_with: VCR 2.8.0

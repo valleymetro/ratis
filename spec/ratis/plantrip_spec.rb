@@ -87,6 +87,27 @@ describe Ratis::Plantrip do
       HashDiff.diff(plantrip.input, input).should eql []
     end
 
+    it "should set the Plantrip legs to instance vars" do
+      conditions = @conditions.dup
+      conditions[:destination_lat] = '33.454055'
+      conditions[:destination_long] = '-111.953385'
+      plantrip = Ratis::Plantrip.where(conditions)
+
+      itin_with_one_leg = plantrip.itineraries.first
+      itin_with_two_legs = plantrip.itineraries.last
+
+      expect(itin_with_one_leg).to have(1).legs
+      expect(itin_with_two_legs).to have(2).legs
+
+      itin_with_one_leg.legs.each do |leg|
+        expect(leg).to be_a(Hashie::Mash)
+      end
+
+      itin_with_two_legs.legs.each do |leg|
+        expect(leg).to be_a(Hashie::Mash)
+      end
+    end
+
     it 'passes a Tid through' do
       tid = 'here is my Tid'
       conditions_with_tid = @conditions.merge({ tid: tid })
