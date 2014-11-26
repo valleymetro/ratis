@@ -59,7 +59,7 @@ module Ratis
     end
 
     def to_hash
-      keys = [:latitude, :longitude, :name, :area, :address, :startaddr, :endaddr, :address_string, :landmark_id]
+      keys = [:name, :area, :areacode, :region, :zipname, :latitude, :longitude, :address, :address_string, :landmark_id, :responsecode, :startaddr, :endaddr, :startlatitude, :startlongitude, :endlatitude, :endlongitude]
       Hash[keys.map { |k| [k, send(k)] }]
     end
 

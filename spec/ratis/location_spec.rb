@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe Ratis::Location do
+  let(:conditions) { { :location => '1315 W. Straford Dr.', :media => 'W' } }
+
   describe '#where', vcr: {} do
-    let(:conditions) { { :location => '1315 W. Straford Dr.', :media => 'W' } }
 
     it 'only makes one request' do
       # false just to stop further processing of response
@@ -55,21 +56,12 @@ describe Ratis::Location do
     end
   end
 
-  describe '#to_hash' do
-    it 'returns a subset of Location params' do
-      pending
-      hash = {
-        :latitude   => '33.5811205',
-        :longitude  => '-112.2989325',
-        :name       => 'W PENNSYLVANIA AVE',
-        :area       => 'Youngtown',
-        :address    => '',
-        :startaddr  => '11105',
-        :endaddr    => '11111',
-        :address_string => '11105 - 11111 W PENNSYLVANIA AVE (in Youngtown)',
-        :landmark_id => '0' }
+  describe '#to_hash', vcr: {} do
+    it 'returns all params' do
+      params = [:name, :area, :areacode, :region, :zipname, :latitude, :longitude, :address, :address_string, :landmark_id, :responsecode, :startaddr, :endaddr, :startlatitude, :startlongitude, :endlatitude, :endlongitude]
+      locations = Ratis::Location.where(conditions.dup)
 
-      HashDiff.diff(@first_location.to_hash, hash).should eql []
+      expect(locations.first.to_hash.keys.to_set).to eql params.to_set
     end
 
   end
