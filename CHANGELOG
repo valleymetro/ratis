@@ -1,3 +1,6 @@
+3.6.5
+- Expose all attributes for a Location
+
 3.6.4
 - Expose all attributes for a Plantrip itinerary's legs
 - Fix overly strict dependencies, per 'gem build' warnings
