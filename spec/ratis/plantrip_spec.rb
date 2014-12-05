@@ -49,6 +49,7 @@ describe Ratis::Plantrip do
       @plantrip = Ratis::Plantrip.where(@conditions.dup)
       @plantrip.itineraries.should have(3).items
       expect(@plantrip.itineraries.first).to be_a(Ratis::Itinerary)
+      expect(@plantrip.itineraries.first.dist_auto).to eq(0.87)
     end
 
     it "should set all the Plantrip values to instance vars" do
