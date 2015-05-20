@@ -1,3 +1,6 @@
+3.6.6
+- Set Net::HTTP open_timeout to use the Ratis.config.timeout value
+
 3.6.5
 - Expose all attributes for a Location
 
